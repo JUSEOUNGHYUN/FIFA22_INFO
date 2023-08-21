@@ -1183,6 +1183,7 @@
                                                         <Setter Property="Source" Value="Resources/CELTIC.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="CFR CLUJ">
+                                                        
                                                         <Setter Property="Source" Value="Resources/CFR CLUJ.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="CHELSEA">
@@ -1517,7 +1518,7 @@
                             </DataGridTextColumn.HeaderStyle>
                             <DataGridTextColumn.ElementStyle>
                                 <Style TargetType="TextBlock">
-                                    <Setter Property="HorizontalAlignment" Value="Center"/>
+                                    <Setter Property="HorizontalAlignment" Value="Left"/>
                                     <Setter Property="VerticalAlignment" Value="Center"/>
                                     <Setter Property="Foreground" Value="Black"/>
                                     <Setter Property="FontSize" Value="13"/>
