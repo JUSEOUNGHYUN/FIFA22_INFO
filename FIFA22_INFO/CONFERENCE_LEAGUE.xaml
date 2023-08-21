@@ -278,6 +278,9 @@
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="CLUB BRUGGE">
                                                         <Setter Property="Source" Value="Resources/CLUB BRUGGE.png"/>
                                                     </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="CRYSTAL PALACE">
+                                                        <Setter Property="Source" Value="Resources/CRYSTAL PALACE.png"/>
+                                                    </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="DINAMO ZAGREB">
                                                         <Setter Property="Source" Value="Resources/DINAMO ZAGREB.png"/>
                                                     </DataTrigger>
@@ -703,6 +706,9 @@
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="CLUB BRUGGE">
                                                         <Setter Property="Source" Value="Resources/CLUB BRUGGE.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="CRYSTAL PALACE">
+                                                        <Setter Property="Source" Value="Resources/CRYSTAL PALACE.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="DINAMO ZAGREB">
                                                         <Setter Property="Source" Value="Resources/DINAMO ZAGREB.png"/>
@@ -1184,6 +1190,9 @@
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="CLUB BRUGGE">
                                                         <Setter Property="Source" Value="Resources/CLUB BRUGGE.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="CRYSTAL PALACE">
+                                                        <Setter Property="Source" Value="Resources/CRYSTAL PALACE.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="DINAMO ZAGREB">
                                                         <Setter Property="Source" Value="Resources/DINAMO ZAGREB.png"/>
