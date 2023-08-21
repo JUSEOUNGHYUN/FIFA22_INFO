@@ -1,0 +1,89 @@
+﻿<Window x:Class="FIFA22_INFO.UEFA"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FIFA22_INFO"
+        mc:Ignorable="d"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Title="UEFA" Height="450" Width="1066"
+        KeyDown="keyDown_Event">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Rectangle MouseLeftButtonDown="Rectangle_MouseDown">
+                <Rectangle.Fill>
+                    <SolidColorBrush Color="#002357"/>
+                </Rectangle.Fill>
+            </Rectangle>
+            <DockPanel HorizontalAlignment="Left" Width="80">
+                <Image Source="Resources/UEFA.png" Stretch="Fill" Width="62" Height="46"/>
+            </DockPanel>
+            <DockPanel HorizontalAlignment="Right">
+                <Button x:Name="ToMiniButton" Margin="0,0,5,0" 
+                        Click="ToMiniButton_Click"
+                        Width="25"
+                        Height="25"
+                        Background="#002357"
+                        BorderThickness="0">
+                    <Image Source="Resources/Minimization.png" Stretch="fill"/>
+                </Button>
+                <Button x:Name="CloseButton" Margin="0,0,30,0"
+                        Click="CloseButton_Click"
+                        Width="25"
+                        Height="25"
+                        Background="#002357"
+                        BorderThickness="0">
+                    <Image Source="Resources/Close.png" Stretch="fill"/>
+                </Button>
+            </DockPanel>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="266"/>
+                <ColumnDefinition Width="266"/>
+                <ColumnDefinition Width="266"/>
+                <ColumnDefinition Width="266"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <Button x:Name="Champions_League_button" 
+                            BorderBrush="Transparent"
+                            Click="Champions_League_Click"
+                        Background="#04048c" >
+                    <Image Source="Resources/CHAMPIONS LEAGUE.png" Height="223" Width="226"/>
+                </Button>
+            </Grid>
+            <Grid Grid.Column="1">
+                <Button x:Name="Europa_League_button" 
+                            Background="#040404"
+                            BorderBrush="Transparent"
+                            Click="Europa_League_Click">
+                    <Image Source="Resources/EUROPA LEAGUE.png" Height="223" Width="226"/>
+                </Button>
+            </Grid>
+            <Grid Grid.Column="2">
+                <Button x:Name="Conference_League_button" 
+                            Background="#040404"
+                            BorderBrush="Transparent"
+                            Click="Conference_League_Click">
+                    <Image Source="Resources/CONFERENCE LEAGUE.png" Height="223" Width="226"/>
+                </Button>
+            </Grid>
+            <Grid Grid.Column="3">
+                <Button x:Name="SuperCup_button" 
+                            Background="#040434"
+                            BorderBrush="Transparent"
+                            Click="Super_Cup_Click">
+                    <Image Source="Resources/SUPER CUP.png" Height="223" Width="226"/>
+                </Button>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

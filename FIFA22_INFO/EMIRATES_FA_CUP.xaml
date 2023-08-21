@@ -1,0 +1,838 @@
+﻿<Window x:Class="FIFA22_INFO.EMIRATES_FA_CUP"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FIFA22_INFO"
+        mc:Ignorable="d"
+        WindowStyle="None"
+        Title="EMIRATES_FA_CUP" Height="894" Width="1420"
+        KeyDown="keyDown_Event">
+    <Window.Resources>
+        <local:ManagerOne x:Key="ManagerOne" Cutoff="0"/>
+    </Window.Resources>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="200"/>
+            <RowDefinition Height="700*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Rectangle MouseLeftButtonDown="Rectangle_MouseDown">
+                <Rectangle.Fill>
+                    <SolidColorBrush Color="#d41c24"/>
+                </Rectangle.Fill>
+            </Rectangle>
+            <DockPanel HorizontalAlignment="Left" Width="204">
+                <Image Source="Resources/FACUP_WHITE.png" Stretch="Fill" Width="165" Height="81"/>
+            </DockPanel>
+            <DockPanel HorizontalAlignment="Right">
+                <Button x:Name="ToMiniButton" Margin="0,0,5,0" 
+                        Click="ToMiniButton_Click"
+                        Width="25"
+                        Height="25"
+                        Background="#d41c24"
+                        BorderThickness="0">
+                    <Image Source="Resources/Minimization.png" Stretch="fill"/>
+                </Button>
+                <Button x:Name="CloseButton" Margin="0,0,30,0"
+                        Click="CloseButton_Click"
+                        Width="25"
+                        Height="25"
+                        Background="#d41c24"
+                        BorderThickness="0">
+                    <Image Source="Resources/Close.png" Stretch="fill"/>
+                </Button>
+            </DockPanel>
+            <Button x:Name="button" HorizontalAlignment="Left" Margin="204,47,0,0" VerticalAlignment="Top" Height="29" Width="40" Background="Transparent" BorderThickness="0" Click="Search_Click">
+                <Image Source="Resources/Search.png" Width="33"/>
+            </Button>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="500"/>
+                <ColumnDefinition Width="500"/>
+                <ColumnDefinition Width="400"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <Label x:Name="label" Content="Champions" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="245,-1,0,0"/>
+                <TextBox x:Name="League_Year_textBox" HorizontalAlignment="Left" Margin="190,4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="55" HorizontalContentAlignment="Center" BorderThickness="0" IsReadOnly="True"/>
+                <Label x:Name="label1" Content="Champions : " HorizontalAlignment="Center" Margin="0,25,0,0" VerticalAlignment="Top"/>
+                <TextBox x:Name="Champion_Name_Textbox" HorizontalAlignment="Left" Margin="311,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" BorderThickness="0" IsReadOnly="True"
+                         FontFamily="Bold" Foreground="Red"/>
+                <Label x:Name="label1_Copy" Content="Num of Wins : " HorizontalAlignment="Left" Margin="208,56,0,0" VerticalAlignment="Top"/>
+                <TextBox x:Name="NumOfWins_Textbox" HorizontalAlignment="Left" Margin="311,61,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="33" BorderThickness="0" IsReadOnly="True"/>
+
+                <Rectangle x:Name="imageRec" HorizontalAlignment="Left" Height="166" Margin="10,25,0,0" Stroke="Black" VerticalAlignment="Top" Width="180" StrokeThickness="0">
+                    <Rectangle.Style>
+                        <Style TargetType="{x:Type Rectangle}">
+                            <Setter Property="Fill" Value="Transparent" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Path=TEAMNAME}" Value="SAMUNG FC">
+                                    <Setter Property="Fill">
+                                        <Setter.Value>
+                                            <ImageBrush ImageSource="Resources/SAMSUNG FC.png"/>
+                                        </Setter.Value>
+                                    </Setter>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=TEAMNAME}" Value="CHELSEA">
+                                    <Setter Property="Fill">
+                                        <Setter.Value>
+                                            <ImageBrush ImageSource="Resources/CHELSEA.png"/>
+                                        </Setter.Value>
+                                    </Setter>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=TEAMNAME}" Value="MANCHESTER CITY">
+                                    <Setter Property="Fill">
+                                        <Setter.Value>
+                                            <ImageBrush ImageSource="Resources/MANCHESTER CITY.png"/>
+                                        </Setter.Value>
+                                    </Setter>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Rectangle.Style>
+                </Rectangle>
+                <Label x:Name="label1_Copy1" Content="Remark : " HorizontalAlignment="Left" Margin="208,95,0,0" VerticalAlignment="Top"/>
+                <TextBox x:Name="Remark_Textbox" HorizontalAlignment="Left" Margin="311,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" BorderThickness="0" IsReadOnly="True"/>
+                <Rectangle x:Name="CountStarRec" HorizontalAlignment="Left" Height="70" Margin="211,121,0,0" Stroke="Black" VerticalAlignment="Top" Width="180" StrokeThickness="0">
+                </Rectangle>
+
+            </Grid>
+
+            <Grid Grid.Column="1">
+                
+                <Label x:Name="label_Copy" Content="Runner-Up" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="245,-1,0,0"/>
+                <Label x:Name="label1_Copy2" Content="Runner-Up : " HorizontalAlignment="Center" Margin="0,25,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="label1_Copy3" Content="Num of Runner-Up : " HorizontalAlignment="Left" Margin="208,56,0,0" VerticalAlignment="Top" Width="116"/>
+                <Rectangle x:Name="Run_imageRec" HorizontalAlignment="Left" Height="166" Margin="10,25,0,0" Stroke="Black" VerticalAlignment="Top" Width="180" StrokeThickness="0">
+                    <Rectangle.Style>
+                        <Style TargetType="{x:Type Rectangle}">
+                            <Setter Property="Fill" Value="Transparent" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding SECOND_TEAMNAME}" Value="SAMUNG FC">
+                                    <Setter Property="Fill">
+                                        <Setter.Value>
+                                            <ImageBrush ImageSource="/Resources/SAMSUNG FC.png"/>
+                                        </Setter.Value>
+                                    </Setter>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding SECOND_TEAMNAME}" Value="CHELSEA">
+                                    <Setter Property="Fill">
+                                        <Setter.Value>
+                                            <ImageBrush ImageSource="/Resources/CHELSEA.png"/>
+                                        </Setter.Value>
+                                    </Setter>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding SECOND_TEAMNAME}" Value="MANCHESTER CITY">
+                                    <Setter Property="Fill">
+                                        <Setter.Value>
+                                            <ImageBrush ImageSource="/Resources/MANCHESTER CITY.png"/>
+                                        </Setter.Value>
+                                    </Setter>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Rectangle.Style>
+                </Rectangle>
+                <TextBox x:Name="League_Year2_textBox" HorizontalAlignment="Left" Margin="190,4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="55" HorizontalContentAlignment="Center" BorderThickness="0" IsReadOnly="True"/>
+                <TextBox x:Name="Runner_UP_Textbox" HorizontalAlignment="Left" Margin="311,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" BorderThickness="0" IsReadOnly="True"/>
+                <TextBox x:Name="NumOfRunner_Up_Textbox_Copy" HorizontalAlignment="Left" Margin="329,61,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="33" BorderThickness="0" IsReadOnly="True"/>
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="850"/>
+                <ColumnDefinition Width="550"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <DataGrid x:Name="grdEmployee"
+                        AutoGenerateColumns="False" 
+                        CanUserAddRows = "False" 
+                        CanUserResizeColumns ="False" 
+                        HeadersVisibility="Column" 
+                        RowHeight="35"
+                          SelectionChanged ="Row_SelectionChanged" 
+                          >
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="YEAR" Binding="{Binding Path=League_Year}" Width="100" IsReadOnly="True">
+                            <DataGridTextColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                                    <Setter Property="VerticalContentAlignment" Value="Center"/>
+                                    <Setter Property="IsHitTestVisible" Value="False"/>
+                                    <Setter Property="Background" Value="#d41c24"/>
+                                    <Setter Property="BorderBrush" Value="#d41c24"/>
+                                    <Setter Property="Foreground" Value="White"/>
+                                    <Setter Property="BorderThickness" Value="0.5"/>
+                                </Style>
+                            </DataGridTextColumn.HeaderStyle>
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="HorizontalAlignment" Value="Center"/>
+                                    <Setter Property="VerticalAlignment" Value="Center"/>
+                                    <Setter Property="Foreground" Value="Black"/>
+                                    <Setter Property="FontSize" Value="13"/>
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn >
+                        <DataGridTemplateColumn Header="CHAMPIONS LOGO" IsReadOnly="true" Width="120">
+                            <DataGridTemplateColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                                    <Setter Property="IsHitTestVisible" Value="False"/>
+                                    <Setter Property="Background" Value="#d41c24"/>
+                                    <Setter Property="BorderBrush" Value="#d41c24"/>
+                                    <Setter Property="Foreground" Value="White"/>
+                                    <Setter Property="BorderThickness" Value="0.5"/>
+                                </Style>
+                            </DataGridTemplateColumn.HeaderStyle>
+                            <DataGridTemplateColumn.CellTemplate >
+                                <DataTemplate>
+                                    <Image>
+                                        <Image.Style>
+                                            <Style TargetType="{x:Type Image}">
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="AFC BOURNEMOUTH">
+                                                        <Setter Property="Source" Value="Resources/AFC BOURNEMOUTH.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="ARSENAL">
+                                                        <Setter Property="Source" Value="Resources/ARSENAL.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="ASTON VILLA">
+                                                        <Setter Property="Source" Value="Resources/ASTON VILLA.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="BARNSLEY">
+                                                        <Setter Property="Source" Value="Resources/BARNSLEY.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="BIRMINGHAM CITY">
+                                                        <Setter Property="Source" Value="Resources/BIRMINGHAM CITY.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="BRENTFORD">
+                                                        <Setter Property="Source" Value="Resources/BRENTFORD.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="BRIGHTON">
+                                                        <Setter Property="Source" Value="Resources/BRIGHTON.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="BRISTOL CITY">
+                                                        <Setter Property="Source" Value="Resources/BRISTOL CITY.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="BURNLEY">
+                                                        <Setter Property="Source" Value="Resources/BURNLEY.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="CHELSEA">
+                                                        <Setter Property="Source" Value="Resources/CHELSEA.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="CRYSTAL PALACE">
+                                                        <Setter Property="Source" Value="Resources/CRYSTAL PALACE.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="DERBY COUNTY">
+                                                        <Setter Property="Source" Value="Resources/DERBY COUNTY.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="EVERTON">
+                                                        <Setter Property="Source" Value="Resources/EVERTON.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="FULHAM">
+                                                        <Setter Property="Source" Value="Resources/FULHAM.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="HARTLEPOOL">
+                                                        <Setter Property="Source" Value="Resources/HARTLEPOOL.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="HUDDERSFIELD">
+                                                        <Setter Property="Source" Value="Resources/HUDDERSFIELD.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="LEEDS UNITED">
+                                                        <Setter Property="Source" Value="Resources/LEEDS UNITED.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="LEICESTER CITY">
+                                                        <Setter Property="Source" Value="Resources/LEICESTER CITY.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="LIVERPOOL">
+                                                        <Setter Property="Source" Value="Resources/LIVERPOOL.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="MANCHESTER CITY">
+                                                        <Setter Property="Source" Value="Resources/MANCHESTER CITY.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="MANCHESTER UTD">
+                                                        <Setter Property="Source" Value="Resources/MANCHESTER UTD.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="MILLWALL">
+                                                        <Setter Property="Source" Value="Resources/MILLWALL.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="NEWCASTLE UTD">
+                                                        <Setter Property="Source" Value="Resources/NEWCASTLE UTD.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="NORWICH">
+                                                        <Setter Property="Source" Value="Resources/NORWICH.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="NOTTINGHAM FOREST">
+                                                        <Setter Property="Source" Value="Resources/NOTTINGHAM FOREST.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="PETERBOROUGH">
+                                                        <Setter Property="Source" Value="Resources/PETERBOROUGH.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="PLYMOUTH ARGYLE">
+                                                        <Setter Property="Source" Value="Resources/PLYMOUTH ARGYLE.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="POHANG">
+                                                        <Setter Property="Source" Value="Resources/POHANG.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="QPR">
+                                                        <Setter Property="Source" Value="Resources/QPR.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="SAMSUNG FC">
+                                                        <Setter Property="Source" Value="Resources/SAMSUNG FC.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="SHEFFIELD UTD">
+                                                        <Setter Property="Source" Value="Resources/SHEFFIELD UTD.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="SOUTHAMPTON">
+                                                        <Setter Property="Source" Value="Resources/SOUTHAMPTON.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="SPURS">
+                                                        <Setter Property="Source" Value="Resources/SPURS.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="STOKE CITY">
+                                                        <Setter Property="Source" Value="Resources/STOKE CITY.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="WATFORD">
+                                                        <Setter Property="Source" Value="Resources/WATFORD.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="WEST BROM">
+                                                        <Setter Property="Source" Value="Resources/WEST BROM.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="WEST HAM">
+                                                        <Setter Property="Source" Value="Resources/WEST HAM.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="WOLVES">
+                                                        <Setter Property="Source" Value="Resources/WOLVES.png"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Image.Style>
+                                    </Image>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTextColumn Header="CHAMPIONS" Binding="{Binding Path=Champions}" Width="150" IsReadOnly="True">
+                            <DataGridTextColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                                    <Setter Property="VerticalContentAlignment" Value="Center"/>
+                                    <Setter Property="IsHitTestVisible" Value="False"/>
+                                    <Setter Property="Background" Value="#d41c24"/>
+                                    <Setter Property="BorderBrush" Value="#d41c24"/>
+                                    <Setter Property="Foreground" Value="White"/>
+                                    <Setter Property="BorderThickness" Value="0.5"/>
+                                </Style>
+                            </DataGridTextColumn.HeaderStyle>
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="HorizontalAlignment" Value="Left"/>
+                                    <Setter Property="VerticalAlignment" Value="Center"/>
+                                    <Setter Property="Foreground" Value="Black"/>
+                                    <Setter Property="FontSize" Value="13"/>
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+                        <DataGridTemplateColumn Header="RUNNER-UP LOGO" IsReadOnly="true" Width="120">
+                            <DataGridTemplateColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                                    <Setter Property="IsHitTestVisible" Value="False"/>
+                                    <Setter Property="Background" Value="#d41c24"/>
+                                    <Setter Property="BorderBrush" Value="#d41c24"/>
+                                    <Setter Property="Foreground" Value="White"/>
+                                    <Setter Property="BorderThickness" Value="0.5"/>
+                                </Style>
+                            </DataGridTemplateColumn.HeaderStyle>
+                            <DataGridTemplateColumn.CellTemplate >
+                                <DataTemplate>
+                                    <Image>
+                                        <Image.Style>
+                                            <Style TargetType="{x:Type Image}">
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="AFC BOURNEMOUTH">
+                                                        <Setter Property="Source" Value="Resources/AFC BOURNEMOUTH.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="ARSENAL">
+                                                        <Setter Property="Source" Value="Resources/ARSENAL.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="ASTON VILLA">
+                                                        <Setter Property="Source" Value="Resources/ASTON VILLA.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="BARNSLEY">
+                                                        <Setter Property="Source" Value="Resources/BARNSLEY.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="BIRMINGHAM CITY">
+                                                        <Setter Property="Source" Value="Resources/BIRMINGHAM CITY.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="BLACKBURN ROVERS">
+                                                        <Setter Property="Source" Value="Resources/BLACKBURN ROVERS.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="BRENTFORD">
+                                                        <Setter Property="Source" Value="Resources/BRENTFORD.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="BRIGHTON">
+                                                        <Setter Property="Source" Value="Resources/BRIGHTON.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="BRISTOL CITY">
+                                                        <Setter Property="Source" Value="Resources/BRISTOL CITY.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="BURNLEY">
+                                                        <Setter Property="Source" Value="Resources/BURNLEY.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="CARDIFF CITY">
+                                                        <Setter Property="Source" Value="Resources/CARDIFF CITY.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="CHELSEA">
+                                                        <Setter Property="Source" Value="Resources/CHELSEA.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="COVENTRY CITY">
+                                                        <Setter Property="Source" Value="Resources/COVENTRY CITY.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="CRYSTAL PALACE">
+                                                        <Setter Property="Source" Value="Resources/CRYSTAL PALACE.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="DERBY COUNTY">
+                                                        <Setter Property="Source" Value="Resources/DERBY COUNTY.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="EVERTON">
+                                                        <Setter Property="Source" Value="Resources/EVERTON.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="FULHAM">
+                                                        <Setter Property="Source" Value="Resources/FULHAM.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="HARTLEPOOL">
+                                                        <Setter Property="Source" Value="Resources/HARTLEPOOL.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="HUDDERSFIELD">
+                                                        <Setter Property="Source" Value="Resources/HUDDERSFIELD.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="IPSWICH">
+                                                        <Setter Property="Source" Value="Resources/IPSWICH.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="LEEDS UNITED">
+                                                        <Setter Property="Source" Value="Resources/LEEDS UNITED.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="LEICESTER CITY">
+                                                        <Setter Property="Source" Value="Resources/LEICESTER CITY.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="LIVERPOOL">
+                                                        <Setter Property="Source" Value="Resources/LIVERPOOL.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="LUTON TOWN">
+                                                        <Setter Property="Source" Value="Resources/LUTON TOWN.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="MANCHESTER CITY">
+                                                        <Setter Property="Source" Value="Resources/MANCHESTER CITY.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="MANCHESTER UTD">
+                                                        <Setter Property="Source" Value="Resources/MANCHESTER UTD.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="MILLWALL">
+                                                        <Setter Property="Source" Value="Resources/MILLWALL.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="MK DONS">
+                                                        <Setter Property="Source" Value="Resources/MK DONS.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="NEWCASTLE UTD">
+                                                        <Setter Property="Source" Value="Resources/NEWCASTLE UTD.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="NORWICH">
+                                                        <Setter Property="Source" Value="Resources/NORWICH.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="NOTTINGHAM FOREST">
+                                                        <Setter Property="Source" Value="Resources/NOTTINGHAM FOREST.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="PETERBOROUGH">
+                                                        <Setter Property="Source" Value="Resources/PETERBOROUGH.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="PLYMOUTH ARGYLE">
+                                                        <Setter Property="Source" Value="Resources/PLYMOUTH ARGYLE.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="POHANG">
+                                                        <Setter Property="Source" Value="Resources/POHANG.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="PRESTON">
+                                                        <Setter Property="Source" Value="Resources/PRESTON.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="QPR">
+                                                        <Setter Property="Source" Value="Resources/QPR.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="READING">
+                                                        <Setter Property="Source" Value="Resources/READING.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="SAMSUNG FC">
+                                                        <Setter Property="Source" Value="Resources/SAMSUNG FC.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="SHEFFIELD UTD">
+                                                        <Setter Property="Source" Value="Resources/SHEFFIELD UTD.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="SOUTHAMPTON">
+                                                        <Setter Property="Source" Value="Resources/SOUTHAMPTON.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="SPURS">
+                                                        <Setter Property="Source" Value="Resources/SPURS.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="STOKE CITY">
+                                                        <Setter Property="Source" Value="Resources/STOKE CITY.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="SWANSEA CITY">
+                                                        <Setter Property="Source" Value="Resources/SWANSEA CITY.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="SWINDON TOWN">
+                                                        <Setter Property="Source" Value="Resources/SWINDON TOWN.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="WATFORD">
+                                                        <Setter Property="Source" Value="Resources/WATFORD.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="WEST BROM">
+                                                        <Setter Property="Source" Value="Resources/WEST BROM.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="WEST HAM">
+                                                        <Setter Property="Source" Value="Resources/WEST HAM.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="WOLVES">
+                                                        <Setter Property="Source" Value="Resources/WOLVES.png"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Image.Style>
+                                    </Image>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTextColumn Header="SECOND_PLACE" Binding="{Binding Path=Second_Place}" Width="150" IsReadOnly="True">
+                            <DataGridTextColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                                    <Setter Property="VerticalContentAlignment" Value="Center"/>
+                                    <Setter Property="IsHitTestVisible" Value="False"/>
+                                    <Setter Property="Background" Value="#d41c24"/>
+                                    <Setter Property="BorderBrush" Value="#d41c24"/>
+                                    <Setter Property="Foreground" Value="White"/>
+                                    <Setter Property="BorderThickness" Value="0.5"/>
+                                </Style>
+                            </DataGridTextColumn.HeaderStyle>
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="HorizontalAlignment" Value="Left"/>
+                                    <Setter Property="VerticalAlignment" Value="Center"/>
+                                    <Setter Property="Foreground" Value="Black"/>
+                                    <Setter Property="FontSize" Value="13"/>
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Header="REMARK" Binding="{Binding Path=Remark}" Width="auto" IsReadOnly="True">
+                            <DataGridTextColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                                    <Setter Property="VerticalContentAlignment" Value="Center"/>
+                                    <Setter Property="IsHitTestVisible" Value="False"/>
+                                    <Setter Property="Background" Value="#d41c24"/>
+                                    <Setter Property="BorderBrush" Value="#d41c24"/>
+                                    <Setter Property="Foreground" Value="White"/>
+                                    <Setter Property="BorderThickness" Value="0.5"/>
+                                </Style>
+                            </DataGridTextColumn.HeaderStyle>
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="HorizontalAlignment" Value="Left"/>
+                                    <Setter Property="VerticalAlignment" Value="Center"/>
+                                    <Setter Property="Foreground" Value="Black"/>
+                                    <Setter Property="FontSize" Value="13"/>
+                                    <Setter Property="TextWrapping" Value="Wrap"/>
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+
+            <Grid Grid.Column="1">
+                <DataGrid x:Name="Ranking_DataGrid"
+                           AutoGenerateColumns="False" 
+                          CanUserAddRows = "False" 
+                          CanUserResizeColumns ="False" 
+                          HeadersVisibility="Column" 
+                        RowHeight="35" Margin="10,0,-10,0" 
+                          >
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="RAKING" Binding="{Binding Path=Ranking}" Width="50" IsReadOnly="True">
+                            <DataGridTextColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                                    <Setter Property="VerticalContentAlignment" Value="Center"/>
+                                    <Setter Property="IsHitTestVisible" Value="False"/>
+                                    <Setter Property="Background" Value="#d41c24"/>
+                                    <Setter Property="BorderBrush" Value="#d41c24"/>
+                                    <Setter Property="Foreground" Value="White"/>
+                                    <Setter Property="BorderThickness" Value="0.5"/>
+                                </Style>
+                            </DataGridTextColumn.HeaderStyle>
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="HorizontalAlignment" Value="Center"/>
+                                    <Setter Property="VerticalAlignment" Value="Center"/>
+                                    <Setter Property="Foreground" Value="Black"/>
+                                    <Setter Property="FontSize" Value="13"/>
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+                        <DataGridTemplateColumn Header="TEAM LOGO" IsReadOnly="True" Width="100">
+                            <DataGridTemplateColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                                    <Setter Property="IsHitTestVisible" Value="False"/>
+                                    <Setter Property="Background" Value="#d41c24"/>
+                                    <Setter Property="BorderBrush" Value="#d41c24"/>
+                                    <Setter Property="Foreground" Value="White"/>
+                                    <Setter Property="BorderThickness" Value="0.5"/>
+                                </Style>
+                            </DataGridTemplateColumn.HeaderStyle>
+                            <DataGridTemplateColumn.CellTemplate >
+                                <DataTemplate>
+                                    <Image>
+                                        <Image.Style>
+                                            <Style TargetType="{x:Type Image}">
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="AFC BOURNEMOUTH">
+                                                        <Setter Property="Source" Value="Resources/AFC BOURNEMOUTH.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="ARSENAL">
+                                                        <Setter Property="Source" Value="Resources/ARSENAL.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="ASTON VILLA">
+                                                        <Setter Property="Source" Value="Resources/ASTON VILLA.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="BARNSLEY">
+                                                        <Setter Property="Source" Value="Resources/BARNSLEY.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="BIRMINGHAM CITY">
+                                                        <Setter Property="Source" Value="Resources/BIRMINGHAM CITY.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="BLACKBURN ROVERS">
+                                                        <Setter Property="Source" Value="Resources/BLACKBURN ROVERS.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="BRENTFORD">
+                                                        <Setter Property="Source" Value="Resources/BRENTFORD.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="BRIGHTON">
+                                                        <Setter Property="Source" Value="Resources/BRIGHTON.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="BRISTOL CITY">
+                                                        <Setter Property="Source" Value="Resources/BRISTOL CITY.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="BURNLEY">
+                                                        <Setter Property="Source" Value="Resources/BURNLEY.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="CARDIFF CITY">
+                                                        <Setter Property="Source" Value="Resources/CARDIFF CITY.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="CHELSEA">
+                                                        <Setter Property="Source" Value="Resources/CHELSEA.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="COVENTRY CITY">
+                                                        <Setter Property="Source" Value="Resources/COVENTRY CITY.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="CRYSTAL PALACE">
+                                                        <Setter Property="Source" Value="Resources/CRYSTAL PALACE.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="DERBY COUNTY">
+                                                        <Setter Property="Source" Value="Resources/DERBY COUNTY.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="EVERTON">
+                                                        <Setter Property="Source" Value="Resources/EVERTON.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="FULHAM">
+                                                        <Setter Property="Source" Value="Resources/FULHAM.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="HARTLEPOOL">
+                                                        <Setter Property="Source" Value="Resources/HARTLEPOOL.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="HUDDERSFIELD">
+                                                        <Setter Property="Source" Value="Resources/HUDDERSFIELD.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="IPSWICH">
+                                                        <Setter Property="Source" Value="Resources/IPSWICH.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="LEEDS UNITED">
+                                                        <Setter Property="Source" Value="Resources/LEEDS UNITED.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="LEICESTER CITY">
+                                                        <Setter Property="Source" Value="Resources/LEICESTER CITY.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="LIVERPOOL">
+                                                        <Setter Property="Source" Value="Resources/LIVERPOOL.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="LUTON TOWN">
+                                                        <Setter Property="Source" Value="Resources/LUTON TOWN.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="MANCHESTER CITY">
+                                                        <Setter Property="Source" Value="Resources/MANCHESTER CITY.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="MANCHESTER UTD">
+                                                        <Setter Property="Source" Value="Resources/MANCHESTER UTD.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="MILLWALL">
+                                                        <Setter Property="Source" Value="Resources/MILLWALL.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="MK DONS">
+                                                        <Setter Property="Source" Value="Resources/MK DONS.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="NEWCASTLE UTD">
+                                                        <Setter Property="Source" Value="Resources/NEWCASTLE UTD.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="NORWICH">
+                                                        <Setter Property="Source" Value="Resources/NORWICH.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="NOTTINGHAM FOREST">
+                                                        <Setter Property="Source" Value="Resources/NOTTINGHAM FOREST.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="PETERBOROUGH">
+                                                        <Setter Property="Source" Value="Resources/PETERBOROUGH.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="PLYMOUTH ARGYLE">
+                                                        <Setter Property="Source" Value="Resources/PLYMOUTH ARGYLE.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="POHANG">
+                                                        <Setter Property="Source" Value="Resources/POHANG.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="PRESTON">
+                                                        <Setter Property="Source" Value="Resources/PRESTON.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="QPR">
+                                                        <Setter Property="Source" Value="Resources/QPR.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="READING">
+                                                        <Setter Property="Source" Value="Resources/READING.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="SAMSUNG FC">
+                                                        <Setter Property="Source" Value="Resources/SAMSUNG FC.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="SHEFFIELD UTD">
+                                                        <Setter Property="Source" Value="Resources/SHEFFIELD UTD.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="SOUTHAMPTON">
+                                                        <Setter Property="Source" Value="Resources/SOUTHAMPTON.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="SPURS">
+                                                        <Setter Property="Source" Value="Resources/SPURS.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="STOKE CITY">
+                                                        <Setter Property="Source" Value="Resources/STOKE CITY.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="SWANSEA CITY">
+                                                        <Setter Property="Source" Value="Resources/SWANSEA CITY.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="SWINDON TOWN">
+                                                        <Setter Property="Source" Value="Resources/SWINDON TOWN.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="WATFORD">
+                                                        <Setter Property="Source" Value="Resources/WATFORD.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="WEST BROM">
+                                                        <Setter Property="Source" Value="Resources/WEST BROM.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="WEST HAM">
+                                                        <Setter Property="Source" Value="Resources/WEST HAM.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="WOLVES">
+                                                        <Setter Property="Source" Value="Resources/WOLVES.png"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Image.Style>
+                                    </Image>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTextColumn Header="TEAM NAME" Binding="{Binding Path=Team_Name}" Width="150">
+                            <DataGridTextColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                                    <Setter Property="VerticalContentAlignment" Value="Center"/>
+                                    <Setter Property="Background" Value="#d41c24"/>
+                                    <Setter Property="BorderBrush" Value="#d41c24"/>
+                                    <Setter Property="Foreground" Value="White"/>
+                                    <Setter Property="BorderThickness" Value="0.5"/>
+                                </Style>
+                            </DataGridTextColumn.HeaderStyle>
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="HorizontalAlignment" Value="Left"/>
+                                    <Setter Property="VerticalAlignment" Value="Center"/>
+                                    <Setter Property="Foreground" Value="Black"/>
+                                    <Setter Property="FontSize" Value="13"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding Path=Ranking}" Value="1">
+                                            <Setter Property="Foreground" Value="#d41c24"/>
+                                            <Setter Property="FontWeight" Value="Bold"/>
+                                        </DataTrigger>
+
+                                        <DataTrigger Binding="{Binding Path=Champions_CNT, Converter={StaticResource ManagerOne}}">
+                                            <DataTrigger.Value>
+                                                true
+                                            </DataTrigger.Value>
+                                            <Setter Property="FontWeight" Value="Bold"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Header="1TH CNT" Binding="{Binding Path=Champions_CNT}" Width="70" IsReadOnly="True">
+                            <DataGridTextColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                                    <Setter Property="VerticalContentAlignment" Value="Center"/>
+                                    <Setter Property="IsHitTestVisible" Value="False"/>
+                                    <Setter Property="Background" Value="#d41c24"/>
+                                    <Setter Property="BorderBrush" Value="#d41c24"/>
+                                    <Setter Property="Foreground" Value="White"/>
+                                    <Setter Property="BorderThickness" Value="0.5"/>
+                                </Style>
+                            </DataGridTextColumn.HeaderStyle>
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="HorizontalAlignment" Value="Center"/>
+                                    <Setter Property="VerticalAlignment" Value="Center"/>
+                                    <Setter Property="Foreground" Value="Black"/>
+                                    <Setter Property="FontSize" Value="13"/>
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Header="2TH CNT" Binding="{Binding Path=Second_Place_CNT}" Width="70" IsReadOnly="True">
+                            <DataGridTextColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                                    <Setter Property="VerticalContentAlignment" Value="Center"/>
+                                    <Setter Property="IsHitTestVisible" Value="False"/>
+                                    <Setter Property="Background" Value="#d41c24"/>
+                                    <Setter Property="BorderBrush" Value="#d41c24"/>
+                                    <Setter Property="Foreground" Value="White"/>
+                                    <Setter Property="BorderThickness" Value="0.5"/>
+                                </Style>
+                            </DataGridTextColumn.HeaderStyle>
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="HorizontalAlignment" Value="Center"/>
+                                    <Setter Property="VerticalAlignment" Value="Center"/>
+                                    <Setter Property="Foreground" Value="Black"/>
+                                    <Setter Property="FontSize" Value="13"/>
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

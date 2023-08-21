@@ -1,0 +1,729 @@
+﻿<Window x:Class="FIFA22_INFO.LIGUE1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FIFA22_INFO"
+        mc:Ignorable="d"
+        WindowStyle="None"
+        Title="LIGUE1" Height="894" Width="1420"
+        KeyDown="keyDown_Event">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="200"/>
+            <RowDefinition Height="700*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Rectangle MouseLeftButtonDown="Rectangle_MouseDown">
+                <Rectangle.Fill>
+                    <SolidColorBrush Color="#0c1c3c"/>
+                </Rectangle.Fill>
+            </Rectangle>
+            <DockPanel HorizontalAlignment="Left" Width="116">
+                <Image Source="Resources/Ligue1.png" Stretch="Fill" Width="74" Height="68"/>
+            </DockPanel>
+            <DockPanel HorizontalAlignment="Right">
+                <Button x:Name="ToMiniButton" Margin="0,0,5,0" 
+                        Click="ToMiniButton_Click"
+                        Width="25"
+                        Height="25"
+                        Background="#0c1c3c"
+                        BorderThickness="0">
+                    <Image Source="Resources/Minimization.png" Stretch="fill"/>
+                </Button>
+                <Button x:Name="CloseButton" Margin="0,0,30,0"
+                        Click="CloseButton_Click"
+                        Width="25"
+                        Height="25"
+                        Background="#0c1c3c"
+                        BorderThickness="0">
+                    <Image Source="Resources/Close.png" Stretch="fill"/>
+                </Button>
+            </DockPanel>
+            <Button x:Name="button" HorizontalAlignment="Left" Margin="158,47,0,0" VerticalAlignment="Top" Height="29" Width="40" Background="Transparent" BorderThickness="0" Click="Search_Click">
+                <Image Source="Resources/Search.png" Width="33" RenderTransformOrigin="0.686,0.5"/>
+            </Button>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="500"/>
+                <ColumnDefinition Width="500"/>
+                <ColumnDefinition Width="400"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <Label x:Name="label" Content="Champions" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="245,-1,0,0"/>
+                <TextBox x:Name="League_Year_textBox" HorizontalAlignment="Left" Margin="190,4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="55" HorizontalContentAlignment="Center" BorderThickness="0" IsReadOnly="True"/>
+                <Label x:Name="label1" Content="Champions : " HorizontalAlignment="Center" Margin="0,25,0,0" VerticalAlignment="Top"/>
+                <TextBox x:Name="Champion_Name_Textbox" HorizontalAlignment="Left" Margin="311,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" BorderThickness="0" IsReadOnly="True"
+                         FontFamily="Bold" Foreground="Red"/>
+                <Label x:Name="label1_Copy" Content="Num of Wins : " HorizontalAlignment="Left" Margin="208,56,0,0" VerticalAlignment="Top"/>
+                <TextBox x:Name="NumOfWins_Textbox" HorizontalAlignment="Left" Margin="311,61,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="33" BorderThickness="0" IsReadOnly="True"/>
+
+                <Rectangle x:Name="imageRec" HorizontalAlignment="Left" Height="192" Margin="10,0,0,0" Stroke="Black" VerticalAlignment="Center" Width="180" StrokeThickness="0">
+                    <Rectangle.Style>
+                        <Style TargetType="{x:Type Rectangle}">
+                            <Setter Property="Fill" Value="Transparent" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Path=TEAMNAME}" Value="SAMUNG FC">
+                                    <Setter Property="Fill">
+                                        <Setter.Value>
+                                            <ImageBrush ImageSource="Resources/SAMSUNG FC.png"/>
+                                        </Setter.Value>
+                                    </Setter>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=TEAMNAME}" Value="CHELSEA">
+                                    <Setter Property="Fill">
+                                        <Setter.Value>
+                                            <ImageBrush ImageSource="Resources/CHELSEA.png"/>
+                                        </Setter.Value>
+                                    </Setter>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=TEAMNAME}" Value="MANCHESTER CITY">
+                                    <Setter Property="Fill">
+                                        <Setter.Value>
+                                            <ImageBrush ImageSource="Resources/MANCHESTER CITY.png"/>
+                                        </Setter.Value>
+                                    </Setter>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Rectangle.Style>
+                </Rectangle>
+                <Label x:Name="label1_Copy1" Content="Remark : " HorizontalAlignment="Left" Margin="208,95,0,0" VerticalAlignment="Top"/>
+                <TextBox x:Name="Remark_Textbox" HorizontalAlignment="Left" Margin="311,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" BorderThickness="0" IsReadOnly="True"/>
+                <Rectangle x:Name="CountStarRec" HorizontalAlignment="Left" Height="70" Margin="211,121,0,0" Stroke="Black" VerticalAlignment="Top" Width="213" StrokeThickness="0">
+                </Rectangle>
+
+            </Grid>
+
+            <Grid Grid.Column="1">
+
+                <Label x:Name="label_Copy" Content="Runner-Up" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="245,-1,0,0"/>
+                <Label x:Name="label1_Copy2" Content="Runner-Up : " HorizontalAlignment="Center" Margin="0,25,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="label1_Copy3" Content="Num of Runner-Up : " HorizontalAlignment="Left" Margin="208,56,0,0" VerticalAlignment="Top" Width="116"/>
+                <Rectangle x:Name="Run_imageRec" HorizontalAlignment="Left" Height="187" Margin="10,4,0,0" Stroke="Black" VerticalAlignment="Top" Width="180" StrokeThickness="0">
+                    <Rectangle.Style>
+                        <Style TargetType="{x:Type Rectangle}">
+                            <Setter Property="Fill" Value="Transparent" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding SECOND_TEAMNAME}" Value="SAMUNG FC">
+                                    <Setter Property="Fill">
+                                        <Setter.Value>
+                                            <ImageBrush ImageSource="/Resources/SAMSUNG FC.png"/>
+                                        </Setter.Value>
+                                    </Setter>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding SECOND_TEAMNAME}" Value="CHELSEA">
+                                    <Setter Property="Fill">
+                                        <Setter.Value>
+                                            <ImageBrush ImageSource="/Resources/CHELSEA.png"/>
+                                        </Setter.Value>
+                                    </Setter>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding SECOND_TEAMNAME}" Value="MANCHESTER CITY">
+                                    <Setter Property="Fill">
+                                        <Setter.Value>
+                                            <ImageBrush ImageSource="/Resources/MANCHESTER CITY.png"/>
+                                        </Setter.Value>
+                                    </Setter>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Rectangle.Style>
+                </Rectangle>
+                <TextBox x:Name="League_Year2_textBox" HorizontalAlignment="Left" Margin="190,4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="55" HorizontalContentAlignment="Center" BorderThickness="0" IsReadOnly="True"/>
+                <TextBox x:Name="Runner_UP_Textbox" HorizontalAlignment="Left" Margin="311,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" BorderThickness="0" IsReadOnly="True"/>
+                <TextBox x:Name="NumOfRunner_Up_Textbox_Copy" HorizontalAlignment="Left" Margin="329,61,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="33" BorderThickness="0" IsReadOnly="True"/>
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="950"/>
+                <ColumnDefinition Width="450"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <DataGrid x:Name="grdEmployee"
+                        AutoGenerateColumns="False" 
+                        CanUserAddRows = "False" 
+                        CanUserResizeColumns ="False" 
+                        HeadersVisibility="Column" 
+                        RowHeight="35"
+                          SelectionChanged ="Row_SelectionChanged" 
+                          >
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="YEAR" Binding="{Binding Path=League_Year}" Width="80" IsReadOnly="True">
+                            <DataGridTextColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                                    <Setter Property="VerticalContentAlignment" Value="Center"/>
+                                    <Setter Property="IsHitTestVisible" Value="False"/>
+                                    <Setter Property="Background" Value="LightGray"/>
+                                    <Setter Property="BorderBrush" Value="Gray"/>
+                                    <Setter Property="BorderThickness" Value="0.5"/>
+                                </Style>
+                            </DataGridTextColumn.HeaderStyle>
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="HorizontalAlignment" Value="Center"/>
+                                    <Setter Property="VerticalAlignment" Value="Center"/>
+                                    <Setter Property="Foreground" Value="Black"/>
+                                    <Setter Property="FontSize" Value="13"/>
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn >
+                        <DataGridTemplateColumn Header="1TH&#13;LOGO" IsReadOnly="true" Width="60">
+                            <DataGridTemplateColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                                    <Setter Property="VerticalContentAlignment" Value="Center"/>
+                                    <Setter Property="IsHitTestVisible" Value="False"/>
+                                    <Setter Property="Background" Value="LightGray"/>
+                                    <Setter Property="BorderBrush" Value="Gray"/>
+                                    <Setter Property="BorderThickness" Value="0.5"/>
+                                </Style>
+                            </DataGridTemplateColumn.HeaderStyle>
+                            <DataGridTemplateColumn.CellTemplate >
+                                <DataTemplate>
+                                    <Image>
+                                        <Image.Style>
+                                            <Style TargetType="{x:Type Image}">
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="AS MONACO">
+                                                        <Setter Property="Source" Value="Resources/AS MONACO.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="AS SAINT-ETIENNE">
+                                                        <Setter Property="Source" Value="Resources/AS SAINT-ETIENNE.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="FC NANTES">
+                                                        <Setter Property="Source" Value="Resources/FC NANTES.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="GIRONDINS DE BX">
+                                                        <Setter Property="Source" Value="Resources/GIRONDINS DE BX.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="LOSC LILLE">
+                                                        <Setter Property="Source" Value="Resources/LOSC LILLE.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="MONTPELLIER HSC">
+                                                        <Setter Property="Source" Value="Resources/MONTPELLIER HSC.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="OGC NICE">
+                                                        <Setter Property="Source" Value="Resources/OGC NICE.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="OL">
+                                                        <Setter Property="Source" Value="Resources/OL.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="OM">
+                                                        <Setter Property="Source" Value="Resources/OM.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="PARIS SG">
+                                                        <Setter Property="Source" Value="Resources/PARIS SG.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="RC STRASBOURG">
+                                                        <Setter Property="Source" Value="Resources/RC STRASBOURG.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="STADE DE REIMS">
+                                                        <Setter Property="Source" Value="Resources/STADE DE REIMS.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="STADE RENNAIS FC">
+                                                        <Setter Property="Source" Value="Resources/STADE RENNAIS FC.png"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Image.Style>
+                                    </Image>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTextColumn Header="1TH" Binding="{Binding Path=Champions}" Width="110" IsReadOnly="True">
+                            <DataGridTextColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                                    <Setter Property="VerticalContentAlignment" Value="Center"/>
+                                    <Setter Property="IsHitTestVisible" Value="False"/>
+                                    <Setter Property="Background" Value="LightGray"/>
+                                    <Setter Property="BorderBrush" Value="Gray"/>
+                                    <Setter Property="BorderThickness" Value="0.5"/>
+                                </Style>
+                            </DataGridTextColumn.HeaderStyle>
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="HorizontalAlignment" Value="Left"/>
+                                    <Setter Property="VerticalAlignment" Value="Center"/>
+                                    <Setter Property="Foreground" Value="Black"/>
+                                    <Setter Property="FontSize" Value="11"/>
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+                        <DataGridTemplateColumn Header="2TH&#13;LOGO" IsReadOnly="true" Width="60">
+                            <DataGridTemplateColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                                    <Setter Property="IsHitTestVisible" Value="False"/>
+                                    <Setter Property="Background" Value="LightGray"/>
+                                    <Setter Property="BorderBrush" Value="Gray"/>
+                                    <Setter Property="BorderThickness" Value="0.5"/>
+                                </Style>
+                            </DataGridTemplateColumn.HeaderStyle>
+                            <DataGridTemplateColumn.CellTemplate >
+                                <DataTemplate>
+                                    <Image>
+                                        <Image.Style>
+                                            <Style TargetType="{x:Type Image}">
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="AS MONACO">
+                                                        <Setter Property="Source" Value="Resources/AS MONACO.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="AS SAINT-ETIENNE">
+                                                        <Setter Property="Source" Value="Resources/AS SAINT-ETIENNE.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="FC NANTES">
+                                                        <Setter Property="Source" Value="Resources/FC NANTES.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="GIRONDINS DE BX">
+                                                        <Setter Property="Source" Value="Resources/GIRONDINS DE BX.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="LOSC LILLE">
+                                                        <Setter Property="Source" Value="Resources/LOSC LILLE.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="MONTPELLIER HSC">
+                                                        <Setter Property="Source" Value="Resources/MONTPELLIER HSC.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="OGC NICE">
+                                                        <Setter Property="Source" Value="Resources/OGC NICE.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="OL">
+                                                        <Setter Property="Source" Value="Resources/OL.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="OM">
+                                                        <Setter Property="Source" Value="Resources/OM.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="PARIS SG">
+                                                        <Setter Property="Source" Value="Resources/PARIS SG.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="RC STRASBOURG">
+                                                        <Setter Property="Source" Value="Resources/RC STRASBOURG.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="STADE DE REIMS">
+                                                        <Setter Property="Source" Value="Resources/STADE DE REIMS.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="STADE RENNAIS FC">
+                                                        <Setter Property="Source" Value="Resources/STADE RENNAIS FC.png"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Image.Style>
+                                    </Image>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTextColumn Header="2TH" Binding="{Binding Path=Second_Place}" Width="110" IsReadOnly="True">
+                            <DataGridTextColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                                    <Setter Property="VerticalContentAlignment" Value="Center"/>
+                                    <Setter Property="IsHitTestVisible" Value="False"/>
+                                    <Setter Property="Background" Value="LightGray"/>
+                                    <Setter Property="BorderBrush" Value="Gray"/>
+                                    <Setter Property="BorderThickness" Value="0.5"/>
+                                </Style>
+                            </DataGridTextColumn.HeaderStyle>
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="HorizontalAlignment" Value="Left"/>
+                                    <Setter Property="VerticalAlignment" Value="Center"/>
+                                    <Setter Property="Foreground" Value="Black"/>
+                                    <Setter Property="FontSize" Value="11"/>
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+                        <DataGridTemplateColumn Header="3TH&#13;LOGO" IsReadOnly="true" Width="60">
+                            <DataGridTemplateColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                                    <Setter Property="IsHitTestVisible" Value="False"/>
+                                    <Setter Property="Background" Value="LightGray"/>
+                                    <Setter Property="BorderBrush" Value="Gray"/>
+                                    <Setter Property="BorderThickness" Value="0.5"/>
+                                </Style>
+                            </DataGridTemplateColumn.HeaderStyle>
+                            <DataGridTemplateColumn.CellTemplate >
+                                <DataTemplate>
+                                    <Image>
+                                        <Image.Style>
+                                            <Style TargetType="{x:Type Image}">
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Path=Third_Place}" Value="AS MONACO">
+                                                        <Setter Property="Source" Value="Resources/AS MONACO.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Third_Place}" Value="AS SAINT-ETIENNE">
+                                                        <Setter Property="Source" Value="Resources/AS SAINT-ETIENNE.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Third_Place}" Value="FC NANTES">
+                                                        <Setter Property="Source" Value="Resources/FC NANTES.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Third_Place}" Value="GIRONDINS DE BX">
+                                                        <Setter Property="Source" Value="Resources/GIRONDINS DE BX.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Third_Place}" Value="LOSC LILLE">
+                                                        <Setter Property="Source" Value="Resources/LOSC LILLE.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Third_Place}" Value="MONTPELLIER HSC">
+                                                        <Setter Property="Source" Value="Resources/MONTPELLIER HSC.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Third_Place}" Value="OGC NICE">
+                                                        <Setter Property="Source" Value="Resources/OGC NICE.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Third_Place}" Value="OL">
+                                                        <Setter Property="Source" Value="Resources/OL.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Third_Place}" Value="OM">
+                                                        <Setter Property="Source" Value="Resources/OM.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Third_Place}" Value="PARIS SG">
+                                                        <Setter Property="Source" Value="Resources/PARIS SG.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Third_Place}" Value="RC STRASBOURG">
+                                                        <Setter Property="Source" Value="Resources/RC STRASBOURG.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Third_Place}" Value="STADE DE REIMS">
+                                                        <Setter Property="Source" Value="Resources/STADE DE REIMS.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Third_Place}" Value="STADE RENNAIS FC">
+                                                        <Setter Property="Source" Value="Resources/STADE RENNAIS FC.png"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Image.Style>
+                                    </Image>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTextColumn Header="3TH" Binding="{Binding Path=Third_Place}" Width="110" IsReadOnly="True">
+                            <DataGridTextColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                                    <Setter Property="VerticalContentAlignment" Value="Center"/>
+                                    <Setter Property="IsHitTestVisible" Value="False"/>
+                                    <Setter Property="Background" Value="LightGray"/>
+                                    <Setter Property="BorderBrush" Value="Gray"/>
+                                    <Setter Property="BorderThickness" Value="0.5"/>
+                                </Style>
+                            </DataGridTextColumn.HeaderStyle>
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="HorizontalAlignment" Value="Left"/>
+                                    <Setter Property="VerticalAlignment" Value="Center"/>
+                                    <Setter Property="Foreground" Value="Black"/>
+                                    <Setter Property="FontSize" Value="11"/>
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+                        <DataGridTemplateColumn Header="4TH&#13;LOGO" IsReadOnly="true" Width="60">
+                            <DataGridTemplateColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                                    <Setter Property="IsHitTestVisible" Value="False"/>
+                                    <Setter Property="Background" Value="LightGray"/>
+                                    <Setter Property="BorderBrush" Value="Gray"/>
+                                    <Setter Property="BorderThickness" Value="0.5"/>
+                                </Style>
+                            </DataGridTemplateColumn.HeaderStyle>
+                            <DataGridTemplateColumn.CellTemplate >
+                                <DataTemplate>
+                                    <Image>
+                                        <Image.Style>
+                                            <Style TargetType="{x:Type Image}">
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Path=Fourth_Place}" Value="AS MONACO">
+                                                        <Setter Property="Source" Value="Resources/AS MONACO.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Fourth_Place}" Value="AS SAINT-ETIENNE">
+                                                        <Setter Property="Source" Value="Resources/AS SAINT-ETIENNE.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Fourth_Place}" Value="FC NANTES">
+                                                        <Setter Property="Source" Value="Resources/FC NANTES.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Fourth_Place}" Value="GIRONDINS DE BX">
+                                                        <Setter Property="Source" Value="Resources/GIRONDINS DE BX.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Fourth_Place}" Value="LOSC LILLE">
+                                                        <Setter Property="Source" Value="Resources/LOSC LILLE.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Fourth_Place}" Value="MONTPELLIER HSC">
+                                                        <Setter Property="Source" Value="Resources/MONTPELLIER HSC.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Fourth_Place}" Value="OGC NICE">
+                                                        <Setter Property="Source" Value="Resources/OGC NICE.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Fourth_Place}" Value="OL">
+                                                        <Setter Property="Source" Value="Resources/OL.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Fourth_Place}" Value="OM">
+                                                        <Setter Property="Source" Value="Resources/OM.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Fourth_Place}" Value="PARIS SG">
+                                                        <Setter Property="Source" Value="Resources/PARIS SG.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Fourth_Place}" Value="RC STRASBOURG">
+                                                        <Setter Property="Source" Value="Resources/RC STRASBOURG.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Fourth_Place}" Value="STADE DE REIMS">
+                                                        <Setter Property="Source" Value="Resources/STADE DE REIMS.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Fourth_Place}" Value="STADE RENNAIS FC">
+                                                        <Setter Property="Source" Value="Resources/STADE RENNAIS FC.png"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Image.Style>
+                                    </Image>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTextColumn Header="4TH" Binding="{Binding Path=Fourth_Place}" Width="110" IsReadOnly="True">
+                            <DataGridTextColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                                    <Setter Property="VerticalContentAlignment" Value="Center"/>
+                                    <Setter Property="IsHitTestVisible" Value="False"/>
+                                    <Setter Property="Background" Value="LightGray"/>
+                                    <Setter Property="BorderBrush" Value="Gray"/>
+                                    <Setter Property="BorderThickness" Value="0.5"/>
+                                </Style>
+                            </DataGridTextColumn.HeaderStyle>
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="HorizontalAlignment" Value="Left"/>
+                                    <Setter Property="VerticalAlignment" Value="Center"/>
+                                    <Setter Property="Foreground" Value="Black"/>
+                                    <Setter Property="FontSize" Value="11"/>
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Header="REMARK" Binding="{Binding Path=Remark}" Width="auto" IsReadOnly="True">
+                            <DataGridTextColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                                    <Setter Property="VerticalContentAlignment" Value="Center"/>
+                                    <Setter Property="IsHitTestVisible" Value="False"/>
+                                    <Setter Property="Background" Value="LightGray"/>
+                                    <Setter Property="BorderBrush" Value="Gray"/>
+                                    <Setter Property="BorderThickness" Value="0.5"/>
+                                </Style>
+                            </DataGridTextColumn.HeaderStyle>
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="HorizontalAlignment" Value="Left"/>
+                                    <Setter Property="VerticalAlignment" Value="Center"/>
+                                    <Setter Property="Foreground" Value="Black"/>
+                                    <Setter Property="FontSize" Value="13"/>
+                                    <Setter Property="TextWrapping" Value="Wrap"/>
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+
+            <Grid Grid.Column="1">
+                <DataGrid x:Name="Ranking_DataGrid"
+                           AutoGenerateColumns="False" 
+                          CanUserAddRows = "False" 
+                          CanUserResizeColumns ="False" 
+                          HeadersVisibility="Column" 
+                        RowHeight="35" Margin="10,0,-10,0" 
+                          >
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="RANK" Binding="{Binding Path=Ranking}" Width="40" >
+                            <DataGridTextColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                                    <Setter Property="VerticalContentAlignment" Value="Center"/>
+                                    <Setter Property="Background" Value="LightGray"/>
+                                    <Setter Property="BorderBrush" Value="Gray"/>
+                                    <Setter Property="BorderThickness" Value="0.5"/>
+                                </Style>
+                            </DataGridTextColumn.HeaderStyle>
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="HorizontalAlignment" Value="Center"/>
+                                    <Setter Property="VerticalAlignment" Value="Center"/>
+                                    <Setter Property="Foreground" Value="Black"/>
+                                    <Setter Property="FontSize" Value="12"/>
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+                        <DataGridTemplateColumn Header="TEAM LOGO" IsReadOnly="True" Width="80">
+                            <DataGridTemplateColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                                    <Setter Property="IsHitTestVisible" Value="False"/>
+                                    <Setter Property="Background" Value="LightGray"/>
+                                    <Setter Property="BorderBrush" Value="Gray"/>
+                                    <Setter Property="BorderThickness" Value="0.5"/>
+                                </Style>
+                            </DataGridTemplateColumn.HeaderStyle>
+                            <DataGridTemplateColumn.CellTemplate >
+                                <DataTemplate>
+                                    <Image>
+                                        <Image.Style>
+                                            <Style TargetType="{x:Type Image}">
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="AS MONACO">
+                                                        <Setter Property="Source" Value="Resources/AS MONACO.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="AS SAINT-ETIENNE">
+                                                        <Setter Property="Source" Value="Resources/AS SAINT-ETIENNE.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="FC NANTES">
+                                                        <Setter Property="Source" Value="Resources/FC NANTES.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="GIRONDINS DE BX">
+                                                        <Setter Property="Source" Value="Resources/GIRONDINS DE BX.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="LOSC LILLE">
+                                                        <Setter Property="Source" Value="Resources/LOSC LILLE.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="MONTPELLIER HSC">
+                                                        <Setter Property="Source" Value="Resources/MONTPELLIER HSC.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="OGC NICE">
+                                                        <Setter Property="Source" Value="Resources/OGC NICE.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="OL">
+                                                        <Setter Property="Source" Value="Resources/OL.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="OM">
+                                                        <Setter Property="Source" Value="Resources/OM.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="PARIS SG">
+                                                        <Setter Property="Source" Value="Resources/PARIS SG.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="RC STRASBOURG">
+                                                        <Setter Property="Source" Value="Resources/RC STRASBOURG.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="STADE DE REIMS">
+                                                        <Setter Property="Source" Value="Resources/STADE DE REIMS.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="STADE RENNAIS FC">
+                                                        <Setter Property="Source" Value="Resources/STADE RENNAIS FC.png"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Image.Style>
+                                    </Image>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTextColumn Header="TEAM NAME" Binding="{Binding Path=Team_Name}" Width="110">
+                            <DataGridTextColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                                    <Setter Property="VerticalContentAlignment" Value="Center"/>
+                                    <Setter Property="Background" Value="LightGray"/>
+                                    <Setter Property="BorderBrush" Value="Gray"/>
+                                    <Setter Property="BorderThickness" Value="0.5"/>
+                                </Style>
+                            </DataGridTextColumn.HeaderStyle>
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="HorizontalAlignment" Value="Left"/>
+                                    <Setter Property="VerticalAlignment" Value="Center"/>
+                                    <Setter Property="Foreground" Value="Black"/>
+                                    <Setter Property="FontSize" Value="12"/>
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Header="1TH&#13;CNT" Binding="{Binding Path=Champions_CNT}" Width="50" IsReadOnly="True">
+                            <DataGridTextColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                                    <Setter Property="VerticalContentAlignment" Value="Center"/>
+                                    <Setter Property="IsHitTestVisible" Value="False"/>
+                                    <Setter Property="Background" Value="LightGray"/>
+                                    <Setter Property="BorderBrush" Value="Gray"/>
+                                    <Setter Property="BorderThickness" Value="0.5"/>
+                                </Style>
+                            </DataGridTextColumn.HeaderStyle>
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="HorizontalAlignment" Value="Center"/>
+                                    <Setter Property="VerticalAlignment" Value="Center"/>
+                                    <Setter Property="Foreground" Value="Black"/>
+                                    <Setter Property="FontSize" Value="13"/>
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Header="2TH&#13;CNT" Binding="{Binding Path=Second_Place_CNT}" Width="50" IsReadOnly="True">
+                            <DataGridTextColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                                    <Setter Property="VerticalContentAlignment" Value="Center"/>
+                                    <Setter Property="IsHitTestVisible" Value="False"/>
+                                    <Setter Property="Background" Value="LightGray"/>
+                                    <Setter Property="BorderBrush" Value="Gray"/>
+                                    <Setter Property="BorderThickness" Value="0.5"/>
+                                </Style>
+                            </DataGridTextColumn.HeaderStyle>
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="HorizontalAlignment" Value="Center"/>
+                                    <Setter Property="VerticalAlignment" Value="Center"/>
+                                    <Setter Property="Foreground" Value="Black"/>
+                                    <Setter Property="FontSize" Value="13"/>
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Header="3TH&#13;CNT" Binding="{Binding Path=Third_Place_CNT}" Width="50" IsReadOnly="True">
+                            <DataGridTextColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                                    <Setter Property="VerticalContentAlignment" Value="Center"/>
+                                    <Setter Property="IsHitTestVisible" Value="False"/>
+                                    <Setter Property="Background" Value="LightGray"/>
+                                    <Setter Property="BorderBrush" Value="Gray"/>
+                                    <Setter Property="BorderThickness" Value="0.5"/>
+                                </Style>
+                            </DataGridTextColumn.HeaderStyle>
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="HorizontalAlignment" Value="Center"/>
+                                    <Setter Property="VerticalAlignment" Value="Center"/>
+                                    <Setter Property="Foreground" Value="Black"/>
+                                    <Setter Property="FontSize" Value="13"/>
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Header="4TH&#13;CNT" Binding="{Binding Path=Fourth_Place_CNT}" Width="50" IsReadOnly="True">
+                            <DataGridTextColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                                    <Setter Property="VerticalContentAlignment" Value="Center"/>
+                                    <Setter Property="IsHitTestVisible" Value="False"/>
+                                    <Setter Property="Background" Value="LightGray"/>
+                                    <Setter Property="BorderBrush" Value="Gray"/>
+                                    <Setter Property="BorderThickness" Value="0.5"/>
+                                </Style>
+                            </DataGridTextColumn.HeaderStyle>
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="HorizontalAlignment" Value="Center"/>
+                                    <Setter Property="VerticalAlignment" Value="Center"/>
+                                    <Setter Property="Foreground" Value="Black"/>
+                                    <Setter Property="FontSize" Value="13"/>
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

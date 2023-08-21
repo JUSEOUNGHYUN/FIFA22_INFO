@@ -1,0 +1,746 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5542E32C-7154-40CC-B29D-0A1C1D99299F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>FIFA22_INFO</RootNamespace>
+    <AssemblyName>FIFA22_INFO</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.7.0.0\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.HashCode, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.HashCode.1.1.1\lib\net461\Microsoft.Bcl.HashCode.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\lib\net461\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Npgsql, Version=7.0.4.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Npgsql.7.0.4\lib\netstandard2.0\Npgsql.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.Immutable, Version=7.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Collections.Immutable.7.0.0\lib\net462\System.Collections.Immutable.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.6.0.0\lib\net461\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encodings.Web, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.7.0.0\lib\net462\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Json.7.0.0\lib\net462\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Channels, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Channels.7.0.0\lib\net462\System.Threading.Channels.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="AllTeam.xaml.cs">
+      <DependentUpon>AllTeam.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BUNDESLIGA.xaml.cs">
+      <DependentUpon>BUNDESLIGA.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CHAMPIONS_LEAGUE.xaml.cs">
+      <DependentUpon>CHAMPIONS_LEAGUE.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CONFERENCE_LEAGUE.xaml.cs">
+      <DependentUpon>CONFERENCE_LEAGUE.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EREDIVISIE.xaml.cs">
+      <DependentUpon>EREDIVISIE.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EUROPA_LEAGUE.xaml.cs">
+      <DependentUpon>EUROPA_LEAGUE.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LALIGA_SANTANDER.xaml.cs">
+      <DependentUpon>LALIGA_SANTANDER.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LIGA_PORTUGAL.xaml.cs">
+      <DependentUpon>LIGA_PORTUGAL.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LIGUE1.xaml.cs">
+      <DependentUpon>LIGUE1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ManagerOne.cs" />
+    <Compile Include="Other_League.cs" />
+    <Compile Include="Other_League_Ranking_Data.cs" />
+    <Compile Include="SERIE_A.xaml.cs">
+      <DependentUpon>SERIE_A.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SUPER_CUP.xaml.cs">
+      <DependentUpon>SUPER_CUP.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TOTAL.cs" />
+    <Compile Include="UEFA.xaml.cs">
+      <DependentUpon>UEFA.xaml</DependentUpon>
+    </Compile>
+    <Page Include="AllTeam.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BUNDESLIGA.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CARABAO_CUP.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CHAMPIONS_LEAGUE.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CONFERENCE_LEAGUE.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DB_Insert.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EMIRATES_FA_CUP.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="England.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EREDIVISIE.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EUROPA_LEAGUE.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LALIGA_SANTANDER.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LIGA_PORTUGAL.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LIGUE1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CARABAO_CUP.xaml.cs">
+      <DependentUpon>CARABAO_CUP.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DB_Insert.xaml.cs">
+      <DependentUpon>DB_Insert.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EMIRATES_FA_CUP.xaml.cs">
+      <DependentUpon>EMIRATES_FA_CUP.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="England.xaml.cs">
+      <DependentUpon>England.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EnglandTotalData.cs" />
+    <Compile Include="ImageData.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Premier_League.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SERIE_A.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SUPER_CUP.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UEFA.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Premier_League.xaml.cs">
+      <DependentUpon>Premier_League.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Premier_League_Data.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\FIFA22.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Minimization.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Premier_League_LOGO.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\ARSENAL.png" />
+    <Resource Include="Resources\AS MONACO.png" />
+    <Resource Include="Resources\AT MADRID.png" />
+    <Resource Include="Resources\CHELSEA.png" />
+    <Resource Include="Resources\EVERTON.png" />
+    <Resource Include="Resources\FC BARCELONA.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\FULHAM.png" />
+    <Resource Include="Resources\LIVERPOOL.png" />
+    <Resource Include="Resources\LOSC LILLE.png" />
+    <Resource Include="Resources\MANCHESTER CITY.png" />
+    <Resource Include="Resources\MANCHESTER UTD.png" />
+    <Resource Include="Resources\NEWCASTLE UTD.png" />
+    <Resource Include="Resources\OGC NICE.png" />
+    <Resource Include="Resources\OL.png" />
+    <Resource Include="Resources\OM.png" />
+    <Resource Include="Resources\PARIS SG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\REAL BETIS.png" />
+    <Resource Include="Resources\REAL MADRID.png" />
+    <Resource Include="Resources\REAL SOCIEDAD.png" />
+    <Resource Include="Resources\SEVILLA FC.png" />
+    <Resource Include="Resources\SPURS.png" />
+    <Resource Include="Resources\STADE DE REIMS.png" />
+    <Resource Include="Resources\STADE RENNAIS FC.png" />
+    <Resource Include="Resources\VALENCIA CF.png" />
+    <Resource Include="Resources\VILLARREAL CF.png" />
+    <Resource Include="Resources\WEST HAM.png" />
+    <Resource Include="Resources\WOLVES.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\AC MILAN.png" />
+    <Resource Include="Resources\AJAX.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\AS ROMA.png" />
+    <Resource Include="Resources\ASTON VILLA.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\ATALANTA.png" />
+    <Resource Include="Resources\ATHLETIC CLUB.png" />
+    <Resource Include="Resources\AZ.png" />
+    <Resource Include="Resources\BOAVISTA FC.png" />
+    <Resource Include="Resources\BOLOGNA.png" />
+    <Resource Include="Resources\BORUSSIA DORTMUND.png" />
+    <Resource Include="Resources\BRIGHTON.png" />
+    <Resource Include="Resources\BURNLEY.png" />
+    <Resource Include="Resources\CA OSASUNA.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\SAMSUNG FC.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\LEICESTER CITY.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\SOUTHAMPTON.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\BRENTFORD.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\POHANG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\LEEDS UNITED.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\EMIRATES FA CUP.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\England.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\France.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Germany.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Italia.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Netherlands.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Portugal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Spain.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\UEFA.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\AFC BOURNEMOUTH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\BARNSLEY.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\BIRMINGHAM CITY.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\CRYSTAL PALACE.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\DERBY COUNTY.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\HARTLEPOOL.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\HUDDERSFIELD.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\MILLWALL.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\NORWICH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\NOTTINGHAM FOREST.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\PLYMOUTH ARGYLE.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\QPR.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\BRISTOL CITY.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\PETERBOROUGH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\SHEFFIELD UTD.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\STOKE CITY.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\WATFORD.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\WEST BROM.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\IPSWICH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\COVENTRY CITY.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\LUTON TOWN.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\CARABAO CUP.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\CARDIFF CITY.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\MK DONS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\PRESTON.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\SWANSEA CITY.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\SWINDON TOWN.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\BLACKBURN ROVERS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\READING.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\MIDDLESBROUGH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\CONFERENCE LEAGUE.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\EUROPA LEAGUE.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\CHAMPIONS LEAGUE.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\FIORENTINA.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\INTER MILAN.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\JUVENTUS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\LEVERKUSEN.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\NAPOLI.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\RB LEIPZIG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\SC FREIBURG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\SL BENFICA.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\SPORTING CP.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\TSG HOFFENHEIM.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\VFL WOLFSBURG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\VITORIA SC.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\AEK ATHENS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\AS SAINT-ETIENNE.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\FC NANTES.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\FC SCHALKE 04.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\FENERBAHCE.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\GETAFE CF.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\HELLAS VERONA.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\KV MECHELEN.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\LEVANTE UD.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\RSC ANDERLECHT.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\SHAKHTAR DONETSK.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\SPARTA PRAHA.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\TORINO.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\UD ALMERIA.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\UNION BERLIN.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\CLUB BRUGGE.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\EMPOLI.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\FC PORTO.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\FEYENOORD.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\FRANKFURT.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\LAZIO.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\MONCHENGLADBACH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\RCD ESPANYOL.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\ROYAL ANTWERP FC.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\GRANADA CF.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\HERTHA BERLIN.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\RB SALZBURG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\RC CELTA.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\SUPER CUP.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\FACUP_WHITE.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\PREMIER_LEAGUE_WHITE.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\FC FAMALICAO.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\FC KOLN.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\FC UTRECHT.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\GARATASARAY.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\KRC GENK.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\PACOS FERREIRA.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\PSV.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\BESIKTAS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\CADIZ CF.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\CAGLIARI.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\CELTIC.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\FC LORIENT.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\FC MIDTJYLLAND.png" />
+    <Resource Include="Resources\FK AUSTRIA WIEN.png" />
+    <Resource Include="Resources\FORTUNA DUSSELDORF.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\GENOA.png" />
+    <Resource Include="Resources\GIRONDINS DE BX.png" />
+    <Resource Include="Resources\HAJDUK SPLIT.png" />
+    <Resource Include="Resources\KAA GENT.png" />
+    <Resource Include="Resources\KAYSERISPOR.png" />
+    <Resource Include="Resources\KV OOSTENDE.png" />
+    <Resource Include="Resources\LEGIA WARSZAWA.png" />
+    <Resource Include="Resources\MARITIMO.png" />
+    <Resource Include="Resources\MONTPELLIER HSC.png" />
+    <Resource Include="Resources\OLYMPIACOS CFP.png" />
+    <Resource Include="Resources\PORTIMONENSE SC.png" />
+    <Resource Include="Resources\RC STRASBOURG.png" />
+    <Resource Include="Resources\RCD MALLORCA.png" />
+    <Resource Include="Resources\SASSUOLO.png" />
+    <Resource Include="Resources\SC BRAGA.png" />
+    <Resource Include="Resources\SK RAPID WIEN.png" />
+    <Resource Include="Resources\SK STURM GRAZ.png" />
+    <Resource Include="Resources\STANDARD LIEGE.png" />
+    <Resource Include="Resources\TRABZONSPOR.png" />
+    <Resource Include="Resources\VFB STUTTGART.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\CFR CLUJ.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\DINAMO ZAGREB.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\FC GRONINGEN.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\FARUL CONSTANTA.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\FC BASEL 1893.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\FCSB.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\FSV MAINZ 05.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\PAOK.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\SP.CHARLEROI.png" />
+    <Resource Include="Resources\VITESSE.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\BAYERN MUNCHEN.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Ligue1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\HERACLES ALMELO.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\SC HEERENVEEN.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Bundesliga.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Eredivisie.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Laliga.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Laliga_Protugal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\SerieA.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\FC TWENTE.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\build\Microsoft.Extensions.Logging.Abstractions.targets" Condition="Exists('..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\build\Microsoft.Extensions.Logging.Abstractions.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\build\Microsoft.Extensions.Logging.Abstractions.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\build\Microsoft.Extensions.Logging.Abstractions.targets'))" />
+  </Target>
+</Project>

@@ -1,0 +1,190 @@
+﻿<Window x:Class="FIFA22_INFO.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FIFA22_INFO"
+        mc:Ignorable="d"
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        Title="MainWindow" Height="920" Width="1420"
+        KeyDown="keyDown_Event">
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="120"/>
+            <RowDefinition Height="700"/>
+            <RowDefinition Height="100"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Rectangle MouseLeftButtonDown="Rectangle_MouseDown">
+                <Rectangle.Fill>
+                    <SolidColorBrush Color="#4cac35"/>
+                </Rectangle.Fill>
+            </Rectangle>
+            <DockPanel HorizontalAlignment="Left" Width="394">
+                <Image Source="Resources/FIFA22.png" Stretch="Fill" Width="350" Height="104"/>
+            </DockPanel>
+            <DockPanel HorizontalAlignment="Right">
+                <Button x:Name="ToMiniButton" Margin="0,0,5,0" 
+                        Click="ToMiniButton_Click"
+                        Width="25"
+                        Height="25"
+                        Background="#4cac35"
+                        BorderThickness="0">
+                    <Image Source="Resources/Minimization.png" Stretch="fill"/>
+                </Button>
+                <Button x:Name="CloseButton" Margin="0,0,30,0"
+                        Click="CloseButton_Click"
+                        Width="25"
+                        Height="25"
+                        Background="#4cac35"
+                        BorderThickness="0">
+                    <Image Source="Resources/Close.png" Stretch="fill"/>
+                </Button>
+            </DockPanel>
+            <Button x:Name="button" Content="UPDATE" HorizontalAlignment="Left" Margin="394,65,0,0" VerticalAlignment="Top" Height="34" Width="76" Click="Update_Click"/>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="470"/>
+                <ColumnDefinition Width="470"/>
+                <ColumnDefinition Width="470"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="233"/>
+                    <RowDefinition Height="233"/>
+                    <RowDefinition Height="233"/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0" >
+                    <Button x:Name="Premier_League_button" 
+                            Background="White"
+                            BorderBrush="Transparent"
+                            Click="England_Click">
+                        <Image Source="Resources/England.png" Height="223" Width="430"/>
+                    </Button>
+                </Grid>
+
+                <Grid Grid.Row="1">
+                    <Button x:Name="Italia_button" 
+                            Background="White"
+                            BorderBrush="Transparent"
+                            Click="Italia_button_Click">
+                        <Image Source="Resources/Italia.png" Height="223" Width="430"/>
+                    </Button>
+                </Grid>
+
+                <Grid Grid.Row="2">
+                    <Button x:Name="Spain_button" 
+                            Background="White"
+                            BorderBrush="Transparent"
+                            Click="LALIGA_SANTANDER_Click">
+                        <Image Source="Resources/Spain.png" Height="223" Width="430"/>
+                    </Button>
+                </Grid>
+            </Grid>
+
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="233"/>
+                    <RowDefinition Height="233"/>
+                    <RowDefinition Height="233"/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0">
+                    <Button x:Name="France_button" 
+                            Background="White"
+                            BorderBrush="Transparent"
+                            Click="Premier_League_Click">
+                        <Image Source="Resources/France.png" Height="223" Width="430"/>
+                    </Button>
+                </Grid>
+
+                <Grid Grid.Row="1">
+                    <Button x:Name="Netherlands_button" 
+                            Background="White"
+                            BorderBrush="Transparent"
+                            Click="EREDIVISIE_Click">
+                        <Image Source="Resources/Netherlands.png" Height="223" Width="430"/>
+                    </Button>
+                </Grid>
+
+                <Grid Grid.Row="2">
+                    <Button x:Name="UEFA_button" 
+                            Background="White"
+                            BorderBrush="Transparent"
+                            Click="UEFA_button_Click">
+                        <Image Source="Resources/UEFA.png" Height="223" Width="430"/>
+                    </Button>
+                </Grid>
+            </Grid>
+
+            <Grid Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="233"/>
+                    <RowDefinition Height="233"/>
+                    <RowDefinition Height="233"/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0">
+                    <Button x:Name="Germany_button" 
+                            Background="White"
+                            BorderBrush="Transparent"
+                            Click="BUNDESLIGA_Click">
+                        <Image Source="Resources/Germany.png" Height="223" Width="430"/>
+                    </Button>
+                </Grid>
+
+                <Grid Grid.Row="1">
+                    <Button x:Name="Portugal_button" 
+                            Background="White"
+                            BorderBrush="Transparent"
+                            Click="LIGA_PORTUGAL_Click">
+                        <Image Source="Resources/Portugal.png" Height="223" Width="430"/>
+                    </Button>
+                </Grid>
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="710"/>
+                <ColumnDefinition Width="710"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+
+                <ComboBox x:Name="LeagueOption_comboBox" HorizontalAlignment="Left" Margin="69,0,0,0" VerticalAlignment="Center" Width="120"/>
+                <Label x:Name="label" HorizontalAlignment="Left" VerticalAlignment="Top"
+                       FontSize="20"
+                       >
+                    <Label x:Name="label3" Content="Label"/>
+                </Label>
+                <Button x:Name="INSERT_button" Content="입력" HorizontalAlignment="Left" Margin="621,34,0,0" VerticalAlignment="Top" Height="45" Width="60"
+                        Click="INSERT_button_Click"/>
+                <Label x:Name="label2" Content="OPTION" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center"/>
+                <Label x:Name="label2_Copy" Content="CHAMPION" HorizontalAlignment="Left" Margin="194,0,0,0" VerticalAlignment="Center"/>
+                <Label x:Name="label2_Copy1" Content="RUNNER UP" HorizontalAlignment="Left" Margin="398,0,0,0" VerticalAlignment="Center"/>
+                <Label x:Name="label2_Copy2" Content="3th" HorizontalAlignment="Left" Margin="194,64,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="label2_Copy3" Content="4th" HorizontalAlignment="Left" Margin="398,64,0,0" VerticalAlignment="Top"/>
+                <TextBox x:Name="CHAMPION_textBox" HorizontalAlignment="Left" Margin="273,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="120"/>
+                <TextBox x:Name="THIRD_textBox" HorizontalAlignment="Left" Margin="273,68,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                <TextBox x:Name="RUNNERUP_textBox2" HorizontalAlignment="Left" Margin="476,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="120"/>
+                <TextBox x:Name="FOUTH_textBox3" HorizontalAlignment="Left" Margin="476,68,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+            </Grid>
+
+            <Grid Grid.Column="1">
+                <Label x:Name="label1" Content="DELETE" HorizontalAlignment="Left" VerticalAlignment="Top"
+                       FontSize="20"
+                       />
+                <ComboBox x:Name="LeagueOption_comboBox_DELTE" HorizontalAlignment="Left" Margin="36,50,0,0" VerticalAlignment="Top" Width="120"/>
+
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
