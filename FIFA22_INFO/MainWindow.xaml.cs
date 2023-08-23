@@ -232,6 +232,20 @@ namespace FIFA22_INFO
                 this.Close();
             }
         }
+
+        private void DB_UPTODATE_Click(object sender, RoutedEventArgs e)
+        {
+            UPTODATE up = new UPTODATE();
+            up.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            up.Show();
+        }
+
+        private void Search_Click(object sender, RoutedEventArgs e)
+        {
+            Team_Info ti = new Team_Info();
+            ti.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            ti.Show();
+        }
     }
 
 }

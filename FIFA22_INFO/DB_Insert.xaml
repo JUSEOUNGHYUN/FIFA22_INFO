@@ -100,6 +100,12 @@
                        >
                 <Label x:Name="label32" Content="UPDATE"/>
             </Label>
+            <ComboBox x:Name="Update_LeagueOption_comboBox" HorizontalAlignment="Left" Margin="69,49,0,0" VerticalAlignment="Top" Width="158"/>
+            <Label x:Name="label2_Copy7" Content="OPTION" HorizontalAlignment="Left" Margin="10,47,0,0" VerticalAlignment="Top"/>
+            <Label x:Name="label2_Copy8" Content="VICE OPTION" HorizontalAlignment="Left" Margin="253,49,0,0" VerticalAlignment="Top"/>
+            <ComboBox x:Name="Update_Vice_LeagueOption_comboBox" HorizontalAlignment="Left" Margin="339,49,0,0" VerticalAlignment="Top" Width="158"/>
+            <Button x:Name="UPDATE_button" Content="UPDATE" HorizontalAlignment="Left" Margin="715,35,0,0" VerticalAlignment="Top" Height="45" Width="60"
+                Click="UPDATE_button_Click"/>
         </Grid>
     </Grid>
 </Window>

@@ -108,6 +108,7 @@
     <Compile Include="AllTeam.xaml.cs">
       <DependentUpon>AllTeam.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AutoScrollPreventer.cs" />
     <Compile Include="BUNDESLIGA.xaml.cs">
       <DependentUpon>BUNDESLIGA.xaml</DependentUpon>
     </Compile>
@@ -117,6 +118,7 @@
     <Compile Include="CONFERENCE_LEAGUE.xaml.cs">
       <DependentUpon>CONFERENCE_LEAGUE.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ENGLAND_TOTAL.cs" />
     <Compile Include="EREDIVISIE.xaml.cs">
       <DependentUpon>EREDIVISIE.xaml</DependentUpon>
     </Compile>
@@ -135,15 +137,22 @@
     <Compile Include="ManagerOne.cs" />
     <Compile Include="Other_League.cs" />
     <Compile Include="Other_League_Ranking_Data.cs" />
+    <Compile Include="OTHER_LEAGUE_TOTAL.cs" />
     <Compile Include="SERIE_A.xaml.cs">
       <DependentUpon>SERIE_A.xaml</DependentUpon>
     </Compile>
     <Compile Include="SUPER_CUP.xaml.cs">
       <DependentUpon>SUPER_CUP.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Team_Info.xaml.cs">
+      <DependentUpon>Team_Info.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TOTAL.cs" />
     <Compile Include="UEFA.xaml.cs">
       <DependentUpon>UEFA.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UPTODATE.xaml.cs">
+      <DependentUpon>UPTODATE.xaml</DependentUpon>
     </Compile>
     <Page Include="AllTeam.xaml">
       <SubType>Designer</SubType>
@@ -235,7 +244,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Team_Info.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UEFA.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UPTODATE.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -734,6 +751,21 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\FC TWENTE.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\NEC NIJMEGEN.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\BELENENSES SAD.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\RC LENS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\FC METZ.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Search_Logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\build\Microsoft.Extensions.Logging.Abstractions.targets" Condition="Exists('..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\build\Microsoft.Extensions.Logging.Abstractions.targets')" />

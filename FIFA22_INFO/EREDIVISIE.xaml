@@ -146,8 +146,8 @@
 
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="950"/>
-                <ColumnDefinition Width="450"/>
+                <ColumnDefinition Width="910"/>
+                <ColumnDefinition Width="490"/>
             </Grid.ColumnDefinitions>
 
             <Grid Grid.Column="0">
@@ -220,6 +220,9 @@
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="HERACLES ALMELO">
                                                         <Setter Property="Source" Value="Resources/HERACLES ALMELO.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="NEC NIJMEGEN">
+                                                        <Setter Property="Source" Value="Resources/NEC NIJMEGEN.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="PSV">
                                                         <Setter Property="Source" Value="Resources/PSV.png"/>
@@ -297,6 +300,9 @@
                                                     <DataTrigger Binding="{Binding Path=Second_Place}" Value="HERACLES ALMELO">
                                                         <Setter Property="Source" Value="Resources/HERACLES ALMELO.png"/>
                                                     </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="NEC NIJMEGEN">
+                                                        <Setter Property="Source" Value="Resources/NEC NIJMEGEN.png"/>
+                                                    </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Second_Place}" Value="PSV">
                                                         <Setter Property="Source" Value="Resources/PSV.png"/>
                                                     </DataTrigger>
@@ -373,6 +379,9 @@
                                                     <DataTrigger Binding="{Binding Path=Third_Place}" Value="HERACLES ALMELO">
                                                         <Setter Property="Source" Value="Resources/HERACLES ALMELO.png"/>
                                                     </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Third_Place}" Value="NEC NIJMEGEN">
+                                                        <Setter Property="Source" Value="Resources/NEC NIJMEGEN.png"/>
+                                                    </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Third_Place}" Value="PSV">
                                                         <Setter Property="Source" Value="Resources/PSV.png"/>
                                                     </DataTrigger>
@@ -448,6 +457,9 @@
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Fourth_Place}" Value="HERACLES ALMELO">
                                                         <Setter Property="Source" Value="Resources/HERACLES ALMELO.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Fourth_Place}" Value="NEC NIJMEGEN">
+                                                        <Setter Property="Source" Value="Resources/NEC NIJMEGEN.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Fourth_Place}" Value="PSV">
                                                         <Setter Property="Source" Value="Resources/PSV.png"/>
@@ -578,6 +590,9 @@
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="HERACLES ALMELO">
                                                         <Setter Property="Source" Value="Resources/HERACLES ALMELO.png"/>
                                                     </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="NEC NIJMEGEN">
+                                                        <Setter Property="Source" Value="Resources/NEC NIJMEGEN.png"/>
+                                                    </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="PSV">
                                                         <Setter Property="Source" Value="Resources/PSV.png"/>
                                                     </DataTrigger>
@@ -594,7 +609,7 @@
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
-                        <DataGridTextColumn Header="TEAM NAME" Binding="{Binding Path=Team_Name}" Width="110">
+                        <DataGridTextColumn Header="TEAM NAME" Binding="{Binding Path=Team_Name}" Width="130">
                             <DataGridTextColumn.HeaderStyle>
                                 <Style TargetType="DataGridColumnHeader">
                                     <Setter Property="HorizontalContentAlignment" Value="Center"/>

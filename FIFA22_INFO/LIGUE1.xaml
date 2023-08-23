@@ -191,7 +191,7 @@
                                     <Setter Property="BorderThickness" Value="0.5"/>
                                 </Style>
                             </DataGridTemplateColumn.HeaderStyle>
-                            <DataGridTemplateColumn.CellTemplate >
+                            <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <Image>
                                         <Image.Style>
@@ -202,6 +202,9 @@
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="AS SAINT-ETIENNE">
                                                         <Setter Property="Source" Value="Resources/AS SAINT-ETIENNE.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="FC METZ">
+                                                        <Setter Property="Source" Value="Resources/FC METZ.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="FC NANTES">
                                                         <Setter Property="Source" Value="Resources/FC NANTES.png"/>
@@ -226,6 +229,9 @@
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="PARIS SG">
                                                         <Setter Property="Source" Value="Resources/PARIS SG.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="RC LENS">
+                                                        <Setter Property="Source" Value="Resources/RC LENS.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="RC STRASBOURG">
                                                         <Setter Property="Source" Value="Resources/RC STRASBOURG.png"/>
@@ -273,7 +279,7 @@
                                     <Setter Property="BorderThickness" Value="0.5"/>
                                 </Style>
                             </DataGridTemplateColumn.HeaderStyle>
-                            <DataGridTemplateColumn.CellTemplate >
+                            <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <Image>
                                         <Image.Style>
@@ -284,6 +290,9 @@
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Second_Place}" Value="AS SAINT-ETIENNE">
                                                         <Setter Property="Source" Value="Resources/AS SAINT-ETIENNE.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="FC METZ">
+                                                        <Setter Property="Source" Value="Resources/FC METZ.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Second_Place}" Value="FC NANTES">
                                                         <Setter Property="Source" Value="Resources/FC NANTES.png"/>
@@ -308,6 +317,9 @@
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Second_Place}" Value="PARIS SG">
                                                         <Setter Property="Source" Value="Resources/PARIS SG.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="RC LENS">
+                                                        <Setter Property="Source" Value="Resources/RC LENS.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Second_Place}" Value="RC STRASBOURG">
                                                         <Setter Property="Source" Value="Resources/RC STRASBOURG.png"/>
@@ -355,7 +367,7 @@
                                     <Setter Property="BorderThickness" Value="0.5"/>
                                 </Style>
                             </DataGridTemplateColumn.HeaderStyle>
-                            <DataGridTemplateColumn.CellTemplate >
+                            <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <Image>
                                         <Image.Style>
@@ -366,6 +378,9 @@
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Third_Place}" Value="AS SAINT-ETIENNE">
                                                         <Setter Property="Source" Value="Resources/AS SAINT-ETIENNE.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Third_Place}" Value="FC METZ">
+                                                        <Setter Property="Source" Value="Resources/FC METZ.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Third_Place}" Value="FC NANTES">
                                                         <Setter Property="Source" Value="Resources/FC NANTES.png"/>
@@ -390,6 +405,9 @@
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Third_Place}" Value="PARIS SG">
                                                         <Setter Property="Source" Value="Resources/PARIS SG.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Third_Place}" Value="RC LENS">
+                                                        <Setter Property="Source" Value="Resources/RC LENS.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Third_Place}" Value="RC STRASBOURG">
                                                         <Setter Property="Source" Value="Resources/RC STRASBOURG.png"/>
@@ -437,7 +455,7 @@
                                     <Setter Property="BorderThickness" Value="0.5"/>
                                 </Style>
                             </DataGridTemplateColumn.HeaderStyle>
-                            <DataGridTemplateColumn.CellTemplate >
+                            <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <Image>
                                         <Image.Style>
@@ -448,6 +466,9 @@
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Fourth_Place}" Value="AS SAINT-ETIENNE">
                                                         <Setter Property="Source" Value="Resources/AS SAINT-ETIENNE.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Fourth_Place}" Value="FC METZ">
+                                                        <Setter Property="Source" Value="Resources/FC METZ.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Fourth_Place}" Value="FC NANTES">
                                                         <Setter Property="Source" Value="Resources/FC NANTES.png"/>
@@ -472,6 +493,9 @@
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Fourth_Place}" Value="PARIS SG">
                                                         <Setter Property="Source" Value="Resources/PARIS SG.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Fourth_Place}" Value="RC LENS">
+                                                        <Setter Property="Source" Value="Resources/RC LENS.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Fourth_Place}" Value="RC STRASBOURG">
                                                         <Setter Property="Source" Value="Resources/RC STRASBOURG.png"/>
@@ -572,7 +596,7 @@
                                     <Setter Property="BorderThickness" Value="0.5"/>
                                 </Style>
                             </DataGridTemplateColumn.HeaderStyle>
-                            <DataGridTemplateColumn.CellTemplate >
+                            <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <Image>
                                         <Image.Style>
@@ -583,6 +607,9 @@
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="AS SAINT-ETIENNE">
                                                         <Setter Property="Source" Value="Resources/AS SAINT-ETIENNE.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="FC METZ">
+                                                        <Setter Property="Source" Value="Resources/FC METZ.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="FC NANTES">
                                                         <Setter Property="Source" Value="Resources/FC NANTES.png"/>
@@ -607,6 +634,9 @@
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="PARIS SG">
                                                         <Setter Property="Source" Value="Resources/PARIS SG.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="RC LENS">
+                                                        <Setter Property="Source" Value="Resources/RC LENS.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="RC STRASBOURG">
                                                         <Setter Property="Source" Value="Resources/RC STRASBOURG.png"/>

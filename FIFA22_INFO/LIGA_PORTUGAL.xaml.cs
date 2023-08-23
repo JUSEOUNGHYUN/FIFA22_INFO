@@ -287,7 +287,6 @@ namespace FIFA22_INFO
 
             string Ranksql = "select rank() over( order by t.CHAMPIONS_CNT desc) Ranking, t.team_name, t.CHAMPIONS_CNT , t.SECOND_PLACE_CNT,  " +
                 "t.THIRD_PLACE_CNT, t.FOURTH_PLACE_CNT from LIGA_PORTUGAL_RANKING t " +
-                //"where t.SECOND_PLACE_CNT != 0 OR t.CHAMPIONS_CNT != 0 " +
                 "where t.THIRD_PLACE_CNT != 0 or t.FOURTH_PLACE_CNT != 0 or t.SECOND_PLACE_CNT != 0 OR t.CHAMPIONS_CNT != 0 " +
                 "order by t.CHAMPIONS_CNT desc, " +
                 "t.SECOND_PLACE_CNT desc, t.THIRD_PLACE_CNT desc, t.FOURTH_PLACE_CNT  desc";

@@ -197,6 +197,9 @@
                                         <Image.Style>
                                             <Style TargetType="{x:Type Image}">
                                                 <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="BELENENSES SAD">
+                                                        <Setter Property="Source" Value="Resources/BELENENSES SAD.png"/>
+                                                    </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="BOAVISTA FC">
                                                         <Setter Property="Source" Value="Resources/BOAVISTA FC.png"/>
                                                     </DataTrigger>
@@ -211,6 +214,9 @@
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="PACOS FERREIRA">
                                                         <Setter Property="Source" Value="Resources/PACOS FERREIRA.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="PORTIMONENSE SC">
+                                                        <Setter Property="Source" Value="Resources/PORTIMONENSE SC.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="SC BRAGA">
                                                         <Setter Property="Source" Value="Resources/SC BRAGA.png"/>
@@ -267,6 +273,9 @@
                                         <Image.Style>
                                             <Style TargetType="{x:Type Image}">
                                                 <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="BELENENSES SAD">
+                                                        <Setter Property="Source" Value="Resources/BELENENSES SAD.png"/>
+                                                    </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Second_Place}" Value="BOAVISTA FC">
                                                         <Setter Property="Source" Value="Resources/BOAVISTA FC.png"/>
                                                     </DataTrigger>
@@ -281,6 +290,9 @@
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Second_Place}" Value="PACOS FERREIRA">
                                                         <Setter Property="Source" Value="Resources/PACOS FERREIRA.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="PORTIMONENSE SC">
+                                                        <Setter Property="Source" Value="Resources/PORTIMONENSE SC.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Second_Place}" Value="SC BRAGA">
                                                         <Setter Property="Source" Value="Resources/SC BRAGA.png"/>
@@ -337,6 +349,9 @@
                                         <Image.Style>
                                             <Style TargetType="{x:Type Image}">
                                                 <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Path=Third_Place}" Value="BELENENSES SAD">
+                                                        <Setter Property="Source" Value="Resources/BELENENSES SAD.png"/>
+                                                    </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Third_Place}" Value="BOAVISTA FC">
                                                         <Setter Property="Source" Value="Resources/BOAVISTA FC.png"/>
                                                     </DataTrigger>
@@ -351,6 +366,9 @@
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Third_Place}" Value="PACOS FERREIRA">
                                                         <Setter Property="Source" Value="Resources/PACOS FERREIRA.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Third_Place}" Value="PORTIMONENSE SC">
+                                                        <Setter Property="Source" Value="Resources/PORTIMONENSE SC.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Third_Place}" Value="SC BRAGA">
                                                         <Setter Property="Source" Value="Resources/SC BRAGA.png"/>
@@ -407,6 +425,9 @@
                                         <Image.Style>
                                             <Style TargetType="{x:Type Image}">
                                                 <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Path=Fourth_Place}" Value="BELENENSES SAD">
+                                                        <Setter Property="Source" Value="Resources/BELENENSES SAD.png"/>
+                                                    </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Fourth_Place}" Value="BOAVISTA FC">
                                                         <Setter Property="Source" Value="Resources/BOAVISTA FC.png"/>
                                                     </DataTrigger>
@@ -421,6 +442,9 @@
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Fourth_Place}" Value="PACOS FERREIRA">
                                                         <Setter Property="Source" Value="Resources/PACOS FERREIRA.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Fourth_Place}" Value="PORTIMONENSE SC">
+                                                        <Setter Property="Source" Value="Resources/PORTIMONENSE SC.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Fourth_Place}" Value="SC BRAGA">
                                                         <Setter Property="Source" Value="Resources/SC BRAGA.png"/>
@@ -530,6 +554,9 @@
                                         <Image.Style>
                                             <Style TargetType="{x:Type Image}">
                                                 <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="BELENENSES SAD">
+                                                        <Setter Property="Source" Value="Resources/BELENENSES SAD.png"/>
+                                                    </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="BOAVISTA FC">
                                                         <Setter Property="Source" Value="Resources/BOAVISTA FC.png"/>
                                                     </DataTrigger>
@@ -544,6 +571,9 @@
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="PACOS FERREIRA">
                                                         <Setter Property="Source" Value="Resources/PACOS FERREIRA.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="PORTIMONENSE SC">
+                                                        <Setter Property="Source" Value="Resources/PORTIMONENSE SC.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="SC BRAGA">
                                                         <Setter Property="Source" Value="Resources/SC BRAGA.png"/>

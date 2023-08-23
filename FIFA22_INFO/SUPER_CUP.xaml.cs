@@ -1,6 +1,7 @@
 ﻿using Npgsql;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -65,7 +66,6 @@ namespace FIFA22_INFO
         private void Rectangle_MouseDown(object sender, MouseButtonEventArgs e)
         {
             this.DragMove();
-
         }
 
         private void ToMiniButton_Click(object sender, RoutedEventArgs e)
@@ -129,7 +129,99 @@ namespace FIFA22_INFO
 
         private void Row_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            int seelctedIndex = ((DataGrid)sender).SelectedIndex;
 
+            SUPERCUP cc = mSUPERCUPList[seelctedIndex];
+            League_Year_textBox.Text = cc.SLeague_Year.ToString();
+            League_Year2_textBox.Text = cc.SLeague_Year.ToLower();
+            Champion_Name_Textbox.Text = cc.SChampions.ToString();
+            Runner_UP_Textbox.Text = cc.SSecond_Place.ToString();
+            Remark_Textbox.Text = cc.SRemark.ToString();
+
+            NpgsqlConnection conn = null;
+
+            try
+            {
+                conn = new NpgsqlConnection(MainWindow.mConnString);
+                conn.Open();
+
+                string sql = "select Count(*) from SUPER_CUP t where t.champions = '" + Champion_Name_Textbox.Text + "' and t.league_year between '2021/22' and '" + League_Year_textBox.Text + "';";
+
+                NpgsqlCommand RankCmd = new NpgsqlCommand(sql, conn);
+                NpgsqlDataReader reader = RankCmd.ExecuteReader();
+
+                string strWInsCount = string.Empty;
+
+                while (reader.Read())
+                {
+                    strWInsCount = reader[0].ToString();
+                }
+
+                NumOfWins_Textbox.Text = strWInsCount;
+
+                reader.Close();
+
+                string Secsql = "select COUNT(*) from SUPER_CUP T where T.second_place = '" + Runner_UP_Textbox.Text + "' and t.league_year between '2021/22' and '" + League_Year2_textBox.Text + "';";
+
+                NpgsqlCommand SecCmd = new NpgsqlCommand(Secsql, conn);
+                NpgsqlDataReader secreader = SecCmd.ExecuteReader();
+
+                string strSecCount = string.Empty;
+
+                while (secreader.Read())
+                {
+                    strSecCount = secreader[0].ToString();
+                }
+
+                NumOfRunner_Up_Textbox_Copy.Text = strSecCount;
+
+                secreader.Close();
+
+                ImageData image = new ImageData();
+
+                image.SECOND_TEAMNAME = Runner_UP_Textbox.Text.Trim();
+                image.COUNT = strWInsCount;
+                image.TEAMNAME = Champion_Name_Textbox.Text.Trim();
+
+                BitmapImage bitmap = new BitmapImage(new Uri("Image/SUPER_CUP_Team/" + image.TEAMNAME.ToString() + ".png", UriKind.Relative));
+                ImageBrush brush = new ImageBrush(bitmap);
+                imageRec.Fill = brush;
+
+                BitmapImage runbit = new BitmapImage(new Uri("Image/SUPER_CUP_Team/" + image.SECOND_TEAMNAME.ToLower() + ".png", UriKind.Relative));
+                ImageBrush runbrush = new ImageBrush(runbit);
+                Run_imageRec.Fill = runbrush;
+
+                int nCount = int.Parse(image.COUNT);
+
+                if (nCount >= 10 && nCount % 10 == 0)
+                {
+                    BitmapImage bit = new BitmapImage(new Uri("Image/Star/" + image.COUNT.ToString() + ".png", UriKind.Relative));
+                    ImageBrush br = new ImageBrush(bit);
+                    CountStarRec.Fill = br;
+                }
+                else
+                {
+                    BitmapImage bit = new BitmapImage(new Uri("Image/Star/Empty.png", UriKind.Relative));
+                    ImageBrush br = new ImageBrush(bit);
+                    CountStarRec.Fill = br;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    if (conn.State != ConnectionState.Closed)
+                    {
+                        conn.Close();
+                        conn.Dispose();
+                    }
+                }
+            }
         }
 
         private void SearchFunc()

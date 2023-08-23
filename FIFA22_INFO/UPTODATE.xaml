@@ -1,0 +1,78 @@
+﻿<Window x:Class="FIFA22_INFO.UPTODATE"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FIFA22_INFO"
+        mc:Ignorable="d"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Title="UPTODATE" Height="350" Width="800"
+        KeyDown="keyDown_Event">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="100"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Rectangle MouseLeftButtonDown="Rectangle_MouseDown">
+                <Rectangle.Fill>
+                    <SolidColorBrush Color="#4cac35"/>
+                </Rectangle.Fill>
+            </Rectangle>
+            <DockPanel HorizontalAlignment="Left" Width="250">
+                <Image Source="Resources/FIFA22.png" Stretch="Fill" Width="220" Height="47"/>
+            </DockPanel>
+            <DockPanel HorizontalAlignment="Right">
+                <Button x:Name="ToMiniButton" Margin="0,0,5,0" 
+                        Click="ToMiniButton_Click"
+                        Width="25"
+                        Height="25"
+                        Background="#4cac35"
+                        BorderThickness="0">
+                    <Image Source="Resources/Minimization.png" Stretch="fill"/>
+                </Button>
+                <Button x:Name="CloseButton" Margin="0,0,30,0"
+                        Click="CloseButton_Click"
+                        Width="25"
+                        Height="25"
+                        Background="#4cac35"
+                        BorderThickness="0">
+                    <Image Source="Resources/Close.png" Stretch="fill"/>
+                </Button>
+            </DockPanel>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <ComboBox x:Name="LeagueOption_comboBox" HorizontalAlignment="Left" Margin="69,0,0,0" VerticalAlignment="Center" Width="158"/>
+            <Label x:Name="label" HorizontalAlignment="Left" VerticalAlignment="Top"
+                       FontSize="20"
+                       >
+                <Label x:Name="label3" Content="INSERT"/>
+            </Label>
+            <Button x:Name="Update_Button" Content="Update" HorizontalAlignment="Left" Margin="721,45,0,0" VerticalAlignment="Top" Height="45" Width="60" Click="Update_Click"/>
+            <Label x:Name="label2" Content="OPTION" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center"/>
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <Label x:Name="label1" HorizontalAlignment="Left" VerticalAlignment="Top"
+                       FontSize="20"
+                       >
+                <Label x:Name="label31" Content="DELETE"/>
+            </Label>
+            <ComboBox x:Name="Delete_LeagueOption_comboBox" HorizontalAlignment="Left" Margin="69,0,0,0" VerticalAlignment="Center" Width="158"/>
+            <Label x:Name="label2_Copy5" Content="OPTION" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center"/>
+        </Grid>
+
+        <Grid Grid.Row="3">
+            <Label x:Name="label22" HorizontalAlignment="Left" VerticalAlignment="Top"
+                       FontSize="20"
+                       >
+                <Label x:Name="label32" Content="UPDATE"/>
+            </Label>
+        </Grid>
+    </Grid>
+</Window>

@@ -276,7 +276,6 @@ namespace FIFA22_INFO
             catch(Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-
             }
 
             string Ranksql = "select rank() over( order by t.CHAMPIONS_LEAGUE_WINNER_CNT desc) Ranking, t.team_name, t.CHAMPIONS_LEAGUE_WINNER_CNT , t.CHAMPIONS_LEAGUE_RUN_CNT  " +

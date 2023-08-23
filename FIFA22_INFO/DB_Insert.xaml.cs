@@ -76,6 +76,24 @@ namespace FIFA22_INFO
             Delete_LeagueOption_comboBox.Items.Add("LALIGA_SANTANDER");        // 12
 
             Delete_LeagueOption_comboBox.SelectedIndex = 0;
+
+            Update_LeagueOption_comboBox.Items.Add("PREMIER_LEAGUE");          // 0
+            Update_LeagueOption_comboBox.Items.Add("EMIRATES_FA_CUP");         // 1
+            Update_LeagueOption_comboBox.Items.Add("CARABAO_CUP");             // 2
+
+            Update_LeagueOption_comboBox.Items.Add("CHAMPIONS_LEAGUE");        // 3
+            Update_LeagueOption_comboBox.Items.Add("EUROPA_LEAGUE");           // 4
+            Update_LeagueOption_comboBox.Items.Add("CONFERENCE_LEAGUE");       // 5
+            Update_LeagueOption_comboBox.Items.Add("SUPER_CUP");               // 6
+
+            Update_LeagueOption_comboBox.Items.Add("LIGUE1_UBER_EATS");        // 7
+            Update_LeagueOption_comboBox.Items.Add("BUNDESLIGA");              // 8
+            Update_LeagueOption_comboBox.Items.Add("SERIE_A");                 // 9
+            Update_LeagueOption_comboBox.Items.Add("EREDIVISIE");              // 10
+            Update_LeagueOption_comboBox.Items.Add("LIGA_PORTUGAL");         // 11
+            Update_LeagueOption_comboBox.Items.Add("LALIGA_SANTANDER");        // 12
+
+            Update_LeagueOption_comboBox.SelectedIndex = 0;
         }
 
         private void ToMiniButton_Click(object sender, RoutedEventArgs e)
@@ -440,8 +458,6 @@ namespace FIFA22_INFO
             {
                 MessageBox.Show(ex.Message, "Postgresql Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-
-
         }
 
         // LIGUE1_UBER_EATS, BUNDESLIGA, SERIE_A, EREDIVISIE, LIGA_PORTUGAL, LALIGA_SANTANDER
@@ -465,23 +481,22 @@ namespace FIFA22_INFO
 
                 string sInsertRankingSql = string.Empty;
 
-
                 if (ns1 == -1)
                 {
                     sInsertRankingSql = "insert into " + sOption + "_RANKING  (TEAM_NAME, CHAMPIONS_CNT, SECOND_PLACE_CNT, THIRD_PLACE_CNT, FOURTH_PLACE_CNT) values ('" + s1 + "', 0,0,0,0);";
                     mNonTeamList.Add(sInsertRankingSql);
                 }
-                else if(ns2 == -1)
+                if(ns2 == -1)
                 {
                     sInsertRankingSql = "insert into " + sOption + "_RANKING  (TEAM_NAME, CHAMPIONS_CNT, SECOND_PLACE_CNT, THIRD_PLACE_CNT, FOURTH_PLACE_CNT) values ('" + s2 + "', 0,0,0,0);";
                     mNonTeamList.Add(sInsertRankingSql);
                 }
-                else if(ns3 == -1)
+                if(ns3 == -1)
                 {
                     sInsertRankingSql = "insert into " + sOption + "_RANKING  (TEAM_NAME, CHAMPIONS_CNT, SECOND_PLACE_CNT, THIRD_PLACE_CNT, FOURTH_PLACE_CNT) values ('" + s3 + "', 0,0,0,0);";
                     mNonTeamList.Add(sInsertRankingSql);
                 }
-                else if(ns4 == -1)
+                if(ns4 == -1)
                 {
                     // insert into LIGA_PORTUGAL_RANKING (TEAM_NAME, CHAMPIONS_CNT, SECOND_PLACE_CNT, THIRD_PLACE_CNT, FOURTH_PLACE_CNT) values ('VITORIA SC',1,1,4,2); 
                     sInsertRankingSql = "insert into " + sOption + "_RANKING  (TEAM_NAME, CHAMPIONS_CNT, SECOND_PLACE_CNT, THIRD_PLACE_CNT, FOURTH_PLACE_CNT) values ('" + s4 + "', 0,0,0,0);";
@@ -755,6 +770,11 @@ namespace FIFA22_INFO
             {
                 InsertFunc();
             }
+        }
+
+        private void UPDATE_button_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
