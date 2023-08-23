@@ -335,8 +335,8 @@ namespace FIFA22_INFO
         // Premier_League, EMIRATES_FA_CUP, CARABAO_CUP, CHAMPIONS_LEAGUE, EUROPA_LEAGUE, CONFERENCE_CUP, SUPER CUP
         private void UpdateTotal(int n, string s1, string s2)
         {
+            
             NpgsqlConnection conn = new NpgsqlConnection(MainWindow.mConnString);
-
             conn.Open();
 
             string sOption = string.Empty;
@@ -408,8 +408,23 @@ namespace FIFA22_INFO
 
             while(reader.Read())
             {
-                nChampionsCnt = int.Parse(reader[0].ToString());
-                nRunnerUpCnt = int.Parse(reader[1].ToString());
+                if (reader[0] != DBNull.Value)
+                {
+                    nChampionsCnt = int.Parse(reader[0].ToString());
+                }
+                else
+                {
+                    nChampionsCnt = 0;
+                }
+
+                if (reader[1] != DBNull.Value)
+                {
+                    nRunnerUpCnt = int.Parse(reader[1].ToString());
+                }
+                else
+                {
+                    nRunnerUpCnt = 0;
+                }
             }
 
             reader.Close();
@@ -480,6 +495,7 @@ namespace FIFA22_INFO
                 int ns4 = mTeamList.IndexOf(s4);
 
                 string sInsertRankingSql = string.Empty;
+                mNonTeamList.Clear();
 
                 if (ns1 == -1)
                 {
@@ -774,7 +790,90 @@ namespace FIFA22_INFO
 
         private void UPDATE_button_Click(object sender, RoutedEventArgs e)
         {
+            UpdateFunc();
+        }
 
+        private void Update_LeagueOption_comboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int selectedIndex = Update_LeagueOption_comboBox.SelectedIndex;
+
+            Update_Vice_LeagueOption_comboBox.Items.Clear();
+
+            if (selectedIndex >= 0 && selectedIndex <= 6)
+            {
+                Update_Vice_LeagueOption_comboBox.Items.Add("league_year");
+                Update_Vice_LeagueOption_comboBox.Items.Add("champions");
+                Update_Vice_LeagueOption_comboBox.Items.Add("second_place");
+                Update_Vice_LeagueOption_comboBox.Items.Add("remark");
+            }
+            else
+            {
+                Update_Vice_LeagueOption_comboBox.Items.Add("league_year");
+                Update_Vice_LeagueOption_comboBox.Items.Add("champions");
+                Update_Vice_LeagueOption_comboBox.Items.Add("second_place");
+                Update_Vice_LeagueOption_comboBox.Items.Add("third_place");
+                Update_Vice_LeagueOption_comboBox.Items.Add("fourth_place");
+                Update_Vice_LeagueOption_comboBox.Items.Add("remark");
+            }
+        }
+
+        private void UpdateFunc()
+        {
+            NpgsqlConnection conn = new NpgsqlConnection(MainWindow.mConnString);
+            conn.Open();
+            
+            string Updatesql = "Update " + Update_LeagueOption_comboBox.Text + " set " + Update_Vice_LeagueOption_comboBox.Text + " = '" + UpdateContent_textBox.Text + "' where league_year = '" + Condition_textBox.Text + "';";
+
+            try
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand(Updatesql, conn);
+                cmd.ExecuteNonQuery();
+
+                MessageBox.Show("업데이트가 완료되었습니다.", "Update" , MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void Content_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void Condition_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
+            string str = string.Empty;
+
+            int N = UpdateContent_textBox.Text.Length;
+        }
+
+        private void Condition_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            int n = Condition_textBox.Text.Length;
+            string str = string.Empty;
+
+            if (n == 4)
+            {
+                str = Condition_textBox.Text.Substring(2, 2);
+                int df = int.Parse(str) + 1;
+                if (df == 100)
+                {
+                    df = 0;
+                }
+                Condition_textBox.Text += "/" + df.ToString().PadLeft(2, '0');
+            }
+        }
+
+        private void Condition_KeyEvent(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                UpdateFunc();
+            }
         }
     }
 }

@@ -10,7 +10,6 @@
         Title="MainWindow" Height="920" Width="1420"
         KeyDown="keyDown_Event">
     <Grid>
-
         <Grid.RowDefinitions>
             <RowDefinition Height="120"/>
             <RowDefinition Height="700"/>

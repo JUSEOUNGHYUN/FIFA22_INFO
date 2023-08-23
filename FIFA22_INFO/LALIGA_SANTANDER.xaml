@@ -191,7 +191,7 @@
                                     <Setter Property="BorderThickness" Value="0.5"/>
                                 </Style>
                             </DataGridTemplateColumn.HeaderStyle>
-                            <DataGridTemplateColumn.CellTemplate >
+                            <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <Image>
                                         <Image.Style>
@@ -220,6 +220,9 @@
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="SEVILLA FC">
                                                         <Setter Property="Source" Value="Resources/SEVILLA FC.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="UD ALMERIA">
+                                                        <Setter Property="Source" Value="Resources/UD ALMERIA.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="VALENCIA CF">
                                                         <Setter Property="Source" Value="Resources/VALENCIA CF.png"/>
@@ -264,7 +267,7 @@
                                     <Setter Property="BorderThickness" Value="0.5"/>
                                 </Style>
                             </DataGridTemplateColumn.HeaderStyle>
-                            <DataGridTemplateColumn.CellTemplate >
+                            <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <Image>
                                         <Image.Style>
@@ -293,6 +296,9 @@
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Second_Place}" Value="SEVILLA FC">
                                                         <Setter Property="Source" Value="Resources/SEVILLA FC.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="UD ALMERIA">
+                                                        <Setter Property="Source" Value="Resources/UD ALMERIA.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Second_Place}" Value="VALENCIA CF">
                                                         <Setter Property="Source" Value="Resources/VALENCIA CF.png"/>
@@ -337,7 +343,7 @@
                                     <Setter Property="BorderThickness" Value="0.5"/>
                                 </Style>
                             </DataGridTemplateColumn.HeaderStyle>
-                            <DataGridTemplateColumn.CellTemplate >
+                            <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <Image>
                                         <Image.Style>
@@ -366,6 +372,9 @@
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Third_Place}" Value="SEVILLA FC">
                                                         <Setter Property="Source" Value="Resources/SEVILLA FC.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Third_Place}" Value="UD ALMERIA">
+                                                        <Setter Property="Source" Value="Resources/UD ALMERIA.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Third_Place}" Value="VALENCIA CF">
                                                         <Setter Property="Source" Value="Resources/VALENCIA CF.png"/>
@@ -410,7 +419,7 @@
                                     <Setter Property="BorderThickness" Value="0.5"/>
                                 </Style>
                             </DataGridTemplateColumn.HeaderStyle>
-                            <DataGridTemplateColumn.CellTemplate >
+                            <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <Image>
                                         <Image.Style>
@@ -439,6 +448,9 @@
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Fourth_Place}" Value="SEVILLA FC">
                                                         <Setter Property="Source" Value="Resources/SEVILLA FC.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Fourth_Place}" Value="UD ALMERIA">
+                                                        <Setter Property="Source" Value="Resources/UD ALMERIA.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Fourth_Place}" Value="VALENCIA CF">
                                                         <Setter Property="Source" Value="Resources/VALENCIA CF.png"/>
@@ -536,7 +548,7 @@
                                     <Setter Property="BorderThickness" Value="0.5"/>
                                 </Style>
                             </DataGridTemplateColumn.HeaderStyle>
-                            <DataGridTemplateColumn.CellTemplate >
+                            <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <Image>
                                         <Image.Style>
@@ -565,6 +577,9 @@
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="SEVILLA FC">
                                                         <Setter Property="Source" Value="Resources/SEVILLA FC.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="UD ALMERIA">
+                                                        <Setter Property="Source" Value="Resources/UD ALMERIA.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="VALENCIA CF">
                                                         <Setter Property="Source" Value="Resources/VALENCIA CF.png"/>

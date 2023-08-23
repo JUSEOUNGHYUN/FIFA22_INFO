@@ -194,7 +194,7 @@
                                     <Setter Property="BorderThickness" Value="0.5"/>
                                 </Style>
                             </DataGridTemplateColumn.HeaderStyle>
-                            <DataGridTemplateColumn.CellTemplate >
+                            <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <Image>
                                         <Image.Style>
@@ -205,6 +205,9 @@
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="AEK ATHENS">
                                                         <Setter Property="Source" Value="Resources/AEK ATHENS.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="AFC BOURNEMOUTH">
+                                                        <Setter Property="Source" Value="Resources/AFC BOURNEMOUTH.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="AJAX">
                                                         <Setter Property="Source" Value="Resources/AJAX.png"/>
@@ -218,11 +221,11 @@
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="AS ROMA">
                                                         <Setter Property="Source" Value="Resources/AS ROMA.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="ASTON VILLA">
-                                                        <Setter Property="Source" Value="Resources/ASTON VILLA.png"/>
-                                                    </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="AS SAINT-ETIENNE">
                                                         <Setter Property="Source" Value="Resources/AS SAINT-ETIENNE.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="ASTON VILLA">
+                                                        <Setter Property="Source" Value="Resources/ASTON VILLA.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="AT MADRID">
                                                         <Setter Property="Source" Value="Resources/AT MADRID.png"/>
@@ -236,11 +239,23 @@
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="AZ">
                                                         <Setter Property="Source" Value="Resources/AZ.png"/>
                                                     </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="BARNSLEY">
+                                                        <Setter Property="Source" Value="Resources/BARNSLEY.png"/>
+                                                    </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="BAYERN MUNCHEN">
                                                         <Setter Property="Source" Value="Resources/BAYERN MUNCHEN.png"/>
                                                     </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="BELENENSES SAD">
+                                                        <Setter Property="Source" Value="Resources/BELENENSES SAD.png"/>
+                                                    </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="BESIKTAS">
                                                         <Setter Property="Source" Value="Resources/BESIKTAS.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="BIRMINGHAM CITY">
+                                                        <Setter Property="Source" Value="Resources/BIRMINGHAM CITY.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="BLACKBURN ROVERS">
+                                                        <Setter Property="Source" Value="Resources/BLACKBURN ROVERS.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="BOAVISTA FC">
                                                         <Setter Property="Source" Value="Resources/BOAVISTA FC.png"/>
@@ -257,6 +272,12 @@
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="BRIGHTON">
                                                         <Setter Property="Source" Value="Resources/BRIGHTON.png"/>
                                                     </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="BRISTOL CITY">
+                                                        <Setter Property="Source" Value="Resources/BRISTOL CITY.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="BURNLEY">
+                                                        <Setter Property="Source" Value="Resources/BURNLEY.png"/>
+                                                    </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="CA OSASUNA">
                                                         <Setter Property="Source" Value="Resources/CA OSASUNA.png"/>
                                                     </DataTrigger>
@@ -265,6 +286,9 @@
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="CAGLIARI">
                                                         <Setter Property="Source" Value="Resources/CAGLIARI.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="CARDIFF CITY">
+                                                        <Setter Property="Source" Value="Resources/CARDIFF CITY.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="CELTIC">
                                                         <Setter Property="Source" Value="Resources/CELTIC.png"/>
@@ -278,8 +302,14 @@
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="CLUB BRUGGE">
                                                         <Setter Property="Source" Value="Resources/CLUB BRUGGE.png"/>
                                                     </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="COVENTRY CITY">
+                                                        <Setter Property="Source" Value="Resources/COVENTRY CITY.png"/>
+                                                    </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="CRYSTAL PALACE">
                                                         <Setter Property="Source" Value="Resources/CRYSTAL PALACE.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="DERBY COUNTY">
+                                                        <Setter Property="Source" Value="Resources/DERBY COUNTY.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="DINAMO ZAGREB">
                                                         <Setter Property="Source" Value="Resources/DINAMO ZAGREB.png"/>
@@ -311,20 +341,29 @@
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="FC LORIENT">
                                                         <Setter Property="Source" Value="Resources/FC LORIENT.png"/>
                                                     </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="FC METZ">
+                                                        <Setter Property="Source" Value="Resources/FC METZ.png"/>
+                                                    </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="FC MIDTJYLLAND">
                                                         <Setter Property="Source" Value="Resources/FC MIDTJYLLAND.png"/>
                                                     </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="FC NANTES">
+                                                        <Setter Property="Source" Value="Resources/FC NANTES.png"/>
+                                                    </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="FC PORTO">
                                                         <Setter Property="Source" Value="Resources/FC PORTO.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="FC SCHALKE 04">
+                                                        <Setter Property="Source" Value="Resources/FC SCHALKE 04.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="FC TWENTE">
+                                                        <Setter Property="Source" Value="Resources/FC TWENTE.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="FC UTRECHT">
                                                         <Setter Property="Source" Value="Resources/FC UTRECHT.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="FCSB">
                                                         <Setter Property="Source" Value="Resources/FCSB.png"/>
-                                                    </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="FC SCHALKE 04">
-                                                        <Setter Property="Source" Value="Resources/FC SCHALKE 04.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="FENERBAHCE">
                                                         <Setter Property="Source" Value="Resources/FENERBAHCE.png"/>
@@ -368,11 +407,26 @@
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="HAJDUK SPLIT">
                                                         <Setter Property="Source" Value="Resources/HAJDUK SPLIT.png"/>
                                                     </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="HARTLEPOOL">
+                                                        <Setter Property="Source" Value="Resources/HARTLEPOOL.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="HELLAS VERONA">
+                                                        <Setter Property="Source" Value="Resources/HELLAS VERONA.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="HERACLES ALMELO">
+                                                        <Setter Property="Source" Value="Resources/HERACLES ALMELO.png"/>
+                                                    </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="HERTHA BERLIN">
                                                         <Setter Property="Source" Value="Resources/HERTHA BERLIN.png"/>
                                                     </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="HUDDERSFIELD">
+                                                        <Setter Property="Source" Value="Resources/HUDDERSFIELD.png"/>
+                                                    </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="INTER MILAN">
                                                         <Setter Property="Source" Value="Resources/INTER MILAN.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="IPSWICH">
+                                                        <Setter Property="Source" Value="Resources/IPSWICH.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="JUVENTUS">
                                                         <Setter Property="Source" Value="Resources/JUVENTUS.png"/>
@@ -386,11 +440,11 @@
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="KRC GENK">
                                                         <Setter Property="Source" Value="Resources/KRC GENK.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="KV OOSTENDE">
-                                                        <Setter Property="Source" Value="Resources/KV OOSTENDE.png"/>
-                                                    </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="KV MECHELEN">
                                                         <Setter Property="Source" Value="Resources/KV MECHELEN.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="KV OOSTENDE">
+                                                        <Setter Property="Source" Value="Resources/KV OOSTENDE.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="LAZIO">
                                                         <Setter Property="Source" Value="Resources/LAZIO.png"/>
@@ -400,6 +454,9 @@
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="LEGIA WARSZAWA">
                                                         <Setter Property="Source" Value="Resources/LEGIA WARSZAWA.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="LEICESTER CITY">
+                                                        <Setter Property="Source" Value="Resources/LEICESTER CITY.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="LEVANTE UD">
                                                         <Setter Property="Source" Value="Resources/LEVANTE UD.png"/>
@@ -413,6 +470,9 @@
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="LOSC LILLE">
                                                         <Setter Property="Source" Value="Resources/LOSC LILLE.png"/>
                                                     </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="LUTON TOWN">
+                                                        <Setter Property="Source" Value="Resources/LUTON TOWN.png"/>
+                                                    </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="MANCHESTER CITY">
                                                         <Setter Property="Source" Value="Resources/MANCHESTER CITY.png"/>
                                                     </DataTrigger>
@@ -421,6 +481,15 @@
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="MARITIMO">
                                                         <Setter Property="Source" Value="Resources/MARITIMO.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="MIDDLESBROUGH">
+                                                        <Setter Property="Source" Value="Resources/MIDDLESBROUGH.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="MILLWALL">
+                                                        <Setter Property="Source" Value="Resources/MILLWALL.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="MK DONS">
+                                                        <Setter Property="Source" Value="Resources/MK DONS.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="MONCHENGLADBACH">
                                                         <Setter Property="Source" Value="Resources/MONCHENGLADBACH.png"/>
@@ -431,8 +500,17 @@
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="NAPOLI">
                                                         <Setter Property="Source" Value="Resources/NAPOLI.png"/>
                                                     </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="NEC NIJMEGEN">
+                                                        <Setter Property="Source" Value="Resources/NEC NIJMEGEN.png"/>
+                                                    </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="NEWCASTLE UTD">
                                                         <Setter Property="Source" Value="Resources/NEWCASTLE UTD.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="NORWICH">
+                                                        <Setter Property="Source" Value="Resources/NORWICH.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="NOTTINGHAM FOREST">
+                                                        <Setter Property="Source" Value="Resources/NOTTINGHAM FOREST.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="OGC NICE">
                                                         <Setter Property="Source" Value="Resources/OGC NICE.png"/>
@@ -455,14 +533,26 @@
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="PARIS SG">
                                                         <Setter Property="Source" Value="Resources/PARIS SG.png"/>
                                                     </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="PETERBOROUGH">
+                                                        <Setter Property="Source" Value="Resources/PETERBOROUGH.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="PLYMOUTH ARGYLE">
+                                                        <Setter Property="Source" Value="Resources/PLYMOUTH ARGYLE.png"/>
+                                                    </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="POHANG">
                                                         <Setter Property="Source" Value="Resources/POHANG.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="PORTIMONENSE SC">
                                                         <Setter Property="Source" Value="Resources/PORTIMONENSE SC.png"/>
                                                     </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="PRESTON">
+                                                        <Setter Property="Source" Value="Resources/PRESTON.png"/>
+                                                    </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="PSV">
                                                         <Setter Property="Source" Value="Resources/PSV.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="QPR">
+                                                        <Setter Property="Source" Value="Resources/QPR.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="RB LEIPZIG">
                                                         <Setter Property="Source" Value="Resources/RB LEIPZIG.png"/>
@@ -473,6 +563,9 @@
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="RC CELTA">
                                                         <Setter Property="Source" Value="Resources/RC CELTA.png"/>
                                                     </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="RC LENS">
+                                                        <Setter Property="Source" Value="Resources/RC LENS.png"/>
+                                                    </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="RC STRASBOURG">
                                                         <Setter Property="Source" Value="Resources/RC STRASBOURG.png"/>
                                                     </DataTrigger>
@@ -481,6 +574,9 @@
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="RCD MALLORCA">
                                                         <Setter Property="Source" Value="Resources/RCD MALLORCA.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="READING">
+                                                        <Setter Property="Source" Value="Resources/READING.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="REAL BETIS">
                                                         <Setter Property="Source" Value="Resources/REAL BETIS.png"/>
@@ -506,14 +602,20 @@
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="SC BRAGA">
                                                         <Setter Property="Source" Value="Resources/SC BRAGA.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="SHAKHTAR DONETSK">
-                                                        <Setter Property="Source" Value="Resources/SHAKHTAR DONETSK.png"/>
-                                                    </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="SC FREIBURG">
                                                         <Setter Property="Source" Value="Resources/SC FREIBURG.png"/>
                                                     </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="SC HEERENVEEN">
+                                                        <Setter Property="Source" Value="Resources/SC HEERENVEEN.png"/>
+                                                    </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="SEVILLA FC">
                                                         <Setter Property="Source" Value="Resources/SEVILLA FC.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="SHAKHTAR DONETSK">
+                                                        <Setter Property="Source" Value="Resources/SHAKHTAR DONETSK.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="SHEFFIELD UTD">
+                                                        <Setter Property="Source" Value="Resources/SHEFFIELD UTD.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="SK RAPID WIEN">
                                                         <Setter Property="Source" Value="Resources/SK RAPID WIEN.png"/>
@@ -548,6 +650,15 @@
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="STANDARD LIEGE">
                                                         <Setter Property="Source" Value="Resources/STANDARD LIEGE.png"/>
                                                     </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="STOKE CITY">
+                                                        <Setter Property="Source" Value="Resources/STOKE CITY.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="SWANSEA CITY">
+                                                        <Setter Property="Source" Value="Resources/SWANSEA CITY.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="SWINDON TOWN">
+                                                        <Setter Property="Source" Value="Resources/SWINDON TOWN.png"/>
+                                                    </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="TORINO">
                                                         <Setter Property="Source" Value="Resources/TORINO.png"/>
                                                     </DataTrigger>
@@ -559,6 +670,9 @@
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="UD ALMERIA">
                                                         <Setter Property="Source" Value="Resources/UD ALMERIA.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="UNION BERLIN">
+                                                        <Setter Property="Source" Value="Resources/UNION BERLIN.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="VALENCIA CF">
                                                         <Setter Property="Source" Value="Resources/VALENCIA CF.png"/>
@@ -580,6 +694,9 @@
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="WATFORD">
                                                         <Setter Property="Source" Value="Resources/WATFORD.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="WEST BROM">
+                                                        <Setter Property="Source" Value="Resources/WEST BROM.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="WEST HAM">
                                                         <Setter Property="Source" Value="Resources/WEST HAM.png"/>
@@ -626,397 +743,514 @@
                                     <Setter Property="BorderThickness" Value="0.5"/>
                                 </Style>
                             </DataGridTemplateColumn.HeaderStyle>
-                            <DataGridTemplateColumn.CellTemplate >
+                            <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <Image>
                                         <Image.Style>
                                             <Style TargetType="{x:Type Image}">
                                                 <Style.Triggers>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="AC MILAN">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="AC MILAN">
                                                         <Setter Property="Source" Value="Resources/AC MILAN.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="AEK ATHENS">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="AEK ATHENS">
                                                         <Setter Property="Source" Value="Resources/AEK ATHENS.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="AJAX">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="AFC BOURNEMOUTH">
+                                                        <Setter Property="Source" Value="Resources/AFC BOURNEMOUTH.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="AJAX">
                                                         <Setter Property="Source" Value="Resources/AJAX.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="ARSENAL">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="ARSENAL">
                                                         <Setter Property="Source" Value="Resources/ARSENAL.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="AS MONACO">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="AS MONACO">
                                                         <Setter Property="Source" Value="Resources/AS MONACO.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="AS ROMA">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="AS ROMA">
                                                         <Setter Property="Source" Value="Resources/AS ROMA.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="ASTON VILLA">
-                                                        <Setter Property="Source" Value="Resources/ASTON VILLA.png"/>
-                                                    </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="AS SAINT-ETIENNE">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="AS SAINT-ETIENNE">
                                                         <Setter Property="Source" Value="Resources/AS SAINT-ETIENNE.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="AT MADRID">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="ASTON VILLA">
+                                                        <Setter Property="Source" Value="Resources/ASTON VILLA.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="AT MADRID">
                                                         <Setter Property="Source" Value="Resources/AT MADRID.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="ATALANTA">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="ATALANTA">
                                                         <Setter Property="Source" Value="Resources/ATALANTA.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="ATHLETIC CLUB">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="ATHLETIC CLUB">
                                                         <Setter Property="Source" Value="Resources/ATHLETIC CLUB.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="AZ">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="AZ">
                                                         <Setter Property="Source" Value="Resources/AZ.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="BAYERN MUNCHEN">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="BARNSLEY">
+                                                        <Setter Property="Source" Value="Resources/BARNSLEY.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="BAYERN MUNCHEN">
                                                         <Setter Property="Source" Value="Resources/BAYERN MUNCHEN.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="BESIKTAS">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="BELENENSES SAD">
+                                                        <Setter Property="Source" Value="Resources/BELENENSES SAD.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="BESIKTAS">
                                                         <Setter Property="Source" Value="Resources/BESIKTAS.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="BOAVISTA FC">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="BIRMINGHAM CITY">
+                                                        <Setter Property="Source" Value="Resources/BIRMINGHAM CITY.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="BLACKBURN ROVERS">
+                                                        <Setter Property="Source" Value="Resources/BLACKBURN ROVERS.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="BOAVISTA FC">
                                                         <Setter Property="Source" Value="Resources/BOAVISTA FC.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="BOLOGNA">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="BOLOGNA">
                                                         <Setter Property="Source" Value="Resources/BOLOGNA.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="BORUSSIA DORTMUND">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="BORUSSIA DORTMUND">
                                                         <Setter Property="Source" Value="Resources/BORUSSIA DORTMUND.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="BRENTFORD">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="BRENTFORD">
                                                         <Setter Property="Source" Value="Resources/BRENTFORD.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="BRIGHTON">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="BRIGHTON">
                                                         <Setter Property="Source" Value="Resources/BRIGHTON.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="CA OSASUNA">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="BRISTOL CITY">
+                                                        <Setter Property="Source" Value="Resources/BRISTOL CITY.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="BURNLEY">
+                                                        <Setter Property="Source" Value="Resources/BURNLEY.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="CA OSASUNA">
                                                         <Setter Property="Source" Value="Resources/CA OSASUNA.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="CADIZ CF">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="CADIZ CF">
                                                         <Setter Property="Source" Value="Resources/CADIZ CF.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="CAGLIARI">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="CAGLIARI">
                                                         <Setter Property="Source" Value="Resources/CAGLIARI.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="CELTIC">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="CARDIFF CITY">
+                                                        <Setter Property="Source" Value="Resources/CARDIFF CITY.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="CELTIC">
                                                         <Setter Property="Source" Value="Resources/CELTIC.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="CFR CLUJ">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="CFR CLUJ">
                                                         <Setter Property="Source" Value="Resources/CFR CLUJ.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="CHELSEA">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="CHELSEA">
                                                         <Setter Property="Source" Value="Resources/CHELSEA.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="CLUB BRUGGE">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="CLUB BRUGGE">
                                                         <Setter Property="Source" Value="Resources/CLUB BRUGGE.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="CRYSTAL PALACE">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="COVENTRY CITY">
+                                                        <Setter Property="Source" Value="Resources/COVENTRY CITY.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="CRYSTAL PALACE">
                                                         <Setter Property="Source" Value="Resources/CRYSTAL PALACE.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="DINAMO ZAGREB">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="DERBY COUNTY">
+                                                        <Setter Property="Source" Value="Resources/DERBY COUNTY.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="DINAMO ZAGREB">
                                                         <Setter Property="Source" Value="Resources/DINAMO ZAGREB.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="EMPOLI">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="EMPOLI">
                                                         <Setter Property="Source" Value="Resources/EMPOLI.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="EVERTON">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="EVERTON">
                                                         <Setter Property="Source" Value="Resources/EVERTON.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="FARUL CONSTANTA">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="FARUL CONSTANTA">
                                                         <Setter Property="Source" Value="Resources/FARUL CONSTANTA.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="FC BARCELONA">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="FC BARCELONA">
                                                         <Setter Property="Source" Value="Resources/FC BARCELONA.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="FC BASEL 1893">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="FC BASEL 1893">
                                                         <Setter Property="Source" Value="Resources/FC BASEL 1893.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="FC FAMALICAO">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="FC FAMALICAO">
                                                         <Setter Property="Source" Value="Resources/FC FAMALICAO.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="FC GRONINGEN">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="FC GRONINGEN">
                                                         <Setter Property="Source" Value="Resources/FC GRONINGEN.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="FC KOLN">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="FC KOLN">
                                                         <Setter Property="Source" Value="Resources/FC KOLN.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="FC LORIENT">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="FC LORIENT">
                                                         <Setter Property="Source" Value="Resources/FC LORIENT.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="FC MIDTJYLLAND">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="FC METZ">
+                                                        <Setter Property="Source" Value="Resources/FC METZ.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="FC MIDTJYLLAND">
                                                         <Setter Property="Source" Value="Resources/FC MIDTJYLLAND.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="FC PORTO">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="FC NANTES">
+                                                        <Setter Property="Source" Value="Resources/FC NANTES.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="FC PORTO">
                                                         <Setter Property="Source" Value="Resources/FC PORTO.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="FC UTRECHT">
-                                                        <Setter Property="Source" Value="Resources/FC UTRECHT.png"/>
-                                                    </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="FCSB">
-                                                        <Setter Property="Source" Value="Resources/FCSB.png"/>
-                                                    </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="FC SCHALKE 04">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="FC SCHALKE 04">
                                                         <Setter Property="Source" Value="Resources/FC SCHALKE 04.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="FENERBAHCE">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="FC TWENTE">
+                                                        <Setter Property="Source" Value="Resources/FC TWENTE.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="FC UTRECHT">
+                                                        <Setter Property="Source" Value="Resources/FC UTRECHT.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="FCSB">
+                                                        <Setter Property="Source" Value="Resources/FCSB.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="FENERBAHCE">
                                                         <Setter Property="Source" Value="Resources/FENERBAHCE.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="FEYENOORD">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="FEYENOORD">
                                                         <Setter Property="Source" Value="Resources/FEYENOORD.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="FIORENTINA">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="FIORENTINA">
                                                         <Setter Property="Source" Value="Resources/FIORENTINA.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="FK AUSTRIA WIEN">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="FK AUSTRIA WIEN">
                                                         <Setter Property="Source" Value="Resources/FK AUSTRIA WIEN.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="FORTUNA DUSSELDORF">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="FORTUNA DUSSELDORF">
                                                         <Setter Property="Source" Value="Resources/FORTUNA DUSSELDORF.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="FRANKFURT">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="FRANKFURT">
                                                         <Setter Property="Source" Value="Resources/FRANKFURT.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="FSV MAINZ 05">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="FSV MAINZ 05">
                                                         <Setter Property="Source" Value="Resources/FSV MAINZ 05.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="FULHAM">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="FULHAM">
                                                         <Setter Property="Source" Value="Resources/FULHAM.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="GARATASARAY">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="GARATASARAY">
                                                         <Setter Property="Source" Value="Resources/GARATASARAY.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="GENOA">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="GENOA">
                                                         <Setter Property="Source" Value="Resources/GENOA.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="GETAFE CF">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="GETAFE CF">
                                                         <Setter Property="Source" Value="Resources/GETAFE CF.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="GIRONDINS DE BX">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="GIRONDINS DE BX">
                                                         <Setter Property="Source" Value="Resources/GIRONDINS DE BX.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="GRANADA CF">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="GRANADA CF">
                                                         <Setter Property="Source" Value="Resources/GRANADA CF.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="HAJDUK SPLIT">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="HAJDUK SPLIT">
                                                         <Setter Property="Source" Value="Resources/HAJDUK SPLIT.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="HERTHA BERLIN">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="HARTLEPOOL">
+                                                        <Setter Property="Source" Value="Resources/HARTLEPOOL.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="HELLAS VERONA">
+                                                        <Setter Property="Source" Value="Resources/HELLAS VERONA.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="HERACLES ALMELO">
+                                                        <Setter Property="Source" Value="Resources/HERACLES ALMELO.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="HERTHA BERLIN">
                                                         <Setter Property="Source" Value="Resources/HERTHA BERLIN.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="INTER MILAN">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="HUDDERSFIELD">
+                                                        <Setter Property="Source" Value="Resources/HUDDERSFIELD.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="INTER MILAN">
                                                         <Setter Property="Source" Value="Resources/INTER MILAN.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="JUVENTUS">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="IPSWICH">
+                                                        <Setter Property="Source" Value="Resources/IPSWICH.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="JUVENTUS">
                                                         <Setter Property="Source" Value="Resources/JUVENTUS.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="KAA GENT">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="KAA GENT">
                                                         <Setter Property="Source" Value="Resources/KAA GENT.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="KAYSERISPOR">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="KAYSERISPOR">
                                                         <Setter Property="Source" Value="Resources/KAYSERISPOR.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="KRC GENK">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="KRC GENK">
                                                         <Setter Property="Source" Value="Resources/KRC GENK.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="KV OOSTENDE">
-                                                        <Setter Property="Source" Value="Resources/KV OOSTENDE.png"/>
-                                                    </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="KV MECHELEN">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="KV MECHELEN">
                                                         <Setter Property="Source" Value="Resources/KV MECHELEN.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="LAZIO">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="KV OOSTENDE">
+                                                        <Setter Property="Source" Value="Resources/KV OOSTENDE.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="LAZIO">
                                                         <Setter Property="Source" Value="Resources/LAZIO.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="LEEDS UNITED">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="LEEDS UNITED">
                                                         <Setter Property="Source" Value="Resources/LEEDS UNITED.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="LEGIA WARSZAWA">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="LEGIA WARSZAWA">
                                                         <Setter Property="Source" Value="Resources/LEGIA WARSZAWA.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="LEVANTE UD">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="LEICESTER CITY">
+                                                        <Setter Property="Source" Value="Resources/LEICESTER CITY.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="LEVANTE UD">
                                                         <Setter Property="Source" Value="Resources/LEVANTE UD.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="LEVERKUSEN">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="LEVERKUSEN">
                                                         <Setter Property="Source" Value="Resources/LEVERKUSEN.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="LIVERPOOL">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="LIVERPOOL">
                                                         <Setter Property="Source" Value="Resources/LIVERPOOL.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="LOSC LILLE">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="LOSC LILLE">
                                                         <Setter Property="Source" Value="Resources/LOSC LILLE.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="MANCHESTER CITY">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="LUTON TOWN">
+                                                        <Setter Property="Source" Value="Resources/LUTON TOWN.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="MANCHESTER CITY">
                                                         <Setter Property="Source" Value="Resources/MANCHESTER CITY.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="MANCHESTER UTD">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="MANCHESTER UTD">
                                                         <Setter Property="Source" Value="Resources/MANCHESTER UTD.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="MARITIMO">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="MARITIMO">
                                                         <Setter Property="Source" Value="Resources/MARITIMO.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="MONCHENGLADBACH">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="MIDDLESBROUGH">
+                                                        <Setter Property="Source" Value="Resources/MIDDLESBROUGH.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="MILLWALL">
+                                                        <Setter Property="Source" Value="Resources/MILLWALL.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="MK DONS">
+                                                        <Setter Property="Source" Value="Resources/MK DONS.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="MONCHENGLADBACH">
                                                         <Setter Property="Source" Value="Resources/MONCHENGLADBACH.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="MONTPELLIER HSC">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="MONTPELLIER HSC">
                                                         <Setter Property="Source" Value="Resources/MONTPELLIER HSC.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="NAPOLI">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="NAPOLI">
                                                         <Setter Property="Source" Value="Resources/NAPOLI.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="NEWCASTLE UTD">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="NEC NIJMEGEN">
+                                                        <Setter Property="Source" Value="Resources/NEC NIJMEGEN.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="NEWCASTLE UTD">
                                                         <Setter Property="Source" Value="Resources/NEWCASTLE UTD.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="OGC NICE">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="NORWICH">
+                                                        <Setter Property="Source" Value="Resources/NORWICH.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="NOTTINGHAM FOREST">
+                                                        <Setter Property="Source" Value="Resources/NOTTINGHAM FOREST.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="OGC NICE">
                                                         <Setter Property="Source" Value="Resources/OGC NICE.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="OL">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="OL">
                                                         <Setter Property="Source" Value="Resources/OL.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="OLYMPIACOS CFP">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="OLYMPIACOS CFP">
                                                         <Setter Property="Source" Value="Resources/OLYMPIACOS CFP.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="OM">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="OM">
                                                         <Setter Property="Source" Value="Resources/OM.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="PACOS FERREIRA">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="PACOS FERREIRA">
                                                         <Setter Property="Source" Value="Resources/PACOS FERREIRA.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="PAOK">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="PAOK">
                                                         <Setter Property="Source" Value="Resources/PAOK.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="PARIS SG">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="PARIS SG">
                                                         <Setter Property="Source" Value="Resources/PARIS SG.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="POHANG">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="PETERBOROUGH">
+                                                        <Setter Property="Source" Value="Resources/PETERBOROUGH.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="PLYMOUTH ARGYLE">
+                                                        <Setter Property="Source" Value="Resources/PLYMOUTH ARGYLE.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="POHANG">
                                                         <Setter Property="Source" Value="Resources/POHANG.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="PORTIMONENSE SC">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="PORTIMONENSE SC">
                                                         <Setter Property="Source" Value="Resources/PORTIMONENSE SC.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="PSV">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="PRESTON">
+                                                        <Setter Property="Source" Value="Resources/PRESTON.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="PSV">
                                                         <Setter Property="Source" Value="Resources/PSV.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="RB LEIPZIG">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="QPR">
+                                                        <Setter Property="Source" Value="Resources/QPR.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="RB LEIPZIG">
                                                         <Setter Property="Source" Value="Resources/RB LEIPZIG.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="RB SALZBURG">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="RB SALZBURG">
                                                         <Setter Property="Source" Value="Resources/RB SALZBURG.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="RC CELTA">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="RC CELTA">
                                                         <Setter Property="Source" Value="Resources/RC CELTA.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="RC STRASBOURG">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="RC LENS">
+                                                        <Setter Property="Source" Value="Resources/RC LENS.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="RC STRASBOURG">
                                                         <Setter Property="Source" Value="Resources/RC STRASBOURG.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="RCD ESPANYOL">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="RCD ESPANYOL">
                                                         <Setter Property="Source" Value="Resources/RCD ESPANYOL.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="RCD MALLORCA">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="RCD MALLORCA">
                                                         <Setter Property="Source" Value="Resources/RCD MALLORCA.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="REAL BETIS">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="READING">
+                                                        <Setter Property="Source" Value="Resources/READING.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="REAL BETIS">
                                                         <Setter Property="Source" Value="Resources/REAL BETIS.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="REAL MADRID">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="REAL MADRID">
                                                         <Setter Property="Source" Value="Resources/REAL MADRID.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="REAL SOCIEDAD">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="REAL SOCIEDAD">
                                                         <Setter Property="Source" Value="Resources/REAL SOCIEDAD.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="ROYAL ANTWERP FC">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="ROYAL ANTWERP FC">
                                                         <Setter Property="Source" Value="Resources/ROYAL ANTWERP FC.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="RSC ANDERLECHT">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="RSC ANDERLECHT">
                                                         <Setter Property="Source" Value="Resources/RSC ANDERLECHT.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="SAMSUNG FC">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="SAMSUNG FC">
                                                         <Setter Property="Source" Value="Resources/SAMSUNG FC.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="SASSUOLO">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="SASSUOLO">
                                                         <Setter Property="Source" Value="Resources/SASSUOLO.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="SC BRAGA">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="SC BRAGA">
                                                         <Setter Property="Source" Value="Resources/SC BRAGA.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="SHAKHTAR DONETSK">
-                                                        <Setter Property="Source" Value="Resources/SHAKHTAR DONETSK.png"/>
-                                                    </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="SC FREIBURG">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="SC FREIBURG">
                                                         <Setter Property="Source" Value="Resources/SC FREIBURG.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="SEVILLA FC">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="SC HEERENVEEN">
+                                                        <Setter Property="Source" Value="Resources/SC HEERENVEEN.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="SEVILLA FC">
                                                         <Setter Property="Source" Value="Resources/SEVILLA FC.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="SK RAPID WIEN">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="SHAKHTAR DONETSK">
+                                                        <Setter Property="Source" Value="Resources/SHAKHTAR DONETSK.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="SHEFFIELD UTD">
+                                                        <Setter Property="Source" Value="Resources/SHEFFIELD UTD.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="SK RAPID WIEN">
                                                         <Setter Property="Source" Value="Resources/SK RAPID WIEN.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="SK STURM GRAZ">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="SK STURM GRAZ">
                                                         <Setter Property="Source" Value="Resources/SK STURM GRAZ.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="SL BENFICA">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="SL BENFICA">
                                                         <Setter Property="Source" Value="Resources/SL BENFICA.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="SOUTHAMPTON">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="SOUTHAMPTON">
                                                         <Setter Property="Source" Value="Resources/SOUTHAMPTON.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="SP.CHARLEROI">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="SP.CHARLEROI">
                                                         <Setter Property="Source" Value="Resources/SP.CHARLEROI.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="SPARTA PRAHA">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="SPARTA PRAHA">
                                                         <Setter Property="Source" Value="Resources/SPARTA PRAHA.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="SPORTING CP">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="SPORTING CP">
                                                         <Setter Property="Source" Value="Resources/SPORTING CP.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="SPURS">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="SPURS">
                                                         <Setter Property="Source" Value="Resources/SPURS.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="STADE DE REIMS">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="STADE DE REIMS">
                                                         <Setter Property="Source" Value="Resources/STADE DE REIMS.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="STADE RENNAIS FC">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="STADE RENNAIS FC">
                                                         <Setter Property="Source" Value="Resources/STADE RENNAIS FC.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="STANDARD LIEGE">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="STANDARD LIEGE">
                                                         <Setter Property="Source" Value="Resources/STANDARD LIEGE.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="TORINO">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="STOKE CITY">
+                                                        <Setter Property="Source" Value="Resources/STOKE CITY.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="SWANSEA CITY">
+                                                        <Setter Property="Source" Value="Resources/SWANSEA CITY.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="SWINDON TOWN">
+                                                        <Setter Property="Source" Value="Resources/SWINDON TOWN.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="TORINO">
                                                         <Setter Property="Source" Value="Resources/TORINO.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="TRABZONSPOR">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="TRABZONSPOR">
                                                         <Setter Property="Source" Value="Resources/TRABZONSPOR.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="TSG HOFFENHEIM">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="TSG HOFFENHEIM">
                                                         <Setter Property="Source" Value="Resources/TSG HOFFENHEIM.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="UD ALMERIA">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="UD ALMERIA">
                                                         <Setter Property="Source" Value="Resources/UD ALMERIA.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="VALENCIA CF">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="UNION BERLIN">
+                                                        <Setter Property="Source" Value="Resources/UNION BERLIN.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="VALENCIA CF">
                                                         <Setter Property="Source" Value="Resources/VALENCIA CF.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="VFB STUTTGART">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="VFB STUTTGART">
                                                         <Setter Property="Source" Value="Resources/VFB STUTTGART.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="VFL WOLFSBURG">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="VFL WOLFSBURG">
                                                         <Setter Property="Source" Value="Resources/VFL WOLFSBURG.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="VILLARREAL CF">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="VILLARREAL CF">
                                                         <Setter Property="Source" Value="Resources/VILLARREAL CF.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="VITESSE">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="VITESSE">
                                                         <Setter Property="Source" Value="Resources/VITESSE.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="VITORIA SC">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="VITORIA SC">
                                                         <Setter Property="Source" Value="Resources/VITORIA SC.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="WATFORD">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="WATFORD">
                                                         <Setter Property="Source" Value="Resources/WATFORD.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="WEST HAM">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="WEST BROM">
+                                                        <Setter Property="Source" Value="Resources/WEST BROM.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="WEST HAM">
                                                         <Setter Property="Source" Value="Resources/WEST HAM.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="WOLVES">
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="WOLVES">
                                                         <Setter Property="Source" Value="Resources/WOLVES.png"/>
                                                     </DataTrigger>
                                                 </Style.Triggers>
@@ -1080,6 +1314,7 @@
                           CanUserResizeColumns ="False" 
                           HeadersVisibility="Column" 
                         RowHeight="35" Margin="10,0,-10,0" 
+                        MouseDoubleClick="Ranking_MouseDoubleClick"
                           >
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="RAKING" Binding="{Binding Path=Ranking}" Width="50" >
@@ -1113,7 +1348,7 @@
                                     <Setter Property="BorderThickness" Value="0.5"/>
                                 </Style>
                             </DataGridTemplateColumn.HeaderStyle>
-                            <DataGridTemplateColumn.CellTemplate >
+                            <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <Image>
                                         <Image.Style>
@@ -1124,6 +1359,9 @@
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="AEK ATHENS">
                                                         <Setter Property="Source" Value="Resources/AEK ATHENS.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="AFC BOURNEMOUTH">
+                                                        <Setter Property="Source" Value="Resources/AFC BOURNEMOUTH.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="AJAX">
                                                         <Setter Property="Source" Value="Resources/AJAX.png"/>
@@ -1137,11 +1375,11 @@
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="AS ROMA">
                                                         <Setter Property="Source" Value="Resources/AS ROMA.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="ASTON VILLA">
-                                                        <Setter Property="Source" Value="Resources/ASTON VILLA.png"/>
-                                                    </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="AS SAINT-ETIENNE">
                                                         <Setter Property="Source" Value="Resources/AS SAINT-ETIENNE.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="ASTON VILLA">
+                                                        <Setter Property="Source" Value="Resources/ASTON VILLA.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="AT MADRID">
                                                         <Setter Property="Source" Value="Resources/AT MADRID.png"/>
@@ -1155,11 +1393,23 @@
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="AZ">
                                                         <Setter Property="Source" Value="Resources/AZ.png"/>
                                                     </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="BARNSLEY">
+                                                        <Setter Property="Source" Value="Resources/BARNSLEY.png"/>
+                                                    </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="BAYERN MUNCHEN">
                                                         <Setter Property="Source" Value="Resources/BAYERN MUNCHEN.png"/>
                                                     </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="BELENENSES SAD">
+                                                        <Setter Property="Source" Value="Resources/BELENENSES SAD.png"/>
+                                                    </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="BESIKTAS">
                                                         <Setter Property="Source" Value="Resources/BESIKTAS.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="BIRMINGHAM CITY">
+                                                        <Setter Property="Source" Value="Resources/BIRMINGHAM CITY.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="BLACKBURN ROVERS">
+                                                        <Setter Property="Source" Value="Resources/BLACKBURN ROVERS.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="BOAVISTA FC">
                                                         <Setter Property="Source" Value="Resources/BOAVISTA FC.png"/>
@@ -1176,6 +1426,12 @@
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="BRIGHTON">
                                                         <Setter Property="Source" Value="Resources/BRIGHTON.png"/>
                                                     </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="BRISTOL CITY">
+                                                        <Setter Property="Source" Value="Resources/BRISTOL CITY.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="BURNLEY">
+                                                        <Setter Property="Source" Value="Resources/BURNLEY.png"/>
+                                                    </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="CA OSASUNA">
                                                         <Setter Property="Source" Value="Resources/CA OSASUNA.png"/>
                                                     </DataTrigger>
@@ -1185,11 +1441,13 @@
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="CAGLIARI">
                                                         <Setter Property="Source" Value="Resources/CAGLIARI.png"/>
                                                     </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="CARDIFF CITY">
+                                                        <Setter Property="Source" Value="Resources/CARDIFF CITY.png"/>
+                                                    </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="CELTIC">
                                                         <Setter Property="Source" Value="Resources/CELTIC.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="CFR CLUJ">
-                                                        
                                                         <Setter Property="Source" Value="Resources/CFR CLUJ.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="CHELSEA">
@@ -1198,8 +1456,14 @@
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="CLUB BRUGGE">
                                                         <Setter Property="Source" Value="Resources/CLUB BRUGGE.png"/>
                                                     </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="COVENTRY CITY">
+                                                        <Setter Property="Source" Value="Resources/COVENTRY CITY.png"/>
+                                                    </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="CRYSTAL PALACE">
                                                         <Setter Property="Source" Value="Resources/CRYSTAL PALACE.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="DERBY COUNTY">
+                                                        <Setter Property="Source" Value="Resources/DERBY COUNTY.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="DINAMO ZAGREB">
                                                         <Setter Property="Source" Value="Resources/DINAMO ZAGREB.png"/>
@@ -1231,20 +1495,29 @@
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="FC LORIENT">
                                                         <Setter Property="Source" Value="Resources/FC LORIENT.png"/>
                                                     </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="FC METZ">
+                                                        <Setter Property="Source" Value="Resources/FC METZ.png"/>
+                                                    </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="FC MIDTJYLLAND">
                                                         <Setter Property="Source" Value="Resources/FC MIDTJYLLAND.png"/>
                                                     </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="FC NANTES">
+                                                        <Setter Property="Source" Value="Resources/FC NANTES.png"/>
+                                                    </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="FC PORTO">
                                                         <Setter Property="Source" Value="Resources/FC PORTO.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="FC SCHALKE 04">
+                                                        <Setter Property="Source" Value="Resources/FC SCHALKE 04.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="FC TWENTE">
+                                                        <Setter Property="Source" Value="Resources/FC TWENTE.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="FC UTRECHT">
                                                         <Setter Property="Source" Value="Resources/FC UTRECHT.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="FCSB">
                                                         <Setter Property="Source" Value="Resources/FCSB.png"/>
-                                                    </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="FC SCHALKE 04">
-                                                        <Setter Property="Source" Value="Resources/FC SCHALKE 04.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="FENERBAHCE">
                                                         <Setter Property="Source" Value="Resources/FENERBAHCE.png"/>
@@ -1288,11 +1561,26 @@
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="HAJDUK SPLIT">
                                                         <Setter Property="Source" Value="Resources/HAJDUK SPLIT.png"/>
                                                     </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="HARTLEPOOL">
+                                                        <Setter Property="Source" Value="Resources/HARTLEPOOL.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="HELLAS VERONA">
+                                                        <Setter Property="Source" Value="Resources/HELLAS VERONA.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="HERACLES ALMELO">
+                                                        <Setter Property="Source" Value="Resources/HERACLES ALMELO.png"/>
+                                                    </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="HERTHA BERLIN">
                                                         <Setter Property="Source" Value="Resources/HERTHA BERLIN.png"/>
                                                     </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="HUDDERSFIELD">
+                                                        <Setter Property="Source" Value="Resources/HUDDERSFIELD.png"/>
+                                                    </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="INTER MILAN">
                                                         <Setter Property="Source" Value="Resources/INTER MILAN.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="IPSWICH">
+                                                        <Setter Property="Source" Value="Resources/IPSWICH.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="JUVENTUS">
                                                         <Setter Property="Source" Value="Resources/JUVENTUS.png"/>
@@ -1306,11 +1594,11 @@
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="KRC GENK">
                                                         <Setter Property="Source" Value="Resources/KRC GENK.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="KV OOSTENDE">
-                                                        <Setter Property="Source" Value="Resources/KV OOSTENDE.png"/>
-                                                    </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="KV MECHELEN">
                                                         <Setter Property="Source" Value="Resources/KV MECHELEN.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="KV OOSTENDE">
+                                                        <Setter Property="Source" Value="Resources/KV OOSTENDE.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="LAZIO">
                                                         <Setter Property="Source" Value="Resources/LAZIO.png"/>
@@ -1320,6 +1608,9 @@
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="LEGIA WARSZAWA">
                                                         <Setter Property="Source" Value="Resources/LEGIA WARSZAWA.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="LEICESTER CITY">
+                                                        <Setter Property="Source" Value="Resources/LEICESTER CITY.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="LEVANTE UD">
                                                         <Setter Property="Source" Value="Resources/LEVANTE UD.png"/>
@@ -1333,6 +1624,9 @@
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="LOSC LILLE">
                                                         <Setter Property="Source" Value="Resources/LOSC LILLE.png"/>
                                                     </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="LUTON TOWN">
+                                                        <Setter Property="Source" Value="Resources/LUTON TOWN.png"/>
+                                                    </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="MANCHESTER CITY">
                                                         <Setter Property="Source" Value="Resources/MANCHESTER CITY.png"/>
                                                     </DataTrigger>
@@ -1341,6 +1635,15 @@
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="MARITIMO">
                                                         <Setter Property="Source" Value="Resources/MARITIMO.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="MIDDLESBROUGH">
+                                                        <Setter Property="Source" Value="Resources/MIDDLESBROUGH.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="MILLWALL">
+                                                        <Setter Property="Source" Value="Resources/MILLWALL.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="MK DONS">
+                                                        <Setter Property="Source" Value="Resources/MK DONS.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="MONCHENGLADBACH">
                                                         <Setter Property="Source" Value="Resources/MONCHENGLADBACH.png"/>
@@ -1351,8 +1654,17 @@
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="NAPOLI">
                                                         <Setter Property="Source" Value="Resources/NAPOLI.png"/>
                                                     </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="NEC NIJMEGEN">
+                                                        <Setter Property="Source" Value="Resources/NEC NIJMEGEN.png"/>
+                                                    </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="NEWCASTLE UTD">
                                                         <Setter Property="Source" Value="Resources/NEWCASTLE UTD.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="NORWICH">
+                                                        <Setter Property="Source" Value="Resources/NORWICH.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="NOTTINGHAM FOREST">
+                                                        <Setter Property="Source" Value="Resources/NOTTINGHAM FOREST.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="OGC NICE">
                                                         <Setter Property="Source" Value="Resources/OGC NICE.png"/>
@@ -1375,14 +1687,26 @@
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="PARIS SG">
                                                         <Setter Property="Source" Value="Resources/PARIS SG.png"/>
                                                     </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="PETERBOROUGH">
+                                                        <Setter Property="Source" Value="Resources/PETERBOROUGH.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="PLYMOUTH ARGYLE">
+                                                        <Setter Property="Source" Value="Resources/PLYMOUTH ARGYLE.png"/>
+                                                    </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="POHANG">
                                                         <Setter Property="Source" Value="Resources/POHANG.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="PORTIMONENSE SC">
                                                         <Setter Property="Source" Value="Resources/PORTIMONENSE SC.png"/>
                                                     </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="PRESTON">
+                                                        <Setter Property="Source" Value="Resources/PRESTON.png"/>
+                                                    </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="PSV">
                                                         <Setter Property="Source" Value="Resources/PSV.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="QPR">
+                                                        <Setter Property="Source" Value="Resources/QPR.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="RB LEIPZIG">
                                                         <Setter Property="Source" Value="Resources/RB LEIPZIG.png"/>
@@ -1393,6 +1717,9 @@
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="RC CELTA">
                                                         <Setter Property="Source" Value="Resources/RC CELTA.png"/>
                                                     </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="RC LENS">
+                                                        <Setter Property="Source" Value="Resources/RC LENS.png"/>
+                                                    </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="RC STRASBOURG">
                                                         <Setter Property="Source" Value="Resources/RC STRASBOURG.png"/>
                                                     </DataTrigger>
@@ -1401,6 +1728,9 @@
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="RCD MALLORCA">
                                                         <Setter Property="Source" Value="Resources/RCD MALLORCA.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="READING">
+                                                        <Setter Property="Source" Value="Resources/READING.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="REAL BETIS">
                                                         <Setter Property="Source" Value="Resources/REAL BETIS.png"/>
@@ -1426,14 +1756,20 @@
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="SC BRAGA">
                                                         <Setter Property="Source" Value="Resources/SC BRAGA.png"/>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="SHAKHTAR DONETSK">
-                                                        <Setter Property="Source" Value="Resources/SHAKHTAR DONETSK.png"/>
-                                                    </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="SC FREIBURG">
                                                         <Setter Property="Source" Value="Resources/SC FREIBURG.png"/>
                                                     </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="SC HEERENVEEN">
+                                                        <Setter Property="Source" Value="Resources/SC HEERENVEEN.png"/>
+                                                    </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="SEVILLA FC">
                                                         <Setter Property="Source" Value="Resources/SEVILLA FC.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="SHAKHTAR DONETSK">
+                                                        <Setter Property="Source" Value="Resources/SHAKHTAR DONETSK.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="SHEFFIELD UTD">
+                                                        <Setter Property="Source" Value="Resources/SHEFFIELD UTD.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="SK RAPID WIEN">
                                                         <Setter Property="Source" Value="Resources/SK RAPID WIEN.png"/>
@@ -1468,6 +1804,15 @@
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="STANDARD LIEGE">
                                                         <Setter Property="Source" Value="Resources/STANDARD LIEGE.png"/>
                                                     </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="STOKE CITY">
+                                                        <Setter Property="Source" Value="Resources/STOKE CITY.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="SWANSEA CITY">
+                                                        <Setter Property="Source" Value="Resources/SWANSEA CITY.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="SWINDON TOWN">
+                                                        <Setter Property="Source" Value="Resources/SWINDON TOWN.png"/>
+                                                    </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="TORINO">
                                                         <Setter Property="Source" Value="Resources/TORINO.png"/>
                                                     </DataTrigger>
@@ -1479,6 +1824,9 @@
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="UD ALMERIA">
                                                         <Setter Property="Source" Value="Resources/UD ALMERIA.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="UNION BERLIN">
+                                                        <Setter Property="Source" Value="Resources/UNION BERLIN.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="VALENCIA CF">
                                                         <Setter Property="Source" Value="Resources/VALENCIA CF.png"/>
@@ -1500,6 +1848,9 @@
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="WATFORD">
                                                         <Setter Property="Source" Value="Resources/WATFORD.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="WEST BROM">
+                                                        <Setter Property="Source" Value="Resources/WEST BROM.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="WEST HAM">
                                                         <Setter Property="Source" Value="Resources/WEST HAM.png"/>

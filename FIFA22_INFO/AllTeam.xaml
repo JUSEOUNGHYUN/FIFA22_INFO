@@ -15,7 +15,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition Height="40"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="820"/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
             <Rectangle MouseLeftButtonDown="Rectangle_MouseDown">
@@ -48,26 +48,11 @@
             <Button x:Name="Pick_Button" Content="선 택" HorizontalAlignment="Left" Margin="215,4,0,0" VerticalAlignment="Top" Width="60" BorderBrush="Green" BorderThickness="3" Height="24" FontSize="12" />
             <Button x:Name="Cancel_Button" Content="취 소" HorizontalAlignment="Left" Margin="275,4,0,0" VerticalAlignment="Top" Width="60" BorderBrush="Green" BorderThickness="3" Height="24" FontSize="12" Click="Cancel_Click"/>
         </Grid>
-        <Grid Grid.Row="2" Margin="0,0,0,-812">
-            <ScrollViewer HorizontalScrollBarVisibility="Auto"/>
+        <Grid Grid.Row="2" >
             <TreeView x:Name="AllTeam_treeView"
-                    MouseDoubleClick="Treeview_MouseDoubleClick"
-                          >
-                <TreeViewItem Header="PREMIER_LEAGUE">
-                    <TreeViewItem.Items>
-                        <DockPanel>
-                            <Image Source="Resources/AFC BOURNEMOUTH.png" Height="15" Width="15"/>
-                            <TextBlock Margin="5" Foreground="Brown" FontSize="12"  >AFC BOURNEMOUTH</TextBlock>
-                        </DockPanel>
-                        <DockPanel>
-                            <Image Source="Resources/ARSENAL.png" Height="15" Width="15"/>
-                            <TextBlock Margin="5" Foreground="Brown" FontSize="12"  >ARSENAL</TextBlock>
-                        </DockPanel>
-                    </TreeViewItem.Items>
-                </TreeViewItem>
+                    MouseDoubleClick="Treeview_MouseDoubleClick">
                 <TreeView.ItemTemplate>
-                    <HierarchicalDataTemplate DataType="{x:Type local:TeamItem}"
-                                            ItemsSource="{Binding Team_Item}">
+                    <HierarchicalDataTemplate DataType="{x:Type local:TeamItem}" ItemsSource="{Binding Team_Item}">
                         <DockPanel>
                             <Image Height="20" Width="20" Margin="0,0,5,0">
                                 <Image.Style>

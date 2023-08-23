@@ -264,11 +264,11 @@ namespace FIFA22_INFO
                 image.COUNT = strWInsCount;
                 image.TEAMNAME = Champion_Name_Textbox.Text.Trim();
 
-                BitmapImage bitmap = new BitmapImage(new Uri("Image/Conference_League_Team/" + image.TEAMNAME.ToString() + ".png", UriKind.Relative));
+                BitmapImage bitmap = new BitmapImage(new Uri("Resources/" + image.TEAMNAME.ToString() + ".png", UriKind.Relative));
                 ImageBrush brush = new ImageBrush(bitmap);
                 imageRec.Fill = brush;
 
-                BitmapImage runbit = new BitmapImage(new Uri("Image/Conference_League_Team/" + image.SECOND_TEAMNAME.ToLower() + ".png", UriKind.Relative));
+                BitmapImage runbit = new BitmapImage(new Uri("Resources/" + image.SECOND_TEAMNAME.ToLower() + ".png", UriKind.Relative));
                 ImageBrush runbrush = new ImageBrush(runbit);
                 Run_imageRec.Fill = runbrush;
 
@@ -330,6 +330,21 @@ namespace FIFA22_INFO
                 fa.Show();
             }
 
+        }
+
+        private void Ranking_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            int selectedIndex = Ranking_DataGrid.SelectedIndex;
+            CONFERENCE_RANKING ccr = mCONFERENCERANKINGList[selectedIndex];
+
+            string teamName = ccr.CFRTeam_Name.Trim();
+            string sOption = "CONFERENCE_LEAGUE";
+
+            //DataPassProdCd(teamName);
+            TeamCareer tc = new TeamCareer();
+            tc.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            tc.Show();
+            tc.GetTeam(teamName, sOption);
         }
     }
 }

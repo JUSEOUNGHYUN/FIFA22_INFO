@@ -158,7 +158,7 @@
                         CanUserResizeColumns ="False" 
                         HeadersVisibility="Column" 
                         RowHeight="35"
-                          SelectionChanged ="Row_SelectionChanged" 
+                        SelectionChanged ="Row_SelectionChanged" 
                           >
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="YEAR" Binding="{Binding Path=League_Year}" Width="100" IsReadOnly="True">
@@ -522,11 +522,12 @@
 
             <Grid Grid.Column="1">
                 <DataGrid x:Name="Ranking_DataGrid"
-                           AutoGenerateColumns="False" 
-                          CanUserAddRows = "False" 
-                          CanUserResizeColumns ="False" 
-                          HeadersVisibility="Column" 
+                        AutoGenerateColumns="False" 
+                        CanUserAddRows = "False" 
+                        CanUserResizeColumns ="False" 
+                        HeadersVisibility="Column" 
                         RowHeight="35" Margin="10,0,-10,0" 
+                        MouseDoubleClick="Ranking_MouseDoubleClick"  
                           >
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="RAKING" Binding="{Binding Path=Ranking}" Width="50" >

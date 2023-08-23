@@ -1,0 +1,14 @@
+﻿<UserControl x:Class="FIFA22_INFO.LeagueYearTextBox"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FIFA22_INFO"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <TextBox x:Name="LeagueYear_Textbox" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="780" Height="180" CharacterCasing="Upper" PreviewTextInput="YEAR_textBox_PreviewTextInput" MaxLength="7" TextChanged="year_TextChanged"
+                 IsReadOnly="False"/>
+
+    </Grid>
+</UserControl>

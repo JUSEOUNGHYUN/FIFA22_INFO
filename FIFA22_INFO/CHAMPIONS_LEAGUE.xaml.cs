@@ -59,6 +59,9 @@ namespace FIFA22_INFO
         public static List<CHAMPIONSLEAGUE> mCHAMPIONSList = new List<CHAMPIONSLEAGUE>();
         public static List<CHAMPIONSLEAGUE_RANKING> mCHAMPIONSRANKINGList = new List<CHAMPIONSLEAGUE_RANKING>();
 
+        public delegate void DataPassProdCdEventHandler(string strTeamName);
+        public event DataPassProdCdEventHandler DataPassProdCd;
+
         public CHAMPIONS_LEAGUE()
         {
             InitializeComponent();
@@ -104,7 +107,6 @@ namespace FIFA22_INFO
             }
             grdEmployee.ItemsSource = uiList;
             grdEmployee.ScrollIntoView(grdEmployee.Items[grdEmployee.Items.Count - 1]);
-
         }
 
         private void SetDataGridRankingUI()
@@ -328,7 +330,21 @@ namespace FIFA22_INFO
                 sc.WindowStartupLocation = WindowStartupLocation.CenterScreen;
                 sc.Show();
             }
+        }
 
+        private void Ranking_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            int selectedIndex = Ranking_DataGrid.SelectedIndex;
+            CHAMPIONSLEAGUE_RANKING ccr = mCHAMPIONSRANKINGList[selectedIndex];
+
+            string teamName = ccr.CLRTeam_Name.Trim();
+            string sOption = "CHAMPIONS_LEAGUE";
+
+            //DataPassProdCd(teamName);
+            TeamCareer tc = new TeamCareer();
+            tc.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            tc.Show();
+            tc.GetTeam(teamName, sOption);
         }
     }
 }

@@ -183,11 +183,11 @@ namespace FIFA22_INFO
                 image.COUNT = strWInsCount;
                 image.TEAMNAME = Champion_Name_Textbox.Text.Trim();
 
-                BitmapImage bitmap = new BitmapImage(new Uri("Image/SUPER_CUP_Team/" + image.TEAMNAME.ToString() + ".png", UriKind.Relative));
+                BitmapImage bitmap = new BitmapImage(new Uri("Resources/" + image.TEAMNAME.ToString() + ".png", UriKind.Relative));
                 ImageBrush brush = new ImageBrush(bitmap);
                 imageRec.Fill = brush;
 
-                BitmapImage runbit = new BitmapImage(new Uri("Image/SUPER_CUP_Team/" + image.SECOND_TEAMNAME.ToLower() + ".png", UriKind.Relative));
+                BitmapImage runbit = new BitmapImage(new Uri("Resources/" + image.SECOND_TEAMNAME.ToLower() + ".png", UriKind.Relative));
                 ImageBrush runbrush = new ImageBrush(runbit);
                 Run_imageRec.Fill = runbrush;
 
