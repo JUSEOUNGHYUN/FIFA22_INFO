@@ -203,6 +203,9 @@
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="ATHLETIC CLUB">
                                                         <Setter Property="Source" Value="Resources/ATHLETIC CLUB.png"/>
                                                     </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="CA OSASUNA">
+                                                        <Setter Property="Source" Value="Resources/CA OSASUNA.png"/>
+                                                    </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="FC BARCELONA">
                                                         <Setter Property="Source" Value="Resources/FC BARCELONA.png"/>
                                                     </DataTrigger>
@@ -278,6 +281,9 @@
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Second_Place}" Value="ATHLETIC CLUB">
                                                         <Setter Property="Source" Value="Resources/ATHLETIC CLUB.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="CA OSASUNA">
+                                                        <Setter Property="Source" Value="Resources/CA OSASUNA.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Second_Place}" Value="FC BARCELONA">
                                                         <Setter Property="Source" Value="Resources/FC BARCELONA.png"/>
@@ -355,6 +361,9 @@
                                                     <DataTrigger Binding="{Binding Path=Third_Place}" Value="ATHLETIC CLUB">
                                                         <Setter Property="Source" Value="Resources/ATHLETIC CLUB.png"/>
                                                     </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Third_Place}" Value="CA OSASUNA">
+                                                        <Setter Property="Source" Value="Resources/CA OSASUNA.png"/>
+                                                    </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Third_Place}" Value="FC BARCELONA">
                                                         <Setter Property="Source" Value="Resources/FC BARCELONA.png"/>
                                                     </DataTrigger>
@@ -430,6 +439,9 @@
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Fourth_Place}" Value="ATHLETIC CLUB">
                                                         <Setter Property="Source" Value="Resources/ATHLETIC CLUB.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Fourth_Place}" Value="CA OSASUNA">
+                                                        <Setter Property="Source" Value="Resources/CA OSASUNA.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Fourth_Place}" Value="FC BARCELONA">
                                                         <Setter Property="Source" Value="Resources/FC BARCELONA.png"/>
@@ -559,6 +571,9 @@
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="ATHLETIC CLUB">
                                                         <Setter Property="Source" Value="Resources/ATHLETIC CLUB.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="CA OSASUNA">
+                                                        <Setter Property="Source" Value="Resources/CA OSASUNA.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="FC BARCELONA">
                                                         <Setter Property="Source" Value="Resources/FC BARCELONA.png"/>

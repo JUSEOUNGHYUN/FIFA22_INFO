@@ -218,6 +218,9 @@
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="FORTUNA DUSSELDORF">
                                                         <Setter Property="Source" Value="Resources/FORTUNA DUSSELDORF.png"/>
                                                     </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="FORTUNA SITTARD">
+                                                        <Setter Property="Source" Value="Resources/FORTUNA SITTARD.png"/>
+                                                    </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="HERACLES ALMELO">
                                                         <Setter Property="Source" Value="Resources/HERACLES ALMELO.png"/>
                                                     </DataTrigger>
@@ -296,6 +299,9 @@
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Second_Place}" Value="FORTUNA DUSSELDORF">
                                                         <Setter Property="Source" Value="Resources/FORTUNA DUSSELDORF.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="FORTUNA SITTARD">
+                                                        <Setter Property="Source" Value="Resources/FORTUNA SITTARD.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Second_Place}" Value="HERACLES ALMELO">
                                                         <Setter Property="Source" Value="Resources/HERACLES ALMELO.png"/>
@@ -376,6 +382,9 @@
                                                     <DataTrigger Binding="{Binding Path=Third_Place}" Value="FORTUNA DUSSELDORF">
                                                         <Setter Property="Source" Value="Resources/FORTUNA DUSSELDORF.png"/>
                                                     </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Third_Place}" Value="FORTUNA SITTARD">
+                                                        <Setter Property="Source" Value="Resources/FORTUNA SITTARD.png"/>
+                                                    </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Third_Place}" Value="HERACLES ALMELO">
                                                         <Setter Property="Source" Value="Resources/HERACLES ALMELO.png"/>
                                                     </DataTrigger>
@@ -454,6 +463,9 @@
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Fourth_Place}" Value="FORTUNA DUSSELDORF">
                                                         <Setter Property="Source" Value="Resources/FORTUNA DUSSELDORF.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Fourth_Place}" Value="FORTUNA SITTARD">
+                                                        <Setter Property="Source" Value="Resources/FORTUNA SITTARD.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Fourth_Place}" Value="HERACLES ALMELO">
                                                         <Setter Property="Source" Value="Resources/HERACLES ALMELO.png"/>
@@ -586,6 +598,9 @@
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="FORTUNA DUSSELDORF">
                                                         <Setter Property="Source" Value="Resources/FORTUNA DUSSELDORF.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="FORTUNA SITTARD">
+                                                        <Setter Property="Source" Value="Resources/FORTUNA SITTARD.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="HERACLES ALMELO">
                                                         <Setter Property="Source" Value="Resources/HERACLES ALMELO.png"/>

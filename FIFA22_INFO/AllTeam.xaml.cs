@@ -36,7 +36,7 @@ namespace FIFA22_INFO
 
     public class Head_DepthTeam : List<string>
     {
-        public TeamItem[] mMenuItem = new TeamItem[7];
+        public TeamItem[] mMenuItem = new TeamItem[9];
 
         public Head_DepthTeam()
         {
@@ -47,6 +47,8 @@ namespace FIFA22_INFO
             this.Add("EREDIVISIE");
             this.Add("LIGA_PORTUGAL");
             this.Add("LALIGA_SANTANDER");
+            this.Add("JUPILER_PRO_LEAGUE");
+            this.Add("SPOR_TOTO_SUPERLIG");
         }
     }
 
@@ -125,13 +127,14 @@ namespace FIFA22_INFO
 
     public class BUNDESLIGA_TEAM : List<string> 
     {
-        public TeamItem[] mMenuItem = new TeamItem[13];
+        public TeamItem[] mMenuItem = new TeamItem[14];
 
         public BUNDESLIGA_TEAM()
         {
             this.Add("BAYERN MUNCHEN");
             this.Add("BORUSSIA DORTMUND");
             this.Add("FC KOLN");
+            this.Add("FC SCHALKE 04");
             this.Add("FRANKFURT");
             this.Add("FSV MAINZ 05");
             this.Add("HERTHA BERLIN");
@@ -142,8 +145,6 @@ namespace FIFA22_INFO
             this.Add("TSG HOFFENHEIM");
             this.Add("VFB STUTTGART");
             this.Add("VFL WOLFSBURG");
-
-
         }
     }
 
@@ -170,7 +171,7 @@ namespace FIFA22_INFO
 
     public class EREDIVISIE_TEAM : List<string>
     {
-        public TeamItem[] mMenuItem = new TeamItem[12];
+        public TeamItem[] mMenuItem = new TeamItem[13];
 
         public EREDIVISIE_TEAM()
         {
@@ -181,6 +182,7 @@ namespace FIFA22_INFO
             this.Add("FC UTRECHT");
             this.Add("FEYENOORD");
             this.Add("FORTUNA DUSSELDORF");
+            this.Add("FORTUNA SITTARD");
             this.Add("HERACLES ALMELO");
             this.Add("NEC NIJMEGEN");
             this.Add("PSV");
@@ -211,15 +213,17 @@ namespace FIFA22_INFO
 
     public class LALIGA_SANTANDER_TEAM : List<string>
     {
-        public TeamItem[] mMenuItem = new TeamItem[14];
+        public TeamItem[] mMenuItem = new TeamItem[16];
 
         public LALIGA_SANTANDER_TEAM()
         {
             this.Add("AT MADRID");
             this.Add("ATHLETIC CLUB");
+            this.Add("CA OSASUNA");
             this.Add("FC BARCELONA");
             this.Add("GETAFE CF");
             this.Add("GRANADA CF");
+            this.Add("LEVANTE UD");
             this.Add("RC CELTA");
             this.Add("RCD ESPANYOL");
             this.Add("RCD MALLORCA");
@@ -229,6 +233,37 @@ namespace FIFA22_INFO
             this.Add("SEVILLA FC");
             this.Add("VALENCIA CF");
             this.Add("VILLARREAL CF");
+        }
+    }
+
+    public class JUPILER_PRO_LEAGUE : List<string>
+    {
+        public TeamItem[] mMenuItem = new TeamItem[9];
+
+        public JUPILER_PRO_LEAGUE()
+        {
+            this.Add("CLUB BRUGGE");
+            this.Add("RSC ANDERLECHT");
+            this.Add("ROYAL ANTWERP FC");
+            this.Add("SP.CHARLEROI");
+            this.Add("KRC GENK");
+            this.Add("KAA GENT");
+            this.Add("STANDARD LIEGE");
+            this.Add("KV OOSTENDE");
+            this.Add("KV MECHELEN");
+        }
+    }
+
+    public class SPOR_TOTO_SUPERLIG : List<string>
+    {
+        public TeamItem[] mMenuItem = new TeamItem[4];
+
+        public SPOR_TOTO_SUPERLIG()
+        {
+            this.Add("BESIKTAS");
+            this.Add("GARATASARAY");
+            this.Add("TRABZONSPOR");
+            this.Add("FENERBAHCE");
         }
     }
 
@@ -266,8 +301,10 @@ namespace FIFA22_INFO
             EREDIVISIE_TEAM ere = new EREDIVISIE_TEAM();
             LIGA_PORTUGAL_TEAM por = new LIGA_PORTUGAL_TEAM();
             LALIGA_SANTANDER_TEAM laliga = new LALIGA_SANTANDER_TEAM();
+            JUPILER_PRO_LEAGUE jp = new JUPILER_PRO_LEAGUE();
+            SPOR_TOTO_SUPERLIG sts = new SPOR_TOTO_SUPERLIG();
 
-            for(int i=0; i< hs.Count; i++)
+            for (int i=0; i< hs.Count; i++)
             {
                 string str = hs[i];
                 hs.mMenuItem[i] = new TeamItem() { Team_Name = str };
@@ -318,6 +355,19 @@ namespace FIFA22_INFO
                 laliga.mMenuItem[i] = new TeamItem() { Team_Name = str };
                 hs.mMenuItem[6].Team_Item.Add(laliga.mMenuItem[i]);
             }
+            for(int i=0; i<jp.Count; i++)
+            {
+                string str = jp[i];
+                jp.mMenuItem[i] = new TeamItem() { Team_Name = str };
+                hs.mMenuItem[7].Team_Item.Add(jp.mMenuItem[i]);
+            }
+            for(int i=0; i<sts.Count; i++)
+            {
+                string str = sts[i];
+                sts.mMenuItem[i] = new TeamItem() { Team_Name = str};
+                hs.mMenuItem[8].Team_Item.Add(sts.mMenuItem[i]);
+            }
+
         }
 
 

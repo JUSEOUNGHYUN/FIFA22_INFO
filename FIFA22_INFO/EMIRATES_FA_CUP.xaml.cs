@@ -337,5 +337,20 @@ namespace FIFA22_INFO
                 pl.Show();
             }
         }
+
+        private void Ranking_DataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            int selectedIndex = Ranking_DataGrid.SelectedIndex;
+            FACUP_RANKING ccr = mFACUPRANKINGList[selectedIndex];
+
+            string teamName = ccr.RTeam_Name.Trim();
+            string sOption = "EMIRATES_FA_CUP";
+
+            //DataPassProdCd(teamName);
+            TeamCareer tc = new TeamCareer();
+            tc.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            tc.Show();
+            tc.GetTeam(teamName, sOption);
+        }
     }
 }

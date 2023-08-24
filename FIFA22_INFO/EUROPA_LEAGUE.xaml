@@ -1308,12 +1308,14 @@
 
             <Grid Grid.Column="1">
                 <DataGrid x:Name="Ranking_DataGrid"
-                           AutoGenerateColumns="False" 
-                          CanUserAddRows = "False" 
-                          CanUserResizeColumns ="False" 
-                          HeadersVisibility="Column" 
+                        AutoGenerateColumns="False" 
+                        CanUserAddRows = "False" 
+                        CanUserResizeColumns ="False" 
+                        HeadersVisibility="Column" 
                         RowHeight="35" Margin="10,0,-10,0" 
                         MouseDoubleClick="Ranking_MouseDoubleClick" 
+                        KeyDown="Ranking_DataGrid_KeyEvent"
+                         PreviewKeyDown="Ranking_DataGrid_PreviewKeyDown"
                           >
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="RAKING" Binding="{Binding Path=Ranking}" Width="50" >

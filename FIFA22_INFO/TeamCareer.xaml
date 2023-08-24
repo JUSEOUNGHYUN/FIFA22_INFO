@@ -83,6 +83,7 @@
                         HeadersVisibility="Column" 
                         RowHeight="30"
                         ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
+
                     >
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="INDEX" Binding="{Binding Path=Index}" Width="50" >

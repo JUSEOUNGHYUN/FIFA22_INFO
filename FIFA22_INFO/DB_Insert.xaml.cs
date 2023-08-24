@@ -370,38 +370,8 @@ namespace FIFA22_INFO
             int nChampionsCnt = 0;
             int nRunnerUpCnt = 0;
 
-            /*
-            select t.premier_league_run_cnt  from england_total t
-            where t.team_name ='LIVERPOOL';
-             */
-
             sql = "select (select t."+ sOption + "_winner_cnt from "+ sTableName + " t where t.team_name = '" + s1 + "') , " +
                 "(select t."+ sOption + "_run_cnt from "+ sTableName + " t where t.team_name =  '" + s2 + "')";
-            /*
-            switch (selectedIndex)
-            {
-                case 0:
-                    sql = "select t.premier_league_winner_cnt from england_total t where t.team_name = '"
-                        + CHAMPION_textBox.Text + "';";
-                    sql1 = "select t.premier_league_run_cnt from england_total t where t.team_name =  '"
-                        + RUNNERUP_textBox.Text + "';";
-                    break;
-
-                case 1:
-                    sql = "select t.EMIRATES_FA_CUP_WINNER_CNT from england_total t where t.team_name = '"
-                        + CHAMPION_textBox.Text + "';";
-                    sql1 = "select t.EMIRATES_FA_CUP_RUN_CNT from england_total t where t.team_name =  '"
-                        + RUNNERUP_textBox.Text + "';";
-                    break;
-
-                case 2:
-                    sql = "select t.CARABAO_CUP_WINNER_CNT from england_total t where t.team_name = '"
-                        + CHAMPION_textBox.Text + "';";
-                    sql1 = "select t.CARABAO_CUP_RUN_CNT from england_total t where t.team_name =  '"
-                        + RUNNERUP_textBox.Text + "';";
-                    break;
-            }
-             */
 
             NpgsqlCommand cmd = new NpgsqlCommand(sql, conn);
             NpgsqlDataReader reader = cmd.ExecuteReader();
@@ -435,29 +405,6 @@ namespace FIFA22_INFO
             UpdateSql = "update "+ sTableName + " set " + sOption +"_winner_cnt = " + nChampionsCnt.ToString() + " where team_name = '" + s1 + "';";
             UpdateSql1 = "update "+ sTableName + " set " + sOption + "_run_cnt = " + nRunnerUpCnt.ToString() + " where team_name = '" + s2 + "';";
 
-            /*
-            switch (selectedIndex)
-            {
-                case 0:
-                    UpdateSql = "update england_total set premier_league_winner_cnt = " + nChampionsCnt.ToString() + " where team_name = '" + CHAMPION_textBox.Text + "';";
-                    UpdateSql1 = "update england_total set premier_league_run_cnt = " + nRunnerUpCnt.ToString() + " where team_name = '" + RUNNERUP_textBox.Text + "';";
-                    break;
-
-                case 1:
-                    UpdateSql = "update england_total set EMIRATES_FA_CUP_WINNER_CNT = " + nChampionsCnt.ToString() + " where team_name = '" + CHAMPION_textBox.Text + "';";
-                    UpdateSql1 = "update england_total set EMIRATES_FA_CUP_RUN_CNT = " + nRunnerUpCnt.ToString() + " where team_name = '" + RUNNERUP_textBox.Text + "';";
-                    break;
-
-                case 2:
-                    UpdateSql = "update england_total set CARABAO_CUP_WINNER_CNT = " + nChampionsCnt.ToString() + " where team_name = '" + CHAMPION_textBox.Text + "';";
-                    UpdateSql1 = "update england_total set CARABAO_CUP_RUN_CNT = " + nRunnerUpCnt.ToString() + " where team_name = '" + RUNNERUP_textBox.Text + "';";
-                    break;
-
-                default:
-                    break;
-            }
-             */
-            
             try
             {
                 NpgsqlCommand UpdateCommand = new NpgsqlCommand(UpdateSql, conn);
@@ -748,6 +695,11 @@ namespace FIFA22_INFO
             FOUTH_textBox.Text = sTeamName;
         }
 
+        private void UpdateTeamNameReceive(string sTeamName)
+        {
+            TeamName_textBox.Text = sTeamName;
+        }
+
         private void Second_DoubleClick(object sender, MouseButtonEventArgs e)
         {
             AllTeam at = new AllTeam();
@@ -821,8 +773,17 @@ namespace FIFA22_INFO
         {
             NpgsqlConnection conn = new NpgsqlConnection(MainWindow.mConnString);
             conn.Open();
-            
-            string Updatesql = "Update " + Update_LeagueOption_comboBox.Text + " set " + Update_Vice_LeagueOption_comboBox.Text + " = '" + UpdateContent_textBox.Text + "' where league_year = '" + Condition_textBox.Text + "';";
+
+            string Updatesql = string.Empty;
+
+            if (Update_Vice_LeagueOption_comboBox.Text == "remark")
+            {
+                Updatesql = "Update " + Update_LeagueOption_comboBox.Text + " set " + Update_Vice_LeagueOption_comboBox.Text + " = '" + UpdateContent_textBox.Text + " " + TeamName_textBox.Text + "' where league_year = '" + Condition_textBox.Text + "';";
+            }
+            else if(Update_Vice_LeagueOption_comboBox.Text == "champions" || Update_Vice_LeagueOption_comboBox.Text == "second_place" || Update_Vice_LeagueOption_comboBox.Text == "third_place" || Update_Vice_LeagueOption_comboBox.Text == "fourth_place")
+            {
+                Updatesql = "Update " + Update_LeagueOption_comboBox.Text + " set " + Update_Vice_LeagueOption_comboBox.Text + " = '" + TeamName_textBox.Text + "' where league_year = '" + Condition_textBox.Text + "';";
+            }
 
             try
             {
@@ -856,6 +817,7 @@ namespace FIFA22_INFO
             int n = Condition_textBox.Text.Length;
             string str = string.Empty;
 
+
             if (n == 4)
             {
                 str = Condition_textBox.Text.Substring(2, 2);
@@ -866,13 +828,187 @@ namespace FIFA22_INFO
                 }
                 Condition_textBox.Text += "/" + df.ToString().PadLeft(2, '0');
             }
+            if(n==7)
+            {
+                string str1 = Condition_textBox.Text;
+
+                int nCurrentIndex = Condition_textBox.CaretIndex;
+
+                List<string> list = str1.Split('/').ToList();
+
+                int nFirst = 0;
+                int nLast = 0;
+
+                string sFirst = "";
+                string sLast = "";
+                
+                if(nCurrentIndex == 4 || nCurrentIndex == 3)
+                {
+                    //nFirst = int.Parse(list[0]);
+                    nFirst = int.Parse(list[0].Substring(2, 2));
+                    nLast = nFirst + 1;
+                    if(nLast == 100)
+                    {
+                        nLast = 0;
+                    }
+
+                    Condition_textBox.Text = list[0] + "/" + nLast.ToString().PadLeft(2, '0');
+                }
+                else if(nCurrentIndex == 6 || nCurrentIndex == 7)
+                {
+                    int nAllFirst = int.Parse(list[0]);
+                    string sYear = list[0].Substring(0, 2);
+                    nLast = int.Parse(list[1]);
+                    nFirst = nLast - 1;
+                    if(nFirst == -1)
+                    {
+                        nFirst = 99;
+                        int ndf = int.Parse(sYear) - 1;
+                        sYear = ndf.ToString();
+                    }
+
+                    Condition_textBox.Text = sYear + nFirst.ToString().PadLeft(2,'0') + "/" + nLast.ToString().PadLeft(2,'0');
+                }
+            }
         }
 
         private void Condition_KeyEvent(object sender, KeyEventArgs e)
         {
+            string str = Condition_textBox.Text;
+
             if (e.Key == Key.Enter)
             {
                 UpdateFunc();
+            }
+
+        }
+
+        private void TeamName_Textbox_DoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            AllTeam at = new AllTeam();
+            at.DataPassProdCd += new AllTeam.DataPassProdCdEventHandler(UpdateTeamNameReceive);
+            at.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            at.ShowDialog();
+        }
+
+        private void TeamName_Textbox_KeyEvent(object sender, KeyEventArgs e)
+        {
+            if(e.Key == Key.Enter)
+            {
+                AllTeam at = new AllTeam();
+                at.DataPassProdCd += new AllTeam.DataPassProdCdEventHandler(UpdateTeamNameReceive);
+                at.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                at.ShowDialog();
+            }
+        }
+
+        private void TeamName_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^a-z,A-Z]+");
+            if (regex.IsMatch(e.Text))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void Upper_TeamNameTextbox(object sender, TextChangedEventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            textBox.Text = textBox.Text.ToUpper();
+            textBox.CaretIndex = textBox.Text.Length;
+        }
+
+        private void Condition_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            List<string> list = new List<string>();
+
+            string str = Condition_textBox.Text;
+
+            if (e.Key == Key.Up)
+            {
+                if(Condition_textBox.Text == string.Empty)
+                {
+                    Condition_textBox.Text = "2020/21";
+                }
+                else
+                {
+                    list = Condition_textBox.Text.Split('/').ToList();
+
+                    int nFirst = int.Parse(list[0]) + 1;
+                    int nLast = int.Parse(list[1]) + 1;
+
+                    if(nLast == 100)
+                    {
+                        nLast = 0;
+                    }
+
+                    Condition_textBox.Text = nFirst.ToString() + "/" + nLast.ToString().PadLeft(2, '0');
+                }
+            }
+            else if (e.Key == Key.Down)
+            {
+                if (Condition_textBox.Text == string.Empty)
+                {
+                    Condition_textBox.Text = "2020/21";
+                }
+                else
+                {
+                    list = Condition_textBox.Text.Split('/').ToList();
+
+                    int nFirst = int.Parse(list[0]) - 1;
+                    int nLast = int.Parse(list[1]) - 1;
+
+                    if(nLast == -1)
+                    {
+                        nLast = 99;
+                    }
+
+                    Condition_textBox.Text = nFirst.ToString() + "/" + nLast.ToString().PadLeft(2, '0');
+                }
+            }
+        }
+
+        private void Champions_KeyEvent(object sender, KeyEventArgs e)
+        {
+            if(e.Key == Key.Enter)
+            {
+                AllTeam at = new AllTeam();
+                at.DataPassProdCd += new AllTeam.DataPassProdCdEventHandler(TeamNameReceive);
+                at.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                at.ShowDialog();
+            }
+        }
+
+        private void Second_KeyEvent(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                AllTeam at = new AllTeam();
+                at.DataPassProdCd += new AllTeam.DataPassProdCdEventHandler(TeamNameReceive2);
+                at.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                at.ShowDialog();
+            }
+        }
+
+        private void Third_KeyEvent(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                AllTeam at = new AllTeam();
+                at.DataPassProdCd += new AllTeam.DataPassProdCdEventHandler(TeamNameReceive3);
+                at.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                at.ShowDialog();
+            }
+        }
+
+        private void Fourth_KeyEvent(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                AllTeam at = new AllTeam();
+                at.DataPassProdCd += new AllTeam.DataPassProdCdEventHandler(TeamNameReceive4);
+                at.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                at.ShowDialog();
             }
         }
     }

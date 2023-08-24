@@ -209,6 +209,9 @@
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="FRANKFURT">
                                                         <Setter Property="Source" Value="Resources/FRANKFURT.png"/>
                                                     </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="FSV MAINZ 05">
+                                                        <Setter Property="Source" Value="Resources/FSV MAINZ 05.png"/>
+                                                    </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="HERTHA BERLIN">
                                                         <Setter Property="Source" Value="Resources/HERTHA BERLIN.png"/>
                                                     </DataTrigger>
@@ -281,6 +284,9 @@
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Second_Place}" Value="FRANKFURT">
                                                         <Setter Property="Source" Value="Resources/FRANKFURT.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="FSV MAINZ 05">
+                                                        <Setter Property="Source" Value="Resources/FSV MAINZ 05.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Second_Place}" Value="HERTHA BERLIN">
                                                         <Setter Property="Source" Value="Resources/HERTHA BERLIN.png"/>
@@ -355,6 +361,9 @@
                                                     <DataTrigger Binding="{Binding Path=Third_Place}" Value="FRANKFURT">
                                                         <Setter Property="Source" Value="Resources/FRANKFURT.png"/>
                                                     </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Third_Place}" Value="FSV MAINZ 05">
+                                                        <Setter Property="Source" Value="Resources/FSV MAINZ 05.png"/>
+                                                    </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Third_Place}" Value="HERTHA BERLIN">
                                                         <Setter Property="Source" Value="Resources/HERTHA BERLIN.png"/>
                                                     </DataTrigger>
@@ -427,6 +436,9 @@
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Fourth_Place}" Value="FRANKFURT">
                                                         <Setter Property="Source" Value="Resources/FRANKFURT.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Fourth_Place}" Value="FSV MAINZ 05">
+                                                        <Setter Property="Source" Value="Resources/FSV MAINZ 05.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Fourth_Place}" Value="HERTHA BERLIN">
                                                         <Setter Property="Source" Value="Resources/HERTHA BERLIN.png"/>
@@ -553,6 +565,9 @@
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="FRANKFURT">
                                                         <Setter Property="Source" Value="Resources/FRANKFURT.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="FSV MAINZ 05">
+                                                        <Setter Property="Source" Value="Resources/FSV MAINZ 05.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="HERTHA BERLIN">
                                                         <Setter Property="Source" Value="Resources/HERTHA BERLIN.png"/>

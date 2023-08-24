@@ -323,5 +323,19 @@ namespace FIFA22_INFO
                 fa.Show();
             }
         }
+
+        private void Ranking_DataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            int selectedIndex = Ranking_DataGrid.SelectedIndex;
+            CARABAOCUP_RANKING ccr = mCARARANKINGList[selectedIndex];
+
+            string teamName = ccr.CRRanking.Trim();
+            string sOption = "CARABAO_CUP";
+
+            TeamCareer tc = new TeamCareer();
+            tc.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            tc.Show();
+            tc.GetTeam(teamName, sOption);
+        }
     }
 }

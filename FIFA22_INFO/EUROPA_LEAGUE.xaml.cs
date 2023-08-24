@@ -14,6 +14,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using static System.Collections.Specialized.BitVector32;
 
 namespace FIFA22_INFO
 {
@@ -57,6 +58,9 @@ namespace FIFA22_INFO
     {
         public static List<EUROPA> mEUROPAList = new List<EUROPA>();
         public static List<EUROPA_RANKING> mEUROPARANKINGList = new List<EUROPA_RANKING>();
+
+        public string m_sTeamName = string.Empty;
+        public string m_sOption = string.Empty;
 
         public EUROPA_LEAGUE()
         {
@@ -344,14 +348,48 @@ namespace FIFA22_INFO
             int selectedIndex = Ranking_DataGrid.SelectedIndex;
             EUROPA_RANKING ccr = mEUROPARANKINGList[selectedIndex];
 
-            string teamName = ccr.ERTeam_Name.Trim();
-            string sOption = "EUROPA_LEAGUE";
+            m_sTeamName = ccr.ERTeam_Name.Trim();
+            m_sOption = "EUROPA_LEAGUE";
 
             //DataPassProdCd(teamName);
             TeamCareer tc = new TeamCareer();
             tc.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             tc.Show();
-            tc.GetTeam(teamName, sOption);
+            tc.GetTeam(m_sTeamName, m_sOption);
+        }
+
+        private void Ranking_DataGrid_KeyEvent(object sender, KeyEventArgs e)
+        {
+            int selectedIndex = Ranking_DataGrid.SelectedIndex;
+            EUROPA_RANKING ccr = mEUROPARANKINGList[selectedIndex];
+
+            m_sTeamName = ccr.ERTeam_Name.Trim();
+            m_sOption = "EUROPA_LEAGUE";
+
+            if (e.Key == Key.Enter)
+            {
+                TeamCareer tc = new TeamCareer();
+                tc.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                tc.Show();
+                tc.GetTeam(m_sTeamName, m_sOption);
+            }
+        }
+
+        private void Ranking_DataGrid_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            int selectedIndex = Ranking_DataGrid.SelectedIndex;
+            EUROPA_RANKING ccr = mEUROPARANKINGList[selectedIndex];
+
+            m_sTeamName = ccr.ERTeam_Name.Trim();
+            m_sOption = "EUROPA_LEAGUE";
+
+            if (e.Key == Key.Enter)
+            {
+                TeamCareer tc = new TeamCareer();
+                tc.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                tc.Show();
+                tc.GetTeam(m_sTeamName, m_sOption);
+            }
         }
     }
 }

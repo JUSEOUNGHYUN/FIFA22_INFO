@@ -102,7 +102,6 @@ namespace FIFA22_INFO
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-
             }
             finally
             {
@@ -167,5 +166,6 @@ namespace FIFA22_INFO
                 DBSelect("second_place");
             }
         }
+
     }
 }

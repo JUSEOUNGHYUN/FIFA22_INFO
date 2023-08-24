@@ -70,13 +70,14 @@
                      CharacterCasing="Upper"
                      PreviewTextInput="CHAMPION_textBox_PreviewTextInput"
                      MouseDoubleClick="Champion_DoubleClick"
+                     KeyDown="Champions_KeyEvent"
                      />
             <TextBox x:Name="RUNNERUP_textBox" HorizontalAlignment="Left" Margin="548,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="158" CharacterCasing="Upper" PreviewTextInput="RUNNERUP_textBox_PreviewTextInput" 
-                     MouseDoubleClick="Second_DoubleClick"/>
+                     MouseDoubleClick="Second_DoubleClick" KeyDown="Second_KeyEvent"/>
             <TextBox x:Name="THIRD_textBox" HorizontalAlignment="Left" Margin="69,72,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158" CharacterCasing="Upper" PreviewTextInput="THIRD_textBox_PreviewTextInput"
-                      MouseDoubleClick="Third_DoubleClick"/>
+                      MouseDoubleClick="Third_DoubleClick" KeyDown="Third_KeyEvent"/>
             <TextBox x:Name="FOUTH_textBox" HorizontalAlignment="Left" Margin="311,72,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158" CharacterCasing="Upper" PreviewTextInput="FOUTH_textBox_PreviewTextInput"
-                     MouseDoubleClick="Fourth_DoubleClick" />
+                     MouseDoubleClick="Fourth_DoubleClick" KeyDown="Fourth_KeyEvent"/>
             <TextBox x:Name="REMARK_textBox" HorizontalAlignment="Left" Margin="548,72,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158" CharacterCasing="Upper" KeyDown="Remark_KeyDown"/>
         </Grid>
 
@@ -104,11 +105,24 @@
             <Label x:Name="label2_Copy9" Content="OPTION" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="13,0,0,0"/>
             <Label x:Name="label2_Copy8" Content="VICE OPTION" HorizontalAlignment="Left" Margin="13,65,0,0" VerticalAlignment="Top"/>
             <ComboBox x:Name="Update_Vice_LeagueOption_comboBox" HorizontalAlignment="Left" Margin="107,67,0,0" VerticalAlignment="Top" Width="158"/>
-            <Button x:Name="UPDATE_button" Content="UPDATE" HorizontalAlignment="Left" Margin="579,42,0,0" VerticalAlignment="Top" Height="45" Width="60" Click="UPDATE_button_Click"/>
+            <Button x:Name="UPDATE_button" Content="UPDATE" HorizontalAlignment="Left" Margin="712,40,0,0" VerticalAlignment="Top" Height="45" Width="60" Click="UPDATE_button_Click"/>
             <Label x:Name="label2_Copy7" Content="UPDATE CONTENT" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="284,0,0,0"/>
-            <TextBox x:Name="UpdateContent_textBox" HorizontalAlignment="Left" Margin="407,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="159" />
+            <TextBox x:Name="UpdateContent_textBox" HorizontalAlignment="Left" Margin="407,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="99" />
             <Label x:Name="label2_Copy10" Content="CONDITION" HorizontalAlignment="Left" Margin="286,64,0,0" VerticalAlignment="Top"/>
-            <TextBox x:Name="Condition_textBox" HorizontalAlignment="Left" Margin="407,69,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="159" CharacterCasing="Upper" PreviewTextInput="Condition_PreviewTextInput" MaxLength="7" TextChanged="Condition_TextChanged" KeyDown="Condition_KeyEvent"/>
+            <TextBox x:Name="TeamName_textBox" 
+                     HorizontalAlignment="Left" 
+                     Margin="511,0,0,0" 
+                     TextWrapping="Wrap" 
+                     VerticalAlignment="Center" 
+                     Width="136" 
+                     MouseDoubleClick="TeamName_Textbox_DoubleClick" 
+                     KeyDown="TeamName_Textbox_KeyEvent" 
+                     PreviewTextInput="TeamName_PreviewTextInput"
+                     TextChanged="Upper_TeamNameTextbox"
+                     />
+            <TextBox x:Name="Condition_textBox" HorizontalAlignment="Left" Margin="407,69,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="159" CharacterCasing="Upper" PreviewTextInput="Condition_PreviewTextInput" MaxLength="7" TextChanged="Condition_TextChanged" KeyDown="Condition_KeyEvent"
+                     PreviewKeyDown="Condition_PreviewKeyDown"
+                     />
 
         </Grid>
     </Grid>
