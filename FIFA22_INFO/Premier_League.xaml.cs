@@ -60,11 +60,12 @@ namespace FIFA22_INFO
         public static List<PREMIER> mPREMEIRList = new List<PREMIER>();
         public static List<PREMIER_RANKING> mPRERANKINGList = new List<PREMIER_RANKING>();
 
+        public string m_sTeamName = string.Empty;
+        public string m_sOption = string.Empty;
+
         public Premier_League()
         {
             InitializeComponent();
-
-
         }
 
         private void ToMiniButton_Click(object sender, RoutedEventArgs e)
@@ -348,6 +349,39 @@ namespace FIFA22_INFO
                 CARABAO_CUP cc = new CARABAO_CUP();
                 cc.WindowStartupLocation = WindowStartupLocation.CenterScreen;
                 cc.Show();
+            }
+        }
+
+        private void Ranking_DataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            int selectedIndex = Ranking_DataGrid.SelectedIndex;
+            PREMIER_RANKING ccr = mPRERANKINGList[selectedIndex];
+
+            string teamName = ccr.LTeam_Name.Trim();
+            string sOption = "PREMIER_LEAGUE";
+
+            //DataPassProdCd(teamName);
+            TeamCareer tc = new TeamCareer();
+            tc.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            tc.Show();
+            tc.GetTeam(teamName, sOption);
+        }
+
+        private void Ranking_DataGrid_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            int selectedIndex = Ranking_DataGrid.SelectedIndex;
+            PREMIER_RANKING ccr = mPRERANKINGList[selectedIndex];
+
+            string teamName = ccr.LTeam_Name.Trim();
+            string sOption = "PREMIER_LEAGUE";
+
+            if(e.Key == Key.Enter)
+            {
+                //DataPassProdCd(teamName);
+                TeamCareer tc = new TeamCareer();
+                tc.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                tc.Show();
+                tc.GetTeam(teamName, sOption);
             }
         }
     }

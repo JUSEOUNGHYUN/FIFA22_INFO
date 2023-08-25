@@ -564,6 +564,7 @@
                           HeadersVisibility="Column" 
                         RowHeight="35" Margin="10,0,-10,0" 
                           MouseDoubleClick="Ranking_DataGrid_MouseDoubleClick"
+                           PreviewKeyDown="Ranking_DataGrid_PreviewKeyDown"
                           >
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="RAKING" Binding="{Binding Path=Ranking}" Width="50" IsReadOnly="True">

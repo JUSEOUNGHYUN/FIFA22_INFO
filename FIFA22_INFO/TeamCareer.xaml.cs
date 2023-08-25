@@ -54,10 +54,42 @@ namespace FIFA22_INFO
             imageRec.Fill = brush;
 
             Option_textBox.Text = sOption;
-            
+
+            // 04048c
+            if (Option_textBox.Text == "CHAMPIONS_LEAGUE")
+            {
+                Option_textBox.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#04048c"));
+            }
+            else if (Option_textBox.Text == "EUROPA_LEAGUE")
+            {
+                Option_textBox.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#fb6b04"));
+            }
+            else if(Option_textBox.Text == "CONFERENCE_LEAGUE")
+            {
+                Option_textBox.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#04bb14"));
+            }
+            else if( Option_textBox.Text == "SUPER_CUP")
+            {
+                Option_textBox.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#040434"));
+            }
+            else if (Option_textBox.Text == "PREMIER_LEAGUE")
+            {
+                Option_textBox.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#44044c"));
+            }
+            else if (Option_textBox.Text == "EMIRATES_FA_CUP")
+            {
+                Option_textBox.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#d41c24"));
+            }
+            else if (Option_textBox.Text == "CARABAO_CUP")
+            {
+                Option_textBox.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#058C5C"));
+            }
+
+            /*
             //List<OptionNameColor> cs = new List<OptionNameColor>();
             OptionNameColor cs = new OptionNameColor();
             cs.OptionName = Option_textBox.Text;
+             */
         }
 
         private void champions_Click(object sender, RoutedEventArgs e)

@@ -58,6 +58,9 @@ namespace FIFA22_INFO
         public static List<CONFERENCE> mCONFERENCEList = new List<CONFERENCE>();
         public static List<CONFERENCE_RANKING> mCONFERENCERANKINGList = new List<CONFERENCE_RANKING>();
 
+        public string m_sTeamName = string.Empty;
+        public string m_sOption = string.Empty;
+
         public CONFERENCE_LEAGUE()
         {
             InitializeComponent();
@@ -345,6 +348,24 @@ namespace FIFA22_INFO
             tc.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             tc.Show();
             tc.GetTeam(teamName, sOption);
+        }
+
+        private void Ranking_DataGrid_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            int selectedIndex = Ranking_DataGrid.SelectedIndex;
+            CONFERENCE_RANKING ccr = mCONFERENCERANKINGList[selectedIndex];
+
+            string teamName = ccr.CFRTeam_Name.Trim();
+            string sOption = "CONFERENCE_LEAGUE";
+
+            if(e.Key == Key.Enter)
+            {
+                //DataPassProdCd(teamName);
+                TeamCareer tc = new TeamCareer();
+                tc.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                tc.Show();
+                tc.GetTeam(teamName, sOption);
+            }
         }
     }
 }

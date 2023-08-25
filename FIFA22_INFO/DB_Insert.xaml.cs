@@ -40,6 +40,7 @@ namespace FIFA22_INFO
         public DB_Insert()
         {
             InitializeComponent();
+            InputMethod.SetIsInputMethodEnabled(this.TeamName_textBox, false);
 
             LeagueOption_comboBox.Items.Add("PREMIER_LEAGUE");          // 0
             LeagueOption_comboBox.Items.Add("EMIRATES_FA_CUP");         // 1
@@ -904,11 +905,13 @@ namespace FIFA22_INFO
 
         private void TeamName_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            Regex regex = new Regex("[^a-z,A-Z]+");
+            Regex regex = new Regex("[^a-zA-Z0-9\\s]+");
             if (regex.IsMatch(e.Text))
             {
+                //e.Handled = !((e.Text[0] >= 'a' && e.Text[0] <= 'z') || (e.Text[0] >= 'A' && e.Text[0] <= 'Z'));
                 e.Handled = true;
             }
+
         }
 
         private void Upper_TeamNameTextbox(object sender, TextChangedEventArgs e)

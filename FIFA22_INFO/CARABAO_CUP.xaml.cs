@@ -59,6 +59,9 @@ namespace FIFA22_INFO
         public static List<CARABAOCUP> mCARABAOList = new List<CARABAOCUP>();
         public static List<CARABAOCUP_RANKING> mCARARANKINGList = new List<CARABAOCUP_RANKING>();
 
+        public string m_sTeamName = string.Empty;
+        public string m_sOption = string.Empty;
+
         public CARABAO_CUP()
         {
             InitializeComponent();
@@ -329,13 +332,30 @@ namespace FIFA22_INFO
             int selectedIndex = Ranking_DataGrid.SelectedIndex;
             CARABAOCUP_RANKING ccr = mCARARANKINGList[selectedIndex];
 
-            string teamName = ccr.CRRanking.Trim();
+            string teamName = ccr.CRTeam_Name.Trim();
             string sOption = "CARABAO_CUP";
 
             TeamCareer tc = new TeamCareer();
             tc.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             tc.Show();
             tc.GetTeam(teamName, sOption);
+        }
+
+        private void Ranking_DataGrid_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            int selectedIndex = Ranking_DataGrid.SelectedIndex;
+            CARABAOCUP_RANKING ccr = mCARARANKINGList[selectedIndex];
+
+            string teamName = ccr.CRTeam_Name.Trim();
+            string sOption = "CARABAO_CUP";
+
+            if(e.Key == Key.Enter)
+            {
+                TeamCareer tc = new TeamCareer();
+                tc.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                tc.Show();
+                tc.GetTeam(teamName, sOption);
+            }
         }
     }
 }

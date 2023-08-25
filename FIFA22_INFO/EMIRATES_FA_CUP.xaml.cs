@@ -60,6 +60,9 @@ namespace FIFA22_INFO
         public static List<FACUP> mFACUPList = new List<FACUP>();
         public static List<FACUP_RANKING> mFACUPRANKINGList = new List<FACUP_RANKING>();
 
+        public string m_sTeamName = string.Empty;
+        public string m_sOption = string.Empty;
+
         public EMIRATES_FA_CUP()
         {
             InitializeComponent();
@@ -351,6 +354,24 @@ namespace FIFA22_INFO
             tc.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             tc.Show();
             tc.GetTeam(teamName, sOption);
+        }
+
+        private void Ranking_DataGrid_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            int selectedIndex = Ranking_DataGrid.SelectedIndex;
+            FACUP_RANKING ccr = mFACUPRANKINGList[selectedIndex];
+
+            string teamName = ccr.RTeam_Name.Trim();
+            string sOption = "EMIRATES_FA_CUP";
+
+            if(e.Key == Key.Enter)
+            {
+                //DataPassProdCd(teamName);
+                TeamCareer tc = new TeamCareer();
+                tc.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                tc.Show();
+                tc.GetTeam(teamName, sOption);
+            }
         }
     }
 }

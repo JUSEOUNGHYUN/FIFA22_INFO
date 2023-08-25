@@ -1314,7 +1314,6 @@
                         HeadersVisibility="Column" 
                         RowHeight="35" Margin="10,0,-10,0" 
                         MouseDoubleClick="Ranking_MouseDoubleClick" 
-                        KeyDown="Ranking_DataGrid_KeyEvent"
                          PreviewKeyDown="Ranking_DataGrid_PreviewKeyDown"
                           >
                     <DataGrid.Columns>

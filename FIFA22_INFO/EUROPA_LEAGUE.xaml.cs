@@ -358,22 +358,6 @@ namespace FIFA22_INFO
             tc.GetTeam(m_sTeamName, m_sOption);
         }
 
-        private void Ranking_DataGrid_KeyEvent(object sender, KeyEventArgs e)
-        {
-            int selectedIndex = Ranking_DataGrid.SelectedIndex;
-            EUROPA_RANKING ccr = mEUROPARANKINGList[selectedIndex];
-
-            m_sTeamName = ccr.ERTeam_Name.Trim();
-            m_sOption = "EUROPA_LEAGUE";
-
-            if (e.Key == Key.Enter)
-            {
-                TeamCareer tc = new TeamCareer();
-                tc.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-                tc.Show();
-                tc.GetTeam(m_sTeamName, m_sOption);
-            }
-        }
 
         private void Ranking_DataGrid_PreviewKeyDown(object sender, KeyEventArgs e)
         {
@@ -391,5 +375,6 @@ namespace FIFA22_INFO
                 tc.GetTeam(m_sTeamName, m_sOption);
             }
         }
+
     }
 }

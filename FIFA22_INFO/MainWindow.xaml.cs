@@ -242,9 +242,9 @@ namespace FIFA22_INFO
 
         private void Search_Click(object sender, RoutedEventArgs e)
         {
-            Team_Info ti = new Team_Info();
-            ti.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            ti.Show();
+            Search s = new Search();
+            s.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            s.Show();
         }
     }
 
