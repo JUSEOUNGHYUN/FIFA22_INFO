@@ -560,11 +560,13 @@
 
             <Grid Grid.Column="1">
                 <DataGrid x:Name="Ranking_DataGrid"
-                           AutoGenerateColumns="False" 
-                          CanUserAddRows = "False" 
-                          CanUserResizeColumns ="False" 
-                          HeadersVisibility="Column" 
-                        RowHeight="35" Margin="10,0,-10,0" 
+                            AutoGenerateColumns="False" 
+                            CanUserAddRows = "False" 
+                            CanUserResizeColumns ="False" 
+                            HeadersVisibility="Column" 
+                            RowHeight="35" Margin="10,0,-10,0" 
+                            MouseDoubleClick="Ranking_MouseDoubleClick"  
+                            PreviewKeyDown="Ranking_DataGrid_PreviewKeyDown"
                           >
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="RANK" Binding="{Binding Path=Ranking}" Width="40" >

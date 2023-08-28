@@ -65,6 +65,12 @@ namespace FIFA22_INFO
     {
         public static List<LALIGA_SANTANDER_LEAGUE> mSANLEAGUEList = new List<LALIGA_SANTANDER_LEAGUE>();
         public static List<LALIGA_SANTANDER_RANKING> mSANRANKINGList = new List<LALIGA_SANTANDER_RANKING>();
+
+        public delegate void DataPassProdCdEventHandler(string strTeamName);
+        public event DataPassProdCdEventHandler DataPassProdCd;
+
+        public string m_sTeamName = string.Empty;
+        public string m_sOption = string.Empty;
         public LALIGA_SANTANDER()
         {
             InitializeComponent();
@@ -336,6 +342,39 @@ namespace FIFA22_INFO
                 LIGA_PORTUGAL ls = new LIGA_PORTUGAL();
                 ls.WindowStartupLocation = WindowStartupLocation.CenterScreen;
                 ls.Show();
+            }
+        }
+
+        private void Ranking_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            int selectedIndex = Ranking_DataGrid.SelectedIndex;
+            LALIGA_SANTANDER_RANKING ccr = mSANRANKINGList[selectedIndex];
+
+            m_sTeamName = ccr.SRTeam_Name.Trim();
+            m_sOption = "LALIGA_SANTANDER";
+
+            //DataPassProdCd(teamName);
+            TeamCareer tc = new TeamCareer();
+            tc.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            tc.Show();
+            tc.GetTeam(m_sTeamName, m_sOption);
+        }
+
+        private void Ranking_DataGrid_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            int selectedIndex = Ranking_DataGrid.SelectedIndex;
+            LALIGA_SANTANDER_RANKING ccr = mSANRANKINGList[selectedIndex];
+
+            m_sTeamName = ccr.SRTeam_Name.Trim();
+            m_sOption = "LALIGA_SANTANDER";
+
+            if(e.Key == Key.Enter)
+            {
+                //DataPassProdCd(teamName);
+                TeamCareer tc = new TeamCareer();
+                tc.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                tc.Show();
+                tc.GetTeam(m_sTeamName, m_sOption);
             }
         }
     }

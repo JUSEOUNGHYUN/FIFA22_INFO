@@ -911,7 +911,6 @@ namespace FIFA22_INFO
                 //e.Handled = !((e.Text[0] >= 'a' && e.Text[0] <= 'z') || (e.Text[0] >= 'A' && e.Text[0] <= 'Z'));
                 e.Handled = true;
             }
-
         }
 
         private void Upper_TeamNameTextbox(object sender, TextChangedEventArgs e)

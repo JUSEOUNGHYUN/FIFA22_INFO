@@ -115,6 +115,7 @@ namespace FIFA22_INFO
                     TeamList.Add(reader[0].ToString().Trim());
                 }
 
+
                 reader.Close();
 
                 for (int i = 0; i < TeamList.Count; i++)

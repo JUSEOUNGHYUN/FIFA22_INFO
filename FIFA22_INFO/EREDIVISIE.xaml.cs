@@ -68,6 +68,12 @@ namespace FIFA22_INFO
         public static List<EREDIVISIE_LEAGUE> mERELEAGUEList = new List<EREDIVISIE_LEAGUE>();
         public static List<EREDIVISIE_RANKING> mERERANKINGList = new List<EREDIVISIE_RANKING>();
 
+        public delegate void DataPassProdCdEventHandler(string strTeamName);
+        public event DataPassProdCdEventHandler DataPassProdCd;
+
+        public string m_sTeamName = string.Empty;
+        public string m_sOption = string.Empty;
+
         public EREDIVISIE()
         {
             InitializeComponent();
@@ -337,6 +343,39 @@ namespace FIFA22_INFO
                 SERIE_A ls = new SERIE_A();
                 ls.WindowStartupLocation = WindowStartupLocation.CenterScreen;
                 ls.Show();
+            }
+        }
+
+        private void Ranking_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            int selectedIndex = Ranking_DataGrid.SelectedIndex;
+            EREDIVISIE_RANKING ccr = mERERANKINGList[selectedIndex];
+
+            m_sTeamName = ccr.ERTeam_Name.Trim();
+            m_sOption = "EREDIVISIE";
+
+            //DataPassProdCd(teamName);
+            TeamCareer tc = new TeamCareer();
+            tc.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            tc.Show();
+            tc.GetTeam(m_sTeamName, m_sOption);
+        }
+
+        private void Ranking_DataGrid_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            int selectedIndex = Ranking_DataGrid.SelectedIndex;
+            EREDIVISIE_RANKING ccr = mERERANKINGList[selectedIndex];
+
+            m_sTeamName = ccr.ERTeam_Name.Trim();
+            m_sOption = "EREDIVISIE";
+
+            if(e.Key == Key.Enter)
+            {
+                //DataPassProdCd(teamName);
+                TeamCareer tc = new TeamCareer();
+                tc.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                tc.Show();
+                tc.GetTeam(m_sTeamName, m_sOption);
             }
         }
     }

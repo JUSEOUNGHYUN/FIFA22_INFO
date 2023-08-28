@@ -66,6 +66,12 @@ namespace FIFA22_INFO
         public static List<SERIE_A_LEAGUE> mSELEAGUEList = new List<SERIE_A_LEAGUE>();
         public static List<SERIE_A_LEAGUE_RANKING> mSERANKINGList = new List<SERIE_A_LEAGUE_RANKING>();
 
+        public delegate void DataPassProdCdEventHandler(string strTeamName);
+        public event DataPassProdCdEventHandler DataPassProdCd;
+
+        public string m_sTeamName = string.Empty;
+        public string m_sOption = string.Empty;
+
         public SERIE_A()
         {
             InitializeComponent();
@@ -338,6 +344,39 @@ namespace FIFA22_INFO
                 BUNDESLIGA ls = new BUNDESLIGA();
                 ls.WindowStartupLocation = WindowStartupLocation.CenterScreen;
                 ls.Show();
+            }
+        }
+
+        private void Ranking_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            int selectedIndex = Ranking_DataGrid.SelectedIndex;
+            SERIE_A_LEAGUE_RANKING ccr = mSERANKINGList[selectedIndex];
+
+            m_sTeamName = ccr.SERTeam_Name.Trim();
+            m_sOption = "SERIE_A";
+
+            //DataPassProdCd(teamName);
+            TeamCareer tc = new TeamCareer();
+            tc.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            tc.Show();
+            tc.GetTeam(m_sTeamName, m_sOption);
+        }
+
+        private void Ranking_DataGrid_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            int selectedIndex = Ranking_DataGrid.SelectedIndex;
+            SERIE_A_LEAGUE_RANKING ccr = mSERANKINGList[selectedIndex];
+
+            m_sTeamName = ccr.SERTeam_Name.Trim();
+            m_sOption = "SERIE_A";
+
+            if(e.Key == Key.Enter)
+            {
+                //DataPassProdCd(teamName);
+                TeamCareer tc = new TeamCareer();
+                tc.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                tc.Show();
+                tc.GetTeam(m_sTeamName, m_sOption);
             }
         }
     }

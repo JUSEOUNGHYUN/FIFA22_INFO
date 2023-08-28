@@ -56,7 +56,9 @@ namespace FIFA22_INFO
 
         private void YearSearch_Click(object sender, RoutedEventArgs e)
         {
-
+            Year y = new Year();
+            y.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            y.Show();
         }
     }
 }

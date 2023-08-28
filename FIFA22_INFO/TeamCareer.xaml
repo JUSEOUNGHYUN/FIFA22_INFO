@@ -69,9 +69,12 @@
             </Grid.ColumnDefinitions>
 
             <Grid Grid.Column="0">
-                <Rectangle x:Name="imageRec" HorizontalAlignment="Left" Height="187" Margin="17,70,0,0" Stroke="Black" VerticalAlignment="Top" Width="180" StrokeThickness="0"/>
+                <Rectangle x:Name="imageRec" HorizontalAlignment="Left" Height="187" Margin="17,70,0,0" Stroke="Black" VerticalAlignment="Top" Width="180" StrokeThickness="0"
+                           />
                 <TextBox x:Name="TEAMNAME_textBox" HorizontalAlignment="Left" Margin="17,292,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"
-                         HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderThickness="0" IsReadOnly="True" IsHitTestVisible="False" FontWeight="Bold" FontSize="15">
+                         HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderThickness="0" IsReadOnly="False" FontWeight="Bold" FontSize="15"
+                         MouseDoubleClick="TeamName_textBox_MouseDoubleClick"
+                         >
                 </TextBox>
             </Grid>
 

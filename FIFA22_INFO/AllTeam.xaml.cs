@@ -105,12 +105,14 @@ namespace FIFA22_INFO
     // LIGUE1_UBER_EATS
     public class LIGUE1_UBER_EATS_TEAM : List<string>
     {
-        public TeamItem[] mMenuItem = new TeamItem[14];
+        public TeamItem[] mMenuItem = new TeamItem[16];
 
         public LIGUE1_UBER_EATS_TEAM()
         {
             this.Add("AS MONACO");
             this.Add("AS SAINT-ETIENNE");
+            this.Add("FC LORIENT");
+            this.Add("FC METZ");
             this.Add("FC NANTES");
             this.Add("GIRONDINS DE BX");
             this.Add("LOSC LILLE");
@@ -213,7 +215,7 @@ namespace FIFA22_INFO
 
     public class LALIGA_SANTANDER_TEAM : List<string>
     {
-        public TeamItem[] mMenuItem = new TeamItem[16];
+        public TeamItem[] mMenuItem = new TeamItem[17];
 
         public LALIGA_SANTANDER_TEAM()
         {
@@ -231,6 +233,7 @@ namespace FIFA22_INFO
             this.Add("REAL MADRID");
             this.Add("REAL SOCIEDAD");
             this.Add("SEVILLA FC");
+            this.Add("UD ALMERIA");
             this.Add("VALENCIA CF");
             this.Add("VILLARREAL CF");
         }

@@ -107,11 +107,11 @@
             <ComboBox x:Name="Update_Vice_LeagueOption_comboBox" HorizontalAlignment="Left" Margin="107,67,0,0" VerticalAlignment="Top" Width="158"/>
             <Button x:Name="UPDATE_button" Content="UPDATE" HorizontalAlignment="Left" Margin="712,40,0,0" VerticalAlignment="Top" Height="45" Width="60" Click="UPDATE_button_Click"/>
             <Label x:Name="label2_Copy7" Content="UPDATE CONTENT" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="284,0,0,0"/>
-            <TextBox x:Name="UpdateContent_textBox" HorizontalAlignment="Left" Margin="407,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="99" />
+            <TextBox x:Name="UpdateContent_textBox" HorizontalAlignment="Left" Margin="407,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="159" />
             <Label x:Name="label2_Copy10" Content="CONDITION" HorizontalAlignment="Left" Margin="286,64,0,0" VerticalAlignment="Top"/>
             <TextBox x:Name="TeamName_textBox" 
                      HorizontalAlignment="Left" 
-                     Margin="511,0,0,0" 
+                     Margin="571,0,0,0" 
                      TextWrapping="Wrap" 
                      VerticalAlignment="Center" 
                      Width="136" 

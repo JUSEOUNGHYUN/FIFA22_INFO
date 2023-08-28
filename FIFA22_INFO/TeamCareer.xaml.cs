@@ -105,7 +105,7 @@ namespace FIFA22_INFO
         private void DBSelect(string sRanking)
         {
             string teamname = TEAMNAME_textBox.Text;
-            string championssql = "select * from "+ Option_textBox .Text+ " where "+ sRanking + " = '" + teamname + "' order by league_year;";
+            string championssql = "select league_year , champions , second_place , remark from " + Option_textBox .Text+ " where "+ sRanking + " = '" + teamname + "' order by league_year;";
             NpgsqlConnection conn = new NpgsqlConnection(MainWindow.mConnString);
 
             try
@@ -197,7 +197,34 @@ namespace FIFA22_INFO
             {
                 DBSelect("second_place");
             }
+            else if(e.Key == Key.S)
+            {
+                AllTeam at = new AllTeam();
+                at.DataPassProdCd += new AllTeam.DataPassProdCdEventHandler(TeamNameReceive);
+                at.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                at.ShowDialog();
+
+                BitmapImage bitmap = new BitmapImage(new Uri("Resources/" + TEAMNAME_textBox.Text + ".png", UriKind.Relative));
+                ImageBrush brush = new ImageBrush(bitmap);
+                imageRec.Fill = brush;
+            }
         }
 
+        private void TeamName_textBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            AllTeam at = new AllTeam();
+            at.DataPassProdCd += new AllTeam.DataPassProdCdEventHandler(TeamNameReceive);
+            at.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            at.ShowDialog();
+
+            BitmapImage bitmap = new BitmapImage(new Uri("Resources/" + TEAMNAME_textBox.Text + ".png", UriKind.Relative));
+            ImageBrush brush = new ImageBrush(bitmap);
+            imageRec.Fill = brush;
+        }
+
+        private void TeamNameReceive(string sTeamName)
+        {
+            TEAMNAME_textBox.Text = sTeamName;
+        }
     }
 }

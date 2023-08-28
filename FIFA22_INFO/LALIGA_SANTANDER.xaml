@@ -212,6 +212,9 @@
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="GRANADA CF">
                                                         <Setter Property="Source" Value="Resources/GRANADA CF.png"/>
                                                     </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="RCD ESPANYOL">
+                                                        <Setter Property="Source" Value="Resources/RCD ESPANYOL.png"/>
+                                                    </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="REAL BETIS">
                                                         <Setter Property="Source" Value="Resources/REAL BETIS.png"/>
                                                     </DataTrigger>
@@ -290,6 +293,9 @@
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Second_Place}" Value="GRANADA CF">
                                                         <Setter Property="Source" Value="Resources/GRANADA CF.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="RCD ESPANYOL">
+                                                        <Setter Property="Source" Value="Resources/RCD ESPANYOL.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Second_Place}" Value="REAL BETIS">
                                                         <Setter Property="Source" Value="Resources/REAL BETIS.png"/>
@@ -370,6 +376,9 @@
                                                     <DataTrigger Binding="{Binding Path=Third_Place}" Value="GRANADA CF">
                                                         <Setter Property="Source" Value="Resources/GRANADA CF.png"/>
                                                     </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Third_Place}" Value="RCD ESPANYOL">
+                                                        <Setter Property="Source" Value="Resources/RCD ESPANYOL.png"/>
+                                                    </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Third_Place}" Value="REAL BETIS">
                                                         <Setter Property="Source" Value="Resources/REAL BETIS.png"/>
                                                     </DataTrigger>
@@ -448,6 +457,9 @@
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Fourth_Place}" Value="GRANADA CF">
                                                         <Setter Property="Source" Value="Resources/GRANADA CF.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Fourth_Place}" Value="RCD ESPANYOL">
+                                                        <Setter Property="Source" Value="Resources/RCD ESPANYOL.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Fourth_Place}" Value="REAL BETIS">
                                                         <Setter Property="Source" Value="Resources/REAL BETIS.png"/>
@@ -529,6 +541,8 @@
                           CanUserResizeColumns ="False" 
                           HeadersVisibility="Column" 
                         RowHeight="35" Margin="10,0,-10,0" 
+                            MouseDoubleClick="Ranking_MouseDoubleClick"  
+                           PreviewKeyDown="Ranking_DataGrid_PreviewKeyDown"
                           >
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="RANK" Binding="{Binding Path=Ranking}" Width="40" >
@@ -580,6 +594,9 @@
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="GRANADA CF">
                                                         <Setter Property="Source" Value="Resources/GRANADA CF.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="RCD ESPANYOL">
+                                                        <Setter Property="Source" Value="Resources/RCD ESPANYOL.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="REAL BETIS">
                                                         <Setter Property="Source" Value="Resources/REAL BETIS.png"/>

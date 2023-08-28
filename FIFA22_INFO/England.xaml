@@ -6,12 +6,13 @@
         xmlns:local="clr-namespace:FIFA22_INFO"
         mc:Ignorable="d"
         WindowStyle="None"
+        ResizeMode="NoResize"
         Title="England" Height="450" Width="800"
         KeyDown="keyDown_Event">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
-            <RowDefinition Height="50*"/>
+            <RowDefinition Height="400"/>
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0">

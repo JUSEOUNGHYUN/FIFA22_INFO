@@ -67,6 +67,12 @@ namespace FIFA22_INFO
         public static List<LIGUE1_UBER_EATS> mLIGUE1List = new List<LIGUE1_UBER_EATS>();
         public static List<LIGUE1_UBER_EATS_RANKING> mLIGUE1RANKINGList = new List<LIGUE1_UBER_EATS_RANKING>();
 
+        public string m_sTeamName = string.Empty;
+        public string m_sOption = string.Empty;
+
+        public delegate void DataPassProdCdEventHandler(string strTeamName);
+        public event DataPassProdCdEventHandler DataPassProdCd;
+
         public LIGUE1()
         {
             InitializeComponent();
@@ -342,6 +348,39 @@ namespace FIFA22_INFO
                 LALIGA_SANTANDER ls = new LALIGA_SANTANDER();
                 ls.WindowStartupLocation = WindowStartupLocation.CenterScreen;
                 ls.Show();
+            }
+        }
+
+        private void Ranking_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            int selectedIndex = Ranking_DataGrid.SelectedIndex;
+            LIGUE1_UBER_EATS_RANKING ccr = mLIGUE1RANKINGList[selectedIndex];
+
+            m_sTeamName = ccr.LRTeam_Name.Trim();
+            m_sOption = "LIGUE1_UBER_EATS";
+
+            //DataPassProdCd(teamName);
+            TeamCareer tc = new TeamCareer();
+            tc.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            tc.Show();
+            tc.GetTeam(m_sTeamName, m_sOption);
+        }
+
+        private void Ranking_DataGrid_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            int selectedIndex = Ranking_DataGrid.SelectedIndex;
+            LIGUE1_UBER_EATS_RANKING ccr = mLIGUE1RANKINGList[selectedIndex];
+
+            m_sTeamName = ccr.LRTeam_Name.Trim();
+            m_sOption = "LIGUE1_UBER_EATS";
+
+            if(e.Key == Key.Enter)
+            {
+                //DataPassProdCd(teamName);
+                TeamCareer tc = new TeamCareer();
+                tc.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                tc.Show();
+                tc.GetTeam(m_sTeamName, m_sOption);
             }
         }
     }

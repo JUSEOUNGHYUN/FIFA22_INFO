@@ -154,6 +154,9 @@
     <Compile Include="TeamCareer.xaml.cs">
       <DependentUpon>TeamCareer.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TeamNameTextBox.xaml.cs">
+      <DependentUpon>TeamNameTextBox.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Team_Career.cs" />
     <Compile Include="Team_Info.xaml.cs">
       <DependentUpon>Team_Info.xaml</DependentUpon>
@@ -164,6 +167,9 @@
     </Compile>
     <Compile Include="UPTODATE.xaml.cs">
       <DependentUpon>UPTODATE.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Year.xaml.cs">
+      <DependentUpon>Year.xaml</DependentUpon>
     </Compile>
     <Page Include="AllTeam.xaml">
       <SubType>Designer</SubType>
@@ -267,6 +273,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="TeamNameTextBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Team_Info.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -276,6 +286,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UPTODATE.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Year.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
