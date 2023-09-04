@@ -197,6 +197,9 @@
                                         <Image.Style>
                                             <Style TargetType="{x:Type Image}">
                                                 <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="ANGERS SCO">
+                                                        <Setter Property="Source" Value="Resources/ANGERS SCO.png"/>
+                                                    </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="AS MONACO">
                                                         <Setter Property="Source" Value="Resources/AS MONACO.png"/>
                                                     </DataTrigger>
@@ -263,6 +266,7 @@
                             <DataGridTextColumn.ElementStyle>
                                 <Style TargetType="TextBlock">
                                     <Setter Property="HorizontalAlignment" Value="Left"/>
+                                    <Setter Property="FontWeight" Value="Bold"/>
                                     <Setter Property="VerticalAlignment" Value="Center"/>
                                     <Setter Property="Foreground" Value="Black"/>
                                     <Setter Property="FontSize" Value="11"/>
@@ -285,6 +289,9 @@
                                         <Image.Style>
                                             <Style TargetType="{x:Type Image}">
                                                 <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="ANGERS SCO">
+                                                        <Setter Property="Source" Value="Resources/ANGERS SCO.png"/>
+                                                    </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Second_Place}" Value="AS MONACO">
                                                         <Setter Property="Source" Value="Resources/AS MONACO.png"/>
                                                     </DataTrigger>
@@ -373,6 +380,9 @@
                                         <Image.Style>
                                             <Style TargetType="{x:Type Image}">
                                                 <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Path=Third_Place}" Value="ANGERS SCO">
+                                                        <Setter Property="Source" Value="Resources/ANGERS SCO.png"/>
+                                                    </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Third_Place}" Value="AS MONACO">
                                                         <Setter Property="Source" Value="Resources/AS MONACO.png"/>
                                                     </DataTrigger>
@@ -461,6 +471,9 @@
                                         <Image.Style>
                                             <Style TargetType="{x:Type Image}">
                                                 <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Path=Fourth_Place}" Value="ANGERS SCO">
+                                                        <Setter Property="Source" Value="Resources/ANGERS SCO.png"/>
+                                                    </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Fourth_Place}" Value="AS MONACO">
                                                         <Setter Property="Source" Value="Resources/AS MONACO.png"/>
                                                     </DataTrigger>
@@ -604,6 +617,9 @@
                                         <Image.Style>
                                             <Style TargetType="{x:Type Image}">
                                                 <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="ANGERS SCO">
+                                                        <Setter Property="Source" Value="Resources/ANGERS SCO.png"/>
+                                                    </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="AS MONACO">
                                                         <Setter Property="Source" Value="Resources/AS MONACO.png"/>
                                                     </DataTrigger>

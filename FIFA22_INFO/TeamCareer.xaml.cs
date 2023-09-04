@@ -1,6 +1,7 @@
 ﻿using Npgsql;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -37,6 +38,7 @@ namespace FIFA22_INFO
     /// </summary>
     public partial class TeamCareer : Window
     {
+
         List<TEAM_CAREER> mTC = new List<TEAM_CAREER>();
 
         public TeamCareer()
@@ -189,15 +191,19 @@ namespace FIFA22_INFO
             {
                 this.Close();
             }
-            else if(e.Key == Key.C)
+            if(e.Key == Key.C)
             {
                 DBSelect("Champions");
             }
-            else if(e.Key == Key.R)
+            if(e.Key == Key.R)
             {
                 DBSelect("second_place");
             }
-            else if(e.Key == Key.S)
+            if (e.KeyboardDevice.Modifiers == ModifierKeys.Control && e.Key == Key.S)
+            {
+                SaveFunc();
+            }
+            if(e.Key == Key.D)
             {
                 AllTeam at = new AllTeam();
                 at.DataPassProdCd += new AllTeam.DataPassProdCdEventHandler(TeamNameReceive);
@@ -226,5 +232,96 @@ namespace FIFA22_INFO
         {
             TEAMNAME_textBox.Text = sTeamName;
         }
+
+        private void Ranking_DataGrid_KeyDown(object sender, KeyEventArgs e)
+        {
+            /*
+            if(e.Key == Key.U)
+            {
+                int selectedIndex = Ranking_DataGrid.SelectedIndex;
+
+                if(selectedIndex < 0)
+                {
+                    MessageBox.Show("선택하지 않았습니다. 선택하세요", "선택", MessageBoxButton.OK, MessageBoxImage.Information);
+                    return;
+                }
+                else
+                {
+                    TEAM_CAREER ci = mTC[selectedIndex];
+
+                    DB_Insert di = new DB_Insert();
+                    di.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                    di.Show();
+                    di.GetSelectedData(Option_textBox.Text, ci.League_Year, ci.Remark);
+                    // Option_textBox.text
+                    // LeagueYear
+                    // Remark
+
+                }
+            }
+             */
+        }
+
+        private void SaveFunc()
+        {
+            if (MessageBox.Show("데이터를 저장하시 겠습니까??", "데이터 저장", MessageBoxButton.YesNo, MessageBoxImage.Information) == MessageBoxResult.Yes)
+            {
+                List<Team_Career> list = Ranking_DataGrid.ItemsSource as List<Team_Career>;
+                int n = mTC.Count;
+
+                List<string> updateList = new List<string>();
+
+                for (int i = 0; i < list.Count; i++)
+                {
+                    TEAM_CAREER pr = mTC[i];
+                    Team_Career other = list[i];
+
+                    if (pr.Champions!= other.Champions)
+                    {
+                        updateList.Add(Premier_League.UpdateSqlFunc(Option_textBox.Text, "champions", other.Champions, other.League_Year));
+                    }
+                    if (pr.Second_Place != other.Second_Place)
+                    {
+                        updateList.Add(Premier_League.UpdateSqlFunc(Option_textBox.Text, "Second_Place", other.Second_Place, other.League_Year));
+                    }
+                    if (pr.Remark != other.Remark)
+                    {
+                        updateList.Add(Premier_League.UpdateSqlFunc(Option_textBox.Text, "Remark", other.Remark, other.League_Year));
+                    }
+                }
+
+                NpgsqlConnection conn = null;
+                try
+                {
+                    conn = new NpgsqlConnection(MainWindow.mConnString);
+                    conn.Open();
+
+                    for (int i = 0; i < updateList.Count; i++)
+                    {
+                        NpgsqlCommand UpdateCommand = new NpgsqlCommand(updateList[i], conn);
+                        UpdateCommand.ExecuteNonQuery();
+                    }
+
+                    MessageBox.Show("저장을 완료했습니다.", "데이터 업데이트", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                finally
+                {
+                    if (conn != null)
+                    {
+                        if (conn.State != ConnectionState.Closed)
+                        {
+                            conn.Close();
+                            conn.Dispose();
+                        }
+                    }
+                }
+            }
+        }
+
+
     }
 }

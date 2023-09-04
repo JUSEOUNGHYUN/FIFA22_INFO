@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         WindowStyle="None"
         ResizeMode="NoResize"
-        Title="England" Height="450" Width="800"
+        Title="England" Height="450" Width="1066"
         KeyDown="keyDown_Event">
     <Grid>
         <Grid.RowDefinitions>
@@ -49,6 +49,7 @@
                 <ColumnDefinition Width="266"/>
                 <ColumnDefinition Width="266"/>
                 <ColumnDefinition Width="266"/>
+                <ColumnDefinition Width="266"/>
             </Grid.ColumnDefinitions>
 
             <Grid Grid.Column="0">
@@ -73,6 +74,14 @@
                             BorderBrush="Transparent"
                             Click="CARABAO_CUP_Click">
                     <Image Source="Resources/CARABAO CUP.png" Height="223" Width="226"/>
+                </Button>
+            </Grid>
+            <Grid Grid.Column="3">
+                <Button x:Name="EFL_CHAPIONSHIP_button" 
+                            Background="#b49c44"
+                            BorderBrush="Transparent"
+                            Click="EFL_CHAPIONSHIP_Click">
+                    <Image Source="Resources/EFL_CHAPIONSHIP.png" Height="223" Width="226"/>
                 </Button>
             </Grid>
         </Grid>

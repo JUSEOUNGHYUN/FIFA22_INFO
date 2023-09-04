@@ -68,8 +68,6 @@ namespace FIFA22_INFO
         public static List<EREDIVISIE_LEAGUE> mERELEAGUEList = new List<EREDIVISIE_LEAGUE>();
         public static List<EREDIVISIE_RANKING> mERERANKINGList = new List<EREDIVISIE_RANKING>();
 
-        public delegate void DataPassProdCdEventHandler(string strTeamName);
-        public event DataPassProdCdEventHandler DataPassProdCd;
 
         public string m_sTeamName = string.Empty;
         public string m_sOption = string.Empty;

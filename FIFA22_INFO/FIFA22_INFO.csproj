@@ -87,6 +87,7 @@
     <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
     </Reference>
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -118,6 +119,9 @@
     <Compile Include="CONFERENCE_LEAGUE.xaml.cs">
       <DependentUpon>CONFERENCE_LEAGUE.xaml</DependentUpon>
     </Compile>
+    <Compile Include="EFL_CHAPIONSHIP.xaml.cs">
+      <DependentUpon>EFL_CHAPIONSHIP.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ENGLAND_TOTAL.cs" />
     <Compile Include="EREDIVISIE.xaml.cs">
       <DependentUpon>EREDIVISIE.xaml</DependentUpon>
@@ -125,8 +129,14 @@
     <Compile Include="EUROPA_LEAGUE.xaml.cs">
       <DependentUpon>EUROPA_LEAGUE.xaml</DependentUpon>
     </Compile>
+    <Compile Include="JUPILER_PRO.xaml.cs">
+      <DependentUpon>JUPILER_PRO.xaml</DependentUpon>
+    </Compile>
     <Compile Include="LALIGA_SANTANDER.xaml.cs">
       <DependentUpon>LALIGA_SANTANDER.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LALIGA_SMARTBANK.xaml.cs">
+      <DependentUpon>LALIGA_SMARTBANK.xaml</DependentUpon>
     </Compile>
     <Compile Include="LeagueYearTextBox.xaml.cs">
       <DependentUpon>LeagueYearTextBox.xaml</DependentUpon>
@@ -147,6 +157,9 @@
     </Compile>
     <Compile Include="SERIE_A.xaml.cs">
       <DependentUpon>SERIE_A.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Spain.xaml.cs">
+      <DependentUpon>Spain.xaml</DependentUpon>
     </Compile>
     <Compile Include="SUPER_CUP.xaml.cs">
       <DependentUpon>SUPER_CUP.xaml</DependentUpon>
@@ -195,6 +208,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="EFL_CHAPIONSHIP.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="EMIRATES_FA_CUP.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -211,7 +228,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="JUPILER_PRO.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="LALIGA_SANTANDER.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LALIGA_SMARTBANK.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -262,6 +287,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SERIE_A.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Spain.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -809,6 +838,93 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Calendar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\SHEFFIELD WED.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\CARLISLE UNITED.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\HULL CITY.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\HAMBURGER SV.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\ANGERS SCO.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\EFL_CHAPIONSHIP.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\BELGIUM.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\ZULTE WAREGEM.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\K BEERSCHOT VA.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\CERCLE BRUGGE.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\JUPILER_PRO_LEAGUE.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\SALERNITANA.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\UDINESE.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\UNION SG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\GIRONA FC.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\RAYO VALLECANO.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\AC MONZA.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\BSC YOUNG BOYS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\SINT TRUDEN.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\SAVE_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\LALIGA_SANTADER.png" />
+    <Resource Include="Resources\LALIGA_SMARTBANK.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Laliga2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\MALAGA CF.png" />
+    <Resource Include="Resources\REAL ZARAGOZA.png" />
+    <Resource Include="Resources\SPORTING GIJON.png" />
+    <Resource Include="Resources\UD LAS PALMAS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\REAL VALLADOLID CF.png" />
+    <Resource Include="Resources\SD EIBAR.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\DEPORTIVO ALAVES.png" />
+    <Resource Include="Resources\ELCHE CF.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\ESTORIL PRAIA.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\build\Microsoft.Extensions.Logging.Abstractions.targets" Condition="Exists('..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\build\Microsoft.Extensions.Logging.Abstractions.targets')" />

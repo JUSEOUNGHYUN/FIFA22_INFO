@@ -206,7 +206,6 @@ namespace FIFA22_INFO
             }
             grdEmployee.ItemsSource = uiList;
             grdEmployee.ScrollIntoView(grdEmployee.Items[grdEmployee.Items.Count - 1]);
-
         }
 
         private void SetDataGridRankingUI()
@@ -341,6 +340,10 @@ namespace FIFA22_INFO
                 el.WindowStartupLocation = WindowStartupLocation.CenterScreen;
                 el.Show();
             }
+            else if(e.Key == Key.Decimal || e.Key == Key.OemPeriod)
+            {
+                SaveFunc();
+            }
         }
 
         private void Ranking_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -376,5 +379,72 @@ namespace FIFA22_INFO
             }
         }
 
+        private void SaveFunc()
+        {
+            if (MessageBox.Show("데이터를 저장하시 겠습니까??", "데이터 저장", MessageBoxButton.YesNo, MessageBoxImage.Information) == MessageBoxResult.Yes)
+            {
+                List<Premier_League_Data> list = grdEmployee.ItemsSource as List<Premier_League_Data>;
+                int n = mEUROPAList.Count;
+
+                string sOption = "europa_league";
+
+                List<string> updateList = new List<string>();
+
+                for (int i = 0; i < list.Count; i++)
+                {
+                    EUROPA pr = mEUROPAList[i];
+                    Premier_League_Data other = list[i];
+
+                    if (pr.EChampions != other.Champions)
+                    {
+                        updateList.Add(Premier_League.UpdateSqlFunc(sOption, "champions", other.Champions, other.League_Year));
+                    }
+                    if (pr.ESecond_Place != other.Second_Place)
+                    {
+                        updateList.Add(Premier_League.UpdateSqlFunc(sOption, "Second_Place", other.Second_Place, other.League_Year));
+                    }
+                    if (pr.ERemark != other.Remark)
+                    {
+                        updateList.Add(Premier_League.UpdateSqlFunc(sOption, "Remark", other.Remark, other.League_Year));
+                    }
+                }
+
+                NpgsqlConnection conn = null;
+                try
+                {
+                    conn = new NpgsqlConnection(MainWindow.mConnString);
+                    conn.Open();
+
+                    for (int i = 0; i < updateList.Count; i++)
+                    {
+                        NpgsqlCommand UpdateCommand = new NpgsqlCommand(updateList[i], conn);
+                        UpdateCommand.ExecuteNonQuery();
+                    }
+
+                    MessageBox.Show("저장을 완료했습니다.", "데이터 업데이트", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                finally
+                {
+                    if (conn != null)
+                    {
+                        if (conn.State != ConnectionState.Closed)
+                        {
+                            conn.Close();
+                            conn.Dispose();
+                        }
+                    }
+                }
+            }
+        }
+
+
+        private void SAVE_Click(object sender, RoutedEventArgs e)
+        {
+            SaveFunc();
+        }
     }
 }

@@ -224,8 +224,14 @@
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="RB LEIPZIG">
                                                         <Setter Property="Source" Value="Resources/RB LEIPZIG.png"/>
                                                     </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="SC FREIBURG">
+                                                        <Setter Property="Source" Value="Resources/SC FREIBURG.png"/>
+                                                    </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="TSG HOFFENHEIM">
                                                         <Setter Property="Source" Value="Resources/TSG HOFFENHEIM.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="UNION BERLIN">
+                                                        <Setter Property="Source" Value="Resources/UNION BERLIN.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="VFL WOLFSBURG">
                                                         <Setter Property="Source" Value="Resources/VFL WOLFSBURG.png"/>
@@ -253,6 +259,7 @@
                                     <Setter Property="HorizontalAlignment" Value="Left"/>
                                     <Setter Property="VerticalAlignment" Value="Center"/>
                                     <Setter Property="Foreground" Value="Black"/>
+                                    <Setter Property="FontWeight" Value="Bold"/>
                                     <Setter Property="FontSize" Value="11"/>
                                 </Style>
                             </DataGridTextColumn.ElementStyle>
@@ -300,8 +307,14 @@
                                                     <DataTrigger Binding="{Binding Path=Second_Place}" Value="RB LEIPZIG">
                                                         <Setter Property="Source" Value="Resources/RB LEIPZIG.png"/>
                                                     </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="SC FREIBURG">
+                                                        <Setter Property="Source" Value="Resources/SC FREIBURG.png"/>
+                                                    </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Second_Place}" Value="TSG HOFFENHEIM">
                                                         <Setter Property="Source" Value="Resources/TSG HOFFENHEIM.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="UNION BERLIN">
+                                                        <Setter Property="Source" Value="Resources/UNION BERLIN.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Second_Place}" Value="VFL WOLFSBURG">
                                                         <Setter Property="Source" Value="Resources/VFL WOLFSBURG.png"/>
@@ -376,8 +389,14 @@
                                                     <DataTrigger Binding="{Binding Path=Third_Place}" Value="RB LEIPZIG">
                                                         <Setter Property="Source" Value="Resources/RB LEIPZIG.png"/>
                                                     </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Third_Place}" Value="SC FREIBURG">
+                                                        <Setter Property="Source" Value="Resources/SC FREIBURG.png"/>
+                                                    </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Third_Place}" Value="TSG HOFFENHEIM">
                                                         <Setter Property="Source" Value="Resources/TSG HOFFENHEIM.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Third_Place}" Value="UNION BERLIN">
+                                                        <Setter Property="Source" Value="Resources/UNION BERLIN.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Third_Place}" Value="VFL WOLFSBURG">
                                                         <Setter Property="Source" Value="Resources/VFL WOLFSBURG.png"/>
@@ -452,8 +471,14 @@
                                                     <DataTrigger Binding="{Binding Path=Fourth_Place}" Value="RB LEIPZIG">
                                                         <Setter Property="Source" Value="Resources/RB LEIPZIG.png"/>
                                                     </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Fourth_Place}" Value="SC FREIBURG">
+                                                        <Setter Property="Source" Value="Resources/SC FREIBURG.png"/>
+                                                    </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Fourth_Place}" Value="TSG HOFFENHEIM">
                                                         <Setter Property="Source" Value="Resources/TSG HOFFENHEIM.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Fourth_Place}" Value="UNION BERLIN">
+                                                        <Setter Property="Source" Value="Resources/UNION BERLIN.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Fourth_Place}" Value="VFL WOLFSBURG">
                                                         <Setter Property="Source" Value="Resources/VFL WOLFSBURG.png"/>
@@ -583,8 +608,14 @@
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="RB LEIPZIG">
                                                         <Setter Property="Source" Value="Resources/RB LEIPZIG.png"/>
                                                     </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="SC FREIBURG">
+                                                        <Setter Property="Source" Value="Resources/SC FREIBURG.png"/>
+                                                    </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="TSG HOFFENHEIM">
                                                         <Setter Property="Source" Value="Resources/TSG HOFFENHEIM.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="UNION BERLIN">
+                                                        <Setter Property="Source" Value="Resources/UNION BERLIN.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="VFL WOLFSBURG">
                                                         <Setter Property="Source" Value="Resources/VFL WOLFSBURG.png"/>

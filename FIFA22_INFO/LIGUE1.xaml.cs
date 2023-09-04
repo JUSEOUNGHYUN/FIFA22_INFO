@@ -70,9 +70,6 @@ namespace FIFA22_INFO
         public string m_sTeamName = string.Empty;
         public string m_sOption = string.Empty;
 
-        public delegate void DataPassProdCdEventHandler(string strTeamName);
-        public event DataPassProdCdEventHandler DataPassProdCd;
-
         public LIGUE1()
         {
             InitializeComponent();

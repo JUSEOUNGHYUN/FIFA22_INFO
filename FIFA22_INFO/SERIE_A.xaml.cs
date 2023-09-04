@@ -66,9 +66,6 @@ namespace FIFA22_INFO
         public static List<SERIE_A_LEAGUE> mSELEAGUEList = new List<SERIE_A_LEAGUE>();
         public static List<SERIE_A_LEAGUE_RANKING> mSERANKINGList = new List<SERIE_A_LEAGUE_RANKING>();
 
-        public delegate void DataPassProdCdEventHandler(string strTeamName);
-        public event DataPassProdCdEventHandler DataPassProdCd;
-
         public string m_sTeamName = string.Empty;
         public string m_sOption = string.Empty;
 
@@ -142,7 +139,6 @@ namespace FIFA22_INFO
                 });
             }
             Ranking_DataGrid.ItemsSource = uList;
-
         }
 
         private void Row_SelectionChanged(object sender, SelectionChangedEventArgs e)

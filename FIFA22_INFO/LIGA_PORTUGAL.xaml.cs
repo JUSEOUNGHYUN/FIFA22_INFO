@@ -66,9 +66,6 @@ namespace FIFA22_INFO
         public static List<LIGA_PORTUGAL_LEAGUE> mPORLEAGUEList = new List<LIGA_PORTUGAL_LEAGUE>();
         public static List<LIGA_PORTUGAL_RANKING> mPORRANKINGList = new List<LIGA_PORTUGAL_RANKING>();
 
-        public delegate void DataPassProdCdEventHandler(string strTeamName);
-        public event DataPassProdCdEventHandler DataPassProdCd;
-
         public string m_sTeamName = string.Empty;
         public string m_sOption = string.Empty;
         public LIGA_PORTUGAL()

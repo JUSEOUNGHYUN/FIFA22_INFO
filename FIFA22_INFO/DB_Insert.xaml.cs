@@ -3,6 +3,8 @@
 using Npgsql;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Security;
@@ -31,7 +33,7 @@ namespace FIFA22_INFO
 
         string mConnString = "HOST=localhost;PORT=5432;USERNAME=postgres;PASSWORD=1234;DATABASE=postgres;";
 #else
-        string mConnString = "HOST=localhost;PORT=5432;USERNAME=postgres;PASSWORD=1234;DATABASE=FIFA22;";
+        //string mConnString = "HOST=localhost;PORT=5432;USERNAME=postgres;PASSWORD=1234;DATABASE=FIFA22;";
 #endif
 
         List<string> mNonTeamList = new List<string>();
@@ -51,12 +53,15 @@ namespace FIFA22_INFO
             LeagueOption_comboBox.Items.Add("CONFERENCE_LEAGUE");       // 5
             LeagueOption_comboBox.Items.Add("SUPER_CUP");               // 6
 
-            LeagueOption_comboBox.Items.Add("LIGUE1_UBER_EATS");        // 7
-            LeagueOption_comboBox.Items.Add("BUNDESLIGA");              // 8
-            LeagueOption_comboBox.Items.Add("SERIE_A");                 // 9
-            LeagueOption_comboBox.Items.Add("EREDIVISIE");              // 10
-            LeagueOption_comboBox.Items.Add("LIGA_PORTUGAL");         // 11
-            LeagueOption_comboBox.Items.Add("LALIGA_SANTANDER");        // 12
+            LeagueOption_comboBox.Items.Add("JUPILER_PRO_LEAGUE");        // 7
+            LeagueOption_comboBox.Items.Add("EFL_CHAMPIONSHIP");        // 8
+            LeagueOption_comboBox.Items.Add("LIGUE1_UBER_EATS");        // 9
+            LeagueOption_comboBox.Items.Add("BUNDESLIGA");              // 10
+            LeagueOption_comboBox.Items.Add("SERIE_A");                 // 11
+            LeagueOption_comboBox.Items.Add("EREDIVISIE");              // 12
+            LeagueOption_comboBox.Items.Add("LIGA_PORTUGAL");         // 13
+            LeagueOption_comboBox.Items.Add("LALIGA_SANTANDER");        // 14
+            LeagueOption_comboBox.Items.Add("LALIGA_SMARTBANK");        // 15
 
             LeagueOption_comboBox.SelectedIndex = 0;
 
@@ -75,6 +80,7 @@ namespace FIFA22_INFO
             Delete_LeagueOption_comboBox.Items.Add("EREDIVISIE");              // 10
             Delete_LeagueOption_comboBox.Items.Add("LIGA_PORTUGAL");         // 11
             Delete_LeagueOption_comboBox.Items.Add("LALIGA_SANTANDER");        // 12
+            Delete_LeagueOption_comboBox.Items.Add("LALIGA_SMARTBANK");        // 13
 
             Delete_LeagueOption_comboBox.SelectedIndex = 0;
 
@@ -87,14 +93,25 @@ namespace FIFA22_INFO
             Update_LeagueOption_comboBox.Items.Add("CONFERENCE_LEAGUE");       // 5
             Update_LeagueOption_comboBox.Items.Add("SUPER_CUP");               // 6
 
+            Update_LeagueOption_comboBox.Items.Add("JUPILER_PRO_LEAGUE");        // 7
+            Update_LeagueOption_comboBox.Items.Add("EFL_CHAMPIONSHIP");        // 8
             Update_LeagueOption_comboBox.Items.Add("LIGUE1_UBER_EATS");        // 7
             Update_LeagueOption_comboBox.Items.Add("BUNDESLIGA");              // 8
             Update_LeagueOption_comboBox.Items.Add("SERIE_A");                 // 9
             Update_LeagueOption_comboBox.Items.Add("EREDIVISIE");              // 10
             Update_LeagueOption_comboBox.Items.Add("LIGA_PORTUGAL");         // 11
             Update_LeagueOption_comboBox.Items.Add("LALIGA_SANTANDER");        // 12
+            Update_LeagueOption_comboBox.Items.Add("LALIGA_SMARTBANK");        // 13
 
             Update_LeagueOption_comboBox.SelectedIndex = 0;
+        }
+
+        public void GetSelectedData(string sOption, string sLeagueYear, string sRemark)
+        {
+            Update_LeagueOption_comboBox.SelectedItem = sOption;
+            Update_Vice_LeagueOption_comboBox.SelectedItem = "remark";
+            UpdateContent_textBox.Text = sRemark;
+            Condition_textBox.Text = sLeagueYear;
         }
 
         private void ToMiniButton_Click(object sender, RoutedEventArgs e)
@@ -121,150 +138,208 @@ namespace FIFA22_INFO
         private void InsertFunc()
         {
             NpgsqlConnection conn = new NpgsqlConnection(MainWindow.mConnString);
-            conn.Open();
 
-            string strOption = LeagueOption_comboBox.SelectedItem.ToString();
-            string NextYear = GetNestLeaguYear(strOption);
-
-            // table에서 입력한 팀이름이 있는 확인
-            List<string> TeamList = new List<string>();
-            string TeamSelectsql = string.Empty;
-
-            int selectedIndex = LeagueOption_comboBox.SelectedIndex;
-
-            if (selectedIndex >= 0 && selectedIndex <= 6)
+            try
             {
-                if (selectedIndex < 0)
-                {
-                    MessageBox.Show("리그 옵션을 선택하세요", "리그 옵션", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
-                else if (CHAMPION_textBox.Text == string.Empty)
-                {
-                    MessageBox.Show("우승팀을 입력하세요", "우승팀 입력", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
-                else if (RUNNERUP_textBox.Text == string.Empty)
-                {
-                    MessageBox.Show("준 우승팀을 입력하세요", "준 우승팀 입력", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
-                else if (selectedIndex >= 0 && CHAMPION_textBox.Text != string.Empty && RUNNERUP_textBox.Text != string.Empty)
-                {
-                    // table에서 입력한 팀이름이 있는 확인
-                    TeamSelectsql = "";
+                conn.Open();
+                mTeamList.Clear();
 
-                    try
+                string strOption = LeagueOption_comboBox.SelectedItem.ToString();
+                string NextYear = GetNestLeaguYear(strOption);
+
+                // table에서 입력한 팀이름이 있는 확인
+                List<string> TeamList = new List<string>();
+                string TeamSelectsql = string.Empty;
+
+                int selectedIndex = LeagueOption_comboBox.SelectedIndex;
+
+                if (selectedIndex >= 1 && selectedIndex <= 6)
+                {
+                    if (selectedIndex >= 1 && selectedIndex <= 2)
                     {
-                        //string sql = "insert into " + strOption + " (LEAGUE_YEAR, CHAMPIONS, SECOND_PLACE, REMARK) values ('" + NextYear + "' , 'SAMSUNG FC' , 'LIVERPOOL' , '');";
-                        NpgsqlCommand cmd = new NpgsqlCommand();
-                        cmd.Connection = conn;
-                        cmd.CommandText = "insert into " + strOption + " values (@LEAGUE_YEAR, @CHAMPIONS, @SECOND_PLACE, @REMARK)";
-                        cmd.Parameters.AddWithValue("LEAGUE_YEAR", NextYear);
-                        cmd.Parameters.AddWithValue("CHAMPIONS", CHAMPION_textBox.Text);
-                        cmd.Parameters.AddWithValue("SECOND_PLACE", RUNNERUP_textBox.Text);
-                        cmd.Parameters.AddWithValue("REMARK", REMARK_textBox.Text);
-                        cmd.ExecuteNonQuery();
+                        /*
+                        TeamSelectsql = "select distinct(champions) from premier_league union select distinct(second_place) from premier_league union select distinct(champions) from emirates_fa_cup union select distinct(second_place) from emirates_fa_cup union select distinct(champions) from carabao_cup union " +
+                            "select distinct(second_place) from carabao_cup order by champions;";
+                         */
+                        TeamSelectsql = "select distinct(champions) from emirates_fa_cup union select distinct(second_place) from emirates_fa_cup union select distinct(champions) from carabao_cup union " +
+                            "select distinct(second_place) from carabao_cup order by champions;";
 
-                        UpdateTotal(1, CHAMPION_textBox.Text, RUNNERUP_textBox.Text);
+                        NpgsqlCommand cmd1 = new NpgsqlCommand(TeamSelectsql, conn);
+                        NpgsqlDataReader reader1 = cmd1.ExecuteReader();
 
-                        MessageBox.Show("입력이 완료되었습니다.", "DB Insert", MessageBoxButton.OK, MessageBoxImage.Information);
-                        CHAMPION_textBox.Clear();
-                        RUNNERUP_textBox.Clear();
-                        THIRD_textBox.Clear();
-                        FOUTH_textBox.Clear();
-                        REMARK_textBox.Clear();
-                        CHAMPION_textBox.Focus();
-
-                        LeagueOption_comboBox.SelectedIndex = selectedIndex + 1;
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message, "Postgresql Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                    }
-                    finally
-                    {
-                        //conn.Close();
-                    }
-                }
-            }
-            else
-            {
-                if (CHAMPION_textBox.Text == string.Empty)
-                {
-                    MessageBox.Show("우승팀을 입력하세요", "우승팀 입력", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
-                else if (RUNNERUP_textBox.Text == string.Empty)
-                {
-                    MessageBox.Show("준 우승팀을 입력하세요", "준 우승팀 입력", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
-                else if (THIRD_textBox.Text == string.Empty)
-                {
-                    MessageBox.Show("3등 팀을 입력하세요", "3등 팀 입력", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
-                else if (FOUTH_textBox.Text == string.Empty)
-                {
-                    MessageBox.Show("4등 팀을 입력하세요", "4등 팀 입력", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
-                else // 4팀을 다 입력했다면...
-                {
-                    mTeamList.Clear();
-                    // table에서 입력한 팀 이름이 있는 확인 === 보류
-                    TeamSelectsql = "select distinct (champions) from " + strOption + " union " +
-                        "select distinct (SECOND_PLACE) from " + strOption + " union " +
-                        "select distinct (THIRD_PLACE) from " + strOption + " union " +
-                        "select distinct (FOURTH_PLACE) from " + strOption + " order by champions";
-
-                    NpgsqlCommand cmd1 = new NpgsqlCommand(TeamSelectsql, conn);
-                    NpgsqlDataReader reader1 = cmd1.ExecuteReader();
-
-                    while (reader1.Read())
-                    {
-                        mTeamList.Add(reader1[0].ToString().Trim());
-                    }
-
-                    reader1.Close();
-
-                    try
-                    {
-                        NpgsqlCommand cmd = new NpgsqlCommand();
-                        cmd.Connection = conn;
-                        cmd.CommandText = "insert into " + strOption + " values (@LEAGUE_YEAR, @CHAMPIONS, @SECOND_PLACE, @THIRD_PLACE, @FOURTH_PLACE ,@REMARK)";
-                        cmd.Parameters.AddWithValue("LEAGUE_YEAR", NextYear);
-                        cmd.Parameters.AddWithValue("CHAMPIONS", CHAMPION_textBox.Text);
-                        cmd.Parameters.AddWithValue("SECOND_PLACE", RUNNERUP_textBox.Text);
-                        cmd.Parameters.AddWithValue("THIRD_PLACE", THIRD_textBox.Text);
-                        cmd.Parameters.AddWithValue("FOURTH_PLACE", FOUTH_textBox.Text);
-                        cmd.Parameters.AddWithValue("REMARK", REMARK_textBox.Text);
-                        cmd.ExecuteNonQuery();
-
-                        ManagedOtherLeagueTotal(1, CHAMPION_textBox.Text, RUNNERUP_textBox.Text, THIRD_textBox.Text, FOUTH_textBox.Text);
-                        MessageBox.Show("입력이 완료되었습니다.", "DB Insert", MessageBoxButton.OK, MessageBoxImage.Information);
-                        CHAMPION_textBox.Clear();
-                        RUNNERUP_textBox.Clear();
-                        THIRD_textBox.Clear();
-                        FOUTH_textBox.Clear();
-                        REMARK_textBox.Clear();
-                        CHAMPION_textBox.Focus();
-
-                        // 2023_08_15 테스트 진행 예정
-                        if (selectedIndex == 12)
+                        while (reader1.Read())
                         {
-                            LeagueOption_comboBox.SelectedIndex = 0;
+                            mTeamList.Add(reader1[0].ToString().Trim());
                         }
-                        else
+
+                        reader1.Close();
+                    }
+                    else if (selectedIndex >= 3 && selectedIndex <= 6)
+                    {
+                        TeamSelectsql = "select distinct(champions) from champions_league union select distinct(second_place) from champions_league union select distinct(champions) from europa_league union select distinct(second_place) from europa_league union select distinct(champions) from conference_league union " +
+        "select distinct(second_place) from conference_league union select distinct(champions) from super_cup union select distinct(second_place) from super_cup order by champions;";
+
+                        NpgsqlCommand cmd1 = new NpgsqlCommand(TeamSelectsql, conn);
+                        NpgsqlDataReader reader1 = cmd1.ExecuteReader();
+
+                        while (reader1.Read())
                         {
+                            mTeamList.Add(reader1[0].ToString().Trim());
+                        }
+
+                        reader1.Close();
+                    }
+
+                    if (selectedIndex < 0)
+                    {
+                        MessageBox.Show("리그 옵션을 선택하세요", "리그 옵션", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                    else if (CHAMPION_textBox.Text == string.Empty)
+                    {
+                        MessageBox.Show("우승팀을 입력하세요", "우승팀 입력", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                    else if (RUNNERUP_textBox.Text == string.Empty)
+                    {
+                        MessageBox.Show("준 우승팀을 입력하세요", "준 우승팀 입력", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                    else if (selectedIndex >= 0 && CHAMPION_textBox.Text != string.Empty && RUNNERUP_textBox.Text != string.Empty)
+                    {
+                        // table에서 입력한 팀이름이 있는 확인
+                        TeamSelectsql = "";
+
+                        try
+                        {
+                            //string sql = "insert into " + strOption + " (LEAGUE_YEAR, CHAMPIONS, SECOND_PLACE, REMARK) values ('" + NextYear + "' , 'SAMSUNG FC' , 'LIVERPOOL' , '');";
+                            NpgsqlCommand cmd = new NpgsqlCommand();
+                            cmd.Connection = conn;
+                            cmd.CommandText = "insert into " + strOption + " values (@LEAGUE_YEAR, @CHAMPIONS, @SECOND_PLACE, @REMARK)";
+                            cmd.Parameters.AddWithValue("LEAGUE_YEAR", NextYear);
+                            cmd.Parameters.AddWithValue("CHAMPIONS", CHAMPION_textBox.Text);
+                            cmd.Parameters.AddWithValue("SECOND_PLACE", RUNNERUP_textBox.Text);
+                            cmd.Parameters.AddWithValue("REMARK", REMARK_textBox.Text);
+                            cmd.ExecuteNonQuery();
+
+                            UpdateTotal(1, CHAMPION_textBox.Text, RUNNERUP_textBox.Text);
+
+                            MessageBox.Show("입력이 완료되었습니다.", "DB Insert", MessageBoxButton.OK, MessageBoxImage.Information);
+                            CHAMPION_textBox.Clear();
+                            RUNNERUP_textBox.Clear();
+                            THIRD_textBox.Clear();
+                            FOUTH_textBox.Clear();
+                            REMARK_textBox.Clear();
+                            CHAMPION_textBox.Focus();
+
                             LeagueOption_comboBox.SelectedIndex = selectedIndex + 1;
                         }
-
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message, "Postgresql Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        }
+                        finally
+                        {
+                            //conn.Close();
+                        }
                     }
-                    catch (Exception ex)
+                }
+                else
+                {
+                    if (CHAMPION_textBox.Text == string.Empty)
                     {
-                        MessageBox.Show(ex.Message, "Postgresql Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        MessageBox.Show("우승팀을 입력하세요", "우승팀 입력", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
-                    finally
+                    else if (RUNNERUP_textBox.Text == string.Empty)
                     {
+                        MessageBox.Show("준 우승팀을 입력하세요", "준 우승팀 입력", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                    else if (THIRD_textBox.Text == string.Empty)
+                    {
+                        MessageBox.Show("3등 팀을 입력하세요", "3등 팀 입력", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                    else if (FOUTH_textBox.Text == string.Empty)
+                    {
+                        MessageBox.Show("4등 팀을 입력하세요", "4등 팀 입력", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                    else // 4팀을 다 입력했다면...
+                    {
+                        mTeamList.Clear();
+                        // table에서 입력한 팀 이름이 있는 확인 === 보류
+                        TeamSelectsql = "select distinct (champions) from " + strOption + " union " +
+                            "select distinct (SECOND_PLACE) from " + strOption + " union " +
+                            "select distinct (THIRD_PLACE) from " + strOption + " union " +
+                            "select distinct (FOURTH_PLACE) from " + strOption + " order by champions";
 
+                        NpgsqlCommand cmd1 = new NpgsqlCommand(TeamSelectsql, conn);
+                        NpgsqlDataReader reader1 = cmd1.ExecuteReader();
+
+                        while (reader1.Read())
+                        {
+                            mTeamList.Add(reader1[0].ToString().Trim());
+                        }
+
+                        reader1.Close();
+
+                        try
+                        {
+                            NpgsqlCommand cmd = new NpgsqlCommand();
+                            cmd.Connection = conn;
+                            cmd.CommandText = "insert into " + strOption + " values (@LEAGUE_YEAR, @CHAMPIONS, @SECOND_PLACE, @THIRD_PLACE, @FOURTH_PLACE ,@REMARK)";
+                            cmd.Parameters.AddWithValue("LEAGUE_YEAR", NextYear);
+                            cmd.Parameters.AddWithValue("CHAMPIONS", CHAMPION_textBox.Text);
+                            cmd.Parameters.AddWithValue("SECOND_PLACE", RUNNERUP_textBox.Text);
+                            cmd.Parameters.AddWithValue("THIRD_PLACE", THIRD_textBox.Text);
+                            cmd.Parameters.AddWithValue("FOURTH_PLACE", FOUTH_textBox.Text);
+                            cmd.Parameters.AddWithValue("REMARK", REMARK_textBox.Text);
+                            cmd.ExecuteNonQuery();
+
+                            ManagedOtherLeagueTotal(1, CHAMPION_textBox.Text, RUNNERUP_textBox.Text, THIRD_textBox.Text, FOUTH_textBox.Text);
+                            MessageBox.Show("입력이 완료되었습니다.", "DB Insert", MessageBoxButton.OK, MessageBoxImage.Information);
+                            CHAMPION_textBox.Clear();
+                            RUNNERUP_textBox.Clear();
+                            THIRD_textBox.Clear();
+                            FOUTH_textBox.Clear();
+                            REMARK_textBox.Clear();
+                            CHAMPION_textBox.Focus();
+
+                            // 2023_08_15 테스트 진행 예정
+                            if (selectedIndex == 15)
+                            {
+                                LeagueOption_comboBox.SelectedIndex = 0;
+                            }
+
+                            else
+                            {
+                                LeagueOption_comboBox.SelectedIndex = selectedIndex + 1;
+                            }
+
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message, "Postgresql Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        }
+                        finally
+                        {
+
+                        }
                     }
                 }
             }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+            }
+
+            finally
+            {
+                if (conn != null)
+                {
+                    if (conn.State != ConnectionState.Closed)
+                    {
+                        conn.Close();
+                        conn.Dispose();
+                    }
+                }
+            }
+            
         }
 
         // Sql Delete
@@ -347,24 +422,66 @@ namespace FIFA22_INFO
             {
                 sOption = LeagueOption_comboBox.SelectedItem.ToString();
                 selectedIndex = LeagueOption_comboBox.SelectedIndex;
+
+                int ns1 = mTeamList.IndexOf(s1);
+                int ns2 = mTeamList.IndexOf(s2);
+
+                string sInsertRankingSql = string.Empty;
+                mNonTeamList.Clear();
+
+                if (selectedIndex >= 0 && selectedIndex <= 2)
+                {
+                    sTableName = "england_total";
+                    sInsertRankingSql = "insert into " + sTableName + " (TEAM_NAME, PREMIER_LEAGUE_WINNER_CNT, PREMIER_LEAGUE_RUN_CNT, EMIRATES_FA_CUP_WINNER_CNT, EMIRATES_FA_CUP_RUN_CNT,CARABAO_CUP_WINNER_CNT, CARABAO_CUP_RUN_CNT) values ('" + s1 + "',0,0,0,0,0,0);";
+                }
+                else if (selectedIndex >= 3 && selectedIndex <= 6)
+                {
+                    sTableName = "TOTAL";
+                }
+
+                // insert into TOTAL (TEAM_NAME, CHAMPIONS_LEAGUE_WINNER_CNT, CHAMPIONS_LEAGUE_RUN_CNT, EUROPA_LEAGUE_WINNER_CNT, EUROPA_LEAGUE_RUN_CNT, CONFERENCE_LEAGUE_WINNER_CNT,CONFERENCE_LEAGUE_RUN_CNT,  SUPER_CUP_WINNER_CNT, SUPER_CUP_RUN_CNT) values ('SAMSUNG FC',89,19,14,2,3,2,69,29); 
+
+                if (ns1 == -1)
+                {
+                    if(sTableName == "england_total")
+                    {
+                        sInsertRankingSql = "insert into "+ sTableName + " (TEAM_NAME, PREMIER_LEAGUE_WINNER_CNT, PREMIER_LEAGUE_RUN_CNT, EMIRATES_FA_CUP_WINNER_CNT, EMIRATES_FA_CUP_RUN_CNT,CARABAO_CUP_WINNER_CNT, CARABAO_CUP_RUN_CNT) values ('" + s1 + "',0,0,0,0,0,0);";
+                    }
+                    else
+                    {
+                        sInsertRankingSql = "insert into " + sTableName + " (TEAM_NAME, CHAMPIONS_LEAGUE_WINNER_CNT, CHAMPIONS_LEAGUE_RUN_CNT, EUROPA_LEAGUE_WINNER_CNT, EUROPA_LEAGUE_RUN_CNT, CONFERENCE_LEAGUE_WINNER_CNT,CONFERENCE_LEAGUE_RUN_CNT,  SUPER_CUP_WINNER_CNT, SUPER_CUP_RUN_CNT) values ('" + s1 + "', 0,0,0,0,0,0,0,0);";
+                    }
+                    mNonTeamList.Add(sInsertRankingSql);
+                }
+                if(ns2 == -1)
+                {
+
+                    if (sTableName == "england_total")
+                    {
+                        sInsertRankingSql = "insert into " + sTableName + " (TEAM_NAME, PREMIER_LEAGUE_WINNER_CNT, PREMIER_LEAGUE_RUN_CNT, EMIRATES_FA_CUP_WINNER_CNT, EMIRATES_FA_CUP_RUN_CNT,CARABAO_CUP_WINNER_CNT, CARABAO_CUP_RUN_CNT) values ('" + s2 + "',0,0,0,0,0,0);";
+                    }
+                    else
+                    {
+                        sInsertRankingSql = "insert into " + sTableName + " (TEAM_NAME, CHAMPIONS_LEAGUE_WINNER_CNT, CHAMPIONS_LEAGUE_RUN_CNT, EUROPA_LEAGUE_WINNER_CNT, EUROPA_LEAGUE_RUN_CNT, CONFERENCE_LEAGUE_WINNER_CNT,CONFERENCE_LEAGUE_RUN_CNT,  SUPER_CUP_WINNER_CNT, SUPER_CUP_RUN_CNT) values ('" + s2 + "', 0,0,0,0,0,0,0,0);";
+                    }
+                    mNonTeamList.Add(sInsertRankingSql);
+                }
+
+                for (int i = 0; i < mNonTeamList.Count; i++)
+                {
+                    NpgsqlCommand NonTeamInsertcmd = new NpgsqlCommand();
+                    NonTeamInsertcmd.Connection = conn;
+                    NonTeamInsertcmd.CommandText = mNonTeamList[i];
+                    NonTeamInsertcmd.ExecuteNonQuery();
+                }
             }
-            if(n== -1)
+            else if(n== -1)
             {
                 sOption = Delete_LeagueOption_comboBox.SelectedItem.ToString();
                 selectedIndex = Delete_LeagueOption_comboBox.SelectedIndex;
             }
 
-            if(selectedIndex >= 0 && selectedIndex <=2)
-            {
-                sTableName = "england_total";
-            }
-            else if(selectedIndex >=3 && selectedIndex <=6)
-            {
-                sTableName = "TOTAL";
-            }
-
             string sql = "";
-            string sql1 = "";
             string UpdateSql = "";
             string UpdateSql1 = "";
 
@@ -427,145 +544,163 @@ namespace FIFA22_INFO
         private void ManagedOtherLeagueTotal(int n, string s1, string s2, string s3, string s4)
         {
             NpgsqlConnection conn = new NpgsqlConnection(MainWindow.mConnString);
-            conn.Open();
-
-            int selectedIndex = 0;
-            string sOption = string.Empty;
-
-            if(n==1)
-            {
-                selectedIndex = LeagueOption_comboBox.SelectedIndex;
-                sOption = LeagueOption_comboBox.SelectedItem.ToString();
-
-                int ns1 = mTeamList.IndexOf(s1);
-                int ns2 = mTeamList.IndexOf(s2);
-                int ns3 = mTeamList.IndexOf(s3);
-                int ns4 = mTeamList.IndexOf(s4);
-
-                string sInsertRankingSql = string.Empty;
-                mNonTeamList.Clear();
-
-                if (ns1 == -1)
-                {
-                    sInsertRankingSql = "insert into " + sOption + "_RANKING  (TEAM_NAME, CHAMPIONS_CNT, SECOND_PLACE_CNT, THIRD_PLACE_CNT, FOURTH_PLACE_CNT) values ('" + s1 + "', 0,0,0,0);";
-                    mNonTeamList.Add(sInsertRankingSql);
-                }
-                if(ns2 == -1)
-                {
-                    sInsertRankingSql = "insert into " + sOption + "_RANKING  (TEAM_NAME, CHAMPIONS_CNT, SECOND_PLACE_CNT, THIRD_PLACE_CNT, FOURTH_PLACE_CNT) values ('" + s2 + "', 0,0,0,0);";
-                    mNonTeamList.Add(sInsertRankingSql);
-                }
-                if(ns3 == -1)
-                {
-                    sInsertRankingSql = "insert into " + sOption + "_RANKING  (TEAM_NAME, CHAMPIONS_CNT, SECOND_PLACE_CNT, THIRD_PLACE_CNT, FOURTH_PLACE_CNT) values ('" + s3 + "', 0,0,0,0);";
-                    mNonTeamList.Add(sInsertRankingSql);
-                }
-                if(ns4 == -1)
-                {
-                    // insert into LIGA_PORTUGAL_RANKING (TEAM_NAME, CHAMPIONS_CNT, SECOND_PLACE_CNT, THIRD_PLACE_CNT, FOURTH_PLACE_CNT) values ('VITORIA SC',1,1,4,2); 
-                    sInsertRankingSql = "insert into " + sOption + "_RANKING  (TEAM_NAME, CHAMPIONS_CNT, SECOND_PLACE_CNT, THIRD_PLACE_CNT, FOURTH_PLACE_CNT) values ('" + s4 + "', 0,0,0,0);";
-                    mNonTeamList.Add(sInsertRankingSql);
-                }
-
-                for(int i=0; i<mNonTeamList.Count; i++)
-                {
-                    NpgsqlCommand NonTeamInsertcmd = new NpgsqlCommand();
-                    NonTeamInsertcmd.Connection = conn;
-                    NonTeamInsertcmd.CommandText = mNonTeamList[i];
-                    NonTeamInsertcmd.ExecuteNonQuery();
-                }
-            }
-            if(n== -1)
-            {
-                selectedIndex = Delete_LeagueOption_comboBox.SelectedIndex;
-                sOption = Delete_LeagueOption_comboBox.SelectedItem.ToString();
-            }
-
-            string sql = "select (select CHAMPIONS_CNT from " + sOption + "_RANKING t where team_name = '" + s1 + "')," +
-                "(select SECOND_PLACE_CNT from " + sOption + "_RANKING t where team_name = '" + s2 + "')," +
-                "(select THIRD_PLACE_CNT from " + sOption + "_RANKING t where team_name = '" + s3 + "')," +
-                "(select FOURTH_PLACE_CNT from " + sOption + "_RANKING t where team_name = '" + s4 + "');";
-
-            int nChampionsCnt = 0;
-            int nRunnerUpCnt = 0;
-            int nThirdCnt = 0;
-            int nFourthCnt = 0;
-
-            // Champions Count
-            NpgsqlCommand cmd = new NpgsqlCommand(sql, conn);
-            NpgsqlDataReader reader = cmd.ExecuteReader();
-
-            string str1 = string.Empty;
-            string str2 = string.Empty;
-            string str3 = string.Empty;
-            string str4 = string.Empty;
-
-            while (reader.Read())
-            {
-                if (reader[0] != DBNull.Value)
-                {
-                    nChampionsCnt = int.Parse(reader[0].ToString());
-                }
-                else
-                {
-                    nChampionsCnt = 0;
-                }
-                if (reader[1] != DBNull.Value)
-                {
-                    nRunnerUpCnt = int.Parse(reader[1].ToString());
-                }
-                else
-                {
-                    nRunnerUpCnt = 0;
-                }
-                if (reader[2] != DBNull.Value)
-                {
-                    nThirdCnt = int.Parse(reader[2].ToString());
-                }
-                else
-                {
-                    nThirdCnt = 0;
-                }
-                if (reader[3] != DBNull.Value)
-                {
-                    nFourthCnt = int.Parse(reader[3].ToString());
-                }
-                else
-                {
-                    nFourthCnt = 0;
-                }
-            }
-
-            reader.Close();
-
-            nChampionsCnt += n;
-            nRunnerUpCnt += n;
-            nThirdCnt += n;
-            nFourthCnt += n;
-
-            string UpdateSql = "UPDATE " + sOption + "_RANKING set champions_cnt = " + nChampionsCnt.ToString() + " where team_name = '" + s1 + "';";
-            string UpdateSql1 = "UPDATE " + sOption + "_RANKING set SECOND_PLACE_CNT = " + nRunnerUpCnt.ToString() + " where team_name = '" + s2+ "';";
-            string UpdateSql2 = "UPDATE " + sOption + "_RANKING set THIRD_PLACE_CNT = " + nThirdCnt.ToString() + " where team_name = '" + s3 + "';";
-            string UpdateSql3 = "UPDATE " + sOption + "_RANKING set FOURTH_PLACE_CNT = " + nFourthCnt.ToString() + " where team_name = '" + s4 + "';";
-
             try
             {
-                NpgsqlCommand UpdateCommand = new NpgsqlCommand(UpdateSql, conn);
-                UpdateCommand.ExecuteNonQuery();
+                conn.Open();
 
-                NpgsqlCommand UpdateCommand1 = new NpgsqlCommand(UpdateSql1, conn);
-                UpdateCommand1.ExecuteNonQuery();
+                int selectedIndex = 0;
+                string sOption = string.Empty;
 
-                NpgsqlCommand UpdateCommand2 = new NpgsqlCommand(UpdateSql2, conn);
-                UpdateCommand2.ExecuteNonQuery();
+                if (n == 1)
+                {
+                    selectedIndex = LeagueOption_comboBox.SelectedIndex;
+                    sOption = LeagueOption_comboBox.SelectedItem.ToString();
 
-                NpgsqlCommand UpdateCommand3 = new NpgsqlCommand(UpdateSql3, conn);
-                UpdateCommand3.ExecuteNonQuery();
+                    int ns1 = mTeamList.IndexOf(s1);
+                    int ns2 = mTeamList.IndexOf(s2);
+                    int ns3 = mTeamList.IndexOf(s3);
+                    int ns4 = mTeamList.IndexOf(s4);
+
+                    string sInsertRankingSql = string.Empty;
+                    mNonTeamList.Clear();
+
+                    if (ns1 == -1)
+                    {
+                        sInsertRankingSql = "insert into " + sOption + "_RANKING  (TEAM_NAME, CHAMPIONS_CNT, SECOND_PLACE_CNT, THIRD_PLACE_CNT, FOURTH_PLACE_CNT) values ('" + s1 + "', 0,0,0,0);";
+                        mNonTeamList.Add(sInsertRankingSql);
+                    }
+                    if (ns2 == -1)
+                    {
+                        sInsertRankingSql = "insert into " + sOption + "_RANKING  (TEAM_NAME, CHAMPIONS_CNT, SECOND_PLACE_CNT, THIRD_PLACE_CNT, FOURTH_PLACE_CNT) values ('" + s2 + "', 0,0,0,0);";
+                        mNonTeamList.Add(sInsertRankingSql);
+                    }
+                    if (ns3 == -1)
+                    {
+                        sInsertRankingSql = "insert into " + sOption + "_RANKING  (TEAM_NAME, CHAMPIONS_CNT, SECOND_PLACE_CNT, THIRD_PLACE_CNT, FOURTH_PLACE_CNT) values ('" + s3 + "', 0,0,0,0);";
+                        mNonTeamList.Add(sInsertRankingSql);
+                    }
+                    if (ns4 == -1)
+                    {
+                        sInsertRankingSql = "insert into " + sOption + "_RANKING  (TEAM_NAME, CHAMPIONS_CNT, SECOND_PLACE_CNT, THIRD_PLACE_CNT, FOURTH_PLACE_CNT) values ('" + s4 + "', 0,0,0,0);";
+                        mNonTeamList.Add(sInsertRankingSql);
+                    }
+
+                    for (int i = 0; i < mNonTeamList.Count; i++)
+                    {
+                        NpgsqlCommand NonTeamInsertcmd = new NpgsqlCommand();
+                        NonTeamInsertcmd.Connection = conn;
+                        NonTeamInsertcmd.CommandText = mNonTeamList[i];
+                        NonTeamInsertcmd.ExecuteNonQuery();
+                    }
+                }
+                if (n == -1)
+                {
+                    selectedIndex = Delete_LeagueOption_comboBox.SelectedIndex;
+                    sOption = Delete_LeagueOption_comboBox.SelectedItem.ToString();
+                }
+
+                string sql = "select (select CHAMPIONS_CNT from " + sOption + "_RANKING t where team_name = '" + s1 + "')," +
+                    "(select SECOND_PLACE_CNT from " + sOption + "_RANKING t where team_name = '" + s2 + "')," +
+                    "(select THIRD_PLACE_CNT from " + sOption + "_RANKING t where team_name = '" + s3 + "')," +
+                    "(select FOURTH_PLACE_CNT from " + sOption + "_RANKING t where team_name = '" + s4 + "');";
+
+                int nChampionsCnt = 0;
+                int nRunnerUpCnt = 0;
+                int nThirdCnt = 0;
+                int nFourthCnt = 0;
+
+                // Champions Count
+                NpgsqlCommand cmd = new NpgsqlCommand(sql, conn);
+                NpgsqlDataReader reader = cmd.ExecuteReader();
+
+                string str1 = string.Empty;
+                string str2 = string.Empty;
+                string str3 = string.Empty;
+                string str4 = string.Empty;
+
+                while (reader.Read())
+                {
+                    if (reader[0] != DBNull.Value)
+                    {
+                        nChampionsCnt = int.Parse(reader[0].ToString());
+                    }
+                    else
+                    {
+                        nChampionsCnt = 0;
+                    }
+                    if (reader[1] != DBNull.Value)
+                    {
+                        nRunnerUpCnt = int.Parse(reader[1].ToString());
+                    }
+                    else
+                    {
+                        nRunnerUpCnt = 0;
+                    }
+                    if (reader[2] != DBNull.Value)
+                    {
+                        nThirdCnt = int.Parse(reader[2].ToString());
+                    }
+                    else
+                    {
+                        nThirdCnt = 0;
+                    }
+                    if (reader[3] != DBNull.Value)
+                    {
+                        nFourthCnt = int.Parse(reader[3].ToString());
+                    }
+                    else
+                    {
+                        nFourthCnt = 0;
+                    }
+                }
+
+                reader.Close();
+
+                nChampionsCnt += n;
+                nRunnerUpCnt += n;
+                nThirdCnt += n;
+                nFourthCnt += n;
+
+                string UpdateSql = "UPDATE " + sOption + "_RANKING set champions_cnt = " + nChampionsCnt.ToString() + " where team_name = '" + s1 + "';";
+                string UpdateSql1 = "UPDATE " + sOption + "_RANKING set SECOND_PLACE_CNT = " + nRunnerUpCnt.ToString() + " where team_name = '" + s2 + "';";
+                string UpdateSql2 = "UPDATE " + sOption + "_RANKING set THIRD_PLACE_CNT = " + nThirdCnt.ToString() + " where team_name = '" + s3 + "';";
+                string UpdateSql3 = "UPDATE " + sOption + "_RANKING set FOURTH_PLACE_CNT = " + nFourthCnt.ToString() + " where team_name = '" + s4 + "';";
+
+                try
+                {
+                    NpgsqlCommand UpdateCommand = new NpgsqlCommand(UpdateSql, conn);
+                    UpdateCommand.ExecuteNonQuery();
+
+                    NpgsqlCommand UpdateCommand1 = new NpgsqlCommand(UpdateSql1, conn);
+                    UpdateCommand1.ExecuteNonQuery();
+
+                    NpgsqlCommand UpdateCommand2 = new NpgsqlCommand(UpdateSql2, conn);
+                    UpdateCommand2.ExecuteNonQuery();
+
+                    NpgsqlCommand UpdateCommand3 = new NpgsqlCommand(UpdateSql3, conn);
+                    UpdateCommand3.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Postgresql Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.Message, "Postgresql Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
+            finally
+            {
+                if (conn != null)
+                {
+                    if (conn.State != ConnectionState.Closed)
+                    {
+                        conn.Close();
+                        conn.Dispose();
+                    }
+                }
+            }
+
         }
 
         private string GetNestLeaguYear(string strOption)
@@ -589,6 +724,21 @@ namespace FIFA22_INFO
             string strNestYear = string.Empty;
             reader.Close();
 
+            if(lastYear == string.Empty || lastYear == "")
+            {
+                sql = "select pl.league_year from premier_league pl order by pl.league_year desc limit 1;";
+
+                NpgsqlCommand cmd1 = new NpgsqlCommand(sql, conn);
+                NpgsqlDataReader reader1 = cmd1.ExecuteReader();
+
+                while(reader1.Read())
+                {
+                    lastYear = reader1[0].ToString().Trim();
+                }
+
+                reader1.Close();
+            }
+
             List<string> yearList = lastYear.Split('/').ToList();
 
             int nFront = int.Parse(yearList[0]);
@@ -596,6 +746,14 @@ namespace FIFA22_INFO
 
             nFront += 1;
             nBack += 1;
+            if(nFront == 100)
+            {
+                nFront = 0;
+            }
+            if(nBack == 100)
+            {
+                nBack = 0;
+            }
 
             lastYear = nFront.ToString().PadLeft(2,'0') + "/" + nBack.ToString().PadLeft(2, '0');
 
@@ -758,6 +916,8 @@ namespace FIFA22_INFO
                 Update_Vice_LeagueOption_comboBox.Items.Add("champions");
                 Update_Vice_LeagueOption_comboBox.Items.Add("second_place");
                 Update_Vice_LeagueOption_comboBox.Items.Add("remark");
+
+                Update_Vice_LeagueOption_comboBox.SelectedIndex = 3;
             }
             else
             {
@@ -767,6 +927,8 @@ namespace FIFA22_INFO
                 Update_Vice_LeagueOption_comboBox.Items.Add("third_place");
                 Update_Vice_LeagueOption_comboBox.Items.Add("fourth_place");
                 Update_Vice_LeagueOption_comboBox.Items.Add("remark");
+
+                Update_Vice_LeagueOption_comboBox.SelectedIndex = 5;
             }
         }
 
@@ -840,9 +1002,6 @@ namespace FIFA22_INFO
                 int nFirst = 0;
                 int nLast = 0;
 
-                string sFirst = "";
-                string sLast = "";
-                
                 if(nCurrentIndex == 4 || nCurrentIndex == 3)
                 {
                     //nFirst = int.Parse(list[0]);

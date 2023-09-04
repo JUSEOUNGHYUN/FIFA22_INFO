@@ -96,45 +96,6 @@ namespace FIFA22_INFO
         }
 
         // DB 연결
-        private string GetConfigDBConnectionInfo()
-        {
-            AppSettingsReader ar = new AppSettingsReader();
-            string strConString = string.Empty;
-            try
-            {
-                strConString = (string)ar.GetValue("ConnectionString", typeof(string));
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("DB정보가 없습니다..", "DB 연결", MessageBoxButton.OK, MessageBoxImage.Exclamation);
-                this.Close();
-            }
-
-            List<string> ConDataList = ParseConDataConfig(strConString);
-            string ConString = "HOST=" + ConDataList[0] + ";PORT=" + ConDataList[1] + ";USERNAME=" + ConDataList[2] + ";PASSWORD=" + ConDataList[3] + ";DATABASE=" + ConDataList[4] + ";";
-            ConString += "Connection Timeout=5;";
-
-            return ConString;
-        }
-
-        public static List<string> ParseConDataConfig(string strConString)
-        {
-            List<string> list = new List<string>();
-
-            list = strConString.Split(';').ToList();
-            list.RemoveAt(list.Count() - 1);
-
-            List<string> ConDataList = new List<string>();
-
-            for (int i = 0; i < list.Count(); i++)
-            {
-                string str1 = list[i].Substring(list[i].IndexOf('=') + 1).Trim();
-                ConDataList.Add(str1);
-            }
-
-            return ConDataList;
-        }
-
         private void Rectangle_MouseDown(object sender, MouseButtonEventArgs e)
         {
             this.DragMove();
@@ -220,7 +181,7 @@ namespace FIFA22_INFO
 
         private void LALIGA_SANTANDER_Click(object sender, RoutedEventArgs e)
         {
-            LALIGA_SANTANDER ls = new LALIGA_SANTANDER();
+            Spain ls = new Spain();
             ls.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             ls.Show();
         }
@@ -245,6 +206,13 @@ namespace FIFA22_INFO
             Search s = new Search();
             s.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             s.Show();
+        }
+
+        private void JUPILER_PRO_Click(object sender, RoutedEventArgs e)
+        {
+            JUPILER_PRO jp = new JUPILER_PRO();
+            jp.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            jp.Show();
         }
     }
 

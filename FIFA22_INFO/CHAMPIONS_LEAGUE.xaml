@@ -334,6 +334,7 @@
                                     <Setter Property="HorizontalAlignment" Value="Left"/>
                                     <Setter Property="VerticalAlignment" Value="Center"/>
                                     <Setter Property="Foreground" Value="Black"/>
+                                    <Setter Property="FontWeight" Value="Bold"/>
                                     <Setter Property="FontSize" Value="13"/>
                                 </Style>
                             </DataGridTextColumn.ElementStyle>
@@ -529,6 +530,7 @@
                         RowHeight="35" Margin="10,0,-10,0" 
                         MouseDoubleClick="Ranking_MouseDoubleClick"  
                            PreviewKeyDown="Ranking_DataGrid_PreviewKeyDown"
+                          IsReadOnly="True"
                           >
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="RAKING" Binding="{Binding Path=Ranking}" Width="50" >
@@ -703,6 +705,7 @@
                                     <Setter Property="VerticalAlignment" Value="Center"/>
                                     <Setter Property="Foreground" Value="Black"/>
                                     <Setter Property="FontSize" Value="13"/>
+                                    <Setter Property="IsHitTestVisible" Value="False"/>
                                     <Style.Triggers>
                                         <DataTrigger Binding="{Binding Path=Ranking}" Value="1">
                                             <Setter Property="Foreground" Value="#04048c"/>

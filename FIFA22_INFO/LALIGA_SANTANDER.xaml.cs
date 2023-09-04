@@ -66,9 +66,6 @@ namespace FIFA22_INFO
         public static List<LALIGA_SANTANDER_LEAGUE> mSANLEAGUEList = new List<LALIGA_SANTANDER_LEAGUE>();
         public static List<LALIGA_SANTANDER_RANKING> mSANRANKINGList = new List<LALIGA_SANTANDER_RANKING>();
 
-        public delegate void DataPassProdCdEventHandler(string strTeamName);
-        public event DataPassProdCdEventHandler DataPassProdCd;
-
         public string m_sTeamName = string.Empty;
         public string m_sOption = string.Empty;
         public LALIGA_SANTANDER()
@@ -332,7 +329,7 @@ namespace FIFA22_INFO
             else if (e.Key == Key.C)
             {
                 this.Close();
-                LIGUE1 b = new LIGUE1();
+                LALIGA_SMARTBANK b = new LALIGA_SMARTBANK();
                 b.WindowStartupLocation = WindowStartupLocation.CenterScreen;
                 b.Show();
             }

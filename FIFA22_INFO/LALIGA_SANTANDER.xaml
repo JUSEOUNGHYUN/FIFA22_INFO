@@ -97,7 +97,7 @@
                     </Rectangle.Style>
                 </Rectangle>
                 <Label x:Name="label1_Copy1" Content="Remark : " HorizontalAlignment="Left" Margin="208,95,0,0" VerticalAlignment="Top"/>
-                <TextBox x:Name="Remark_Textbox" HorizontalAlignment="Left" Margin="311,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" BorderThickness="0" IsReadOnly="True"/>
+                <TextBox x:Name="Remark_Textbox" HorizontalAlignment="Left" Margin="311,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="185" BorderThickness="0" IsReadOnly="True"/>
                 <Rectangle x:Name="CountStarRec" HorizontalAlignment="Left" Height="70" Margin="211,121,0,0" Stroke="Black" VerticalAlignment="Top" Width="213" StrokeThickness="0">
                 </Rectangle>
 
@@ -157,7 +157,7 @@
                         CanUserResizeColumns ="False" 
                         HeadersVisibility="Column" 
                         RowHeight="35"
-                          SelectionChanged ="Row_SelectionChanged" 
+                        SelectionChanged ="Row_SelectionChanged" 
                           >
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="YEAR" Binding="{Binding Path=League_Year}" Width="80" IsReadOnly="True">
@@ -209,8 +209,20 @@
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="FC BARCELONA">
                                                         <Setter Property="Source" Value="Resources/FC BARCELONA.png"/>
                                                     </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="GETAFE CF">
+                                                        <Setter Property="Source" Value="Resources/GETAFE CF.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="GIRONA FC">
+                                                        <Setter Property="Source" Value="Resources/GIRONA FC.png"/>
+                                                    </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="GRANADA CF">
                                                         <Setter Property="Source" Value="Resources/GRANADA CF.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="RAYO VALLECANO">
+                                                        <Setter Property="Source" Value="Resources/RAYO VALLECANO.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="RC CELTA">
+                                                        <Setter Property="Source" Value="Resources/RC CELTA.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="RCD ESPANYOL">
                                                         <Setter Property="Source" Value="Resources/RCD ESPANYOL.png"/>
@@ -259,6 +271,7 @@
                                     <Setter Property="HorizontalAlignment" Value="Left"/>
                                     <Setter Property="VerticalAlignment" Value="Center"/>
                                     <Setter Property="Foreground" Value="Black"/>
+                                    <Setter Property="FontWeight" Value="Bold"/>
                                     <Setter Property="FontSize" Value="11"/>
                                 </Style>
                             </DataGridTextColumn.ElementStyle>
@@ -273,7 +286,7 @@
                                     <Setter Property="BorderThickness" Value="0.5"/>
                                 </Style>
                             </DataGridTemplateColumn.HeaderStyle>
-                            <DataGridTemplateColumn.CellTemplate>
+                            <DataGridTemplateColumn.CellTemplate >
                                 <DataTemplate>
                                     <Image>
                                         <Image.Style>
@@ -291,8 +304,20 @@
                                                     <DataTrigger Binding="{Binding Path=Second_Place}" Value="FC BARCELONA">
                                                         <Setter Property="Source" Value="Resources/FC BARCELONA.png"/>
                                                     </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="GETAFE CF">
+                                                        <Setter Property="Source" Value="Resources/GETAFE CF.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="GIRONA FC">
+                                                        <Setter Property="Source" Value="Resources/GIRONA FC.png"/>
+                                                    </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Second_Place}" Value="GRANADA CF">
                                                         <Setter Property="Source" Value="Resources/GRANADA CF.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="RAYO VALLECANO">
+                                                        <Setter Property="Source" Value="Resources/RAYO VALLECANO.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="RC CELTA">
+                                                        <Setter Property="Source" Value="Resources/RC CELTA.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Second_Place}" Value="RCD ESPANYOL">
                                                         <Setter Property="Source" Value="Resources/RCD ESPANYOL.png"/>
@@ -355,7 +380,7 @@
                                     <Setter Property="BorderThickness" Value="0.5"/>
                                 </Style>
                             </DataGridTemplateColumn.HeaderStyle>
-                            <DataGridTemplateColumn.CellTemplate>
+                            <DataGridTemplateColumn.CellTemplate >
                                 <DataTemplate>
                                     <Image>
                                         <Image.Style>
@@ -373,8 +398,20 @@
                                                     <DataTrigger Binding="{Binding Path=Third_Place}" Value="FC BARCELONA">
                                                         <Setter Property="Source" Value="Resources/FC BARCELONA.png"/>
                                                     </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Third_Place}" Value="GETAFE CF">
+                                                        <Setter Property="Source" Value="Resources/GETAFE CF.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Third_Place}" Value="GIRONA FC">
+                                                        <Setter Property="Source" Value="Resources/GIRONA FC.png"/>
+                                                    </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Third_Place}" Value="GRANADA CF">
                                                         <Setter Property="Source" Value="Resources/GRANADA CF.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Third_Place}" Value="RAYO VALLECANO">
+                                                        <Setter Property="Source" Value="Resources/RAYO VALLECANO.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Third_Place}" Value="RC CELTA">
+                                                        <Setter Property="Source" Value="Resources/RC CELTA.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Third_Place}" Value="RCD ESPANYOL">
                                                         <Setter Property="Source" Value="Resources/RCD ESPANYOL.png"/>
@@ -437,7 +474,7 @@
                                     <Setter Property="BorderThickness" Value="0.5"/>
                                 </Style>
                             </DataGridTemplateColumn.HeaderStyle>
-                            <DataGridTemplateColumn.CellTemplate>
+                            <DataGridTemplateColumn.CellTemplate >
                                 <DataTemplate>
                                     <Image>
                                         <Image.Style>
@@ -455,8 +492,20 @@
                                                     <DataTrigger Binding="{Binding Path=Fourth_Place}" Value="FC BARCELONA">
                                                         <Setter Property="Source" Value="Resources/FC BARCELONA.png"/>
                                                     </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Fourth_Place}" Value="GETAFE CF">
+                                                        <Setter Property="Source" Value="Resources/GETAFE CF.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Fourth_Place}" Value="GIRONA FC">
+                                                        <Setter Property="Source" Value="Resources/GIRONA FC.png"/>
+                                                    </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Fourth_Place}" Value="GRANADA CF">
                                                         <Setter Property="Source" Value="Resources/GRANADA CF.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Fourth_Place}" Value="RAYO VALLECANO">
+                                                        <Setter Property="Source" Value="Resources/RAYO VALLECANO.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Fourth_Place}" Value="RC CELTA">
+                                                        <Setter Property="Source" Value="Resources/RC CELTA.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Fourth_Place}" Value="RCD ESPANYOL">
                                                         <Setter Property="Source" Value="Resources/RCD ESPANYOL.png"/>
@@ -574,7 +623,7 @@
                                     <Setter Property="BorderThickness" Value="0.5"/>
                                 </Style>
                             </DataGridTemplateColumn.HeaderStyle>
-                            <DataGridTemplateColumn.CellTemplate>
+                            <DataGridTemplateColumn.CellTemplate >
                                 <DataTemplate>
                                     <Image>
                                         <Image.Style>
@@ -592,8 +641,20 @@
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="FC BARCELONA">
                                                         <Setter Property="Source" Value="Resources/FC BARCELONA.png"/>
                                                     </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="GETAFE CF">
+                                                        <Setter Property="Source" Value="Resources/GETAFE CF.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="GIRONA FC">
+                                                        <Setter Property="Source" Value="Resources/GIRONA FC.png"/>
+                                                    </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="GRANADA CF">
                                                         <Setter Property="Source" Value="Resources/GRANADA CF.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="RAYO VALLECANO">
+                                                        <Setter Property="Source" Value="Resources/RAYO VALLECANO.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="RC CELTA">
+                                                        <Setter Property="Source" Value="Resources/RC CELTA.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="RCD ESPANYOL">
                                                         <Setter Property="Source" Value="Resources/RCD ESPANYOL.png"/>

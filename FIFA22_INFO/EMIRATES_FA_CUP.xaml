@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FIFA22_INFO"
         mc:Ignorable="d"
+        
         WindowStyle="None"
         Title="EMIRATES_FA_CUP" Height="894" Width="1420"
         KeyDown="keyDown_Event">
@@ -226,6 +227,12 @@
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="BURNLEY">
                                                         <Setter Property="Source" Value="Resources/BURNLEY.png"/>
                                                     </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="CARDIFF CITY">
+                                                        <Setter Property="Source" Value="Resources/CARDIFF CITY.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="CARLISLE UNITED">
+                                                        <Setter Property="Source" Value="Resources/CARLISLE UNITED.png"/>
+                                                    </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="CHELSEA">
                                                         <Setter Property="Source" Value="Resources/CHELSEA.png"/>
                                                     </DataTrigger>
@@ -247,6 +254,9 @@
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="HUDDERSFIELD">
                                                         <Setter Property="Source" Value="Resources/HUDDERSFIELD.png"/>
                                                     </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="HULL CITY">
+                                                        <Setter Property="Source" Value="Resources/HULL CITY.png"/>
+                                                    </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="LEEDS UNITED">
                                                         <Setter Property="Source" Value="Resources/LEEDS UNITED.png"/>
                                                     </DataTrigger>
@@ -261,6 +271,9 @@
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="MANCHESTER UTD">
                                                         <Setter Property="Source" Value="Resources/MANCHESTER UTD.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="MIDDLESBROUGH">
+                                                        <Setter Property="Source" Value="Resources/MIDDLESBROUGH.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="MILLWALL">
                                                         <Setter Property="Source" Value="Resources/MILLWALL.png"/>
@@ -291,6 +304,9 @@
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="SHEFFIELD UTD">
                                                         <Setter Property="Source" Value="Resources/SHEFFIELD UTD.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="SHEFFIELD WED">
+                                                        <Setter Property="Source" Value="Resources/SHEFFIELD WED.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="SOUTHAMPTON">
                                                         <Setter Property="Source" Value="Resources/SOUTHAMPTON.png"/>
@@ -337,6 +353,7 @@
                                     <Setter Property="HorizontalAlignment" Value="Left"/>
                                     <Setter Property="VerticalAlignment" Value="Center"/>
                                     <Setter Property="Foreground" Value="Black"/>
+                                    <Setter Property="FontWeight" Value="Bold"/>
                                     <Setter Property="FontSize" Value="13"/>
                                 </Style>
                             </DataGridTextColumn.ElementStyle>
@@ -391,6 +408,9 @@
                                                     <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="CARDIFF CITY">
                                                         <Setter Property="Source" Value="Resources/CARDIFF CITY.png"/>
                                                     </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="CARLISLE UNITED">
+                                                        <Setter Property="Source" Value="Resources/CARLISLE UNITED.png"/>
+                                                    </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="CHELSEA">
                                                         <Setter Property="Source" Value="Resources/CHELSEA.png"/>
                                                     </DataTrigger>
@@ -415,6 +435,9 @@
                                                     <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="HUDDERSFIELD">
                                                         <Setter Property="Source" Value="Resources/HUDDERSFIELD.png"/>
                                                     </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="HULL CITY">
+                                                        <Setter Property="Source" Value="Resources/HULL CITY.png"/>
+                                                    </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="IPSWICH">
                                                         <Setter Property="Source" Value="Resources/IPSWICH.png"/>
                                                     </DataTrigger>
@@ -435,6 +458,9 @@
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="MANCHESTER UTD">
                                                         <Setter Property="Source" Value="Resources/MANCHESTER UTD.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="MIDDLESBROUGH">
+                                                        <Setter Property="Source" Value="Resources/MIDDLESBROUGH.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="MILLWALL">
                                                         <Setter Property="Source" Value="Resources/MILLWALL.png"/>
@@ -474,6 +500,9 @@
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="SHEFFIELD UTD">
                                                         <Setter Property="Source" Value="Resources/SHEFFIELD UTD.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="SHEFFIELD WED">
+                                                        <Setter Property="Source" Value="Resources/SHEFFIELD WED.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Second_PlaceLOGO}" Value="SOUTHAMPTON">
                                                         <Setter Property="Source" Value="Resources/SOUTHAMPTON.png"/>
@@ -638,6 +667,9 @@
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="CARDIFF CITY">
                                                         <Setter Property="Source" Value="Resources/CARDIFF CITY.png"/>
                                                     </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="CARLISLE UNITED">
+                                                        <Setter Property="Source" Value="Resources/CARLISLE UNITED.png"/>
+                                                    </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="CHELSEA">
                                                         <Setter Property="Source" Value="Resources/CHELSEA.png"/>
                                                     </DataTrigger>
@@ -662,6 +694,9 @@
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="HUDDERSFIELD">
                                                         <Setter Property="Source" Value="Resources/HUDDERSFIELD.png"/>
                                                     </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="HULL CITY">
+                                                        <Setter Property="Source" Value="Resources/HULL CITY.png"/>
+                                                    </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="IPSWICH">
                                                         <Setter Property="Source" Value="Resources/IPSWICH.png"/>
                                                     </DataTrigger>
@@ -682,6 +717,9 @@
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="MANCHESTER UTD">
                                                         <Setter Property="Source" Value="Resources/MANCHESTER UTD.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="MIDDLESBROUGH">
+                                                        <Setter Property="Source" Value="Resources/MIDDLESBROUGH.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="MILLWALL">
                                                         <Setter Property="Source" Value="Resources/MILLWALL.png"/>
@@ -721,6 +759,9 @@
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="SHEFFIELD UTD">
                                                         <Setter Property="Source" Value="Resources/SHEFFIELD UTD.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="SHEFFIELD WED">
+                                                        <Setter Property="Source" Value="Resources/SHEFFIELD WED.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="SOUTHAMPTON">
                                                         <Setter Property="Source" Value="Resources/SOUTHAMPTON.png"/>

@@ -25,30 +25,38 @@ namespace FIFA22_INFO
         public string LLeague_Year;
         public string LChampions;
         public string LSecond_Place;
+        public string LThird_Place;
+        public string LFourth_Place;
         public string LRemark;
 
-        public PREMIER(string lLeague_Year, string lChampions, string lSecond_Place, string lRemark)
+        public PREMIER(string lLeague_Year, string lChampions, string lSecond_Place, string lThird_Place, string lFourth_Place, string lRemark)
         {
             LLeague_Year = lLeague_Year;
             LChampions = lChampions;
             LSecond_Place = lSecond_Place;
+            LThird_Place = lThird_Place;
+            LFourth_Place = lFourth_Place;
             LRemark = lRemark;
         }
     }
 
     public class PREMIER_RANKING
     {
-        public string LRanking;
-        public string LTeam_Name;
-        public string LChampions_CNT;
-        public string LRunnerUp_CNT;
+        public string LRRanking;
+        public string LRTeam_Name;
+        public string LRChampions_CNT;
+        public string LRRunnerUp_CNT;
+        public string LRThird_CNT;
+        public string LRFourth_CNT;
 
-        public PREMIER_RANKING(string lRanking, string lTeam_Name, string lChampions_CNT, string lRunnerUp_CNT)
+        public PREMIER_RANKING(string lRRanking, string lRTeam_Name, string lRChampions_CNT, string lRRunnerUp_CNT, string lRThird_CNT, string lRFourth_CNT)
         {
-            LRanking = lRanking;
-            LTeam_Name = lTeam_Name;
-            LChampions_CNT = lChampions_CNT;
-            LRunnerUp_CNT = lRunnerUp_CNT;
+            LRRanking = lRRanking;
+            LRTeam_Name = lRTeam_Name;
+            LRChampions_CNT = lRChampions_CNT;
+            LRRunnerUp_CNT = lRRunnerUp_CNT;
+            LRThird_CNT = lRThird_CNT;
+            LRFourth_CNT = lRFourth_CNT;
         }
     }
 
@@ -85,19 +93,23 @@ namespace FIFA22_INFO
 
         private void SetDataGridUsingQueryResultList()
         {
-            List<Premier_League_Data> uiList = new List<Premier_League_Data>();
+            List<Other_League> uiList = new List<Other_League>();
 
             for(int i=0; i< mPREMEIRList.Count; i++)
             {
                 PREMIER pr = mPREMEIRList[i];
 
-                uiList.Add(new Premier_League_Data()
+                uiList.Add(new Other_League()
                 {
                     League_Year = mPREMEIRList[i].LLeague_Year.Trim(),
                     ChampionsLOGO = mPREMEIRList[i].LChampions.Trim(),
                     Champions = mPREMEIRList[i].LChampions.Trim(),
                     Second_PlaceLOGO = mPREMEIRList[i].LSecond_Place.Trim(),
                     Second_Place = mPREMEIRList[i].LSecond_Place.Trim(),
+                    Third_PlaceLOGO = mPREMEIRList[i].LThird_Place.Trim(),
+                    Third_Place = mPREMEIRList[i].LThird_Place.Trim(),
+                    Fourth_PlaceLOGO = mPREMEIRList[i].LFourth_Place.Trim(),
+                    Fourth_Place = mPREMEIRList[i].LFourth_Place.Trim(),
                     Remark = mPREMEIRList[i].LRemark.Trim()  
                 });
             }
@@ -110,19 +122,21 @@ namespace FIFA22_INFO
         // Set DataGrid Ranking UI
         private void SetDataGridRankingUI()
         {
-            List<EnglandTotalData> uList = new List<EnglandTotalData>();
+            List<Other_League_Ranking_Data> uList = new List<Other_League_Ranking_Data>();
 
             for (int i = 0; i < mPRERANKINGList.Count; i++)
             {
                 PREMIER_RANKING far = mPRERANKINGList[i];
 
-                uList.Add(new EnglandTotalData()
+                uList.Add(new Other_League_Ranking_Data()
                 {
-                    Ranking = int.Parse(mPRERANKINGList[i].LRanking.Trim()),
-                    Team_Logo = mPRERANKINGList[i].LTeam_Name.Trim(),
-                    Team_Name = mPRERANKINGList[i].LTeam_Name.Trim(),
-                    Champions_CNT = mPRERANKINGList[i].LChampions_CNT.Trim(),
-                    Second_Place_CNT = mPRERANKINGList[i].LRunnerUp_CNT.Trim()
+                    Ranking = int.Parse(mPRERANKINGList[i].LRRanking.Trim()),
+                    Team_Logo = mPRERANKINGList[i].LRTeam_Name.Trim(),
+                    Team_Name = mPRERANKINGList[i].LRTeam_Name.Trim(),
+                    Champions_CNT = mPRERANKINGList[i].LRChampions_CNT.Trim(),
+                    Second_Place_CNT = mPRERANKINGList[i].LRRunnerUp_CNT.Trim(),
+                    Third_Place_CNT = mPRERANKINGList[i].LRThird_CNT.Trim(),
+                    Fourth_Place_CNT = mPRERANKINGList[i].LRFourth_CNT.Trim()
                 });
             }
 
@@ -190,11 +204,11 @@ namespace FIFA22_INFO
                 image.COUNT = strWInsCount;
                 image.TEAMNAME = Champion_Name_Textbox.Text.Trim();
 
-                BitmapImage bitmap = new BitmapImage(new Uri("Image/England_Team/" + image.TEAMNAME.ToString() + ".png", UriKind.Relative));
+                BitmapImage bitmap = new BitmapImage(new Uri("Resources/" + image.TEAMNAME.ToString() + ".png", UriKind.Relative));
                 ImageBrush brush = new ImageBrush(bitmap);
                 imageRec.Fill = brush;
 
-                BitmapImage runbit = new BitmapImage(new Uri("Image/England_Team/" + image.SECOND_TEAMNAME.ToLower() + ".png", UriKind.Relative));
+                BitmapImage runbit = new BitmapImage(new Uri("Resources/" + image.SECOND_TEAMNAME.ToLower() + ".png", UriKind.Relative));
                 ImageBrush runbrush = new ImageBrush(runbit);
                 Run_imageRec.Fill = runbrush;
 
@@ -251,7 +265,9 @@ namespace FIFA22_INFO
                 PREMIER pr = new PREMIER(reader[0].ToString().Trim(),
                     reader[1].ToString().Trim(),
                     reader[2].ToString().Trim(),
-                    reader[3].ToString().Trim());
+                    reader[3].ToString(),
+                    reader[4].ToString(),
+                    reader[5].ToString());
 
                 mPREMEIRList.Add(pr);
             }
@@ -296,15 +312,17 @@ namespace FIFA22_INFO
                     File.AppendAllText(path, mPREMEIRList[i].LLeague_Year.Trim() + "\n");
                     File.AppendAllText(path, mPREMEIRList[i].LChampions.Trim() + "\n");
                     File.AppendAllText(path, mPREMEIRList[i].LSecond_Place.Trim() + "\n");
+                    File.AppendAllText(path, mPREMEIRList[i].LThird_Place.Trim() + "\n");
+                    File.AppendAllText(path, mPREMEIRList[i].LFourth_Place.Trim() + "\n");
                     File.AppendAllText(path, mPREMEIRList[i].LRemark.Trim() + "\n");
                 }
             }
 
-            string Ranksql = "select rank() over( order by t.premier_league_winner_cnt desc) Ranking, t.team_name, t.premier_league_winner_cnt , t.premier_league_run_cnt  " +
-                "from england_total t " +
-                "where t.premier_league_run_cnt != 0 OR t.premier_league_winner_cnt != 0 " +
-                "order by t.premier_league_winner_cnt desc, " +
-                "t.premier_league_run_cnt desc;";
+            string Ranksql = "select rank() over( order by t.CHAMPIONS_CNT desc) Ranking, t.team_name, t.CHAMPIONS_CNT , t.SECOND_PLACE_CNT,  " +
+                "t.THIRD_PLACE_CNT, t.FOURTH_PLACE_CNT from PREMIER_LEAGUE_RANKING t " +
+                "where t.SECOND_PLACE_CNT != 0 OR t.CHAMPIONS_CNT != 0 or t.THIRD_PLACE_CNT != 0 or t.FOURTH_PLACE_CNT != 0 " +
+                "order by t.CHAMPIONS_CNT desc, " +
+                "t.SECOND_PLACE_CNT desc, t.THIRD_PLACE_CNT desc, t.FOURTH_PLACE_CNT  desc";
 
             NpgsqlCommand RankCmd = new NpgsqlCommand(Ranksql, conn);
             NpgsqlDataReader Rankreader = RankCmd.ExecuteReader();
@@ -316,7 +334,9 @@ namespace FIFA22_INFO
                 PREMIER_RANKING far = new PREMIER_RANKING(Rankreader[0].ToString(),
                     Rankreader[1].ToString(),
                     Rankreader[2].ToString(),
-                    Rankreader[3].ToString());
+                    Rankreader[3].ToString(),
+                    Rankreader[4].ToString(),
+                    Rankreader[5].ToString());
 
                 mPRERANKINGList.Add(far);
             }
@@ -332,32 +352,36 @@ namespace FIFA22_INFO
             {
                 this.Close();
             }
-            else if(e.Key == Key.S)
+            if(e.Key == Key.S)
             {
                 SearchFunc();
             }
-            else if(e.Key == Key.C)
+            if(e.Key == Key.C)
             {
                 this.Close();
                 EMIRATES_FA_CUP fa = new EMIRATES_FA_CUP();
                 fa.WindowStartupLocation = WindowStartupLocation.CenterScreen;
                 fa.Show();
             }
-            else if(e.Key == Key.X)
+            if(e.Key == Key.X)
             {
                 this.Close();
-                CARABAO_CUP cc = new CARABAO_CUP();
+                EFL_CHAPIONSHIP cc = new EFL_CHAPIONSHIP();
                 cc.WindowStartupLocation = WindowStartupLocation.CenterScreen;
                 cc.Show();
             }
+            if(e.Key == Key.S && (Keyboard.Modifiers & ModifierKeys.Control) == ModifierKeys.Control)
+            {
+                SaveFunc();
+            }
         }
 
-        private void Ranking_DataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        private void Ranking_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             int selectedIndex = Ranking_DataGrid.SelectedIndex;
             PREMIER_RANKING ccr = mPRERANKINGList[selectedIndex];
 
-            string teamName = ccr.LTeam_Name.Trim();
+            string teamName = ccr.LRTeam_Name.Trim();
             string sOption = "PREMIER_LEAGUE";
 
             //DataPassProdCd(teamName);
@@ -365,6 +389,7 @@ namespace FIFA22_INFO
             tc.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             tc.Show();
             tc.GetTeam(teamName, sOption);
+
         }
 
         private void Ranking_DataGrid_PreviewKeyDown(object sender, KeyEventArgs e)
@@ -372,10 +397,10 @@ namespace FIFA22_INFO
             int selectedIndex = Ranking_DataGrid.SelectedIndex;
             PREMIER_RANKING ccr = mPRERANKINGList[selectedIndex];
 
-            string teamName = ccr.LTeam_Name.Trim();
+            string teamName = ccr.LRTeam_Name.Trim();
             string sOption = "PREMIER_LEAGUE";
 
-            if(e.Key == Key.Enter)
+            if (e.Key == Key.Enter)
             {
                 //DataPassProdCd(teamName);
                 TeamCareer tc = new TeamCareer();
@@ -383,6 +408,88 @@ namespace FIFA22_INFO
                 tc.Show();
                 tc.GetTeam(teamName, sOption);
             }
+
+        }
+
+        public static string UpdateSqlFunc(string sTable, string sCoulmn, string udpateData, string LeagueYear)
+        {
+            string sql = string.Empty;
+            sql = "update " + sTable + " set " + sCoulmn + " = '" + udpateData + "' where league_year = '" + LeagueYear + "';";
+            return sql;
+        }
+
+        private void SaveFunc()
+        {
+            if (MessageBox.Show("데이터를 저장하시 겠습니까??", "데이터 저장", MessageBoxButton.YesNo, MessageBoxImage.Information) == MessageBoxResult.Yes)
+            {
+                List<Other_League> list = grdEmployee.ItemsSource as List<Other_League>;
+                int n = mPREMEIRList.Count;
+
+                List<string> updateList = new List<string>();
+
+                for (int i = 0; i < list.Count; i++)
+                {
+
+                    PREMIER pr = mPREMEIRList[i];
+                    Other_League other = list[i];
+
+                    if (pr.LChampions != other.Champions)
+                    {
+                        updateList.Add(UpdateSqlFunc("premier_league", "champions", other.Champions, other.League_Year));
+                    }
+                    if (pr.LSecond_Place != other.Second_Place)
+                    {
+                        updateList.Add(UpdateSqlFunc("premier_league", "Second_Place", other.Second_Place, other.League_Year));
+                    }
+                    if (pr.LThird_Place != other.Third_Place)
+                    {
+                        updateList.Add(UpdateSqlFunc("premier_league", "Third_Place", other.Third_Place, other.League_Year));
+                    }
+                    if (pr.LFourth_Place != other.Fourth_Place)
+                    {
+                        updateList.Add(UpdateSqlFunc("premier_league", "Fourth_Place", other.Fourth_Place, other.League_Year));
+                    }
+                    if (pr.LRemark != other.Remark)
+                    {
+                        updateList.Add(UpdateSqlFunc("premier_league", "Remark", other.Remark, other.League_Year));
+                    }
+                }
+
+                NpgsqlConnection conn = null;
+                try
+                {
+                    conn = new NpgsqlConnection(MainWindow.mConnString);
+                    conn.Open();
+
+                    for (int i = 0; i < updateList.Count; i++)
+                    {
+                        NpgsqlCommand UpdateCommand = new NpgsqlCommand(updateList[i], conn);
+                        UpdateCommand.ExecuteNonQuery();
+                    }
+
+                    MessageBox.Show("저장을 완료했습니다.", "데이터 업데이트", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                finally
+                {
+                    if (conn != null)
+                    {
+                        if (conn.State != ConnectionState.Closed)
+                        {
+                            conn.Close();
+                            conn.Dispose();
+                        }
+                    }
+                }
+            }
+        }
+
+        private void Save_Click(object sender, RoutedEventArgs e)
+        {
+            SaveFunc();
         }
     }
 }

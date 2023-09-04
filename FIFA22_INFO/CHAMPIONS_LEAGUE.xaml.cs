@@ -59,9 +59,6 @@ namespace FIFA22_INFO
         public static List<CHAMPIONSLEAGUE> mCHAMPIONSList = new List<CHAMPIONSLEAGUE>();
         public static List<CHAMPIONSLEAGUE_RANKING> mCHAMPIONSRANKINGList = new List<CHAMPIONSLEAGUE_RANKING>();
 
-        public delegate void DataPassProdCdEventHandler(string strTeamName);
-        public event DataPassProdCdEventHandler DataPassProdCd;
-
         public string m_sTeamName = string.Empty;
         public string m_sOption = string.Empty;
 
@@ -189,11 +186,11 @@ namespace FIFA22_INFO
                 image.COUNT = strWInsCount;
                 image.TEAMNAME = Champion_Name_Textbox.Text.Trim();
 
-                BitmapImage bitmap = new BitmapImage(new Uri("Image/Champions_League_Team/" + image.TEAMNAME.ToString() + ".png", UriKind.Relative));
+                BitmapImage bitmap = new BitmapImage(new Uri("Resources/" + image.TEAMNAME.ToString() + ".png", UriKind.Relative));
                 ImageBrush brush = new ImageBrush(bitmap);
                 imageRec.Fill = brush;
 
-                BitmapImage runbit = new BitmapImage(new Uri("Image/Champions_League_Team/" + image.SECOND_TEAMNAME.ToLower() + ".png", UriKind.Relative));
+                BitmapImage runbit = new BitmapImage(new Uri("Resources/" + image.SECOND_TEAMNAME.ToLower() + ".png", UriKind.Relative));
                 ImageBrush runbrush = new ImageBrush(runbit);
                 Run_imageRec.Fill = runbrush;
 

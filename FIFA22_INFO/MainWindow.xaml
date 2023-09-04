@@ -45,6 +45,12 @@
             </DockPanel>
             <Button x:Name="button" Content="UPDATE" HorizontalAlignment="Left" Margin="394,65,0,0" VerticalAlignment="Top" Height="34" Width="76" Click="Update_Click"/>
             <Button x:Name="DB_UPTODATE_button" Content="DB UP-TO-DATE" HorizontalAlignment="Left" Margin="481,65,0,0" VerticalAlignment="Top" Height="34" Width="111" Click="DB_UPTODATE_Click"/>
+            <Button x:Name="Search_button" 
+                    Background="White"
+                    BorderBrush="Transparent"
+                    Click="Search_Click" Margin="605,52,720,8">
+                <Image Source="Resources/Search_Logo.png" />
+            </Button>
         </Grid>
 
         <Grid Grid.Row="1">
@@ -150,11 +156,11 @@
                 </Grid>
 
                 <Grid Grid.Row="2">
-                    <Button x:Name="Search_button" 
+                    <Button x:Name="Belgium_button" 
                             Background="White"
                             BorderBrush="Transparent"
-                            Click="Search_Click">
-                        <Image Source="Resources/Search_Logo.png" Height="223" Width="430"/>
+                            Click="JUPILER_PRO_Click">
+                        <Image Source="Resources/BELGIUM.png" Height="223" Width="430"/>
                     </Button>
                 </Grid>
             </Grid>

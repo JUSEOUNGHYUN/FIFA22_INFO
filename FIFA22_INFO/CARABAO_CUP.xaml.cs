@@ -187,11 +187,11 @@ namespace FIFA22_INFO
                 image.COUNT = strWInsCount;
                 image.TEAMNAME = Champion_Name_Textbox.Text.Trim();
 
-                BitmapImage bitmap = new BitmapImage(new Uri("Image/England_Team/" + image.TEAMNAME.ToString() + ".png", UriKind.Relative));
+                BitmapImage bitmap = new BitmapImage(new Uri("Resources/" + image.TEAMNAME.ToString() + ".png", UriKind.Relative));
                 ImageBrush brush = new ImageBrush(bitmap);
                 imageRec.Fill = brush;
 
-                BitmapImage runbit = new BitmapImage(new Uri("Image/England_Team/" + image.SECOND_TEAMNAME.ToLower() + ".png", UriKind.Relative));
+                BitmapImage runbit = new BitmapImage(new Uri("Resources/" + image.SECOND_TEAMNAME.ToLower() + ".png", UriKind.Relative));
                 ImageBrush runbrush = new ImageBrush(runbit);
                 Run_imageRec.Fill = runbrush;
 
@@ -314,7 +314,7 @@ namespace FIFA22_INFO
             else if(e.Key == Key.C)
             {
                 this.Close();
-                Premier_League pl = new Premier_League();
+                EFL_CHAPIONSHIP pl = new EFL_CHAPIONSHIP();
                 pl.WindowStartupLocation = WindowStartupLocation.CenterScreen;
                 pl.Show();
             }

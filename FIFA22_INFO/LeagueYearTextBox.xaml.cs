@@ -62,9 +62,6 @@ namespace FIFA22_INFO
                 int nFirst = 0;
                 int nLast = 0;
 
-                string sFirst = "";
-                string sLast = "";
-
                 if (nCurrentIndex == 4 || nCurrentIndex == 3)
                 {
                     //nFirst = int.Parse(list[0]);

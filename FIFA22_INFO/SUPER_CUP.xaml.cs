@@ -58,6 +58,9 @@ namespace FIFA22_INFO
         public static List<SUPERCUP> mSUPERCUPList = new List<SUPERCUP>();
         public static List<SUPERCUP_RANKING> mSUPERCUPRANKINGList = new List<SUPERCUP_RANKING>();
 
+        public string m_sTeamName = string.Empty;
+        public string m_sOption = string.Empty;
+
         public SUPER_CUP()
         {
             InitializeComponent();
@@ -71,7 +74,6 @@ namespace FIFA22_INFO
         private void ToMiniButton_Click(object sender, RoutedEventArgs e)
         {
             this.WindowState = System.Windows.WindowState.Minimized;
-
         }
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)
@@ -107,6 +109,7 @@ namespace FIFA22_INFO
         }
 
         private void SetDataGridRankingUI()
+
         {
             List<EnglandTotalData> uList = new List<EnglandTotalData>();
 
@@ -148,6 +151,7 @@ namespace FIFA22_INFO
                 string sql = "select Count(*) from SUPER_CUP t where t.champions = '" + Champion_Name_Textbox.Text + "' and t.league_year between '2021/22' and '" + League_Year_textBox.Text + "';";
 
                 NpgsqlCommand RankCmd = new NpgsqlCommand(sql, conn);
+
                 NpgsqlDataReader reader = RankCmd.ExecuteReader();
 
                 string strWInsCount = string.Empty;
@@ -205,7 +209,6 @@ namespace FIFA22_INFO
                     ImageBrush br = new ImageBrush(bit);
                     CountStarRec.Fill = br;
                 }
-
             }
             catch (Exception ex)
             {
@@ -327,6 +330,39 @@ namespace FIFA22_INFO
                 CONFERENCE_LEAGUE con = new CONFERENCE_LEAGUE();
                 con.WindowStartupLocation = WindowStartupLocation.CenterScreen;
                 con.Show();
+            }
+        }
+
+        private void Ranking_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            int selectedIndex = Ranking_DataGrid.SelectedIndex;
+            SUPERCUP_RANKING ccr = mSUPERCUPRANKINGList[selectedIndex];
+
+            m_sTeamName = ccr.SRTeam_Name.Trim();
+            m_sOption = "SUPER_CUP";
+
+            //DataPassProdCd(teamName);
+            TeamCareer tc = new TeamCareer();
+            tc.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            tc.Show();
+            tc.GetTeam(m_sTeamName, m_sOption);
+        }
+
+        private void Ranking_DataGrid_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            int selectedIndex = Ranking_DataGrid.SelectedIndex;
+            SUPERCUP_RANKING ccr = mSUPERCUPRANKINGList[selectedIndex];
+
+            m_sTeamName = ccr.SRTeam_Name.Trim();
+            m_sOption = "SUPER_CUP";
+
+            if(e.Key == Key.Enter)
+            {
+                //DataPassProdCd(teamName);
+                TeamCareer tc = new TeamCareer();
+                tc.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                tc.Show();
+                tc.GetTeam(m_sTeamName, m_sOption);
             }
         }
     }

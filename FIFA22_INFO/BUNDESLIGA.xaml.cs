@@ -66,8 +66,6 @@ namespace FIFA22_INFO
         public static List<BUNDESLIGA_LEAGUE> mBUNLEAGUEList = new List<BUNDESLIGA_LEAGUE>();
         public static List<BUNDESLIGA_RANKING> mBUNRANKINGList = new List<BUNDESLIGA_RANKING>();
 
-        public delegate void DataPassProdCdEventHandler(string strTeamName);
-        public event DataPassProdCdEventHandler DataPassProdCd;
 
         public string m_sTeamName = string.Empty;
         public string m_sOption = string.Empty;

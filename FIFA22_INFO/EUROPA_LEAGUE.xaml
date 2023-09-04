@@ -53,12 +53,13 @@
 
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="500"/>
+                <ColumnDefinition Width="183"/>
+                <ColumnDefinition Width="317"/>
                 <ColumnDefinition Width="500"/>
                 <ColumnDefinition Width="400"/>
             </Grid.ColumnDefinitions>
 
-            <Grid Grid.Column="0">
+            <Grid Grid.Column="0" Grid.ColumnSpan="2">
                 <Label x:Name="label" Content="Champions" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="245,-1,0,0"/>
                 <TextBox x:Name="League_Year_textBox" HorizontalAlignment="Left" Margin="190,4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="55" HorizontalContentAlignment="Center" BorderThickness="0" IsReadOnly="True"/>
                 <Label x:Name="label1" Content="Champions : " HorizontalAlignment="Center" Margin="0,25,0,0" VerticalAlignment="Top"/>
@@ -104,7 +105,7 @@
 
             </Grid>
 
-            <Grid Grid.Column="1">
+            <Grid Grid.Column="2">
 
                 <Label x:Name="label_Copy" Content="Runner-Up" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="245,-1,0,0"/>
                 <Label x:Name="label1_Copy2" Content="Runner-Up : " HorizontalAlignment="Center" Margin="0,25,0,0" VerticalAlignment="Top"/>
@@ -143,6 +144,9 @@
                 <TextBox x:Name="Runner_UP_Textbox" HorizontalAlignment="Left" Margin="311,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" BorderThickness="0" IsReadOnly="True"/>
                 <TextBox x:Name="NumOfRunner_Up_Textbox_Copy" HorizontalAlignment="Left" Margin="329,61,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="33" BorderThickness="0" IsReadOnly="True"/>
             </Grid>
+            <Button x:Name="button1" Grid.Column="3" HorizontalAlignment="Left" Height="41" Margin="330,146,0,0" VerticalAlignment="Top" Width="67" BorderThickness="0" BorderBrush="Transparent" Click="SAVE_Click">
+                <Image Source="Resources/SAVE_icon.png" Width="33" RenderTransformOrigin="0.686,0.5"/>
+            </Button>
         </Grid>
 
         <Grid Grid.Row="2">
@@ -727,6 +731,7 @@
                                     <Setter Property="HorizontalAlignment" Value="Left"/>
                                     <Setter Property="VerticalAlignment" Value="Center"/>
                                     <Setter Property="Foreground" Value="Black"/>
+                                    <Setter Property="FontWeight" Value="Bold"/>
                                     <Setter Property="FontSize" Value="13"/>
                                 </Style>
                             </DataGridTextColumn.ElementStyle>
@@ -1280,8 +1285,8 @@
                                 </Style>
                             </DataGridTextColumn.ElementStyle>
                         </DataGridTextColumn>
-                        <DataGridTextColumn Header="REMARK" Binding="{Binding Path=Remark}" Width="auto" IsReadOnly="True">
-                            <DataGridTextColumn.HeaderStyle>
+                        <DataGridTemplateColumn Header="REMARK">
+                            <DataGridTemplateColumn.HeaderStyle>
                                 <Style TargetType="DataGridColumnHeader">
                                     <Setter Property="HorizontalContentAlignment" Value="Center"/>
                                     <Setter Property="VerticalContentAlignment" Value="Center"/>
@@ -1291,17 +1296,22 @@
                                     <Setter Property="Foreground" Value="White"/>
                                     <Setter Property="BorderThickness" Value="0.5"/>
                                 </Style>
-                            </DataGridTextColumn.HeaderStyle>
-                            <DataGridTextColumn.ElementStyle>
-                                <Style TargetType="TextBlock">
-                                    <Setter Property="HorizontalAlignment" Value="Left"/>
-                                    <Setter Property="VerticalAlignment" Value="Center"/>
-                                    <Setter Property="Foreground" Value="Black"/>
-                                    <Setter Property="FontSize" Value="13"/>
-                                    <Setter Property="TextWrapping" Value="Wrap"/>
-                                </Style>
-                            </DataGridTextColumn.ElementStyle>
-                        </DataGridTextColumn>
+                            </DataGridTemplateColumn.HeaderStyle>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Remark}" TextWrapping="Wrap" 
+                                             Background="Transparent" 
+                                             VerticalAlignment="Center"                                                                                           
+                                               FontSize="12"
+                                             />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                            <DataGridTemplateColumn.CellEditingTemplate>
+                                <DataTemplate>
+                                    <TextBox Text="{Binding Remark}" TextWrapping="Wrap" BorderThickness="0" VerticalContentAlignment="Center" VerticalAlignment="Center" Background="Transparent" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellEditingTemplate>
+                        </DataGridTemplateColumn>
                     </DataGrid.Columns>
                 </DataGrid>
             </Grid>

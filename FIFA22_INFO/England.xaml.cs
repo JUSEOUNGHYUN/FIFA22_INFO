@@ -67,5 +67,12 @@ namespace FIFA22_INFO
                 this.Close();
             }
         }
+
+        private void EFL_CHAPIONSHIP_Click(object sender, RoutedEventArgs e)
+        {
+            EFL_CHAPIONSHIP ec = new EFL_CHAPIONSHIP();
+            ec.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            ec.Show();
+        }
     }
 }
