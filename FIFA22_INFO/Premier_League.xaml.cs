@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Linq;
+using System.Runtime.ConstrainedExecution;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -384,7 +385,6 @@ namespace FIFA22_INFO
             string teamName = ccr.LRTeam_Name.Trim();
             string sOption = "PREMIER_LEAGUE";
 
-            //DataPassProdCd(teamName);
             TeamCareer tc = new TeamCareer();
             tc.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             tc.Show();
@@ -402,13 +402,11 @@ namespace FIFA22_INFO
 
             if (e.Key == Key.Enter)
             {
-                //DataPassProdCd(teamName);
                 TeamCareer tc = new TeamCareer();
                 tc.WindowStartupLocation = WindowStartupLocation.CenterScreen;
                 tc.Show();
                 tc.GetTeam(teamName, sOption);
             }
-
         }
 
         public static string UpdateSqlFunc(string sTable, string sCoulmn, string udpateData, string LeagueYear)
@@ -490,6 +488,25 @@ namespace FIFA22_INFO
         private void Save_Click(object sender, RoutedEventArgs e)
         {
             SaveFunc();
+        }
+
+        private void Champion_Name_Textbox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if(Champion_Name_Textbox.Text != string.Empty)
+            {
+                string teamName = Champion_Name_Textbox.Text.Trim();
+                string sOption = "PREMIER_LEAGUE";
+
+                TeamCareer tc = new TeamCareer();
+                tc.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                tc.Show();
+                tc.GetTeam(teamName, sOption);
+            }
+            else
+            {
+                MessageBox.Show("우승팀을 표에서 선택해주세요.", "우승팀 선택", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+
         }
     }
 }

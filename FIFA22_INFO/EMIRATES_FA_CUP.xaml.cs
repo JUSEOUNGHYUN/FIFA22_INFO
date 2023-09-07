@@ -220,34 +220,18 @@ namespace FIFA22_INFO
             }
             finally
             {
-                if (conn != null)
+                if (conn != null && conn.State != ConnectionState.Closed)
                 {
-                    if (conn.State != ConnectionState.Closed)
-                    {
-                        conn.Close();
-                        conn.Dispose();
-                    }
+                    conn.Close();
+                    conn.Dispose();
                 }
             }
-
-           
-
-           
-
-            /*
-            BitmapImage bit = new BitmapImage(new Uri("Image/" + image.COUNT.ToString() + ".png", UriKind.Relative));
-            ImageBrush br = new ImageBrush(bit);
-            CountStarRec.Fill = br;
-             */
-
-
         }
 
         private void SearchFunc()
         {
             NpgsqlConnection conn = new NpgsqlConnection(MainWindow.mConnString);
             conn.Open();
-            List<string> list = new List<string>();
 
             string sql = "select * from EMIRATES_FA_CUP ORDER BY LEAGUE_YEAR;";
 

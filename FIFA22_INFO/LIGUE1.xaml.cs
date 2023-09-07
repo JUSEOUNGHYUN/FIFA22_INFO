@@ -131,13 +131,13 @@ namespace FIFA22_INFO
 
                 uList.Add(new Other_League_Ranking_Data()
                 {
-                    Ranking = int.Parse(mLIGUE1RANKINGList[i].LRRanking.Trim()),
-                    Team_Logo = mLIGUE1RANKINGList[i].LRTeam_Name.Trim(),
-                    Team_Name = mLIGUE1RANKINGList[i].LRTeam_Name.Trim(),
-                    Champions_CNT = mLIGUE1RANKINGList[i].LRChampions_CNT.Trim(),
-                    Second_Place_CNT = mLIGUE1RANKINGList[i].LRRunnerUp_CNT.Trim(),
-                    Third_Place_CNT = mLIGUE1RANKINGList[i].LRThird_CNT.Trim(),
-                    Fourth_Place_CNT = mLIGUE1RANKINGList[i].LRFourth_CNT.Trim()
+                    Ranking = int.Parse(lur.LRRanking.Trim()),
+                    Team_Logo = lur.LRTeam_Name.Trim(),
+                    Team_Name = lur.LRTeam_Name.Trim(),
+                    Champions_CNT = lur.LRChampions_CNT.Trim(),
+                    Second_Place_CNT = lur.LRRunnerUp_CNT.Trim(),
+                    Third_Place_CNT = lur.LRThird_CNT.Trim(),
+                    Fourth_Place_CNT = lur.LRFourth_CNT.Trim()
                 });
 
             }
@@ -378,6 +378,24 @@ namespace FIFA22_INFO
                 tc.WindowStartupLocation = WindowStartupLocation.CenterScreen;
                 tc.Show();
                 tc.GetTeam(m_sTeamName, m_sOption);
+            }
+        }
+
+        private void Champion_Name_Textbox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (Champion_Name_Textbox.Text != string.Empty)
+            {
+                string teamName = Champion_Name_Textbox.Text.Trim();
+                string sOption = "LIGUE1_UBER_EATS";
+
+                TeamCareer tc = new TeamCareer();
+                tc.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                tc.Show();
+                tc.GetTeam(teamName, sOption);
+            }
+            else
+            {
+                MessageBox.Show("우승팀을 표에서 선택해주세요.", "우승팀 선택", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
     }

@@ -62,40 +62,12 @@
                 <TextBox x:Name="League_Year_textBox" HorizontalAlignment="Left" Margin="190,4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="55" HorizontalContentAlignment="Center" BorderThickness="0" IsReadOnly="True"/>
                 <Label x:Name="label1" Content="Champions : " HorizontalAlignment="Center" Margin="0,25,0,0" VerticalAlignment="Top"/>
                 <TextBox x:Name="Champion_Name_Textbox" HorizontalAlignment="Left" Margin="311,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" BorderThickness="0" IsReadOnly="True"
-                         FontFamily="Bold" Foreground="Red"/>
+                         FontFamily="Bold" Foreground="Red" MouseDoubleClick="Champion_Name_Textbox_MouseDoubleClick"/>
                 <Label x:Name="label1_Copy" Content="Num of Wins : " HorizontalAlignment="Left" Margin="208,56,0,0" VerticalAlignment="Top"/>
                 <TextBox x:Name="NumOfWins_Textbox" HorizontalAlignment="Left" Margin="311,61,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="33" BorderThickness="0" IsReadOnly="True"/>
 
-                <Rectangle x:Name="imageRec" HorizontalAlignment="Left" Height="192" Margin="10,0,0,0" Stroke="Black" VerticalAlignment="Center" Width="180" StrokeThickness="0">
-                    <Rectangle.Style>
-                        <Style TargetType="{x:Type Rectangle}">
-                            <Setter Property="Fill" Value="Transparent" />
-                            <Style.Triggers>
-                                <DataTrigger Binding="{Binding Path=TEAMNAME}" Value="SAMUNG FC">
-                                    <Setter Property="Fill">
-                                        <Setter.Value>
-                                            <ImageBrush ImageSource="Resources/SAMSUNG FC.png"/>
-                                        </Setter.Value>
-                                    </Setter>
-                                </DataTrigger>
-                                <DataTrigger Binding="{Binding Path=TEAMNAME}" Value="CHELSEA">
-                                    <Setter Property="Fill">
-                                        <Setter.Value>
-                                            <ImageBrush ImageSource="Resources/CHELSEA.png"/>
-                                        </Setter.Value>
-                                    </Setter>
-                                </DataTrigger>
-                                <DataTrigger Binding="{Binding Path=TEAMNAME}" Value="MANCHESTER CITY">
-                                    <Setter Property="Fill">
-                                        <Setter.Value>
-                                            <ImageBrush ImageSource="Resources/MANCHESTER CITY.png"/>
-                                        </Setter.Value>
-                                    </Setter>
-                                </DataTrigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Rectangle.Style>
-                </Rectangle>
+                <Rectangle x:Name="imageRec" HorizontalAlignment="Left" Height="192" Margin="10,0,0,0" Stroke="Black" VerticalAlignment="Center" Width="180" StrokeThickness="0"/>
+
                 <Label x:Name="label1_Copy1" Content="Remark : " HorizontalAlignment="Left" Margin="208,95,0,0" VerticalAlignment="Top"/>
                 <TextBox x:Name="Remark_Textbox" HorizontalAlignment="Left" Margin="311,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" BorderThickness="0" IsReadOnly="True"/>
                 <Rectangle x:Name="CountStarRec" HorizontalAlignment="Left" Height="70" Margin="211,121,0,0" Stroke="Black" VerticalAlignment="Top" Width="213" StrokeThickness="0">
@@ -108,36 +80,8 @@
                 <Label x:Name="label_Copy" Content="Runner-Up" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="245,-1,0,0"/>
                 <Label x:Name="label1_Copy2" Content="Runner-Up : " HorizontalAlignment="Center" Margin="0,25,0,0" VerticalAlignment="Top"/>
                 <Label x:Name="label1_Copy3" Content="Num of Runner-Up : " HorizontalAlignment="Left" Margin="208,56,0,0" VerticalAlignment="Top" Width="116"/>
-                <Rectangle x:Name="Run_imageRec" HorizontalAlignment="Left" Height="187" Margin="10,4,0,0" Stroke="Black" VerticalAlignment="Top" Width="180" StrokeThickness="0">
-                    <Rectangle.Style>
-                        <Style TargetType="{x:Type Rectangle}">
-                            <Setter Property="Fill" Value="Transparent" />
-                            <Style.Triggers>
-                                <DataTrigger Binding="{Binding SECOND_TEAMNAME}" Value="SAMUNG FC">
-                                    <Setter Property="Fill">
-                                        <Setter.Value>
-                                            <ImageBrush ImageSource="/Resources/SAMSUNG FC.png"/>
-                                        </Setter.Value>
-                                    </Setter>
-                                </DataTrigger>
-                                <DataTrigger Binding="{Binding SECOND_TEAMNAME}" Value="CHELSEA">
-                                    <Setter Property="Fill">
-                                        <Setter.Value>
-                                            <ImageBrush ImageSource="/Resources/CHELSEA.png"/>
-                                        </Setter.Value>
-                                    </Setter>
-                                </DataTrigger>
-                                <DataTrigger Binding="{Binding SECOND_TEAMNAME}" Value="MANCHESTER CITY">
-                                    <Setter Property="Fill">
-                                        <Setter.Value>
-                                            <ImageBrush ImageSource="/Resources/MANCHESTER CITY.png"/>
-                                        </Setter.Value>
-                                    </Setter>
-                                </DataTrigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Rectangle.Style>
-                </Rectangle>
+                <Rectangle x:Name="Run_imageRec" HorizontalAlignment="Left" Height="187" Margin="10,4,0,0" Stroke="Black" VerticalAlignment="Top" Width="180" StrokeThickness="0"/>
+
                 <TextBox x:Name="League_Year2_textBox" HorizontalAlignment="Left" Margin="190,4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="55" HorizontalContentAlignment="Center" BorderThickness="0" IsReadOnly="True"/>
                 <TextBox x:Name="Runner_UP_Textbox" HorizontalAlignment="Left" Margin="311,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" BorderThickness="0" IsReadOnly="True"/>
                 <TextBox x:Name="NumOfRunner_Up_Textbox_Copy" HorizontalAlignment="Left" Margin="329,61,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="33" BorderThickness="0" IsReadOnly="True"/>
@@ -197,6 +141,9 @@
                                         <Image.Style>
                                             <Style TargetType="{x:Type Image}">
                                                 <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="ARMINIA BIELEFELD">
+                                                        <Setter Property="Source" Value="Resources/ARMINIA BIELEFELD.png"/>
+                                                    </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="BAYERN MUNCHEN">
                                                         <Setter Property="Source" Value="Resources/BAYERN MUNCHEN.png"/>
                                                     </DataTrigger>
@@ -229,6 +176,9 @@
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="TSG HOFFENHEIM">
                                                         <Setter Property="Source" Value="Resources/TSG HOFFENHEIM.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="VFB STUTTGART">
+                                                        <Setter Property="Source" Value="Resources/VFB STUTTGART.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="UNION BERLIN">
                                                         <Setter Property="Source" Value="Resources/UNION BERLIN.png"/>
@@ -280,6 +230,9 @@
                                         <Image.Style>
                                             <Style TargetType="{x:Type Image}">
                                                 <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="ARMINIA BIELEFELD">
+                                                        <Setter Property="Source" Value="Resources/ARMINIA BIELEFELD.png"/>
+                                                    </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Second_Place}" Value="BAYERN MUNCHEN">
                                                         <Setter Property="Source" Value="Resources/BAYERN MUNCHEN.png"/>
                                                     </DataTrigger>
@@ -312,6 +265,9 @@
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Second_Place}" Value="TSG HOFFENHEIM">
                                                         <Setter Property="Source" Value="Resources/TSG HOFFENHEIM.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="VFB STUTTGART">
+                                                        <Setter Property="Source" Value="Resources/VFB STUTTGART.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Second_Place}" Value="UNION BERLIN">
                                                         <Setter Property="Source" Value="Resources/UNION BERLIN.png"/>
@@ -362,6 +318,9 @@
                                         <Image.Style>
                                             <Style TargetType="{x:Type Image}">
                                                 <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Path=Third_Place}" Value="ARMINIA BIELEFELD">
+                                                        <Setter Property="Source" Value="Resources/ARMINIA BIELEFELD.png"/>
+                                                    </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Third_Place}" Value="BAYERN MUNCHEN">
                                                         <Setter Property="Source" Value="Resources/BAYERN MUNCHEN.png"/>
                                                     </DataTrigger>
@@ -394,6 +353,9 @@
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Third_Place}" Value="TSG HOFFENHEIM">
                                                         <Setter Property="Source" Value="Resources/TSG HOFFENHEIM.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Third_Place}" Value="VFB STUTTGART">
+                                                        <Setter Property="Source" Value="Resources/VFB STUTTGART.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Third_Place}" Value="UNION BERLIN">
                                                         <Setter Property="Source" Value="Resources/UNION BERLIN.png"/>
@@ -444,6 +406,9 @@
                                         <Image.Style>
                                             <Style TargetType="{x:Type Image}">
                                                 <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Path=Fourth_Place}" Value="ARMINIA BIELEFELD">
+                                                        <Setter Property="Source" Value="Resources/ARMINIA BIELEFELD.png"/>
+                                                    </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Fourth_Place}" Value="BAYERN MUNCHEN">
                                                         <Setter Property="Source" Value="Resources/BAYERN MUNCHEN.png"/>
                                                     </DataTrigger>
@@ -476,6 +441,9 @@
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Fourth_Place}" Value="TSG HOFFENHEIM">
                                                         <Setter Property="Source" Value="Resources/TSG HOFFENHEIM.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Fourth_Place}" Value="VFB STUTTGART">
+                                                        <Setter Property="Source" Value="Resources/VFB STUTTGART.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Fourth_Place}" Value="UNION BERLIN">
                                                         <Setter Property="Source" Value="Resources/UNION BERLIN.png"/>
@@ -581,6 +549,9 @@
                                         <Image.Style>
                                             <Style TargetType="{x:Type Image}">
                                                 <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="ARMINIA BIELEFELD">
+                                                        <Setter Property="Source" Value="Resources/ARMINIA BIELEFELD.png"/>
+                                                    </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="BAYERN MUNCHEN">
                                                         <Setter Property="Source" Value="Resources/BAYERN MUNCHEN.png"/>
                                                     </DataTrigger>
@@ -613,6 +584,9 @@
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="TSG HOFFENHEIM">
                                                         <Setter Property="Source" Value="Resources/TSG HOFFENHEIM.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="VFB STUTTGART">
+                                                        <Setter Property="Source" Value="Resources/VFB STUTTGART.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="UNION BERLIN">
                                                         <Setter Property="Source" Value="Resources/UNION BERLIN.png"/>

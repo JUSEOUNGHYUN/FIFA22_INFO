@@ -128,13 +128,13 @@ namespace FIFA22_INFO
 
                 uList.Add(new Other_League_Ranking_Data()
                 {
-                    Ranking = int.Parse(mSANRANKINGList[i].SRRanking.Trim()),
-                    Team_Logo = mSANRANKINGList[i].SRTeam_Name.Trim(),
-                    Team_Name = mSANRANKINGList[i].SRTeam_Name.Trim(),
-                    Champions_CNT = mSANRANKINGList[i].SRChampions_CNT.Trim(),
-                    Second_Place_CNT = mSANRANKINGList[i].SRRunnerUp_CNT.Trim(),
-                    Third_Place_CNT = mSANRANKINGList[i].SRThird_CNT.Trim(),
-                    Fourth_Place_CNT = mSANRANKINGList[i].SRFourth_CNT.Trim()
+                    Ranking = int.Parse(lur.SRRanking.Trim()),
+                    Team_Logo = lur.SRTeam_Name.Trim(),
+                    Team_Name = lur.SRTeam_Name.Trim(),
+                    Champions_CNT = lur.SRChampions_CNT.Trim(),
+                    Second_Place_CNT = lur.SRRunnerUp_CNT.Trim(),
+                    Third_Place_CNT = lur.SRThird_CNT.Trim(),
+                    Fourth_Place_CNT = lur.SRFourth_CNT.Trim()
                 });
             }
             Ranking_DataGrid.ItemsSource = uList;
@@ -227,13 +227,10 @@ namespace FIFA22_INFO
             }
             finally
             {
-                if (conn != null)
+                if (conn != null && conn.State != ConnectionState.Closed)
                 {
-                    if (conn.State != ConnectionState.Closed)
-                    {
-                        conn.Close();
-                        conn.Dispose();
-                    }
+                    conn.Close();
+                    conn.Dispose();
                 }
             }
         }
@@ -242,7 +239,6 @@ namespace FIFA22_INFO
         {
             NpgsqlConnection conn = new NpgsqlConnection(MainWindow.mConnString);
             conn.Open();
-            List<string> list = new List<string>();
 
             string sql = "select * from LALIGA_SMARTBANK lue order by league_year";
 
@@ -372,6 +368,24 @@ namespace FIFA22_INFO
                 LALIGA_SANTANDER ls = new LALIGA_SANTANDER();
                 ls.WindowStartupLocation = WindowStartupLocation.CenterScreen;
                 ls.Show();
+            }
+        }
+
+        private void Champion_Name_Textbox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (Champion_Name_Textbox.Text != string.Empty)
+            {
+                string teamName = Champion_Name_Textbox.Text.Trim();
+                string sOption = "LALIGA_SMARTBANK";
+
+                TeamCareer tc = new TeamCareer();
+                tc.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                tc.Show();
+                tc.GetTeam(teamName, sOption);
+            }
+            else
+            {
+                MessageBox.Show("우승팀을 표에서 선택해주세요.", "우승팀 선택", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
     }

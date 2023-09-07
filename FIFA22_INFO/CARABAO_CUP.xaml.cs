@@ -98,12 +98,12 @@ namespace FIFA22_INFO
 
                 uiList.Add(new Premier_League_Data()
                 {
-                    League_Year = mCARABAOList[i].CLeague_Year.Trim(),
-                    ChampionsLOGO = mCARABAOList[i].CChampions.Trim(),
-                    Champions = mCARABAOList[i].CChampions.Trim(),
-                    Second_PlaceLOGO = mCARABAOList[i].CSecond_Place.Trim(),
-                    Second_Place = mCARABAOList[i].CSecond_Place.Trim(),
-                    Remark = mCARABAOList[i].CRemark.Trim()
+                    League_Year = cc.CLeague_Year.Trim(),
+                    ChampionsLOGO = cc.CChampions.Trim(),
+                    Champions = cc.CChampions.Trim(),
+                    Second_PlaceLOGO = cc.CSecond_Place.Trim(),
+                    Second_Place = cc.CSecond_Place.Trim(),
+                    Remark = cc.CRemark.Trim()
                 });
             }
             grdEmployee.ItemsSource = uiList;
@@ -120,11 +120,11 @@ namespace FIFA22_INFO
 
                 uList.Add(new EnglandTotalData()
                 {
-                    Ranking = int.Parse(mCARARANKINGList[i].CRRanking.Trim()),
-                    Team_Logo = mCARARANKINGList[i].CRTeam_Name.Trim(),
-                    Team_Name = mCARARANKINGList[i].CRTeam_Name.Trim(),
-                    Champions_CNT = mCARARANKINGList[i].CRChampions_CNT.Trim(),
-                    Second_Place_CNT = mCARARANKINGList[i].CRRunnerUp_CNT.Trim()
+                    Ranking = int.Parse(ccr.CRRanking.Trim()),
+                    Team_Logo = ccr.CRTeam_Name.Trim(),
+                    Team_Name = ccr.CRTeam_Name.Trim(),
+                    Champions_CNT = ccr.CRChampions_CNT.Trim(),
+                    Second_Place_CNT = ccr.CRRunnerUp_CNT.Trim()
                 });
             }
 
@@ -217,13 +217,10 @@ namespace FIFA22_INFO
             }
             finally
             {
-                if (conn != null)
+                if (conn != null && conn.State != ConnectionState.Closed)
                 {
-                    if (conn.State != ConnectionState.Closed)
-                    {
-                        conn.Close();
-                        conn.Dispose();
-                    }
+                    conn.Close();
+                    conn.Dispose();
                 }
             }
 
@@ -233,7 +230,6 @@ namespace FIFA22_INFO
         {
             NpgsqlConnection conn = new NpgsqlConnection(MainWindow.mConnString);
             conn.Open();
-            List<string> list = new List<string>();
 
             string sql = "select * from CARABAO_CUP t order by league_year";
 
@@ -355,6 +351,24 @@ namespace FIFA22_INFO
                 tc.WindowStartupLocation = WindowStartupLocation.CenterScreen;
                 tc.Show();
                 tc.GetTeam(teamName, sOption);
+            }
+        }
+
+        private void Champion_Name_Textbox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (Champion_Name_Textbox.Text != string.Empty)
+            {
+                string teamName = Champion_Name_Textbox.Text.Trim();
+                string sOption = "CARABAO_CUP";
+
+                TeamCareer tc = new TeamCareer();
+                tc.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                tc.Show();
+                tc.GetTeam(teamName, sOption);
+            }
+            else
+            {
+                MessageBox.Show("우승팀을 표에서 선택해주세요.", "우승팀 선택", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
     }

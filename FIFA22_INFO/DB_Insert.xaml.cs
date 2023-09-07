@@ -53,13 +53,13 @@ namespace FIFA22_INFO
             LeagueOption_comboBox.Items.Add("CONFERENCE_LEAGUE");       // 5
             LeagueOption_comboBox.Items.Add("SUPER_CUP");               // 6
 
-            LeagueOption_comboBox.Items.Add("JUPILER_PRO_LEAGUE");        // 7
+            LeagueOption_comboBox.Items.Add("JUPILER_PRO_LEAGUE");      // 7
             LeagueOption_comboBox.Items.Add("EFL_CHAMPIONSHIP");        // 8
             LeagueOption_comboBox.Items.Add("LIGUE1_UBER_EATS");        // 9
             LeagueOption_comboBox.Items.Add("BUNDESLIGA");              // 10
             LeagueOption_comboBox.Items.Add("SERIE_A");                 // 11
             LeagueOption_comboBox.Items.Add("EREDIVISIE");              // 12
-            LeagueOption_comboBox.Items.Add("LIGA_PORTUGAL");         // 13
+            LeagueOption_comboBox.Items.Add("LIGA_PORTUGAL");           // 13
             LeagueOption_comboBox.Items.Add("LALIGA_SANTANDER");        // 14
             LeagueOption_comboBox.Items.Add("LALIGA_SMARTBANK");        // 15
 
@@ -148,7 +148,6 @@ namespace FIFA22_INFO
                 string NextYear = GetNestLeaguYear(strOption);
 
                 // table에서 입력한 팀이름이 있는 확인
-                List<string> TeamList = new List<string>();
                 string TeamSelectsql = string.Empty;
 
                 int selectedIndex = LeagueOption_comboBox.SelectedIndex;
@@ -157,11 +156,9 @@ namespace FIFA22_INFO
                 {
                     if (selectedIndex >= 1 && selectedIndex <= 2)
                     {
-                        /*
-                        TeamSelectsql = "select distinct(champions) from premier_league union select distinct(second_place) from premier_league union select distinct(champions) from emirates_fa_cup union select distinct(second_place) from emirates_fa_cup union select distinct(champions) from carabao_cup union " +
-                            "select distinct(second_place) from carabao_cup order by champions;";
-                         */
-                        TeamSelectsql = "select distinct(champions) from emirates_fa_cup union select distinct(second_place) from emirates_fa_cup union select distinct(champions) from carabao_cup union " +
+                        TeamSelectsql = "select distinct(champions) from emirates_fa_cup union " +
+                            "select distinct(second_place) from emirates_fa_cup union " +
+                            "select distinct(champions) from carabao_cup union " +
                             "select distinct(second_place) from carabao_cup order by champions;";
 
                         NpgsqlCommand cmd1 = new NpgsqlCommand(TeamSelectsql, conn);
@@ -176,8 +173,14 @@ namespace FIFA22_INFO
                     }
                     else if (selectedIndex >= 3 && selectedIndex <= 6)
                     {
-                        TeamSelectsql = "select distinct(champions) from champions_league union select distinct(second_place) from champions_league union select distinct(champions) from europa_league union select distinct(second_place) from europa_league union select distinct(champions) from conference_league union " +
-        "select distinct(second_place) from conference_league union select distinct(champions) from super_cup union select distinct(second_place) from super_cup order by champions;";
+                        TeamSelectsql = "select distinct(champions) from champions_league " +
+                            "union select distinct(second_place) from champions_league " +
+                            "union select distinct(champions) from europa_league union " +
+                            "select distinct(second_place) from europa_league union " +
+                            "select distinct(champions) from conference_league union " +
+                            "select distinct(second_place) from conference_league union " +
+                            "select distinct(champions) from super_cup union " +
+                            "select distinct(second_place) from super_cup order by champions;";
 
                         NpgsqlCommand cmd1 = new NpgsqlCommand(TeamSelectsql, conn);
                         NpgsqlDataReader reader1 = cmd1.ExecuteReader();
@@ -205,7 +208,6 @@ namespace FIFA22_INFO
                     else if (selectedIndex >= 0 && CHAMPION_textBox.Text != string.Empty && RUNNERUP_textBox.Text != string.Empty)
                     {
                         // table에서 입력한 팀이름이 있는 확인
-                        TeamSelectsql = "";
 
                         try
                         {
@@ -237,7 +239,11 @@ namespace FIFA22_INFO
                         }
                         finally
                         {
-                            //conn.Close();
+                            if (conn != null && conn.State != ConnectionState.Closed)
+                            {
+                                conn.Close();
+                                conn.Dispose();
+                            }
                         }
                     }
                 }
@@ -288,7 +294,7 @@ namespace FIFA22_INFO
                             cmd.Parameters.AddWithValue("SECOND_PLACE", RUNNERUP_textBox.Text);
                             cmd.Parameters.AddWithValue("THIRD_PLACE", THIRD_textBox.Text);
                             cmd.Parameters.AddWithValue("FOURTH_PLACE", FOUTH_textBox.Text);
-                            cmd.Parameters.AddWithValue("REMARK", REMARK_textBox.Text);
+                            cmd.Parameters.AddWithValue("REMARK", REMARK_textBox.Text + " SCORE");
                             cmd.ExecuteNonQuery();
 
                             ManagedOtherLeagueTotal(1, CHAMPION_textBox.Text, RUNNERUP_textBox.Text, THIRD_textBox.Text, FOUTH_textBox.Text);
@@ -318,7 +324,14 @@ namespace FIFA22_INFO
                         }
                         finally
                         {
-
+                            if (conn != null)
+                            {
+                                if (conn.State != ConnectionState.Closed)
+                                {
+                                    conn.Close();
+                                    conn.Dispose();
+                                }
+                            }
                         }
                     }
                 }
@@ -330,13 +343,10 @@ namespace FIFA22_INFO
 
             finally
             {
-                if (conn != null)
+                if (conn != null && conn.State != ConnectionState.Closed)
                 {
-                    if (conn.State != ConnectionState.Closed)
-                    {
-                        conn.Close();
-                        conn.Dispose();
-                    }
+                    conn.Close();
+                    conn.Dispose();
                 }
             }
             
@@ -439,8 +449,6 @@ namespace FIFA22_INFO
                     sTableName = "TOTAL";
                 }
 
-                // insert into TOTAL (TEAM_NAME, CHAMPIONS_LEAGUE_WINNER_CNT, CHAMPIONS_LEAGUE_RUN_CNT, EUROPA_LEAGUE_WINNER_CNT, EUROPA_LEAGUE_RUN_CNT, CONFERENCE_LEAGUE_WINNER_CNT,CONFERENCE_LEAGUE_RUN_CNT,  SUPER_CUP_WINNER_CNT, SUPER_CUP_RUN_CNT) values ('SAMSUNG FC',89,19,14,2,3,2,69,29); 
-
                 if (ns1 == -1)
                 {
                     if(sTableName == "england_total")
@@ -478,7 +486,6 @@ namespace FIFA22_INFO
             else if(n== -1)
             {
                 sOption = Delete_LeagueOption_comboBox.SelectedItem.ToString();
-                selectedIndex = Delete_LeagueOption_comboBox.SelectedIndex;
             }
 
             string sql = "";
@@ -531,8 +538,6 @@ namespace FIFA22_INFO
                 NpgsqlCommand UpdateCommand1 = new NpgsqlCommand(UpdateSql1, conn);
                 UpdateCommand1.ExecuteNonQuery();
 
-                //MessageBox.Show("업데이트가 완료되었습니다.", "DB Update", MessageBoxButton.OK, MessageBoxImage.Information);
-
             }
             catch(Exception ex)
             {
@@ -543,17 +548,15 @@ namespace FIFA22_INFO
         // LIGUE1_UBER_EATS, BUNDESLIGA, SERIE_A, EREDIVISIE, LIGA_PORTUGAL, LALIGA_SANTANDER
         private void ManagedOtherLeagueTotal(int n, string s1, string s2, string s3, string s4)
         {
-            NpgsqlConnection conn = new NpgsqlConnection(MainWindow.mConnString);
+            NpgsqlConnection conn = null; 
             try
             {
+                conn = new NpgsqlConnection(MainWindow.mConnString);
                 conn.Open();
-
-                int selectedIndex = 0;
                 string sOption = string.Empty;
 
                 if (n == 1)
                 {
-                    selectedIndex = LeagueOption_comboBox.SelectedIndex;
                     sOption = LeagueOption_comboBox.SelectedItem.ToString();
 
                     int ns1 = mTeamList.IndexOf(s1);
@@ -593,9 +596,8 @@ namespace FIFA22_INFO
                         NonTeamInsertcmd.ExecuteNonQuery();
                     }
                 }
-                if (n == -1)
+                else if(n==-1)
                 {
-                    selectedIndex = Delete_LeagueOption_comboBox.SelectedIndex;
                     sOption = Delete_LeagueOption_comboBox.SelectedItem.ToString();
                 }
 
@@ -612,11 +614,6 @@ namespace FIFA22_INFO
                 // Champions Count
                 NpgsqlCommand cmd = new NpgsqlCommand(sql, conn);
                 NpgsqlDataReader reader = cmd.ExecuteReader();
-
-                string str1 = string.Empty;
-                string str2 = string.Empty;
-                string str3 = string.Empty;
-                string str4 = string.Empty;
 
                 while (reader.Read())
                 {
@@ -691,13 +688,10 @@ namespace FIFA22_INFO
             }
             finally
             {
-                if (conn != null)
+                if (conn != null && conn.State != ConnectionState.Closed)
                 {
-                    if (conn.State != ConnectionState.Closed)
-                    {
-                        conn.Close();
-                        conn.Dispose();
-                    }
+                    conn.Close();
+                    conn.Dispose();
                 }
             }
 
@@ -721,7 +715,6 @@ namespace FIFA22_INFO
                 lastYear = reader[0].ToString().Trim();
             }
 
-            string strNestYear = string.Empty;
             reader.Close();
 
             if(lastYear == string.Empty || lastYear == "")
@@ -799,19 +792,15 @@ namespace FIFA22_INFO
         {
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
-            string str = string.Empty;
-
-            int N = League_Year_textBox.Text.Length;
         }
 
         private void year_TextChanged(object sender, TextChangedEventArgs e)
         {
             int n = League_Year_textBox.Text.Length;
-            string str = string.Empty;
 
             if(n == 4)
             {
-                str = League_Year_textBox.Text.Substring(2, 2);
+                string str = League_Year_textBox.Text.Substring(2, 2);
                 int df = int.Parse(str) + 1;
                 if(df == 100)
                 {
@@ -820,7 +809,6 @@ namespace FIFA22_INFO
 
                 League_Year_textBox.Text += "/" + df.ToString().PadLeft(2,'0');
             }
-            System.Diagnostics.Trace.WriteLine("Row_SelectionChanged m_nSeletedRow=[" + str + "] m_nSelectedCol=[" + str + "]");
         }
 
         #endregion
@@ -910,7 +898,7 @@ namespace FIFA22_INFO
 
             Update_Vice_LeagueOption_comboBox.Items.Clear();
 
-            if (selectedIndex >= 0 && selectedIndex <= 6)
+            if (selectedIndex >= 1 && selectedIndex <= 6)
             {
                 Update_Vice_LeagueOption_comboBox.Items.Add("league_year");
                 Update_Vice_LeagueOption_comboBox.Items.Add("champions");
@@ -961,25 +949,17 @@ namespace FIFA22_INFO
             }
         }
 
-        private void Content_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
 
         private void Condition_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
-            string str = string.Empty;
-
-            int N = UpdateContent_textBox.Text.Length;
         }
 
         private void Condition_TextChanged(object sender, TextChangedEventArgs e)
         {
             int n = Condition_textBox.Text.Length;
             string str = string.Empty;
-
 
             if (n == 4)
             {
@@ -1004,7 +984,6 @@ namespace FIFA22_INFO
 
                 if(nCurrentIndex == 4 || nCurrentIndex == 3)
                 {
-                    //nFirst = int.Parse(list[0]);
                     nFirst = int.Parse(list[0].Substring(2, 2));
                     nLast = nFirst + 1;
                     if(nLast == 100)
@@ -1016,7 +995,6 @@ namespace FIFA22_INFO
                 }
                 else if(nCurrentIndex == 6 || nCurrentIndex == 7)
                 {
-                    int nAllFirst = int.Parse(list[0]);
                     string sYear = list[0].Substring(0, 2);
                     nLast = int.Parse(list[1]);
                     nFirst = nLast - 1;
@@ -1034,8 +1012,6 @@ namespace FIFA22_INFO
 
         private void Condition_KeyEvent(object sender, KeyEventArgs e)
         {
-            string str = Condition_textBox.Text;
-
             if (e.Key == Key.Enter)
             {
                 UpdateFunc();
@@ -1067,7 +1043,6 @@ namespace FIFA22_INFO
             Regex regex = new Regex("[^a-zA-Z0-9\\s]+");
             if (regex.IsMatch(e.Text))
             {
-                //e.Handled = !((e.Text[0] >= 'a' && e.Text[0] <= 'z') || (e.Text[0] >= 'A' && e.Text[0] <= 'Z'));
                 e.Handled = true;
             }
         }
@@ -1082,8 +1057,6 @@ namespace FIFA22_INFO
         private void Condition_PreviewKeyDown(object sender, KeyEventArgs e)
         {
             List<string> list = new List<string>();
-
-            string str = Condition_textBox.Text;
 
             if (e.Key == Key.Up)
             {
@@ -1170,6 +1143,43 @@ namespace FIFA22_INFO
                 at.DataPassProdCd += new AllTeam.DataPassProdCdEventHandler(TeamNameReceive4);
                 at.WindowStartupLocation = WindowStartupLocation.CenterScreen;
                 at.ShowDialog();
+            }
+        }
+
+        private void Remark_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            int selectedIndex = LeagueOption_comboBox.SelectedIndex;
+            int n = REMARK_textBox.Text.Length;
+
+            System.Diagnostics.Trace.WriteLine("Row_SelectionChanged m_nSeletedRow=[" + n + "] m_nSelectedCol=[" + n + "]");
+
+
+            if (selectedIndex >= 1 && selectedIndex <=6) 
+            {
+                if(n==2)
+                {
+                    string str = REMARK_textBox.Text.Substring(0, 1);
+                    string str1 = REMARK_textBox.Text.Substring(1, 1);
+
+                    System.Diagnostics.Trace.WriteLine("Row_SelectionChanged m_nSeletedRow=[" + str + "] m_nSelectedCol=[" + str + "]");
+                    System.Diagnostics.Trace.WriteLine("Row_SelectionChanged m_nSeletedRow=[" + str1 + "] m_nSelectedCol=[" + str1 + "]");
+
+                    REMARK_textBox.Text = str + " - " + str1;
+
+                    System.Diagnostics.Trace.WriteLine("REMARK_textBox.Text.Length =[" + REMARK_textBox.Text.Length + "] m_nSelectedCol=[" + REMARK_textBox.Text.Length + "]");
+                    
+                    REMARK_textBox.CaretIndex = REMARK_textBox.Text.Length;
+                }
+                else if(n==7)
+                {
+
+                    string str = REMARK_textBox.Text.Substring(5, 1);
+                    string str2 = REMARK_textBox.Text.Substring(6, 1);
+                    string str3 = REMARK_textBox.Text.Substring(0, 5);
+
+                    REMARK_textBox.Text = str3 + " (" + str + " : " + str2 + ")";
+                    REMARK_textBox.CaretIndex = REMARK_textBox.Text.Length;
+                }
             }
         }
     }

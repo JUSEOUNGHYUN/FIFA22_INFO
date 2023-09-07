@@ -43,7 +43,6 @@ namespace FIFA22_INFO
             Regex regex = new Regex("[^a-zA-Z0-9\\s]+");
             if (regex.IsMatch(e.Text))
             {
-                //e.Handled = !((e.Text[0] >= 'a' && e.Text[0] <= 'z') || (e.Text[0] >= 'A' && e.Text[0] <= 'Z'));
                 e.Handled = true;
             }
         }

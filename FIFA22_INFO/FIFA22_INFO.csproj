@@ -926,6 +926,35 @@
   <ItemGroup>
     <Resource Include="Resources\ESTORIL PRAIA.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\SD HUESCA.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\CD TENERIFE.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\ARMINIA BIELEFELD.png" />
+    <Resource Include="Resources\PEC ZWOLLE.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\REAL OVIEDO.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\SonarAnalyzer.CSharp.9.9.0.77355\analyzers\Google.Protobuf.dll" />
+    <Analyzer Include="..\packages\SonarAnalyzer.CSharp.9.9.0.77355\analyzers\SonarAnalyzer.CFG.dll" />
+    <Analyzer Include="..\packages\SonarAnalyzer.CSharp.9.9.0.77355\analyzers\SonarAnalyzer.CSharp.dll" />
+    <Analyzer Include="..\packages\SonarAnalyzer.CSharp.9.9.0.77355\analyzers\SonarAnalyzer.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\FC KOBENHAVN.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\KAS EUPEN.png" />
+    <Resource Include="Resources\KV KORTRIJK.png" />
+    <Resource Include="Resources\KVC WESTERLO.png" />
+    <Resource Include="Resources\OUD HEVERLEE LEUVEN.png" />
+    <Resource Include="Resources\RWD MOLENBEEK.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\build\Microsoft.Extensions.Logging.Abstractions.targets" Condition="Exists('..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\build\Microsoft.Extensions.Logging.Abstractions.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

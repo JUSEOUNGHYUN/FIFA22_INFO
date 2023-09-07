@@ -137,10 +137,11 @@ namespace FIFA22_INFO
 
     public class BUNDESLIGA_TEAM : List<string> 
     {
-        public TeamItem[] mMenuItem = new TeamItem[16];
+        public TeamItem[] mMenuItem = new TeamItem[17];
 
         public BUNDESLIGA_TEAM()
         {
+            this.Add("ARMINIA BIELEFELD");
             this.Add("BAYERN MUNCHEN");
             this.Add("BORUSSIA DORTMUND");
             this.Add("FC KOLN");
@@ -189,7 +190,7 @@ namespace FIFA22_INFO
 
     public class EREDIVISIE_TEAM : List<string>
     {
-        public TeamItem[] mMenuItem = new TeamItem[13];
+        public TeamItem[] mMenuItem = new TeamItem[14];
 
         public EREDIVISIE_TEAM()
         {
@@ -203,6 +204,7 @@ namespace FIFA22_INFO
             this.Add("FORTUNA SITTARD");
             this.Add("HERACLES ALMELO");
             this.Add("NEC NIJMEGEN");
+            this.Add("PEC ZWOLLE");
             this.Add("PSV");
             this.Add("SC HEERENVEEN");
             this.Add("VITESSE");
@@ -231,7 +233,7 @@ namespace FIFA22_INFO
 
     public class LALIGA_SANTANDER_TEAM : List<string>
     {
-        public TeamItem[] mMenuItem = new TeamItem[28];
+        public TeamItem[] mMenuItem = new TeamItem[31];
 
         public LALIGA_SANTANDER_TEAM()
         {
@@ -239,6 +241,7 @@ namespace FIFA22_INFO
             this.Add("ATHLETIC CLUB");
             this.Add("CA OSASUNA");
             this.Add("CADIZ CF");
+            this.Add("CD TENERIFE");
             this.Add("DEPORTIVO ALAVES");
             this.Add("ELCHE CF");
             this.Add("FC BARCELONA");
@@ -253,10 +256,12 @@ namespace FIFA22_INFO
             this.Add("RCD MALLORCA");
             this.Add("REAL BETIS");
             this.Add("REAL MADRID");
+            this.Add("REAL OVIEDO");
             this.Add("REAL SOCIEDAD");
             this.Add("REAL VALLADOLID CF");
             this.Add("REAL ZARAGOZA");
             this.Add("SD EIBAR");
+            this.Add("SD HUESCA");
             this.Add("SEVILLA FC");
             this.Add("SPORTING GIJON");
             this.Add("UD ALMERIA");
@@ -268,7 +273,7 @@ namespace FIFA22_INFO
 
     public class JUPILER_PRO_LEAGUE_TEAM : List<string>
     {
-        public TeamItem[] mMenuItem = new TeamItem[14];
+        public TeamItem[] mMenuItem = new TeamItem[19];
 
         public JUPILER_PRO_LEAGUE_TEAM()
         {
@@ -276,11 +281,16 @@ namespace FIFA22_INFO
             this.Add("CLUB BRUGGE");
             this.Add("K BEERSCHOT VA");
             this.Add("KAA GENT");
+            this.Add("KAS EUPEN");
             this.Add("KRC GENK");
+            this.Add("KV KORTRIJK");
             this.Add("KV MECHELEN");
             this.Add("KV OOSTENDE");
+            this.Add("KVC WESTERLO");
+            this.Add("OUD HEVERLEE LEUVEN");
             this.Add("ROYAL ANTWERP FC");
             this.Add("RSC ANDERLECHT");
+            this.Add("RWD MOLENBEEK");
             this.Add("SINT TRUDEN");
             this.Add("SP.CHARLEROI");
             this.Add("STANDARD LIEGE");
@@ -305,7 +315,7 @@ namespace FIFA22_INFO
 
     public class OTHER_LEAGUE : List<string>
     {
-        public TeamItem[] mMenuItem = new TeamItem[15];
+        public TeamItem[] mMenuItem = new TeamItem[16];
 
         public OTHER_LEAGUE()
         {
@@ -315,6 +325,7 @@ namespace FIFA22_INFO
             this.Add("FARUL CONSTANTA");    // 루마니아
             this.Add("FC BASEL 1893");      // 스위스
             this.Add("FC MIDTJYLLAND");     // 덴마크
+            this.Add("FC KOBENHAVN");       // 덴마크
             this.Add("FCSB");               // 루마니아
             this.Add("FK AUSTRIA WIEN");    // 오스트리아
             this.Add("HAJDUK SPLIT");       // 루마니아
@@ -496,49 +507,6 @@ namespace FIFA22_INFO
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-
-            /*
-            if(sender is TreeViewItem)
-            {
-                if(!((TreeViewItem)sender).IsSelected)
-                {
-                    return;
-                }
-            }
-
-            //var clickItem = TryGetClickedItem(AllTeam_treeView, e);
-            var clickItem = TryGetClickedItem(AllTeam_treeView, e);
-            if(clickItem == null)
-            {
-                return;
-            }
-
-            string str = clickItem.
-
-            e.Handled = true;
-            
-
-            try
-            {
-                if(item != null)
-                {
-                    MessageBox.Show("ITEM NOT NULL", "ITEM", MessageBoxButton.OK, MessageBoxImage.Error);
-
-                }
-                else
-                {
-                    MessageBox.Show("ITEM NULL", "ITEM", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
-            }
-            catch (Exception ex)
-            {
-
-            }
-            finally
-            {
-
-            }
-             */
 
         }
 

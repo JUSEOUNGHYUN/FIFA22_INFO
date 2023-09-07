@@ -76,13 +76,10 @@ namespace FIFA22_INFO
             }
             finally
             {
-                if (conn != null)
+                if (conn != null && conn.State != ConnectionState.Closed)
                 {
-                    if (conn.State != ConnectionState.Closed)
-                    {
-                        conn.Close();
-                        conn.Dispose();
-                    }
+                    conn.Close();
+                    conn.Dispose();
                 }
             }
         }
@@ -201,13 +198,10 @@ namespace FIFA22_INFO
             }
             finally
             {
-                if (conn != null)
+                if (conn != null && conn.State != ConnectionState.Closed)
                 {
-                    if (conn.State != ConnectionState.Closed)
-                    {
-                        conn.Close();
-                        conn.Dispose();
-                    }
+                    conn.Close();
+                    conn.Dispose();
                 }
             }
         }
@@ -242,8 +236,6 @@ namespace FIFA22_INFO
             at.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             at.ShowDialog();
 
-            ImageData image = new ImageData();
-
             BitmapImage bitmap = new BitmapImage(new Uri("Resources/" + m_sTeamName.Trim() + ".png", UriKind.Relative));
             ImageBrush brush = new ImageBrush(bitmap);
             Run_imageRec.Fill = brush;
@@ -264,8 +256,6 @@ namespace FIFA22_INFO
             at.DataPassProdCd += new AllTeam.DataPassProdCdEventHandler(TeamNameReceive);
             at.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             at.ShowDialog();
-
-            ImageData image = new ImageData();
 
             BitmapImage bitmap = new BitmapImage(new Uri("Resources/" + m_sTeamName.Trim() + ".png", UriKind.Relative));
             ImageBrush brush = new ImageBrush(bitmap);

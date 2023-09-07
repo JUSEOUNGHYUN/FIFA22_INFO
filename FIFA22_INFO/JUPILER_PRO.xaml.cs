@@ -195,7 +195,6 @@ namespace FIFA22_INFO
         {
             NpgsqlConnection conn = new NpgsqlConnection(MainWindow.mConnString);
             conn.Open();
-            List<string> list = new List<string>();
 
             string sql = "select * from JUPILER_PRO_LEAGUE lue order by league_year";
 
@@ -303,13 +302,13 @@ namespace FIFA22_INFO
 
                 uList.Add(new Other_League_Ranking_Data()
                 {
-                    Ranking = int.Parse(mJUPRankingList[i].BRRanking.Trim()),
-                    Team_Logo = mJUPRankingList[i].BRTeam_Name.Trim(),
-                    Team_Name = mJUPRankingList[i].BRTeam_Name.Trim(),
-                    Champions_CNT = mJUPRankingList[i].BRChampions_CNT.Trim(),
-                    Second_Place_CNT = mJUPRankingList[i].BRRunnerUp_CNT.Trim(),
-                    Third_Place_CNT = mJUPRankingList[i].BRThird_CNT.Trim(),
-                    Fourth_Place_CNT = mJUPRankingList[i].BRFourth_CNT.Trim()
+                    Ranking = int.Parse(lur.BRRanking.Trim()),
+                    Team_Logo = lur.BRTeam_Name.Trim(),
+                    Team_Name = lur.BRTeam_Name.Trim(),
+                    Champions_CNT = lur.BRChampions_CNT.Trim(),
+                    Second_Place_CNT = lur.BRRunnerUp_CNT.Trim(),
+                    Third_Place_CNT = lur.BRThird_CNT.Trim(),
+                    Fourth_Place_CNT = lur.BRFourth_CNT.Trim()
                 });
             }
             Ranking_DataGrid.ItemsSource = uList;
@@ -372,6 +371,24 @@ namespace FIFA22_INFO
                 LALIGA_SMARTBANK ls = new LALIGA_SMARTBANK();
                 ls.WindowStartupLocation = WindowStartupLocation.CenterScreen;
                 ls.Show();
+            }
+        }
+
+        private void Champion_Name_Textbox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (Champion_Name_Textbox.Text != string.Empty)
+            {
+                string teamName = Champion_Name_Textbox.Text.Trim();
+                string sOption = "JUPILER_PRO_LEAGUE";
+
+                TeamCareer tc = new TeamCareer();
+                tc.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                tc.Show();
+                tc.GetTeam(teamName, sOption);
+            }
+            else
+            {
+                MessageBox.Show("우승팀을 표에서 선택해주세요.", "우승팀 선택", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
     }

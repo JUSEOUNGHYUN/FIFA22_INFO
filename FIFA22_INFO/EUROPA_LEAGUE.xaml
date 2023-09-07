@@ -64,7 +64,7 @@
                 <TextBox x:Name="League_Year_textBox" HorizontalAlignment="Left" Margin="190,4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="55" HorizontalContentAlignment="Center" BorderThickness="0" IsReadOnly="True"/>
                 <Label x:Name="label1" Content="Champions : " HorizontalAlignment="Center" Margin="0,25,0,0" VerticalAlignment="Top"/>
                 <TextBox x:Name="Champion_Name_Textbox" HorizontalAlignment="Left" Margin="311,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" BorderThickness="0" IsReadOnly="True"
-                         FontFamily="Bold" Foreground="Red"/>
+                         FontFamily="Bold" Foreground="Red" MouseDoubleClick="Champion_Name_Textbox_MouseDoubleClick"/>
                 <Label x:Name="label1_Copy" Content="Num of Wins : " HorizontalAlignment="Left" Margin="208,56,0,0" VerticalAlignment="Top"/>
                 <TextBox x:Name="NumOfWins_Textbox" HorizontalAlignment="Left" Margin="311,61,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="33" BorderThickness="0" IsReadOnly="True"/>
 
@@ -337,6 +337,9 @@
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="FC GRONINGEN">
                                                         <Setter Property="Source" Value="Resources/FC GRONINGEN.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="FC KOBENHAVN">
+                                                        <Setter Property="Source" Value="Resources/FC KOBENHAVN.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=ChampionsLOGO}" Value="FC KOLN">
                                                         <Setter Property="Source" Value="Resources/FC KOLN.png"/>
@@ -887,6 +890,9 @@
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Second_Place}" Value="FC GRONINGEN">
                                                         <Setter Property="Source" Value="Resources/FC GRONINGEN.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Second_Place}" Value="FC KOBENHAVN">
+                                                        <Setter Property="Source" Value="Resources/FC KOBENHAVN.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Second_Place}" Value="FC KOLN">
                                                         <Setter Property="Source" Value="Resources/FC KOLN.png"/>
@@ -1498,6 +1504,9 @@
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="FC GRONINGEN">
                                                         <Setter Property="Source" Value="Resources/FC GRONINGEN.png"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Path=Team_Logo}" Value="FC KOBENHAVN">
+                                                        <Setter Property="Source" Value="Resources/FC KOBENHAVN.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Team_Logo}" Value="FC KOLN">
                                                         <Setter Property="Source" Value="Resources/FC KOLN.png"/>

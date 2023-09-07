@@ -41,6 +41,7 @@ namespace FIFA22_INFO
             LeagueOption_comboBox.Items.Add("EREDIVISIE");              // 
             LeagueOption_comboBox.Items.Add("LIGA_PORTUGAL");           // 
             LeagueOption_comboBox.Items.Add("LALIGA_SANTANDER");        // 
+            LeagueOption_comboBox.Items.Add("LALIGA_SMARTBANK");        // 
         }
 
         public bool TableExists(string tableName)
@@ -176,13 +177,10 @@ namespace FIFA22_INFO
                 }
                 finally
                 {
-                    if (conn != null)
+                    if (conn != null && conn.State != ConnectionState.Closed)
                     {
-                        if (conn.State != ConnectionState.Closed)
-                        {
-                            conn.Close();
-                            conn.Dispose();
-                        }
+                        conn.Close();
+                        conn.Dispose();
                     }
                 }
             }

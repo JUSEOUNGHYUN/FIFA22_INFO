@@ -78,7 +78,7 @@
                       MouseDoubleClick="Third_DoubleClick" KeyDown="Third_KeyEvent"/>
             <TextBox x:Name="FOUTH_textBox" HorizontalAlignment="Left" Margin="311,72,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158" CharacterCasing="Upper" PreviewTextInput="FOUTH_textBox_PreviewTextInput"
                      MouseDoubleClick="Fourth_DoubleClick" KeyDown="Fourth_KeyEvent"/>
-            <TextBox x:Name="REMARK_textBox" HorizontalAlignment="Left" Margin="548,72,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158" CharacterCasing="Upper" KeyDown="Remark_KeyDown"/>
+            <TextBox x:Name="REMARK_textBox" HorizontalAlignment="Left" Margin="548,72,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158" CharacterCasing="Upper" KeyDown="Remark_KeyDown" TextChanged="Remark_TextChanged"/>
         </Grid>
 
         <Grid Grid.Row="2">

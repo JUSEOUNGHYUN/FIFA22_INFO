@@ -139,7 +139,7 @@ namespace FIFA22_INFO
             }
             finally
             {
-                if (conn != null)
+                if (conn != null && conn.State != ConnectionState.Closed)
                 {
                     conn.Close();
                     conn.Dispose();
@@ -198,6 +198,14 @@ namespace FIFA22_INFO
             if(e.Key == Key.R)
             {
                 DBSelect("second_place");
+            }
+            if(e.Key == Key.T)
+            {
+                DBSelect("third_place");
+            }
+            if (e.Key == Key.F)
+            {
+                DBSelect("fourth_place");
             }
             if (e.KeyboardDevice.Modifiers == ModifierKeys.Control && e.Key == Key.S)
             {
@@ -267,7 +275,6 @@ namespace FIFA22_INFO
             if (MessageBox.Show("데이터를 저장하시 겠습니까??", "데이터 저장", MessageBoxButton.YesNo, MessageBoxImage.Information) == MessageBoxResult.Yes)
             {
                 List<Team_Career> list = Ranking_DataGrid.ItemsSource as List<Team_Career>;
-                int n = mTC.Count;
 
                 List<string> updateList = new List<string>();
 
@@ -310,18 +317,23 @@ namespace FIFA22_INFO
                 }
                 finally
                 {
-                    if (conn != null)
+                    if (conn != null && conn.State != ConnectionState.Closed)
                     {
-                        if (conn.State != ConnectionState.Closed)
-                        {
-                            conn.Close();
-                            conn.Dispose();
-                        }
+                        conn.Close();
+                        conn.Dispose();
                     }
                 }
             }
         }
 
+        private void Third_Click(object sender, RoutedEventArgs e)
+        {
+            DBSelect("Third_place");
+        }
 
+        private void Fourth_Click(object sender, RoutedEventArgs e)
+        {
+            DBSelect("Fourth_place");
+        }
     }
 }

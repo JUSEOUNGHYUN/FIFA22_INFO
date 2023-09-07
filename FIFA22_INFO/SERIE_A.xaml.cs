@@ -129,13 +129,13 @@ namespace FIFA22_INFO
 
                 uList.Add(new Other_League_Ranking_Data()
                 {
-                    Ranking = int.Parse(mSERANKINGList[i].SERRanking.Trim()),
-                    Team_Logo = mSERANKINGList[i].SERTeam_Name.Trim(),
-                    Team_Name = mSERANKINGList[i].SERTeam_Name.Trim(),
-                    Champions_CNT = mSERANKINGList[i].SERChampions_CNT.Trim(),
-                    Second_Place_CNT = mSERANKINGList[i].SERRunnerUp_CNT.Trim(),
-                    Third_Place_CNT = mSERANKINGList[i].SERThird_CNT.Trim(),
-                    Fourth_Place_CNT = mSERANKINGList[i].SERFourth_CNT.Trim()
+                    Ranking = int.Parse(lur.SERRanking.Trim()),
+                    Team_Logo = lur.SERTeam_Name.Trim(),
+                    Team_Name = lur.SERTeam_Name.Trim(),
+                    Champions_CNT = lur.SERChampions_CNT.Trim(),
+                    Second_Place_CNT = lur.SERRunnerUp_CNT.Trim(),
+                    Third_Place_CNT = lur.SERThird_CNT.Trim(),
+                    Fourth_Place_CNT = lur.SERFourth_CNT.Trim()
                 });
             }
             Ranking_DataGrid.ItemsSource = uList;
@@ -242,7 +242,6 @@ namespace FIFA22_INFO
         {
             NpgsqlConnection conn = new NpgsqlConnection(MainWindow.mConnString);
             conn.Open();
-            List<string> list = new List<string>();
 
             string sql = "select * from SERIE_A lue order by league_year";
 
@@ -373,6 +372,24 @@ namespace FIFA22_INFO
                 tc.WindowStartupLocation = WindowStartupLocation.CenterScreen;
                 tc.Show();
                 tc.GetTeam(m_sTeamName, m_sOption);
+            }
+        }
+
+        private void Champion_Name_Textbox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (Champion_Name_Textbox.Text != string.Empty)
+            {
+                string teamName = Champion_Name_Textbox.Text.Trim();
+                string sOption = "SERIE_A";
+
+                TeamCareer tc = new TeamCareer();
+                tc.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                tc.Show();
+                tc.GetTeam(teamName, sOption);
+            }
+            else
+            {
+                MessageBox.Show("우승팀을 표에서 선택해주세요.", "우승팀 선택", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
     }

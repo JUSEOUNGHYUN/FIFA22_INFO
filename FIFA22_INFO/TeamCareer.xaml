@@ -46,9 +46,11 @@
         </Grid>
 
         <Grid Grid.Row="1">
-            <Button x:Name="CHAMPIONS_button" Content="CHAMPIONS" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Center" Height="40" Width="102" Click="champions_Click"/>
-            <Button x:Name="RUNNERUP_button" Content="RUNNER-UP" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Center" Height="40" Width="106" Margin="107,0,0,0" Click="Runnerup_Click"/>
-            <TextBox x:Name="Option_textBox" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" IsReadOnly="True" IsHitTestVisible="False" HorizontalAlignment="Left" Margin="244,0,0,0" TextWrapping="Wrap"  VerticalAlignment="Center" Width="828" BorderThickness="0" FontWeight="Bold" FontSize="20">
+            <Button x:Name="CHAMPIONS_button" Content="CHAMPIONS" HorizontalAlignment="Left" VerticalAlignment="Center" Height="40" Width="81" Click="champions_Click"/>
+            <Button x:Name="RUNNERUP_button" Content="RUNNER-UP" HorizontalAlignment="Left" VerticalAlignment="Center" Height="40" Width="78" Margin="86,0,0,0" Click="Runnerup_Click"/>
+            <Button x:Name="THIRD_button" Content="THIRD" HorizontalAlignment="Left" VerticalAlignment="Center" Height="40" Width="78" Click="Third_Click" Margin="169,0,0,0"/>
+            <Button x:Name="FOURTH_button" Content="FOURTH" HorizontalAlignment="Left" VerticalAlignment="Center" Height="40" Width="78" Click="Fourth_Click" Margin="252,0,0,0"/>
+            <TextBox x:Name="Option_textBox" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" IsReadOnly="True" IsHitTestVisible="False" HorizontalAlignment="Left" Margin="348,0,0,0" TextWrapping="Wrap"  VerticalAlignment="Center" Width="724" BorderThickness="0" FontWeight="Bold" FontSize="20">
                 <TextBox.Style>
                     <Style TargetType="TextBox">
                         <Style.Triggers>
@@ -64,15 +66,15 @@
 
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="250"/>
-                <ColumnDefinition Width="850"/>
+                <ColumnDefinition Width="220"/>
+                <ColumnDefinition Width="880"/>
             </Grid.ColumnDefinitions>
 
             <Grid Grid.Column="0">
                 <Rectangle x:Name="imageRec" HorizontalAlignment="Left" Height="187" Margin="17,70,0,0" Stroke="Black" VerticalAlignment="Top" Width="180" StrokeThickness="0"
                            />
                 <TextBox x:Name="TEAMNAME_textBox" HorizontalAlignment="Left" Margin="17,292,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"
-                         HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderThickness="0" IsReadOnly="False" FontWeight="Bold" FontSize="15"
+                         HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderThickness="0" IsReadOnly="True" FontWeight="Bold" FontSize="15"
                          MouseDoubleClick="TeamName_textBox_MouseDoubleClick"
                          >
                 </TextBox>
@@ -89,7 +91,7 @@
                         KeyDown="Ranking_DataGrid_KeyDown"
                     >
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="INDEX" Binding="{Binding Path=Index}" Width="50" >
+                        <DataGridTextColumn Header="INDEX" Binding="{Binding Path=Index}" Width="30" >
                             <DataGridTextColumn.HeaderStyle>
                                 <Style TargetType="DataGridColumnHeader">
                                     <Setter Property="HorizontalContentAlignment" Value="Center"/>
@@ -110,7 +112,7 @@
                             </DataGridTextColumn.ElementStyle>
 
                         </DataGridTextColumn>
-                        <DataGridTextColumn Header="YEAR" Binding="{Binding Path=League_Year}" Width="100" IsReadOnly="True">
+                        <DataGridTextColumn Header="YEAR" Binding="{Binding Path=League_Year}" Width="60" IsReadOnly="True">
                             <DataGridTextColumn.HeaderStyle>
                                 <Style TargetType="DataGridColumnHeader">
                                     <Setter Property="HorizontalContentAlignment" Value="Center"/>
@@ -131,7 +133,7 @@
                                 </Style>
                             </DataGridTextColumn.ElementStyle>
                         </DataGridTextColumn >
-                        <DataGridTemplateColumn Header="CHAMPIONS LOGO" IsReadOnly="true" Width="70">
+                        <DataGridTemplateColumn Header="CHAMPIONSLOGO" IsReadOnly="true" Width="60">
                             <DataGridTemplateColumn.HeaderStyle>
                                 <Style TargetType="DataGridColumnHeader">
                                     <Setter Property="HorizontalContentAlignment" Value="Center"/>
@@ -686,7 +688,7 @@
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
-                        <DataGridTextColumn Header="CHAMPIONS" Binding="{Binding Path=Champions}" Width="150" IsReadOnly="True">
+                        <DataGridTextColumn Header="CHAMPIONS" Binding="{Binding Path=Champions}" Width="120" IsReadOnly="True">
                             <DataGridTextColumn.HeaderStyle>
                                 <Style TargetType="DataGridColumnHeader">
                                     <Setter Property="HorizontalContentAlignment" Value="Center"/>
@@ -737,7 +739,6 @@
                                                         <Setter Property="Source" Value="Resources/AJAX.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Second_Place}" Value="ANGERS SCO">
-                                                        <Setter Property="Source" Value="Resources/ANGERS SCO.png"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding Path=Second_Place}" Value="ARSENAL">
                                                         <Setter Property="Source" Value="Resources/ARSENAL.png"/>
