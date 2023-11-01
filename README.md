@@ -10,10 +10,15 @@
 <img src="https://img.shields.io/badge/C Sharp-239120?style=flat-square&logo=C Sharp&logoColor=white"/> <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=PostgreSQL&logoColor=white"/> <img src="https://img.shields.io/badge/WPF-40AEF0?style=flat-square&logo=WPF&logoColor=white"/>
 
 # 🎏 기능 구현
+1. DataGrid Data Binding
+2. xaml DataGridColumn CellEditingTemplate
+3. TreeView (Observablecollection) 
+4. UserControl(Textbox)
+5. DB NpgSqlConnection(Npgsql)
 
 ### 0. 기본 화면
 📍 화면 구성
-1. 
+
 ![기본화면](https://github.com/JUSEOUNGHYUN/FIFA22_INFO/assets/80812790/47a70c2c-c0cb-414d-aedb-6b2abf5c853a)
 
 
@@ -86,4 +91,17 @@ https://github.com/JUSEOUNGHYUN/FIFA22_INFO/assets/80812790/7160bac3-ee3a-438f-a
         {
             MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
         }
+    }
+
+### 5. TreeView (Observablecollection)
+    public class TeamItem
+    {
+        public TeamItem()
+        {
+            this.Team_Item = new ObservableCollection<TeamItem>();
+        }
+
+        public string Team_Name { get; set; }
+
+        public ObservableCollection<TeamItem> Team_Item { get; set; }
     }
