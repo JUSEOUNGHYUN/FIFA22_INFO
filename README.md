@@ -105,3 +105,9 @@ https://github.com/JUSEOUNGHYUN/FIFA22_INFO/assets/80812790/7160bac3-ee3a-438f-a
 
         public ObservableCollection<TeamItem> Team_Item { get; set; }
     }
+
+# 🎥 최종 영상
+
+https://github.com/JUSEOUNGHYUN/RESTFul_API/assets/80812790/1c39a835-571d-4ac5-9dca-fa4b681b582e
+
+
