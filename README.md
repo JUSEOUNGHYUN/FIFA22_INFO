@@ -1,23 +1,4 @@
-# 📛 FIFA22_INFO
-
-📍 프로젝트 기간 : 2023.07.10 ~ 2023.10.01 (3개월)
-
-
-# 📌 개요
-- 제가 평소에 즐겨하던 게임 FIFA22 감독모드를 플레이 하던 도중 시즌마다 각 리그 우승팀과 컵 대회 우승팀을 보기 좋게 관리해보자는 생각에 회사에서 배웠던 WPF기술로 감독 모드 각 리그 시뮬레이션결과(프리미어리그, 챔피언스리그, 유로파리그 등등)를 PostgreSQL DB에 저장하고 그 데이터들을 WPF DataGrid에 보기 좋게 출력하는 프로그램을 구현했습니다.
-
-# 🛠️ 기술 및 도구
-<img src="https://img.shields.io/badge/C Sharp-239120?style=flat-square&logo=C Sharp&logoColor=white"/> <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=PostgreSQL&logoColor=white"/> <img src="https://img.shields.io/badge/WPF-40AEF0?style=flat-square&logo=WPF&logoColor=white"/>
-
-# 🎏 기능 구현
-1. DataGrid Data Binding
-2. xaml DataGridColumn CellEditingTemplate
-3. TreeView (Observablecollection) 
-4. UserControl(Textbox)
-5. DB NpgSqlConnection(Npgsql)
-
 ### 0. 기본 화면
-📍 화면 구성
 
 ![기본화면](https://github.com/JUSEOUNGHYUN/FIFA22_INFO/assets/80812790/47a70c2c-c0cb-414d-aedb-6b2abf5c853a)
 
